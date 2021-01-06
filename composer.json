@@ -1,0 +1,18 @@
+{
+    "description": "DIX",
+    "authors": [
+    {
+        "name": "Marcus Vinícius Caruso Leite"
+    },
+    {
+        "name": "Vinícius Carvalho Venturini"
+    }
+    ],
+    "autoload": {
+        "psr-4":{
+            "App\\": "app",
+            "Core\\": "core"
+        }
+    },
+    "require": {}
+}

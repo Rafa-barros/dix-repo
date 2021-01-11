@@ -4,9 +4,7 @@ session_start();
 require ('database.php');
 require ('cookie.php');
 
-$email = isset($_POST["email"]) ? $_POST["email"] : "";
-$password = isset($_POST["pwd"]) ? $_POST["pwd"] : "";
-
+//Verifica no banco de dados se o email e a senha batem, e se o email já está verificado. Caso esteja tudo certo retorna TRUE.
 function verificaLogin($email, $password){
 
 	$conn = new Database();
@@ -33,11 +31,18 @@ function verificaLogin($email, $password){
 
 }
 
+//Recebe o email e senha da página de login
+$email = isset($_POST["email"]) ? $_POST["email"] : "";
+$password = isset($_POST["pwd"]) ? $_POST["pwd"] : "";
+
+$password = md5($password . $email);
+
+//Se o login retornar TRUE, gera os cookies do usuários e vai para a home, senão gera uma variável de sessão de falha de login e retorna a tela de login
 if(verificaLogin($email, $password)){
 	$cookie = new cookie();
 	$cookie->newCookie($email);
 }else{
-
+	$_SESSION["LoginFailed"] == TRUE;
 }
 
 ?>

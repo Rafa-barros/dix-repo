@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-require ('database.php');
 class cookie{
 
 	/*Essa função deve ser chamada para setar os cookies de login, para que a pessoa permaneça logada, ela utiliza o email da pessoa como parâmetro.

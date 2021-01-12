@@ -10,8 +10,10 @@
     ],
     "autoload": {
         "psr-4":{
-            "App\\": "app",
-            "Core\\": "core"
+            "App\\Models\\": "app/Models/",
+            "App\\Controller\\": "app/Controller/",
+            "Core\\": "core",
+            "PHPMailer\\PHPMailer\\": "vendor/phpmailer/src/"
         }
     },
     "require": {

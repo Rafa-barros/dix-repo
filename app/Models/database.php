@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Models;
+use PDO;
 
 //Construindo um objeto de ligação com o banco de dados
 class Database extends PDO{

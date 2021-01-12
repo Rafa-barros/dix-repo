@@ -1,5 +1,7 @@
 <?php
 
+namespace App\Models;
+
 session_start();
 
 use App\Models\Database;

@@ -1,12 +1,15 @@
 <?php
 
 session_start();
-require ('database.php');
+
+use App\Models\Database;
+
+require "../../vendor/autoload.php";
 
 //Essa função vai remover a linha do ID que acabou de ser utilizado, liberando ele para ser utilizado por outros usuários
 function removerID($email, $id){
 	$conn = new Database();
-	$result = $conn->executeQuery('DELETE FROM  WHERE id = :ID AND email = :EMAIL', array(
+	$result = $conn->executeQuery('DELETE FROM codigoverificacao WHERE id = :ID AND email = :EMAIL', array(
 		':ID' => $id,
 		':EMAIL' => $email
 	));
@@ -15,7 +18,7 @@ function removerID($email, $id){
 //Essa função vai atualizar o usuário como verificado no banco de dados, e vai chamar a função removerID()
 function verificado($email, $id){
 	$conn = new Database();
-	$result = $conn->executeQuery('UPDATE  SET verifyEmail = :VERIFY WHERE email = :EMAIL', array(
+	$result = $conn->executeQuery('UPDATE users SET verifyEmail = :VERIFY WHERE email = :EMAIL', array(
 		':VERIFY' => TRUE,
 		':EMAIL' => $email
 	));
@@ -27,7 +30,7 @@ function verificado($email, $id){
 //Essa função vai conferir no banco de dados se o id do usuário e o código batem, e vai retornar TRUE ou FALSE para a variável de sessão "verificado", caso retorne true vai chamar a função verificado()
 function verificaCredenciais($id, $codigo){
 	$conn = new Database();
-	$result = $conn->executeQuery('SELECT id, email, dataRegistro, codigo FROM  WHERE id = :ID AND codigo = :CODIGO LIMIT 1', array(
+	$result = $conn->executeQuery('SELECT id, email, dataRegistro, codigo FROM codigoverificacao WHERE id = :ID AND codigo = :CODIGO LIMIT 1', array(
 		':ID' => $id,
 		':CODIGO' => $codigo
 	));

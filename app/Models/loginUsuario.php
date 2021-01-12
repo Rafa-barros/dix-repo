@@ -1,14 +1,17 @@
 <?php
 
 session_start();
-require ('database.php');
-require ('cookie.php');
+
+use App\Models\Database;
+use App\Models\cookie;
+
+require "../../vendor/autoload.php";
 
 //Verifica no banco de dados se o email e a senha batem, e se o email já está verificado. Caso esteja tudo certo retorna TRUE.
 function verificaLogin($email, $password){
 
 	$conn = new Database();
-	$result = $conn->executeQuery('SELECT email, password, verifyEmail FROM  WHERE email = :EMAIL AND password = :PWD LIMIT 1', array(
+	$result = $conn->executeQuery('SELECT email, pwd, verifyEmail FROM users WHERE email = :EMAIL AND pwd = :PWD LIMIT 1', array(
 		':EMAIL' => $email,
 		':PWD' => $password
 	));

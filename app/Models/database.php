@@ -1,11 +1,13 @@
 <?php
 
+namespace App\Models;
+
 //Construindo um objeto de ligação com o banco de dados
 class Database extends PDO{
 
 	//Configurações do banco de dados
 	private $db_sqlType = 'mysql'; //Tipo de SQL utilizado ex: mysql, pgsql
-	private $db_name = 'cadastro'; //Nome do banco de dados
+	private $db_name = 'dix'; //Nome do banco de dados
 	private $db_user = 'root'; //Usuário detentor do banco de dados
 	private $db_pwd = ''; //Senha do usuário
 	private $db_host = 'localhost'; //Hospedagem do banco de dados

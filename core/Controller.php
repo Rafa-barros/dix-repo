@@ -12,21 +12,23 @@ class Controller {
         $this->url = $_SERVER['REQUEST_URI'];
         $this->diretorios = explode("/", $this->url);
 
-        switch(count($this->diretorios)){
-            case 1:
-                $this->urlController = "index";
-                break;
-            case 3:
+        if ($this->url != "/"){
+            $this->urlController = $this->diretorios[1];
+            if (count($this->diretorios) == 3){
                 $this->urlMetodo = $this->diretorios[2];
-            case 2:
-                $this->urlController = $this->diretorios[1];
-                break;
+            }
+        } else {
+            $this->urlController = "home";
         }
     }
 
     public function carregar(){
         $dir = ucfirst($this->urlController);
-        $pag = "\\App\\Controller\\" . $dir;
+        if (class_exists("\\App\\Controller\\" . $dir)){
+            $pag = "\\App\\Controller\\" . $dir;
+        } else {
+            $pag = "\\App\\Controller\\Error404";
+        }
         $paginaCarregada = new $pag;
         $paginaCarregada->index();
     }

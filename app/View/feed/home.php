@@ -6,15 +6,21 @@
 <p id="qtdComentarios">?</p>
 
 <script>
+    var postsVistosNav = []; //Evitar que haja posts repetidos
     var newPosts = $.ajax({
     url:"app/Models/Ajax/feed/newPosts.php",
     dataType: 'json',
     type: "POST",
-    data: {email: <?php echo($_COOKIE['cUser']);?>, 
+    data: {email: <?php echo($_COOKIE['cUser']);?>,
+        nameOp: "",
+        data: "", 
         imgOp: "", 
-        imgPost: "", 
+        imgPost: "",
+        idPost: "",
+        postsVistos: postsVistosNav; 
         descricao: "", 
-        likes: "", 
+        likes: "",
+        codigo: "", 
         qtdComentarios: 0},
     success:function(result){
         

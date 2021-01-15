@@ -26,7 +26,7 @@ class Controller {
         $dir = ucfirst($this->urlController);
         if (class_exists("\\App\\Controller\\" . $dir)){
             $pag = "\\App\\Controller\\" . $dir;
-        } else {
+        } else { //Encontrar página para o usuário
             $pag = "\\App\\Controller\\Error404";
         }
         $paginaCarregada = new $pag;

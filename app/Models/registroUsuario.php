@@ -28,7 +28,7 @@ function verificaUsuario($username){
 
 function registra($email, $password, $username, $birth, $pname){
 	$conn = new Database();
-	$result = $conn->executeQuery('INSERT INTO users VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS);', array(
+	$result = $conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS);', array(
 		':USER' => $email,
 		':PWD' => $pwd,
 		':USERNAME' => $username,

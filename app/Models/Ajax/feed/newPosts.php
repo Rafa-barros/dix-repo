@@ -3,26 +3,66 @@
 require ('././database.php');
 
 class Post {
-    public $email;
-    public $idOp;
     public $imgOp;
-    public $imgPost;
-    public $descript;
-    public $likes;
-    public $qtdComentarios;
-    public $postsVistos;
+    private $email;
+    private $nameOp;
+    private $imgPost;
+    private $descript;
+    private $likes;
+    private $qtdComentarios;
+    private $postsVistos;
+    private $idPost;
+    private $idOp;
+    private $idUser;
+    private $resultIdUser;
+    private $resultIdOp;
+    private $resultName;
+    private $resultImgOp;
+    private $resultImgPost;
+    private $resultUserBlocked;
 
     public function __construct() {
         $conn = new Database();
     }
 
-    public function getInfo($email){
-        $this->email = htmlentities($email);
-        //Procurar o nome do dono do post e a data do post
+    private function getImg(){
+        $resultImgOp = $conn->executeQuery('SELECT imgUser FROM users WHERE id = :ID', array(
+            ':ID' => $idOp
+        ));
+        $resultImgOp->fetch();
+        $imgOp = $resultImgOp[0];
+
+        $resultImgPost = $conn->executeQuery('SELECT img FROM posts WHERE id = :ID', array(
+            ':ID' => $idPost
+        ));
+        $resultImgPost->fetch();
+        $imgOp = $resultImgPost[0];
     }
 
-    private function sortOp(){
-        //Procurar o dono do post de acordo com a pessoa que o usuário segue
+    public function getInfo($email, $postsVistosJS){
+        $this->postsVistos = $postsVistosJS;
+        $this->email = htmlentities($email);
+
+        //Encontra o id do usuário
+        $resultIdUser = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
+            ':EMAIL' => $email
+        ));
+        $resultIdUser->fetch();
+        $idUser = $resultIdUser[0];
+
+        //Encontra o id do dono do post
+        $resultIdOp = $conn->executeQuery('SELECT id FROM assoc_users WHERE idFollower = :ID ORDER BY RAND() LIMIT 1', array(
+            ':ID' => $idUser
+        ));
+        $resultIdOp->fetch();
+        $idOp = $resultIdOp[0];
+
+        //Encontra o nome do dono do post
+        $resultName = $conn->executeQuery('SELECT pname FROM users WHERE idUser = :ID', array(
+            'ID' => $idOp
+        ));
+        $resultName->fetch();
+        $nameOp = $resultName[0];
     }
 
     private function listarPostsDisponiveis(){
@@ -37,7 +77,7 @@ class Post {
         ));
     }
 
-    private function selPost(){
+    public function selPost(){
         $posts = listarPostsDisponiveis();
         $likes = 0;
         while ($row = $posts->fetch(PDO::FETCH_ASSOC)){
@@ -46,23 +86,32 @@ class Post {
                 $postSel = $row;
             }
         }
+        getImg();
 
-        return $postSel; //$postSel['id'], $postSel['media']
+        if ($postSel['allowView'] == 0){
+            $resultUserBlocked = $conn->executeQuery('SELECT idPost FROM assoc_posts WHERE idUser = :ID LIMIT 1', array(
+                ':ID' => $idUser
+            ));
+            $resultUserBlocked->fetch();
+            if (empty($resultUserBlocked)){
+                $postSel['media'] = "BLOCKED";
+            }
+        }
+
+        return $postSel;
     }
 }
 
 $postObj = new Post();
-$postObj->getInfo($_POST['email']);
+$postObj->getInfo($_POST['email'], $_POST['postsVistos']);
 $postSel = $postObj->selPost();
 
 echo json_encode((array(
     'email' => $postSel['email'], 
-    'imgOp' => $postSel[''], 
-    'imgPost' => "a",
-    'idPost' => "a",
+    'imgOp' => $postObj->imgOp, 
+    'imgPost' => $postSel['img'],
     "postsVistos" => $postsVistos,
-    "descricao" => "a",
-    "likes" => "a",
-    "codigo" => 0,
-    "qtdComentarios" => 2
+    "descricao" => $postSel['descript'],
+    "likes" => $postSel['likes'],
+    "qtdComentarios" => $postSel['comments']
 )));

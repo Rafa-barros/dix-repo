@@ -16,17 +16,22 @@
         data: "", 
         imgOp: "", 
         imgPost: "",
-        idPost: "",
         postsVistos: postsVistosNav; 
         descricao: "", 
         likes: "",
-        codigo: "", 
         qtdComentarios: 0},
     success:function(result){
-        
+        $("#user").text(result.nameOp);
+        $("#userImg").text(result.imgOp);
+        $("#postImg").text(result.imgPost);
+        $("#description").text(result.description);
+        $("#likes").text(result.likes);
+        $("#qtdComentarios").text(result.qtdComentarios);
     },
-    error:function(){
-        console.log("O servidor não encontrou o usuário");
+    error:function(req, status, error){
+        window.alert(req);
+        window.alert(status);
+        window.alert(error);
     }
     });
 </script>

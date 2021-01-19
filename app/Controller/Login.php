@@ -12,6 +12,7 @@ class Login {
         Também pode colocar um require da view da página :).
         */
         $dbLogin = new \App\Models\loginUsuario();
-        $dbLogin->registrar();
+        $dbLogin->Login();
+        echo "Teste login";
     }
 }

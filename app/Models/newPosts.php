@@ -24,27 +24,12 @@ class Post {
     private $resultIdOp;
     private $resultName;
     private $resultImgOp;
-    private $resultImgPost;
     private $resultUserBlocked;
     private $postSel;
 
     public function __construct() {
         $this->conn = new Database();
     }
-
-    /*private function getImg(){
-        $resultImgOp = $this->conn->executeQuery('SELECT imgUser FROM users WHERE id = :ID', array(
-            ':ID' => $this->idOp
-        ));
-        $resultImgOp->fetch();
-        $imgOp = $resultImgOp[0];
-
-        $resultImgPost = $this->conn->executeQuery('SELECT img FROM posts WHERE id = :ID', array(
-            ':ID' => $idPost
-        ));
-        $resultImgPost->fetch();
-        $imgOp = $resultImgPost[0];
-    }*/
 
     public function getInfo($email, $postsVistosJS){
         $this->postsVistos = $postsVistosJS;
@@ -55,40 +40,29 @@ class Post {
             ':EMAIL' => $email
         ));
         $resultIdUser = $resultIdUser->fetch();
-        foreach($resultIdUser as $key => $value){
-            if($key == "0"){
-                $this->idUser = $value;
-            }
-        }
+        $this->idUser = $resultIdUser['0'];
 
         //Encontra o id do dono do post
         $resultIdOp = $this->conn->executeQuery('SELECT id FROM assoc_users WHERE idFollower = :ID ORDER BY RAND() LIMIT 1', array(
             ':ID' => $this->idUser
         ));
         $resultIdOp = $resultIdOp->fetch();
-        foreach($resultIdOp as $key => $value){
-            if($key == "0"){
-                $this->idOp = $value;
-            }
-        }
+        $this->idOp = $resultIdOp['0'];
 
         //Encontra o nome do dono do post
         $resultName = $this->conn->executeQuery('SELECT pname FROM users WHERE id = :ID', array(
             'ID' => $this->idOp
         ));
         $resultName = $resultName->fetch();
-        foreach($resultName as $key => $value){
-            if($key == "0"){
-                $this->nameOp = $value;
-            }
-        }
-    }
+        $this->nameOp = $resultName['0'];
 
-    /*private function listarPostsDisponiveis(){
-        
-        
-        return $posts;
-    }*/
+        //Encontra a foto de perfil do dono do post
+        $resultImgOp = $this->conn->executeQuery('SELECT imgUser FROM users WHERE id = :ID', array(
+            ':ID' => $this->idOp
+        ));
+        $resultImgOp = $resultImgOp->fetch();
+        $this->imgOp = $resultImgOp['0'];
+    }
 
     public function selPost(){
         $tam = count($this->postsVistos);
@@ -107,25 +81,6 @@ class Post {
                 $this->postSel = $row;
             }
         }
-        $resultImgOp = $this->conn->executeQuery('SELECT imgUser FROM users WHERE id = :ID', array(
-            ':ID' => $this->idOp
-        ));
-        $resultImgOp = $resultImgOp->fetch();
-        foreach($resultImgOp as $key => $value){
-            if($key == "0"){
-                $this->imgOp = $value;
-            }
-        }
-
-        $resultImgPost = $this->conn->executeQuery('SELECT img FROM posts WHERE id = :ID', array(
-            ':ID' => $this->idPost
-        ));
-        /*$resultImgPost = $resultImgPost->fetch();
-        foreach($resultImgPost as $key => $value){
-            if($key == "0"){
-                $this->imgPost = $value;
-            }
-        }*/
 
         if ($this->postSel['allowView'] == 0){
             $resultUserBlocked = $this->conn->executeQuery('SELECT idPost FROM assoc_posts WHERE idUser = :ID LIMIT 1', array(

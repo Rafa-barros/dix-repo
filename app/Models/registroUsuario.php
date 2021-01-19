@@ -2,96 +2,95 @@
 
 namespace App\Models;
 
-session_start();
-
 use App\Models\Database;
 
-require "../../vendor/autoload.php";
+class Registro{
 
-function verificaEmail($email){
-	$conn = new Database();
-	$result = $conn->executeQuery('SELECT email FROM users WHERE email = :EMAIL', array(
-		':EMAIL' => $email
-	));
+	private $email;
+	private $pwd;
+	private $username;
+	private $pname;
+	private $birth;
+	private $idVerify;
+	private $conn;
 
-	return empty($result);
-}
-
-function verificaUsuario($username){
-	$conn = new Database();
-	$result = $conn->executeQuery('SELECT username FROM users WHERE username = :USER', array(
-		':USER' => $username
-	));
-
-	return empty($result);
-}
-
-function registra($email, $password, $username, $birth, $pname){
-	$conn = new Database();
-	$result = $conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS);', array(
-		':USER' => $email,
-		':PWD' => $pwd,
-		':USERNAME' => $username,
-		':BIRTH' => $birth,
-		':PNAME' => $pname,
-		':TOKEN' => NULL,
-		':VERIFY' => 0,
-		':TYPEUSER' => 0,
-		':POSTS' => 0,
-		':IMG' => '../../userImages/standard.png',
-		':FOLLOWERS' => 0
-	));
-}
-
-function regCodigo($email){
-	$id = rand(1, 1000000000);
-	$id = md5($id . $email);
-	$codigo = rand(100000, 999999);
-	$data = date("Y-m-d");
-	$conn = new Database();
-	$result = $conn->executeQuery('INSERT INTO codigoverificacao VALUES (:ID, :EMAIL, :DATA, :CODE);', array(
-		':ID' => $id,
-		':EMAIL' => $email,
-		':DATA' => $data,
-		':CODE' => $codigo
-	));
-
-	if(empty($result)){
-		regCodigo($email);
-	}else{
-		$_SESSION['id'] = $id;
-		return TRUE;
+	public function __construct(){
+		$this->conn = new Database();
 	}
-}
 
-$email = isset($_POST["email"]) ? $_POST["email"] : "";
-$pwd = isset($_POST["pwd"]) ? $_POST["pwd"] : "";
-$username = isset($_POST["user"]) ? $_POST["user"] : "";
-$dia = isset($_POST["day"]) ? $_POST["day"] : "";
-$mes = isset($_POST["month"]) ? $_POST["month"] : "";
-$ano = isset($_POST["year"]) ? $_POST["year"] : "";
-$pname = isset($_POST["pname"]) ? $_POST["pname"] : $username;
+	private function verificaEmail($email){
+		$result = $this->conn->executeQuery('SELECT email FROM users WHERE email = :EMAIL', array(
+			':EMAIL' => $this->email
+		));
 
-$pwd = md5($pwd . $email);
-$birth = $ano . "-" . $mes . "-" . $dia;
+		return empty($result);
+	}
 
-if(verificaEmail($email)){
-	if(verificaUsuario($username)){
-		registra($email, $pwd, $username, $birth, $pname);
-		if(regCodigo($email)){
-			header("Location: .php?id=" . $_SESSION['id']);
-			unset($_SESSION['id']);
-			die();
+	private function verificaUsuario($username){
+		$result = $this->conn->executeQuery('SELECT username FROM users WHERE username = :USER', array(
+			':USER' => $this->username
+		));
+
+		return empty($result);
+	}
+
+	private function registra(){
+		$result = $this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS);', array(
+			':USER' => $this->email,
+			':PWD' => $this->pwd,
+			':USERNAME' => $this->username,
+			':BIRTH' => $this->birth,
+			':PNAME' => $this->pname,
+			':TOKEN' => NULL,
+			':VERIFY' => 0,
+			':TYPEUSER' => 0,
+			':POSTS' => 0,
+			':IMG' => 'userImages/standard.png',
+			':FOLLOWERS' => 0
+		));
+	}
+
+	private function regCodigo(){
+		$this->idVerify = rand(1, 1000000000);
+		$this->idVerify = md5($this->idVerify . $this->email);
+		$codigo = rand(100000, 999999);
+		$data = date("Y-m-d");
+		$result = $this->conn->executeQuery('INSERT INTO codigoverificacao VALUES (:ID, :EMAIL, :DATA, :CODE);', array(
+			':ID' => $this->idVerify,
+			':EMAIL' => $this->email,
+			':DATA' => $data,
+			':CODE' => $codigo
+		));
+
+		if(empty($result)){
+			regCodigo();
+		}else{
+			return TRUE;
 		}
-	}else{
-		$_SESSION["existeUsuario"] = TRUE;
-		header("Location: .php");
-		die();
 	}
-}else{
-	$_SESSION["existeEmail"] = TRUE;
-	header("Location: .php");
-	die();
+
+	public function newUser($email, $pwd, $username, $dia, $mes, $ano, $pname){
+		$this->email = $email;
+		$this->pwd = md5($pwd . $email);
+		$this->username = $username;
+		$this->birth = $ano . "-" . $mes . "-" . $dia;
+		$this->pname = $pname;
+		if(verificaEmail()){
+			if(verificaUsuario()){
+				registra();
+				if(regCodigo()){
+					return $this->idVerify;
+				}
+			}else{
+				$_SESSION["existeUsuario"] = TRUE;
+				return FALSE;
+			}
+		}else{
+			$_SESSION["existeEmail"] = TRUE;
+			return FALSE;
+		}
+	}
+
 }
 
 ?>

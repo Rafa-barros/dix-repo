@@ -60,19 +60,19 @@ class newMedia{
 				}else{
 
 					$_SESSION['erro'] = TRUE;
-					return FALSE;
+					return 0;
 
 				}
 			}else{
 
 				$_SESSION['erro'] = TRUE;
-				return FALSE;
+				return 0;
 
 			}
 		}else{
 
 			$_SESSION['erro'] = TRUE;
-			return FALSE;
+			return 0;
 
 		}
 

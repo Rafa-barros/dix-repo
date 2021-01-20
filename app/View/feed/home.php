@@ -5,8 +5,11 @@
 <p id="likes">?</p>
 <p id="qtdComentarios">?</p>
 
+<form method="post">
+    
+</form>
+
 <script>
-    var postsVistosNav = [2]; //Evitar que haja posts repetidos
     var newPosts = $.ajax({
     url:"app/Models/newPosts.php",
     dataType: 'json',
@@ -19,15 +22,18 @@
         postsVistos: postsVistosNav, 
         descricao: "", 
         likes: "",
+        codigo: 200,
+        idPost: 0,
         qtdComentarios: 0
     },
     success:function(result){
         $("#user").text(result.nameOp);
-        $("#userImg").attr("src", result.imgOp);
         $("#postImg").text(result.imgPost);
         $("#description").text(result.description);
         $("#likes").text(result.likes);
         $("#qtdComentarios").text(result.qtdComentarios);
+        $("#userImg").attr("src", result.imgOp);
+        postsVistosNav[postsVistosNav.length] = result.idPost;
     },
     error:function(req, status, error){
         window.alert(req);

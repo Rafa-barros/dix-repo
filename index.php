@@ -16,6 +16,10 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     </head>
     <body>
+    <!-- Variáveis do Javascript pré-inicializadas -->
+    <script>
+        var postsVistosNav = [];
+    </script>
     <?php
         require './vendor/autoload.php';
         $ctrl = new Core\Controller();

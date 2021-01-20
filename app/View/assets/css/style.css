@@ -1,0 +1,264 @@
+
+.main{
+    display: flex;
+    height: 100vh;
+    width: 100vw;
+    background-color: #FAFAFA;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.container{
+    display: flex;
+    background-color: white;
+    width: 68%;
+    max-height:600px !important;
+    height: 60%;
+    margin: auto;
+    padding: 0;
+    border-radius: 18px;
+    box-shadow: 0 10px 30px 0 rgba(46, 45, 45, 0.43);
+}
+
+.l-container, .r-container {
+    width: 50%;
+    height: 100%;
+    padding: 46px;
+}
+
+/*Left container*/
+
+.l-container{
+    border-radius: 18px 0 0 18px;
+    background-color: rgb(255, 255, 255);
+}
+
+.form-group h2 {
+    font-weight: 400;
+    padding: 10px;
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+} 
+
+.form-container{
+    max-width: 200px !important; 
+}
+
+.btn-primary {
+    background-color: rgb(57, 132, 218);
+    margin-bottom: 12px;
+}
+
+#login {
+    padding: 0px !important;
+    margin-bottom: 40px !important;
+    max-width: 320px!important;
+    min-width: 100px;
+    margin-left: auto ;
+    margin-right: auto ;
+}
+
+#btn-conta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 55px);
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #34A853;
+    margin-top: 10px;
+    text-align: center;
+    padding: 8px 65px;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+#btn-conta:hover {
+    background-color: #3ebe60;
+}
+
+.new a {
+    text-decoration: none;
+}
+
+.esqueci {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #00376b;
+    font-size: 14px;
+    width: 100%;
+    text-align: center;
+}
+
+.ou-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.ou {
+    color: rgba(0, 0, 0, 0.397); 
+    font-weight: 600;
+}
+
+.bar {
+    margin: 0 10px;
+    width: 40%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.397);;
+}
+
+.social-medias-login {
+    display: flex;
+    justify-content: space-around;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 28px;
+}
+
+.midia-icon {
+    width: 50px;
+    border-radius: 100px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+
+/*Right container*/
+
+.r-container {
+    border-radius: 0 18px 18px 0;
+    background-image: linear-gradient(to right , rgb(57, 132, 218) ,rgb(90, 65, 197));
+    color: rgb(241, 240, 240);
+}
+
+.r-container p {
+    max-width: 400px;
+    font-size: 3vw;
+    font-weight: 300;
+}
+
+#logo {
+    width: 150px;
+    border-bottom: 4px solid white;
+    margin-bottom: 12%;
+}
+
+.about {
+    cursor: pointer;
+    width: 40%;
+    max-width: 120px;
+    min-width: 90px;
+    padding: 5px;
+    border-radius: 20px;
+    color:rgb(90, 65, 197);
+    font-weight: 500;
+    border: white;
+    margin-top: 20px;
+}
+
+.about:hover {
+    transition: ease 0.6s;
+    background-color: rgb(226, 226, 226);
+}
+
+/* Footer */
+
+.footer {
+    position: absolute;
+    top: calc(100vh - 78px);
+    z-index: 10;
+    height: 78px;
+    width: 100vw;
+    background-color: #F5F5F5;
+    color: #6c757d;
+    font-size: 14.5px;
+}
+
+.copyright{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+
+.copyright p {
+    text-align: center;
+    margin-bottom: 0;
+}
+
+@media(min-width: 1200px) {
+
+    .r-container p {
+        font-size: 200%;
+    }
+}
+
+@media(max-width: 800px) {
+
+    body, html{
+        height: 100%;
+        width: 100%;
+      }
+
+    .container {
+        border-radius: 18px;
+        min-height: 300px;
+        width: 100%;
+        max-height: 100% !important;
+        max-width: 100% !important;
+        height: 100%;
+        margin-bottom: 0;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: -50px;
+    }
+
+    #form-container {
+        padding: 0;
+    }
+
+    .r-container {
+        background-image: none;
+        width: 0;
+        height: 0;
+        padding: 0;
+        margin: 0;
+        visibility: hidden;
+    }
+
+    .l-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        padding: 20px;
+        margin-left: auto;
+        margin-right: auto;
+        border-radius: 18px;
+    }
+
+    .test {
+        width: 80%;
+    }
+
+    .midia-icon {
+        width: 45px;
+    }
+
+    .title{
+        margin-top: 10px;
+        background-image: url(img/logo_blue.png);
+        background-size: calc(80px + 10%);
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+
+    .title h2 {
+        visibility: hidden;
+    }
+
+}

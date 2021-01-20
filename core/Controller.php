@@ -6,6 +6,8 @@ class Controller {
     private string $url;
     private string $urlController;
     private string $urlMetodo;
+    private string $pag;
+    private string $dir;
     private array $diretorios;
 
     public function __construct(){
@@ -20,16 +22,22 @@ class Controller {
         } else {
             $this->urlController = "home";
         }
+
+        $this->dir = ucfirst($this->urlController);
+        if (class_exists("\\App\\Controller\\" . $this->dir)){
+            $this->pag = "\\App\\Controller\\" . $this->dir;
+        } else {
+            $this->pag = "\\App\\Controller\\Error404";
+        }
+    }
+
+    public function carregarCSS(){
+        $cssLoad = new $this->pag;
+        $cssLoad->carregarCSS();
     }
 
     public function carregar(){
-        $dir = ucfirst($this->urlController);
-        if (class_exists("\\App\\Controller\\" . $dir)){
-            $pag = "\\App\\Controller\\" . $dir;
-        } else { //Encontrar página para o usuário
-            $pag = "\\App\\Controller\\Error404";
-        }
-        $paginaCarregada = new $pag;
+        $paginaCarregada = new $this->pag;
         $paginaCarregada->index();
     }
 }

@@ -3,12 +3,12 @@
 namespace Core;
 
 class Controller {
-    private string $url;
-    private string $urlController;
-    private string $urlMetodo;
-    private string $pag;
-    private string $dir;
-    private array $diretorios;
+    private $url;
+    private $urlController;
+    private $urlMetodo;
+    private $pag;
+    private $dir;
+    private $diretorios;
 
     public function __construct(){
         $this->url = $_SERVER['REQUEST_URI'];

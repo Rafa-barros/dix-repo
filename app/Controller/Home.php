@@ -4,7 +4,7 @@ namespace App\Controller;
 
 class Home {
     public function index(){
-        echo ("Teste home");
+        require("app/View/login/index.php");
     }
 
     public function carregarCSS(){

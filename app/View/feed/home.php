@@ -27,7 +27,8 @@
         postsVistos: postsVistosNav, 
         descricao: "", 
         likes: "",
-        codigo: 200,
+        valor: 0,
+        gorjetas: 0,
         idPost: 0,
         qtdComentarios: 0
     },

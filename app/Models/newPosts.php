@@ -102,7 +102,10 @@ echo json_encode((array(
     'imgOp' => $postObj->imgOp, 
     'imgPost' => $postSel['media'],
     "postsVistos" => "",
-    "description" => $postSel['descript'],
+    "descricao" => $postSel['descript'],
     "likes" => $postSel['likes'],
+    "valor" => $postSel['price'],
+    "gorjetas" => $postSel['amount'],
+    "idPost" => $postSel['id'],
     "qtdComentarios" => $postSel['comments']
 )));

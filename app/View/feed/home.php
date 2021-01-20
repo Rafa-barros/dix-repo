@@ -10,6 +10,7 @@
         - Deve ter uma caixa pra dar upload de arquivo sendo um desses: 'jpg', 'jpeg', 'png', 'mp4', 'avi', 'webp', 'gif'
         - Input text com a descrição do post: <input type="submit" name="descricao" value="Descrição">
         - Uma select box de input pra indicar se vai ser allow view (0 pra não, 1 pra sim em que name="postLiberado")
+        - Um select ou input text com o valor de preço, caso seja post pago (atributo do elemento: name="valor")
      -->
 </form>
 

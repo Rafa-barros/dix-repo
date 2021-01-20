@@ -20,15 +20,17 @@ class newPost {
         $this->idUser = $resultIdUser['0'];
     }
 
-    public function uploadPost($media, $descript, $allowView){
-        $this->conn->executeQuery('INSERT INTO posts (idUser, media, descript, likes, comments, postDate, allowView) VALUES (:IDUSER, :MEDIA, :DESCRIPT, :LIKES, :COMMENTS, :POSTDATE, :ALLOWVIEW)', array(
+    public function uploadPost($media, $descript, $allowView, $price){
+        $this->conn->executeQuery('INSERT INTO posts (idUser, media, descript, likes, comments, postDate, allowView, price, amount) VALUES (:IDUSER, :MEDIA, :DESCRIPT, :LIKES, :COMMENTS, :POSTDATE, :ALLOWVIEW, :PRICE, :AMOUNT)', array(
             ':IDUSER' => $this->idUser,
             ':MEDIA' => $media,
             ':DESCRIPT' => $descript,
             ':LIKES' => 0,
             ':COMMENTS' => 0,
             ':POSTDATE' => (date("Y-m-d H:i:s")),
-            ':ALLOWVIEW' => $allowView
+            ':ALLOWVIEW' => $allowView,
+            ':PRICE' => $price,
+            ':AMOUNT' => 0
         ));
     }
 }
@@ -38,4 +40,4 @@ $media = $upMedia->uploadPostMedia();
 
 $novoPost = new newPost();
 $newPost->getInfo($_COOKIE['cUser']);
-$newPost->uploadPost($media, $_POST['descricao'], $_POST['postLiberado']);
+$newPost->uploadPost($media, (htmlentities($_POST['descricao'])), (htmlentities($_POST['postLiberado'])), (htmlentities($_POST['valor'])));

@@ -98,6 +98,7 @@ $postSel = $postObj->selPost();
 echo json_encode((array(
     'email' => "", 
     'nameOp' => $postObj->nameOp,
+    'data' => $postSel['postDate'],
     'imgOp' => $postObj->imgOp, 
     'imgPost' => $postSel['media'],
     "postsVistos" => "",

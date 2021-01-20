@@ -20,11 +20,6 @@ class Post {
     private $idPost;
     private $idOp;
     private $idUser;
-    private $resultIdUser;
-    private $resultIdOp;
-    private $resultName;
-    private $resultImgOp;
-    private $resultUserBlocked;
     private $postSel;
 
     public function __construct() {
@@ -104,7 +99,7 @@ echo json_encode((array(
     'email' => "", 
     'nameOp' => $postObj->nameOp,
     'imgOp' => $postObj->imgOp, 
-    'imgPost' => $postSel['img'],
+    'imgPost' => $postSel['media'],
     "postsVistos" => "",
     "description" => $postSel['descript'],
     "likes" => $postSel['likes'],

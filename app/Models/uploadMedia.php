@@ -4,24 +4,78 @@ namespace App\Models;
 
 use App\Models\Database;
 
-class newImg{
+class newMedia{
 
 	private $email;
 	private $userId;
+	private $nPosts;
 	private $conn;
 
 	private function getUserId(){
 		$this->email = base64_decode($_COOKIE['cUser'])
-		$result = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
+		$result = $conn->executeQuery('SELECT id, posts FROM users WHERE email = :EMAIL', array(
 			':EMAIL' => $this->email
 		));
 		$result = $result->fetch();
 		$this->userId = $result['id'];
+		$this->nPosts = $result['posts'];
 	}
 
 	public function __construct(){
 		$this->conn = new Database();
 		$this->getUserId();
+	}
+
+	public function uploadPostMedia(){
+
+		if(isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK){
+
+			$fileTmpPath = $_FILES['arquivo']['tmp_name'];//Nome temporário que o arquivo recebe
+			$fileName = $_FILES['arquivo']['name'];//Nome do arquivo no computador da pessoa
+			$fileSize = $_FILES['arquivo']['size'];//Tamanho do arquivo em bytes
+			$fileType = $_FILES['arquivo']['type'];//Tipo do arquivo
+
+			//Separa o nome do arquivo da extensão
+			$fileNameCmps = explode(".", $fileName);
+
+			//Armazena a extensão do arquivo em uma variável
+			$fileExtension = strtolower(end($fileNameCmps));
+
+			//Novo nome que o arquivo vai receber ao ser armazenado no servidor
+			$newFileName = md5($this->email . $this->nPosts) . '.' . $fileExtension;
+
+			//Lista de extensões permitidas para a foto de perfil
+			$allowedfileExtensions = array('jpg', 'jpeg', 'png', 'mp4', 'avi', 'webp', 'gif');
+
+			//Verifica se a extensão do arquivo que a pessoa fez upload, está dentro das extensões permitidas
+			if(in_array($fileExtension, $allowedfileExtensions)){
+
+				$uploadFileDir = 'media/';
+				$dest_path = $uploadFileDir . $newFileName;
+
+				if(move_uploaded_file($fileTmpPath, $dest_path)){
+
+					return $dest_path;
+
+				}else{
+
+					$_SESSION['erro'] = TRUE;
+					return FALSE;
+
+				}
+			}else{
+
+				$_SESSION['erro'] = TRUE;
+				return FALSE;
+
+			}
+		}else{
+
+			$_SESSION['erro'] = TRUE;
+			return FALSE;
+
+		}
+
 	}
 
 	public function uploadUserImg(){
@@ -49,7 +103,7 @@ class newImg{
 			//Verifica se a extensão do arquivo que a pessoa fez upload, está dentro das extensões permitidas
 			if(in_array($fileExtension, $allowedfileExtensions)){
 
-				$uploadFileDir = './userImages/';
+				$uploadFileDir = 'userImages/';
 				$dest_path = $uploadFileDir . $newFileName;
 
 				if(move_uploaded_file($fileTmpPath, $dest_path)){

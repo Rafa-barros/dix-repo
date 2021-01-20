@@ -1,0 +1,164 @@
+
+body {
+    background-color: #f3f3f3;
+}
+
+nav {
+    display: flex;
+    background-color: rgb(57, 132, 218);
+    height: 70px;
+    align-items: center;
+}
+
+
+nav p {
+    margin-right: 50px;
+    margin-bottom: 0;
+    color: #F5F5F5;
+    font-size: 24px;
+    font-weight: 320;
+}
+
+.btn-return {
+    position: relative;
+    right: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(21, 21, 24);
+    width: 50px;
+    height: 50px;
+    background-color: #39da4100;
+    border-radius: 25px;
+}
+
+.btn-return:hover {
+    text-decoration: none;
+    color: rgb(51, 50, 50);
+    transition: 0.1s;
+    background-color: #80aee2;
+}
+
+.cadastro {
+    margin-top: 100px;
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main-title {
+    margin-bottom: 30px;
+}
+
+.main-title p {
+    color: rgba(0, 0, 0, 0.747);
+}
+
+#nowrap {
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+}
+
+#btn-cadastro {
+    background-color:  #3ebe60;
+    width: 180px;
+    height: 45px;
+    margin-top: 20px;
+    font-weight: 500;
+    font-size: 16.8px;
+}
+
+#btn-cadastro:hover {
+    background-color: #1c8137;
+}
+
+/* labels */
+
+label {
+    white-space: nowrap;
+    font-weight: 550;
+    font-size: 16px;
+}
+
+#senha, #nascimento {
+    margin-top: 20px;
+}
+
+.submit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+#termos {
+    white-space: unset;
+    font-weight: 400;
+}
+
+.form-check {
+    margin-top: 10px;
+}
+
+.footer {
+    display: flex;
+    height: 68px;
+    margin-top: 198px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media(max-width: 800px) {
+    .cadastro {
+        width: 72%;
+        margin-top: 50px;
+    }
+
+    #btn-cadastro {
+        margin-bottom: 120px;
+    }
+
+    #nascimento, #senha {
+        flex-wrap: nowrap;
+    }
+
+    .data-label {
+        position: absolute;
+    }
+
+    #validationDefault06,  #validationDefault01, #validationDefault03{
+        margin-top: 40.5px;
+    }
+    
+    #validationDefault07, #validationDefault08 {
+        margin-top: 6px;
+    }
+
+    #nascimento .form-control {
+        width: 20vw;
+    }
+
+    #senha .form-control {
+        width: 32vw;
+    }
+
+    .footer {
+        margin-top: 6%;
+    }
+}
+
+
+@media(max-width: 340px) {
+
+    nav p {
+        font-size: 20px;
+    }
+
+    .btn-return {
+        right: 6vw;
+    }
+
+}

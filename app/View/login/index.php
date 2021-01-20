@@ -1,5 +1,4 @@
 
-  <body>
     <div class="main">
       <div class="container">
 
@@ -22,7 +21,7 @@
                     <a class="esqueci" href="">Esqueceu a senha?</a>
                   </div>
                   <div class="new">
-                    <a href="cadastro.html"><div id="btn-conta" class="btn btn-success btn-lg btn-block">Cadastre-se</div></a>
+                    <a href="/cadastro"><div id="btn-conta" class="btn btn-success btn-lg btn-block">Cadastre-se</div></a>
                   </div>
                 </form>
               </div>
@@ -50,7 +49,6 @@
           <p>© 2021 - Dix corporation</p>
         </div>
       </div>
-  </div>
     
     <script>
       if(window.matchMedia("(max-width: 800px)").matches){

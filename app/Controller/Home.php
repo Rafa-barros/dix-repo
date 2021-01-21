@@ -4,6 +4,7 @@ namespace App\Controller;
 
 class Home {
     public function index(){
+    	require ("app/Models/googleAuth.php");
         require("app/View/login/index.php");
     }
 
@@ -11,3 +12,4 @@ class Home {
         echo ("<link rel='stylesheet' href='app/View/assets/css/style.css'>");
     }
 }
+

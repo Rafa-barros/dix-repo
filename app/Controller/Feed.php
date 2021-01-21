@@ -12,4 +12,10 @@ class Feed {
     public function index(){
         require('App/View/feed/home.php');
     }
+
+    public function carregarCSS(){
+        /*
+        * ENCAMINHAR UM REQUIRE PARA O CSS DA PÁGINA EM TODO CONTROLADOR
+        */
+    }
 }

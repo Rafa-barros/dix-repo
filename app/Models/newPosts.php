@@ -27,7 +27,9 @@ class Post {
     }
 
     public function getInfo($email, $postsVistosJS){
-        $this->postsVistos = $postsVistosJS;
+        if (isset($postsVistosJS)){
+            $this->postsVistos = $postsVistosJS;
+        }
         $this->email = htmlentities($email);
 
         //Encontra o id do usuário

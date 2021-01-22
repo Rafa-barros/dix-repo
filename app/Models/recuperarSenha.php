@@ -52,7 +52,7 @@ class recuperarSenha{
 		if(empty($result)){
 			return FALSE;
 		}else{
-			$datetime1 = new DateTime($result['expirar']);
+			$datetime1 = new DateTime($result['registerDate']);
 			$datetime2 = new DateTime(date('Y-m-d'));
 			$interval = $datetime2->diff($datetime1);
 			$interval = $interval->format('%a');

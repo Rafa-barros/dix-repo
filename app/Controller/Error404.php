@@ -4,7 +4,11 @@ namespace App\Controller;
 
 class Error404 {
     public function index(){
-        echo ("Erro 404 Not Found");
+        require("app/View/other/error404.php");
+    }
+
+    public function carregarCSS(){
+        echo ("<link rel='stylesheet' href='app/View/assets/css/error404.css'>");
     }
 
     public function carregarCSS(){

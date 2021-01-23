@@ -1,0 +1,81 @@
+body {
+    background-color: #E9ECEF;
+}
+
+.jumbotron {
+    padding-top: 28px !important;
+}
+
+.erro404 {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.erro404 img {
+    max-height: 200px;
+    margin-bottom: 60px;
+}
+
+.lead a {
+    background-color: #0069D9 !important;
+}
+
+.lead a:hover {
+    background-color: #0069d9ce !important;
+}
+
+.blue-line {
+    margin-left: 40px;
+    background-color: rgba(0,0,0,.1);
+    height: 300px;
+    width: 1.5px;
+}
+
+.my-4 {
+    border-top: 0;
+}
+
+.lead {
+    margin-bottom: 30px;
+}
+
+.baixo {
+    display: flex;
+}
+
+@media(max-width: 800px) {
+    .erro404 {
+        display: block;
+    }
+
+    .blue-line {
+        height: 250px;
+    }
+
+    .baixo {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .display-4 {
+        margin-top: 30px;
+    }
+
+    .erro404 a {
+        margin-left: 30px;
+        margin-bottom: -40px;
+    }
+
+    .erro404 img {
+        margin-bottom: 0;
+    }
+    
+    .blue-line {
+        height: 200px;
+        margin-bottom: 60px;
+    }
+}

@@ -17,12 +17,14 @@
             "App\\Controller\\": "app/Controller/",
             "Core\\": "core",
             "PHPMailer\\PHPMailer\\": "vendor/phpmailer/src/",
-            "Google\\": "vendor/google/apiclient/src/"
+            "Google\\": "vendor/google/apiclient/src/",
+            "Facebook\\": "vendor/facebook/graph-sdk/src/Facebook/"
         }
     },
     "require": {
         "phpmailer/phpmailer": "^6.2",
         "google/auth": "^1.10",
-        "google/apiclient": "^2.0"
+        "google/apiclient": "^2.0",
+        "facebook/graph-sdk": "^5.7"
     }
 }

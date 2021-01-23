@@ -18,10 +18,9 @@ if(isset($_GET["code"])){
 		$google_client->setAccessToken($token['access_token']);
 		$_SESSION['access_token'] = $token['access_token'];
 
-		$google_service = new Google\Service\Oauth2($google_client);
+		$google_service = new Google_Service_Oauth2($google_client);
 
 		$data = $google_service->userinfo->get();
-
 		print_r($data);
 	}
 }

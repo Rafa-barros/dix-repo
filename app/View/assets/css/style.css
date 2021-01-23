@@ -12,6 +12,7 @@
     background-color: white;
     width: 68%;
     max-height:600px !important;
+    min-height: 530px;
     height: 60%;
     margin: auto;
     padding: 0;
@@ -23,6 +24,7 @@
     width: 50%;
     height: 100%;
     padding: 46px;
+    padding-top: 28px;
 }
 
 /*Left container*/

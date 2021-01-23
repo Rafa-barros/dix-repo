@@ -13,11 +13,11 @@
             <div class="form-row" id="pessoais">
               <div class="col-md-4 mb-3">
                   <label class="data-label" for="validationDefault03">Dados pessoais</label>
-                  <input type="text" class="form-control" id="validationDefault01" placeholder="Nome" required>
+                  <input type="text" class="form-control" id="validationDefault01" placeholder="Nome">
                 </div>
                 <div class="col-md-4 mb-3 mt-2">
                   <label for="validationDefault03"></label>
-                  <input type="text" class="form-control" id="validationDefault02" placeholder="e-Mail" required>
+                  <input type="text" class="form-control" id="validationDefault02" placeholder="e-mail" required>
                 </div>
                 <div class="col-md-4 mb-3 mt-2">
                   <label for="validationDefault04"></label>

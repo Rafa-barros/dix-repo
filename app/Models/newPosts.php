@@ -27,7 +27,7 @@ class Post {
     }
 
     public function getInfo($email, $postsVistosJS){
-        if (isset($postsVistosJS)){
+        if (!empty($postsVistosJS)){
             $this->postsVistos = $postsVistosJS;
         }
         $this->email = htmlentities($email);
@@ -92,6 +92,8 @@ class Post {
         return $this->postSel;
     }
 }
+
+error_reporting(0);
 
 $postObj = new Post();
 $postObj->getInfo($_POST['email'], $_POST['postsVistos']);

@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Database;
 
-class newMedia{
+class uploadMedia{
 
 	private $email;
 	private $userId;
@@ -12,8 +12,8 @@ class newMedia{
 	private $conn;
 
 	private function getUserId(){
-		$this->email = base64_decode($_COOKIE['cUser'])
-		$result = $conn->executeQuery('SELECT id, posts FROM users WHERE email = :EMAIL', array(
+		$this->email = 'jorginho';
+		$result = $this->conn->executeQuery('SELECT id, posts FROM users WHERE email = :EMAIL', array(
 			':EMAIL' => $this->email
 		));
 		$result = $result->fetch();
@@ -29,7 +29,6 @@ class newMedia{
 	public function uploadPostMedia(){
 
 		if(isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK){
-
 			$fileTmpPath = $_FILES['arquivo']['tmp_name'];//Nome temporário que o arquivo recebe
 			$fileName = $_FILES['arquivo']['name'];//Nome do arquivo no computador da pessoa
 			$fileSize = $_FILES['arquivo']['size'];//Tamanho do arquivo em bytes
@@ -108,7 +107,7 @@ class newMedia{
 
 				if(move_uploaded_file($fileTmpPath, $dest_path)){
 
-					$result = $conn->executeQuery('UPDATE users SET imgUser = :PATHIMG WHERE id = :EMAIL', array(
+					$result = $this->conn->executeQuery('UPDATE users SET imgUser = :PATHIMG WHERE id = :EMAIL', array(
 						':PATHIMG' => $dest_path,
 						':EMAIL' => $this->userId
 					));

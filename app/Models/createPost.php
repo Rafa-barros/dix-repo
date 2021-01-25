@@ -1,11 +1,15 @@
 <?php
 
-require ('uploadMedia.php');
+namespace App\Models;
 
-class newPost {
+use App\Models\Database;
+use App\Models\uploadMedia;
+
+class createPost {
     private $conn;
     private $email;
     private $idUser;
+    private $nPosts;
 
     public function __construct(){
         $this->conn = new Database();
@@ -13,14 +17,16 @@ class newPost {
 
     public function getInfo($email){
         $this->email = htmlentities($email);
-        $resultIdUser = $this->conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
+        $result = $this->conn->executeQuery('SELECT id, posts FROM users WHERE email = :EMAIL', array(
             ':EMAIL' => $email
         ));
-        $resultIdUser = $resultIdUser->fetch();
-        $this->idUser = $resultIdUser['0'];
+        $result = $result->fetch();
+        $this->idUser = $result['0'];
+        $this->nPosts = $result['1'];
     }
 
     public function uploadPost($media, $descript, $allowView, $price){
+        $this->nPosts = intval($this->nPosts) + 1;
         $this->conn->executeQuery('INSERT INTO posts (idUser, media, descript, likes, comments, postDate, allowView, price, amount) VALUES (:IDUSER, :MEDIA, :DESCRIPT, :LIKES, :COMMENTS, :POSTDATE, :ALLOWVIEW, :PRICE, :AMOUNT)', array(
             ':IDUSER' => $this->idUser,
             ':MEDIA' => $media,
@@ -29,15 +35,19 @@ class newPost {
             ':COMMENTS' => 0,
             ':POSTDATE' => (date("Y-m-d H:i:s")),
             ':ALLOWVIEW' => $allowView,
-            ':PRICE' => $price,
+            ':PRICE' => intval($price),
             ':AMOUNT' => 0
+        ));
+        $this->conn->executeQuery('UPDATE users SET posts = :POSTS WHERE id = :ID', array(
+            ':POSTS' => $this->nPosts,
+            ':ID' => $this->idUser
         ));
     }
 }
 
-$upMedia = new newMedia();
+$upMedia = new uploadMedia();
 $media = $upMedia->uploadPostMedia();
 
-$novoPost = new newPost();
-$newPost->getInfo($_COOKIE['cUser']);
-$newPost->uploadPost($media, (htmlentities($_POST['descricao'])), (htmlentities($_POST['postLiberado'])), (htmlentities($_POST['valor'])));
+$novoPost = new createPost();
+$novoPost->getInfo('jorginho');
+$novoPost->uploadPost($media, (htmlentities($_POST['descriptPost'])), (htmlentities($_POST['postLiberado'])), (htmlentities($_POST['valor'])));

@@ -3,14 +3,12 @@
 namespace App\Controller;
 
 class Feed {
-    public function __construct(){
-        if (isset($_POST['descriptPost']) && isset($_COOKIE['token']) && isset($_COOKIE['cUser'])){
-            require('App/Models/createPost.php');
-        }
-    }
 
     public function index(){
         require('App/View/feed/home.php');
+        if (isset($_POST['enviar'])){
+            require("app/Models/createPost.php");
+        }
     }
 
     public function carregarCSS(){

@@ -61,6 +61,26 @@ class Post {
         $this->imgOp = $resultImgOp['0'];
     }
 
+    public function getComments($id){
+        $resultComment = $this->conn->executeQuery('SELECT * FROM comments WHERE idPost = :ID', array(
+            ':ID' => $id
+        ));
+        $i = 0;
+        while($row = $result->fetch()){
+            $comentarios[$i] = $row;
+            $i++;
+        }
+
+        for ($k=0; $k<$i; $k++){
+            $comentariosJS[$k][2] = $comentarios[$k]['descript'];
+            $comentariosJS[$k][3] = $comentarios[$k]['likes'];
+            $comentariosJS[$k][4] = $comentarios[$k]['dateComment'];
+            $comentariosJS[$k][5] = $comentarios[$k]['comments'];
+        }
+
+        return $comentariosJS;
+    }
+
     public function selPost(){
         $tam = count($this->postsVistos);
         $query = 'SELECT * FROM posts WHERE idUser = :ID';
@@ -98,6 +118,7 @@ error_reporting(0);
 $postObj = new Post();
 $postObj->getInfo($_POST['email'], $_POST['postsVistos']);
 $postSel = $postObj->selPost();
+$comentariosSel = $postObj->getComments($postSel['id']);
 
 echo json_encode((array(
     'email' => "", 
@@ -111,5 +132,6 @@ echo json_encode((array(
     "valor" => $postSel['price'],
     "gorjetas" => $postSel['amount'],
     "idPost" => $postSel['id'],
-    "qtdComentarios" => $postSel['comments']
+    "qtdComentarios" => $postSel['comments'],
+    "comentarios" => $comentariosSel
 )));

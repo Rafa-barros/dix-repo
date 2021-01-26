@@ -38,7 +38,8 @@
         valor: 0,
         gorjetas: 0,
         idPost: 0,
-        qtdComentarios: 0
+        qtdComentarios: 0,
+        comentarios: [[]]
     },
     success:function(result){
         $("#user").text(result.nameOp);

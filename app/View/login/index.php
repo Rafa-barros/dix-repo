@@ -32,7 +32,7 @@
               <div class="social-medias-login">
                 <?php
                 echo '<a href="' . $facebook_login_url . '"><img src="/app/View/assets/css/img/facebook-icon.png" alt="ícone do facebook" class="midia-icon"></a>';
-                echo '<a href="' . $google_client->createAuthUrl() . '"><img src="/app/View/assets/css/img/google-icon3.png" alt="ícone google" class="midia-icon"></a>'
+                echo '<a href="' . $google_client->createAuthUrl() . '"><img src="/app/View/assets/css/img/google-icon3.png" alt="ícone google" class="midia-icon"></a>';
                 ?>
               </div>
             </div>

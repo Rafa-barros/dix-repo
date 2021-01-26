@@ -9,6 +9,7 @@ class loginUsuario{
 
 	private $email;
 	private $pwd;
+	private $idAuth;
 	private $conn;
 
 	public function __construct(){
@@ -28,13 +29,22 @@ class loginUsuario{
 			return FALSE;
 		}else{
 			if($res['verify'] == 0){
-				echo "aaa";
 				return FALSE;
 			}else{
 				return TRUE;
 			}
 		}
+	}
 
+	private function verificaLoginAuth(){
+		$result = $this->conn->executeQuery('SELECT email, idAuth FROM users WHERE email = :EMAIL AND idAuth = :IDAUTH LIMIT 1', array(
+			':EMAIL' => $this->email,
+			':IDAUTH' => $this->idAuth
+		));
+
+		$res = $result->fetch();
+
+		return !empty($res);
 	}
 
 	//Se o login retornar TRUE, gera os cookies do usuários e vai para a home, senão gera uma variável de sessão de falha de login e retorna a tela de login
@@ -42,6 +52,17 @@ class loginUsuario{
 		$this->email = $email;
 		$this->pwd = md5($pwd . $email);
 		if($this->verificaLogin()){
+			$cookie = new cookie();
+			$cookie->newCookie($this->email);
+		}else{
+			$_SESSION['LoginFailed'] = TRUE;
+		}
+	}
+
+	public function loginAuth($email, $idAuth){
+		$this->email = $email;
+		$this->idAuth = $idAuth;
+		if($this->verificaLoginAuth()){
 			$cookie = new cookie();
 			$cookie->newCookie($this->email);
 		}else{

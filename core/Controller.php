@@ -13,8 +13,10 @@ class Controller {
     public function __construct(){
         $this->url = $_SERVER['REQUEST_URI'];
         $this->diretorios = explode("/", $this->url);
-
-        if ($this->url != "/" && strpos($this->diretorios[1], "?") != 0){
+        $nDiretorios = count($this->diretorios);
+        $nDiretorios--;
+        $get = strpos($this->diretorios[$nDiretorios], "?");
+        if ($this->url != "/" && $get === false){
             $this->urlController = $this->diretorios[1];
             if(strpos($this->urlController, "?") !== false){
                 $this->urlController = substr($this->urlController, 0, strpos($this->urlController, '?'));

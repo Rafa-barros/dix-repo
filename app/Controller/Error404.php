@@ -11,9 +11,4 @@ class Error404 {
         echo ("<link rel='stylesheet' href='app/View/assets/css/error404.css'>");
     }
 
-    public function carregarCSS(){
-        /*
-        * ENCAMINHAR UM REQUIRE PARA O CSS DA PÁGINA EM TODO CONTROLADOR
-        */
-    }
 }

@@ -11,14 +11,14 @@
                     <div class="title">
                       <h2>Entrar</h2>
                     </div>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome de usuário ou e-mail" name="who">
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome de usuário ou e-mail" name="who" required>
                   </div>
                   <div class="form-group" style="margin-bottom: 14px;">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="pass"> 
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="pass" required> 
                   </div>
                   <button type="submit" id="btn-entrar" class="btn btn-primary btn-lg btn-block"  name="login">Entrar</button>
                   <div class="esqueci-div">
-                    <a class="esqueci" href="">Esqueceu a senha?</a>
+                    <a class="esqueci" href="/recuperarsenha">Esqueceu a senha?</a>
                   </div>
                   <div class="new">
                     <a href="/cadastro"><div id="btn-conta" class="btn btn-success btn-lg btn-block">Cadastre-se</div></a>
@@ -54,7 +54,13 @@
     
     <script>
       if(window.matchMedia("(max-width: 800px)").matches){
-    $(".r-container").hide();
-    } 
+        $(".r-container").hide();
+      } 
 
     </script>
+
+<!-- 
+    By: Caio C. Brandini da Silva - 2021
+
+    Linkedin: https://www.linkedin.com/in/caiobrandini/
+ -->

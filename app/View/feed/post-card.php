@@ -24,10 +24,19 @@
         </div>
         <div class="comment-area">
             <div class="a-comment">
-                <span class="a-username">Gustavo123</span> <p class="r-comment">Oii</p>
+                 <p class="r-comment"> <span class="a-username"><a href="">Gustavo123</a></span> Lorem, ipsum dolor.</p>
             </div>
             <div class="a-comment">
-                <span class="a-username">Fernandooo</span> <p class="r-comment">Testeando</p>
+                 <p class="r-comment"> <span class="a-username"><a href="">Fernandoo</a></span> Lorem ipsum dolor sit.</p>
+            </div>
+            <div class="a-comment">
+                <p class="r-comment"> <span class="a-username"><a href="">AnaJulia_50</a></span> Lorem, ipsum.</p>
+            </div>
+            <div class="a-comment">
+                 <p class="r-comment"> <span class="a-username"><a href="">Marcus13</a></span> Lorem ipsum dolor sit amet consectetur adipisicing.p>
+            </div>
+            <div class="a-comment">
+                 <p class="r-comment"> <span class="a-username"><a href=""> LauraaaSouza</a></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates expedita labore quas possimus. Eaque, molestiae. Nesciunt vero minima assumenda voluptatem?</p>
             </div>
             <div class="end-comment-show"></div>
             <div class="comment-now">
@@ -66,7 +75,7 @@
         </div>
         <div class="comment-area">
             <div class="a-comment">
-                <span class="a-username">Gustavo123</span> <p class="r-comment">oioioi</p>
+                <span class="a-username"><a href="">Gustavo123</a></span> <p class="r-comment">oioioi</p>
             </div>
             <div class="end-comment-show"></div>
             <div class="comment-now">
@@ -122,7 +131,7 @@ $(document).ready(function(e) {
         
         var card = $(this).parents(".card");
         var commentInput = card.find(".comment-input").val();
-        var newComment = '<div class="a-comment"> <span class="a-username">CaioBrandini</span> <p class="r-comment">'+ htmlEntities(commentInput) +'</p> </div>';
+        var newComment = '<div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">CaioBrandini</a></span>'+ htmlEntities(commentInput) +'</p> </div>';
 
         $.ajax({
             url: form_url,    
@@ -145,3 +154,9 @@ function htmlEntities(str) {
 }
 
 </script>
+
+<!-- 
+    By: Caio C. Brandini da Silva - 2021
+
+    Linkedin: https://www.linkedin.com/in/caiobrandini/
+-->

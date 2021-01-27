@@ -52,7 +52,10 @@ body {
     }
 
     .blue-line {
+        position: relative;
+        bottom: 32px;
         height: 250px;
+        margin-bottom: 20px;
     }
 
     .baixo {
@@ -78,4 +81,19 @@ body {
         height: 200px;
         margin-bottom: 60px;
     }
+
+    .erro404 img {
+        margin-top: 40px;
+    }
+
+    #btn-voltar {
+        margin-left: -18px;
+        margin-top: 80px;
+    }
 }
+
+/*
+ By: Caio C. Brandini da Silva - 2021
+
+ Linkedin: https://www.linkedin.com/in/caiobrandini/
+*/

@@ -71,3 +71,9 @@
         <p>© 2021 - Dix corporation</p>
       </div>
     </div>
+
+<!-- 
+    By: Caio C. Brandini da Silva - 2021
+
+    Linkedin: https://www.linkedin.com/in/caiobrandini/
+ -->

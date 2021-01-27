@@ -6,8 +6,9 @@ body {
 nav {
     display: flex;
     background-color: rgb(57, 132, 218);
-    height: 70px;
+    height: 90px;
     align-items: center;
+    justify-content: center;
 }
 
 
@@ -17,6 +18,11 @@ nav p {
     color: #F5F5F5;
     font-size: 24px;
     font-weight: 320;
+}
+
+.logo-dix {
+    height: 100px;
+    max-width: 100%;
 }
 
 .btn-return {
@@ -39,80 +45,94 @@ nav p {
     background-color: #80aee2;
 }
 
-.cadastro {
-    margin-top: 100px;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 800px;
-}
-
-.main-title {
-    margin-bottom: 30px;
-}
-
-.main-title p {
-    color: rgba(0, 0, 0, 0.747);
-}
-
-#nowrap {
+.center {
     display: flex;
-    flex-wrap: nowrap;
-    white-space: nowrap;
-}
-
-#btn-cadastro {
-    background-color:  #3ebe60;
-    width: 180px;
-    height: 45px;
-    margin-top: 20px;
-    font-weight: 500;
-    font-size: 16.8px;
-}
-
-#btn-cadastro:hover {
-    background-color: #1c8137;
-}
-
-/* labels */
-
-label {
-    white-space: nowrap;
-    font-weight: 550;
-    font-size: 16px;
-}
-
-#senha, #nascimento {
-    margin-top: 20px;
-}
-
-.submit {
-    display: flex;
-    align-items: center;
     justify-content: center;
+    align-items: center;
+    height: calc(100vh - 160px);
 }
 
-
-
-#termos {
-    white-space: unset;
-    font-weight: 400;
+.card-email {
+    width: 45vw;
+    max-width: 600px;
+    height: 280px;
+    background-color: white;
+    box-shadow: 0 5px 15px 0 rgba(46, 45, 45, 0.43);
+    border-radius: 10px;
 }
 
-.form-check {
-    margin-top: 10px;
+.form {
+    height: 280px;
+}
+
+.form-container {
+    margin-left: 34px;
+    margin-top: 42px;
+}
+
+.form-container h1 {
+    font-size: 30px;
+}
+
+.btn-enviar {
+    margin-top: 13px;
+    width: 90px;
+    background-color: rgb(57, 132, 218);
+}
+
+.form-group {
+    width: 100%;
+    margin: 0;
+}
+
+.g-border {
+    height: 1px;
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.082);
+    margin: 15px 0;
+}
+
+.form-group label {
+    white-space: nowrap;
+}
+
+#inputPassword {
+    width: 48%;
+    min-width: 250px;
+    margin-top: 11px;
 }
 
 .footer {
     display: flex;
-    height: 68px;
-    margin-top: 198px;
+    height: 70px;
     align-items: center;
     justify-content: center;
 }
 
 
 @media(max-width: 800px) {
+
+    .form-container {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .form-group label {
+        font-size: 17px;
+        white-space: normal;
+        width: 300px;
+    }
+
+    #inputPassword {
+        margin-top: 20px;
+        width: 92%;
+        max-width: 300px;
+    }
+
+    .card-email {
+        width: 70vw;
+    }
+
     .cadastro {
         width: 72%;
         margin-top: 50px;
@@ -146,10 +166,6 @@ label {
         width: 32vw;
     }
 
-    .footer {
-        margin-top: 6%;
-    }
-
     .btn-return {
         right: 16vw;
     }
@@ -167,9 +183,3 @@ label {
     }
 
 }
-
-/*
- By: Caio C. Brandini da Silva - 2021
-
- Linkedin: https://www.linkedin.com/in/caiobrandini/
-*/

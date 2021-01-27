@@ -13,7 +13,6 @@ body {
     border-radius: 8px;
     box-shadow: 0 5px 15px 0 rgba(46, 45, 45, 0.43);
     margin-bottom: 40px;
-    margin-left: 300px;
 }
 
 /* Card top */
@@ -192,3 +191,13 @@ body {
     outline: 0px;
     outline-offset: 0px;
 }
+
+.a-username a {
+    color: rgb(10, 10, 10);
+}
+
+/*
+ By: Caio C. Brandini da Silva - 2021
+
+Linkedin: https://www.linkedin.com/in/caiobrandini/
+*/

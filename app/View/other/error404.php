@@ -8,9 +8,15 @@
             <p class="lead">Infelizmente não conseguimos localizar a página procurada.</p>
             <hr class="my-4">
             <p>A URL requisitada não pode ser encontrada nesse servidor.</p>
-            <p class="lead">
-                <a class="btn btn-primary btn-lg" href="/" role="button">Voltar</a>
-            </p>
+            <div class="lead">
+                <a class="btn btn-primary btn-lg" id="btn-voltar" href="/" role="button">Voltar</a>
+            </div>
         </div>
     </div>
 </div>
+
+<!-- 
+    By: Caio C. Brandini da Silva - 2021
+
+    Linkedin: https://www.linkedin.com/in/caiobrandini/
+ -->

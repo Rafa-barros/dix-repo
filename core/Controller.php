@@ -24,6 +24,9 @@ class Controller {
         }
 
         $this->dir = ucfirst($this->urlController);
+        if(strpos($this->dir, "?") !== false){
+            $this->dir = substr($this->urlController, 0, strpos($this->urlController, '?'));
+        }
         if (class_exists("\\App\\Controller\\" . $this->dir)){
             $this->pag = "\\App\\Controller\\" . $this->dir;
         } else {

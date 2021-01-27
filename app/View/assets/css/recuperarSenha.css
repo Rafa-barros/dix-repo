@@ -1,0 +1,185 @@
+
+body {
+    background-color: #f3f3f3;
+}
+
+nav {
+    display: flex;
+    background-color: rgb(57, 132, 218);
+    height: 90px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+nav p {
+    margin-right: 50px;
+    margin-bottom: 0;
+    color: #F5F5F5;
+    font-size: 24px;
+    font-weight: 320;
+}
+
+.logo-dix {
+    height: 100px;
+    max-width: 100%;
+}
+
+.btn-return {
+    position: relative;
+    right: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(21, 21, 24);
+    width: 50px;
+    height: 50px;
+    background-color: #39da4100;
+    border-radius: 25px;
+}
+
+.btn-return:hover {
+    text-decoration: none;
+    color: rgb(51, 50, 50);
+    transition: 0.1s;
+    background-color: #80aee2;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: calc(100vh - 160px);
+}
+
+.card-email {
+    width: 45vw;
+    max-width: 600px;
+    height: 280px;
+    background-color: white;
+    box-shadow: 0 5px 15px 0 rgba(46, 45, 45, 0.43);
+    border-radius: 10px;
+}
+
+.form {
+    height: 280px;
+}
+
+.form-container {
+    margin-left: 34px;
+    margin-top: 42px;
+}
+
+.form-container h1 {
+    font-size: 30px;
+}
+
+.btn-enviar {
+    margin-top: 13px;
+    width: 90px;
+    background-color: rgb(57, 132, 218);
+}
+
+.form-group {
+    width: 100%;
+    margin: 0;
+}
+
+.g-border {
+    height: 1px;
+    width: 70%;
+    background-color: rgba(0, 0, 0, 0.082);
+    margin: 15px 0;
+}
+
+.form-group label {
+    white-space: nowrap;
+}
+
+#inputPassword {
+    width: 48%;
+    min-width: 250px;
+    margin-top: 11px;
+}
+
+.footer {
+    display: flex;
+    height: 70px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+@media(max-width: 800px) {
+
+    .form-container {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .form-group label {
+        font-size: 17px;
+        white-space: normal;
+        width: 300px;
+    }
+
+    #inputPassword {
+        margin-top: 20px;
+        width: 92%;
+        max-width: 300px;
+    }
+
+    .card-email {
+        width: 70vw;
+    }
+
+    .cadastro {
+        width: 72%;
+        margin-top: 50px;
+    }
+
+    #btn-cadastro {
+        margin-bottom: 120px;
+    }
+
+    #nascimento, #senha {
+        flex-wrap: nowrap;
+    }
+
+    .data-label {
+        position: absolute;
+    }
+
+    #validationDefault06,  #validationDefault01, #validationDefault03{
+        margin-top: 40.5px;
+    }
+    
+    #validationDefault07, #validationDefault08 {
+        margin-top: 6px;
+    }
+
+    #nascimento .form-control {
+        width: 20vw;
+    }
+
+    #senha .form-control {
+        width: 32vw;
+    }
+
+    .btn-return {
+        right: 16vw;
+    }
+}
+
+
+@media(max-width: 340px) {
+
+    nav p {
+        font-size: 20px;
+    }
+
+    .btn-return {
+        right: 6vw;
+    }
+
+}

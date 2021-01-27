@@ -14,18 +14,34 @@ class Controller {
         $this->url = $_SERVER['REQUEST_URI'];
         $this->diretorios = explode("/", $this->url);
         $nDiretorios = count($this->diretorios);
-        $nDiretorios--;
-        $get = strpos($this->diretorios[$nDiretorios], "?");
+        for($i = 0; $i < $nDiretorios; $i++) { 
+        	$get = strpos($this->diretorios[$i], "?");
+        	if($get !== false && $i < ($nDiretorios - 1)){
+        		$toImp = array();
+        		for($j = $i, $k = 0; $j < $nDiretorios; $j++, $k++){
+        			if($j < ($nDiretorios - 1)){
+        				$toImp[$k] = $this->diretorios[$j] . "/";
+        			}else{
+        				$toImp[$k] = $this->diretorios[$j];
+        			}
+        			unset($this->diretorios[$j]);
+        		}
+        		$this->diretorios[$i] = implode($toImp);
+        		$nDiretorios = $i;
+        		break;
+        	}
+        }
         if ($this->url != "/" && $get === false){
             $this->urlController = $this->diretorios[1];
-            if(strpos($this->urlController, "?") !== false){
-                $this->urlController = substr($this->urlController, 0, strpos($this->urlController, '?'));
-            }
             if (count($this->diretorios) == 3){
                 $this->urlMetodo = $this->diretorios[2];
             }
         } else {
-            $this->urlController = "home";
+        	if($get === 0 || $this->url == "/"){
+        		$this->urlController = "home";
+        	}else{
+            	$this->urlController = substr($this->diretorios[$nDiretorios], 0, strpos($this->diretorios[$nDiretorios], '?'));
+        	}
         }
         $this->dir = ucfirst($this->urlController);
         if (class_exists("\\App\\Controller\\" . $this->dir)){

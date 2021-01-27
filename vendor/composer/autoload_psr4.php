@@ -20,6 +20,7 @@ return array(
     'Google\\Auth\\' => array($vendorDir . '/google/auth/src'),
     'Google\\' => array($vendorDir . '/google/apiclient/src', $vendorDir . '/google/apiclient/src'),
     'Firebase\\JWT\\' => array($vendorDir . '/firebase/php-jwt/src'),
+    'Facebook\\' => array($vendorDir . '/facebook/graph-sdk/src/Facebook'),
     'Core\\' => array($baseDir . '/core'),
     'App\\Models\\' => array($baseDir . '/app/Models'),
     'App\\Controller\\' => array($baseDir . '/app/Controller'),

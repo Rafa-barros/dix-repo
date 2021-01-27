@@ -15,15 +15,15 @@ if (isset($_GET['state'])) {
 }
 
 if(isset($_GET['code'])){
-	if(isset($_SESSION['access_token'])){
-		$access_token = $_SESSION['access_token'];
+	if(isset($_SESSION['token_access'])){
+		$token_access = $_SESSION['token_access'];
 	}else{
-		$access_token = $facebook_helper->getAccessToken();
-		$_SESSION['access_token'] = $access_token;
-		$facebook->setDefaultAccessToken($_SESSION['access_token']);
+		$token_access = $facebook_helper->getAccessToken();
+		$_SESSION['token_access'] = $token_access;
+		$facebook->setDefaultAccessToken($_SESSION['token_access']);
 	}
 
-	$graph_response = $facebook->get("/me?fields=name,email,birthday", $access_token);
+	$graph_response = $facebook->get("/me?fields=name,email,birthday", $token_access);
 
 	$facebook_user_info = $graph_response->getGraphUser();
 
@@ -40,6 +40,6 @@ if(isset($_GET['code'])){
 }
 
 $facebook_permissions = ['email'];
-$facebook_login_url = $facebook_helper->getLoginUrl('http://localhost:8080/app/Models/facebookAuth.php', $facebook_permissions);
+$facebook_login_url = $facebook_helper->getLoginUrl('http://localhost:8080', $facebook_permissions);
 
 ?>

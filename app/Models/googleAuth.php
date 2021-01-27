@@ -6,7 +6,7 @@ $google_client->setClientId('662087267373-pnt38uracj02i9gj1a7itqpt3d6hsklq.apps.
 
 $google_client->setClientSecret('UkGukwl_VSb9orO_Jt3TOr5L');
 
-$google_client->setRedirectUri('http://localhost:8080/app/Models/googleAuth.php');
+$google_client->setRedirectUri('http://localhost:8080');
 
 $google_client->addScope('email');
 $google_client->addScope('profile');

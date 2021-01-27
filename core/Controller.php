@@ -32,6 +32,7 @@ class Controller {
         } else {
             $this->pag = "\\App\\Controller\\Error404";
         }
+        echo ($this->pag);
     }
 
     public function carregarCSS(){

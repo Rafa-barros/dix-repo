@@ -1,9 +1,6 @@
 <?php
 
-session_start();
-
-require("../../vendor/autoload.php");
-require_once("../../vendor/facebook/graph-sdk/src/Facebook/autoload.php");
+require_once("vendor/facebook/graph-sdk/src/Facebook/autoload.php");
 
 $facebook = new \Facebook\Facebook([
 	'app_id' => '1635473683301633',
@@ -46,15 +43,3 @@ $facebook_permissions = ['email'];
 $facebook_login_url = $facebook_helper->getLoginUrl('http://localhost:8080/app/Models/facebookAuth.php', $facebook_permissions);
 
 ?>
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>a</title>
-	</head>
-	<body>
-		<?php
-			echo '<a href="' . $facebook_login_url . '"><img src="/app/View/assets/css/img/facebook-icon.png" alt="ícone do facebook" class="midia-icon"></a>';
-		?>
-	</body>
-</html>

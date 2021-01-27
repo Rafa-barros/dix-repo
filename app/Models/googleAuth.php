@@ -1,7 +1,5 @@
 <?php
 
-require("../../vendor/autoload.php");
-
 $google_client = new Google\Client();
 
 $google_client->setClientId('662087267373-pnt38uracj02i9gj1a7itqpt3d6hsklq.apps.googleusercontent.com');
@@ -37,15 +35,3 @@ if(isset($_GET["code"])){
 }
 
 ?>
-
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>a</title>
-	</head>
-	<body>
-		<?php
-			echo '<a href="' . $google_client->createAuthUrl() . '"><img src="/app/View/assets/css/img/google-icon3.png" alt="ícone google" class="midia-icon"></a>';
-		?>
-	</body>
-</html>

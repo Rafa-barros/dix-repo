@@ -93,7 +93,7 @@ nav p {
 }
 
 .form-group label {
-    white-space: nowrap;
+    margin-right: 7px;
 }
 
 #inputPassword {

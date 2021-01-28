@@ -1,0 +1,316 @@
+body {
+    background-color: #eeeeee;
+}
+
+.all {
+    height: calc(100vh - 85px);
+    width: 100vw;
+}
+
+/* Navbar */
+
+nav {
+    display: flex;
+    background-color: rgb(252, 252, 252);
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    margin-bottom: 15px !important;
+}
+
+nav p {
+    margin-right: 50px;
+    margin-bottom: 0;
+    color: #F5F5F5;
+    font-size: 24px;
+    font-weight: 320;
+}
+
+.logo-dix {
+    height: 80px;
+    max-width: 100%;
+}
+
+.a-logo-dix {
+    margin-left: 15%;
+}
+
+.features-containers {
+    display: flex;
+    height: 100%;
+    margin-right: 24%;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.features-containers i {
+    font-size: 26px;
+    color: rgb(36, 35, 35);
+}
+
+.features-containers a {
+    margin-right: 22px;
+}
+
+.fa-comments {
+    padding: 8px 0;
+    border-bottom: 2px solid #3984DA;
+}
+
+.fas:hover {
+    color: rgba(0, 0, 0, 0.747);
+}
+
+/* chat */
+
+
+.main-container {
+    display: flex;
+    height: calc(100% - 15px);
+    width: 80%;
+    max-width: 940px;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    background-color: rgb(252, 252, 252);
+    border-radius: 10px;
+}
+
+/* contatos */
+
+
+
+.contatos {
+    width: 310px;
+    height: 100%;
+    border-right: 1px solid rgba(0, 0, 0, 0.178);
+}
+
+.contact-list {
+    height: calc(100% - 62px);
+    overflow: auto;
+}
+
+.contatos-title-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(252, 252, 252);
+    height: 62px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.178);
+}
+
+.contatos-title-container h2 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.busca-contato {
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.contato {
+    display: flex;
+    height: 72px;
+    background-color: rgb(252, 252, 252);
+    align-items: center;
+    cursor: pointer;
+}
+
+.contato:hover {
+    background-color: rgb(245, 244, 244);
+}
+
+.foto-contato {
+    height: 62px;
+    border-radius: 100px;
+    margin: 0 10px;
+}
+
+.contato-name{
+    font-weight: 450;
+}
+
+.contact-last-message {
+    margin-bottom: 0;
+    color: rgba(0, 0, 0, 0.582);
+    margin-right: 30px;
+}
+
+/* chat */
+
+.chat {
+    height: 100%;
+    width: calc(100% - 310px);
+    background-color: rgb(252, 252, 252);
+}
+
+.chat-title-container {
+    display: flex;
+    align-items: center;
+    background-color: rgb(252, 252, 252);
+    height: 62px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.178);
+}
+
+.nome-contato-chat {
+    margin-bottom: 0;
+    margin-left: 10px;
+    font-weight: 500;
+}
+
+.foto-perfil-contato {
+    border-radius: 100px;
+    height: 35px;
+    margin-left: 30px;
+}
+
+.initial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    width: 100%;
+}
+
+.initial .fa-comment {
+    font-size: 120px;
+    height: 120px;
+}
+
+.initial-main {
+    text-align: center;
+}
+
+.initial-message span {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.initial-message p {
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.initial-message  button{
+    height: 40px;
+    background-color: #3984DA;
+}
+
+.chat-right {
+    height: calc(100% - 62px);
+}
+
+.chat-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 82px;
+    padding: 10px;
+}
+
+.chat-bottom form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.chat-bottom .form-control {
+    width: 65%;
+}
+
+.chat-bottom .form-control:focus {
+    box-shadow: none;
+}
+
+.chat-bottom .form-control:hover {
+    box-shadow: none;
+}
+
+.btn-chat-enviar {
+    font-weight: 600;
+    border: none;
+    background-color: transparent;
+    color: #3984DA;
+    margin-left: 10px;
+    cursor: pointer;
+    padding: 6px 25px;
+}
+
+.chat-messages {
+    height: calc(100% - 82px);
+    width: 100%;
+    padding: 0 20px 10px 20px;
+    overflow: auto;
+}
+
+.my-message {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.my-message-content {
+    padding: 10px 14px;
+    background-color: rgba(0, 0, 0, 0.068);
+    border-radius: 12px;
+    min-height: 44px;
+    max-width: 40%;
+}
+
+.your-message {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin-top: 6px;
+}
+
+.your-message-content {
+    padding: 10px 14px;
+    background-color: rgba(0, 0, 0, 0.021);
+    border-radius: 12px;
+    min-height: 44px;
+    max-width: 40%;
+}
+
+
+.my-message-content span {
+    justify-content: flex-end;
+    word-wrap: break-word !important;
+    overflow-wrap: break-word;
+    max-width: 220px;
+}
+
+@media(max-width: 975px){
+    .contatos {
+        width: 100%;
+    }
+
+    .chat {
+        width: 0;
+    }
+}
+
+
+@media(max-width: 600px){
+    .main-container {
+        width: 100%;
+    }
+
+    nav {
+        margin-bottom: 0 !important;
+    }
+
+    .contatos {
+        width: 100%;
+    }
+
+    .chat {
+        width: 0;
+    }
+}

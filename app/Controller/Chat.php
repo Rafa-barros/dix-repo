@@ -4,12 +4,11 @@ namespace App\Controller;
 
 class Chat {
     public function index(){
-        echo ("Teste chat");
+        require("App/View/feed/chat.php");
     }
 
     public function carregarCSS(){
-        /*
-        * ENCAMINHAR UM REQUIRE PARA O CSS DA PÁGINA EM TODO CONTROLADOR
-        */
+        echo ("<link rel='stylesheet' href='app/View/assets/css/chat.css'>");
     }
 }
+

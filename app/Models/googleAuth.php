@@ -23,12 +23,14 @@ if(isset($_GET["code"])){
 		$data = $google_service->userinfo->get();
 		$registerGoogleAuth = new App\Models\registroUsuario();
 		if($registerGoogleAuth->verificaEmail($data['email'])){
-			$registerGoogleAuth->newUserAuth($data['email'], htmlentities($data['name']), $data['id']);
-			header("Refresh:0");
+			$registerGoogleAuth->newUserAuth($data['email'], $data['name'], $data['id']);
+			header("Location: /home");
+			die();
 		}else{
 			$loginGoogleAuth = new App\Models\loginUsuario();
 			$loginGoogleAuth->loginAuth($data['email'], $data['id']);
-			header("Refresh:0");
+			header("Location: /home");
+			die();
 		}
 		unset($_SESSION['access_token']);
 	}

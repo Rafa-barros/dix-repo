@@ -86,12 +86,27 @@ class registroUsuario{
 					return $this->idVerify;
 				}
 			}else{
-				$_SESSION["existeUsuario"] = TRUE;
+				$_SESSION['existeUsuario'] = TRUE;
 				return FALSE;
 			}
 		}else{
-			$_SESSION["existeEmail"] = TRUE;
+			$_SESSION['existeEmail'] = TRUE;
 			return FALSE;
+		}
+	}
+
+	public function verifyFields($email, $pwd, $confirmPwd, $termos){
+		if(strpos($email, "@") === false){
+			$_SESSION['emailInvalido'] = TRUE;
+			return FALSE;
+		}else if(strlen($pwd) < 8){
+			$_SESSION['senhaCurta'] = TRUE;
+			return FALSE;
+		}else if($pwd !== $confirmPwd){
+			$_SESSION['confirmFalse'] = TRUE;
+			return FALSE;
+		}else{
+			return TRUE;
 		}
 	}
 

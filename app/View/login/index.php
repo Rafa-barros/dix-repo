@@ -6,7 +6,7 @@
           <div class="l-container">
             <div class="test">
               <div id="form-container" class="container-fluid">
-                <form id="login" class="pb-md-5 mb-md-3" action="login.php" method="post">
+                <form id="login" class="pb-md-5 mb-md-3" method="post">
                   <div class="form-group">
                     <div class="title">
                       <h2>Entrar</h2>

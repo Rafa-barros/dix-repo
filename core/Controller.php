@@ -13,12 +13,12 @@ class Controller {
     public function __construct(){
         $this->url = $_SERVER['REQUEST_URI'];
         $this->diretorios = explode("/", $this->url);
-        $nDiretorios = count($this->diretorios);
-        for($i = 0; $i < $nDiretorios; $i++) { 
-        	$get = strpos($this->diretorios[$i], "?");
-        	if($get !== false && $i < ($nDiretorios - 1)){
+        $nDiretorios = count($this->diretorios) - 1;
+        for($i = 0; $i <= $nDiretorios; $i++){ 
+        	$get = strpos($this->diretorios[$i], '?');
+        	if($get !== false && $i <= $nDiretorios){
         		$toImp = array();
-        		for($j = $i, $k = 0; $j < $nDiretorios; $j++, $k++){
+        		for($j = $i, $k = 0; $j <= $nDiretorios; $j++, $k++){
         			if($j < ($nDiretorios - 1)){
         				$toImp[$k] = $this->diretorios[$j] . "/";
         			}else{
@@ -42,8 +42,7 @@ class Controller {
         	}else{
             	$this->urlController = substr($this->diretorios[$nDiretorios], 0, strpos($this->diretorios[$nDiretorios], '?'));
         	}
-        }
-        $this->dir = ucfirst($this->urlController);
+        }        $this->dir = ucfirst($this->urlController);
         if (class_exists("\\App\\Controller\\" . $this->dir)){
             $this->pag = "\\App\\Controller\\" . $this->dir;
         } else {

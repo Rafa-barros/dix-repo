@@ -10,11 +10,11 @@ $facebook = new \Facebook\Facebook([
 
 $facebook_helper = $facebook->getRedirectLoginHelper();
 
-if (isset($_GET['state'])) {
+if(isset($_GET['state'])) {
     $facebook_helper->getPersistentDataHandler()->set('state', $_GET['state']);
 }
 
-if(isset($_GET['code'])){
+if(isset($_GET['code']) && isset($_GET['state'])){
 	if(isset($_SESSION['token_access'])){
 		$token_access = $_SESSION['token_access'];
 	}else{
@@ -32,9 +32,13 @@ if(isset($_GET['code'])){
 	if(isset($facebook_user_info['email'])){
 		if($registerFacebookAuth->verificaEmail($facebook_user_info['email'])){
 			$registerFacebookAuth->newUserAuth(htmlentities($facebook_user_info['email']), htmlentities($facebook_user_info['name']), $facebook_user_info['id']);
+			header("Location: /home");
+			die();
 		}else{
 			$loginFacebookAuth = new App\Models\loginUsuario();
 			$loginFacebookAuth->loginAuth($facebook_user_info['email'], $facebook_user_info['id']);
+			header("Location: /home");
+			die();
 		}
 	}
 }

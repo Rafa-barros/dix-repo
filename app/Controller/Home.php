@@ -2,10 +2,24 @@
 
 namespace App\Controller;
 
+use App\Models\Database;
+
 class Home {
     public function index(){
-    	require("app/Models/facebookAuth.php");
-    	require("app/Models/googleAuth.php");
+    	if(isset($_COOKIE['cUser']) && isset($_COOKIE['token'])){
+    		$email = base64_decode($_COOKIE['cUser']);
+    		$conn = new Database();
+    		$result = $conn->executeQuery('SELECT token FROM users WHERE email = :EMAIL', array(
+    			':EMAIL' => $email
+    		));
+    		$result = $result->fetch();
+    		if(!empty($result) && $result['token'] == $_COOKIE['token']){
+    			header("Location: /feed");
+                die();
+    		}
+    	}
+    	require_once("app/Models/facebookAuth.php");
+    	require_once("app/Models/googleAuth.php");
         require("app/View/login/index.php");
     }
 

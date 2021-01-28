@@ -11,6 +11,7 @@ class Post {
     public $conn;
     public $imgOp;
     public $nameOp;
+    public $liked;
     private $email;
     private $imgPost;
     private $descript;
@@ -59,6 +60,14 @@ class Post {
         ));
         $resultImgOp = $resultImgOp->fetch();
         $this->imgOp = $resultImgOp['0'];
+
+        //Retorna 0 ou 1 se o post foi curtido
+        $resultLiked = $this->conn->executeQuery('SELECT idPost FROM assoc_users_likes WHERE idPost = :IDPOST AND idUser = :IDUSER', array(
+            ':IDPOST' => $this->idPost,
+            ':IDUSER' => $this->idUser
+        ));
+        $resultLiked = $resultCond->fetch();
+        (empty($resultLiked)) ? ($this->liked = 0) : ($this->liked = 1);
     }
 
     public function getComments($id){
@@ -113,8 +122,6 @@ class Post {
     }
 }
 
-error_reporting(0);
-
 $postObj = new Post();
 $postObj->getInfo($_POST['email'], $_POST['postsVistos']);
 $postSel = $postObj->selPost();
@@ -128,10 +135,11 @@ echo json_encode((array(
     'imgPost' => $postSel['media'],
     "postsVistos" => "",
     "descricao" => $postSel['descript'],
-    "likes" => $postSel['likes'],
-    "valor" => $postSel['price'],
-    "gorjetas" => $postSel['amount'],
-    "idPost" => $postSel['id'],
-    "qtdComentarios" => $postSel['comments'],
+    "likes" => intval($postSel['likes']),
+    "liked" => intval($postSel['liked']),
+    "valor" => intval($postSel['price']),
+    "gorjetas" => intval($postSel['amount']),
+    "idPost" => intval($postSel['id']),
+    "qtdComentarios" => intval($postSel['comments']),
     "comentarios" => $comentariosSel
 )));

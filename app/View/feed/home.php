@@ -35,6 +35,7 @@
         postsVistos: postsVistosNav, 
         descricao: "", 
         likes: "",
+        liked: 0,
         valor: 0,
         gorjetas: 0,
         idPost: 0,

@@ -20,7 +20,8 @@ class verificarEmail{
 		$this->userId = $result['id'];
 	}
 
-	public function __construct(){
+	public function __construct($email){
+		$this->email = $email;
 		$this->conn = new Database();
 		$this->getUserId();
 	}

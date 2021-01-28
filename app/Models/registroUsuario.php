@@ -34,6 +34,8 @@ class registroUsuario{
 			':USER' => $this->username
 		));
 
+		$result = $result->fetch();
+
 		return empty($result);
 	}
 
@@ -67,7 +69,7 @@ class registroUsuario{
 		));
 
 		if(empty($result)){
-			regCodigo();
+			$this->regCodigo();
 		}else{
 			return TRUE;
 		}
@@ -79,10 +81,10 @@ class registroUsuario{
 		$this->username = $username;
 		$this->birth = $ano . "-" . $mes . "-" . $dia;
 		$this->pname = $pname;
-		if(verificaEmail($email)){
-			if(verificaUsuario()){
-				registra();
-				if(regCodigo()){
+		if($this->verificaEmail($email)){
+			if($this->verificaUsuario()){
+				$this->registra();
+				if($this->regCodigo()){
 					return $this->idVerify;
 				}
 			}else{
@@ -95,7 +97,7 @@ class registroUsuario{
 		}
 	}
 
-	public function verifyFields($email, $pwd, $confirmPwd, $termos){
+	public function verifyFields($email, $pwd, $confirmPwd){
 		if(strpos($email, "@") === false){
 			$_SESSION['emailInvalido'] = TRUE;
 			return FALSE;

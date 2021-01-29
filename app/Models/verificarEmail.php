@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Database;
+use \DateTime;
 
 class verificarEmail{
 
@@ -13,11 +14,11 @@ class verificarEmail{
 	private $conn;
 
 	private function getUserId(){
-		$result = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
+		$result = $this->conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
 			':EMAIL' => $this->email
 		));
 		$result = $result->fetch();
-		$this->userId = $result['id'];
+		$this->idUser = $result['id'];
 	}
 
 	public function __construct($email){
@@ -46,16 +47,17 @@ class verificarEmail{
 	private function verificado(){
 		$result = $this->conn->executeQuery('UPDATE users SET verify = :VERIFY WHERE id = :IDUSER', array(
 			':VERIFY' => TRUE,
-			':IDUSER' => $this->email
+			':IDUSER' => $this->idUser
 		));
 		$this->removerID();
 	}
 
 	//Essa função vai conferir no banco de dados se o id do usuário e o código batem, e vai retornar TRUE ou FALSE para a variável de sessão "verificado", caso retorne true vai chamar a função verificado()
 	private function verificaCredenciais(){
-		$result = $this->conn->executeQuery('SELECT id, email, registerDate, codeAcess FROM codigoverificacao WHERE id = :ID AND codigo = :CODIGO LIMIT 1', array(
+		$result = $this->conn->executeQuery('SELECT id, email, registerDate, codeAcess FROM codigoverificacao WHERE id = :ID AND codeAcess = :CODIGO AND email = :EMAIL LIMIT 1', array(
 			':ID' => $this->id,
-			':CODIGO' => $this->codigo
+			':CODIGO' => $this->codigo,
+			':EMAIL' => $this->email
 		));
 		$res = $result->fetch();
 		if(empty($res)){

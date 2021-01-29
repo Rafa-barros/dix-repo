@@ -25,12 +25,10 @@ if(isset($_GET["code"])){
 		if($registerGoogleAuth->verificaEmail($data['email'])){
 			$registerGoogleAuth->newUserAuth($data['email'], $data['name'], $data['id']);
 			header("Location: /home");
-			die();
 		}else{
 			$loginGoogleAuth = new App\Models\loginUsuario();
 			$loginGoogleAuth->loginAuth($data['email'], $data['id']);
 			header("Location: /home");
-			die();
 		}
 		unset($_SESSION['access_token']);
 	}

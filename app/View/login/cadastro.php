@@ -29,9 +29,9 @@
                   <label class="data-label" for="validationDefault03">Dados pessoais</label>
                   <?php
                     if(isset($_POST['pname'])){
-                      echo '<input type="text" class="form-control" id="validationDefault01" placeholder="Nome" value="' . $_POST['pname'] . '" name="pname">';
+                      echo '<input type="text" class="form-control" id="validationDefault01" placeholder="Nome" maxlength="30" value="' . $_POST['pname'] . '" name="pname">';
                     }else{
-                      echo '<input type="text" class="form-control" id="validationDefault01" placeholder="Nome" name="pname">';
+                      echo '<input type="text" class="form-control" id="validationDefault01" placeholder="Nome" maxlength="30" name="pname">';
                     }
                   ?>
                 </div>
@@ -53,19 +53,15 @@
                     </div>
                     <?php
                       if(isset($_POST['username'])){
-                        echo '<input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" value="' . $_POST['username'] . '" name="username" required>';
+                        echo '<input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" maxlength="16" value="' . $_POST['username'] . '" name="username" required>';
                       }else{
-                        echo '<input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" name="username" required>';
+                        echo '<input type="text" class="form-control" id="validationDefaultUsername" placeholder="Username" aria-describedby="inputGroupPrepend2" maxlength="16" name="username" required>';
                       }
                     ?>
                   </div>
                 </div>
           </div>
             <?php
-                if(isset($_SESSION['senhaCurta']) && $_SESSION['senhaCurta'] == TRUE){
-                  echo "Senha curta";
-                  unset($_SESSION['senhaCurta']);
-                }
                 if(isset($_SESSION['confirmFalse']) && $_SESSION['confirmFalse'] == TRUE){
                   echo "Confirmação de senha falhou";
                   unset($_SESSION['confirmFalse']);
@@ -76,9 +72,9 @@
                 <label class="senha-label" for="validationDefault03">Senha</label>
                 <?php
                   if(isset($_POST['pwd'])){
-                    echo '<input type="password" class="form-control" id="validationDefault04" placeholder="Senha" value="' . $_POST['pwd'] . '" name="pwd" required>';
+                    echo '<input type="password" class="form-control" id="validationDefault04" placeholder="Senha" minlength="8" value="' . $_POST['pwd'] . '" name="pwd" required>';
                   }else{
-                    echo '<input type="password" class="form-control" id="validationDefault04" placeholder="Senha" name="pwd" required>';
+                    echo '<input type="password" class="form-control" id="validationDefault04" placeholder="Senha" minlength="8" name="pwd" required>';
                   }
                 ?>
               </div>
@@ -86,9 +82,9 @@
                 <label for="validationDefault03"></label>
                 <?php
                   if(isset($_POST['confirmPwd'])){
-                    echo '<input type="password" class="form-control" id="validationDefault05" placeholder="Confirmar Senha" value="' . $_POST['confirmPwd'] . '" name="confirmPwd" required>';
+                    echo '<input type="password" class="form-control" id="validationDefault05" placeholder="Confirmar Senha" minlength="8" value="' . $_POST['confirmPwd'] . '" name="confirmPwd" required>';
                   }else{
-                    echo '<input type="password" class="form-control" id="validationDefault05" placeholder="Confirmar Senha" name="confirmPwd" required>';
+                    echo '<input type="password" class="form-control" id="validationDefault05" placeholder="Confirmar Senha" minlength="8" name="confirmPwd" required>';
                   }
                 ?>
               </div>

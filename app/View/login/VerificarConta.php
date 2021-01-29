@@ -5,15 +5,26 @@
     </nav>
     <div class="center">
       <div class="card-email">
-        <form class="form">
+        <?php
+          if(isset($_GET['id']) && isset($_GET['email'])){
+            echo '<form class="form" action="/VerificarConta?id=' . $_GET['id'] .'&email=' . $_GET['email'] . '&" method="get">';
+          }else{
+            echo '<form class="form" action="/VerificarConta" method="get">';
+          }
+        ?>
           <div class="form-container">
             <h1>Verificar Código</h1>
             <div class="g-border"></div>
-            
+            <?php
+              if(isset($_SESSION['erroVerify']) && $_SESSION['erroVerify'] == TRUE){
+                echo "verificação de email falhou";
+                unset($_SESSION['erroVerify']);
+              }
+            ?>
             <div class="form-group">
               <label for="exampleInputEmail1">Insira o código enviado em seu email para finalizar a ativação de conta</label>
-              <input type="email" class="form-control" id="inputPassword" placeholder="Ex.: XXXXXX">
-              <button type="button" class="btn btn-primary btn-enviar" type="submit">Enviar</button>
+              <input type="number" class="form-control" id="inputPassword" placeholder="Ex.: XXXXXX" name="codigo">
+              <button type="submit" class="btn btn-primary btn-enviar" value="Enviar" >Enviar</button>
             </div>
           </div>
         </form>

@@ -4,6 +4,7 @@ namespace App\Models;
 
 use App\Models\Database;
 use App\Models\loginUsuario;
+use App\Models\sendEmail;
 
 class registroUsuario{
 
@@ -13,6 +14,7 @@ class registroUsuario{
 	private $pname;
 	private $birth;
 	private $idVerify;
+	private $codigo;
 	private $conn;
 
 	public function __construct(){
@@ -60,6 +62,7 @@ class registroUsuario{
 		$this->idVerify = rand(1, 1000000000);
 		$this->idVerify = md5($this->idVerify . $this->email);
 		$codigo = rand(100000, 999999);
+		$this->codigo = $codigo;
 		$data = date("Y-m-d");
 		$result = $this->conn->executeQuery('INSERT INTO codigoverificacao VALUES (:ID, :EMAIL, :DATA, :CODE);', array(
 			':ID' => $this->idVerify,
@@ -85,6 +88,8 @@ class registroUsuario{
 			if($this->verificaUsuario()){
 				$this->registra();
 				if($this->regCodigo()){
+					$email = new sendEmail();
+					$email->mail($this->email, $this->idVerify, $this->codigo);
 					return $this->idVerify;
 				}
 			}else{
@@ -100,9 +105,6 @@ class registroUsuario{
 	public function verifyFields($email, $pwd, $confirmPwd){
 		if(strpos($email, "@") === false){
 			$_SESSION['emailInvalido'] = TRUE;
-			return FALSE;
-		}else if(strlen($pwd) < 8){
-			$_SESSION['senhaCurta'] = TRUE;
 			return FALSE;
 		}else if($pwd !== $confirmPwd){
 			$_SESSION['confirmFalse'] = TRUE;

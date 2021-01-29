@@ -11,12 +11,17 @@
                     <div class="title">
                       <h2>Entrar</h2>
                     </div>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome de usuário ou e-mail" name="who" required>
+                    <?php
+                      if(isset($_SESSION['LoginFailed']) && $_SESSION['LoginFailed'] == TRUE){
+                        echo "O login falhou!";
+                      }
+                    ?>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome de usuário ou e-mail" name="email" required>
                   </div>
                   <div class="form-group" style="margin-bottom: 14px;">
-                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="pass" required> 
+                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="pwd" required> 
                   </div>
-                  <button type="submit" id="btn-entrar" class="btn btn-primary btn-lg btn-block"  name="login">Entrar</button>
+                  <button type="submit" id="btn-entrar" class="btn btn-primary btn-lg btn-block" name="login">Entrar</button>
                   <div class="esqueci-div">
                     <a class="esqueci" href="/recuperarsenha">Esqueceu a senha?</a>
                   </div>

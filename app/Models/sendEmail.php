@@ -31,10 +31,10 @@ class sendEmail{
             // Content
             $mail->isHTML(true);
             $mail->Subject = 'Ativação de conta Dix';
-            $mail->Body    = 'Para a Ativação de sua conta Dix, insira esse código<br>
-                            <center>' . $codigo . '</center><br>
+            $mail->Body    = '<div class="jorge" style="background-color: blue;">Para a Ativação de sua conta Dix, insira esse código<br>
+                            ' . $codigo . '<br>
                             Ou então clique aqui!<br>
-                            <a href="http://localhost:8080/verificarConta?id=' . $id . '&email=' . $email . '&codigo=' . $codigo . '"><button>verificar</button></a>';
+                            <a href="http://localhost:8080/verificarConta?id=' . $id . '&email=' . $email . '&codigo=' . $codigo . '"><button>verificar</button></a></div>';
             $mail->AltBody = 'Para a Ativação de sua conta Dix, insira esse código ' . $codigo;
 
             $mail->send();

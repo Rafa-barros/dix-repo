@@ -76,4 +76,21 @@
         window.alert(error);
     }
     });
+
+    var apagarPost = $.ajax({
+    url:"app/Models/excluirPost.php",
+    dataType: 'json',
+    type: "POST",
+    data: {
+        id: "" //SUBSTITUIR COM VARIAVEL DO POST
+    },
+    success:function(result){
+        //Result.id
+    },
+    error:function(req, status, error){
+        window.alert(req);
+        window.alert(status);
+        window.alert(error);
+    }
+    });
 </script>

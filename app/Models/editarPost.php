@@ -19,7 +19,7 @@ $conn->executeQuery('UPDATE post SET descript = :DESC, allowView = :ALVIEW WHERE
 ));
 
 echo json_encode(array(
-    'id' => "",
+    'id' => 0,
     'descript' => "",
     'viewAuth' => ""
 ));

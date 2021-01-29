@@ -28,10 +28,10 @@
     dataType: 'json',
     type: "POST",
     data: {email: "joatanzinho",
-        nameOp: "",
+        nameOp: "", //Dono do post
         data: "", 
-        imgOp: "", 
-        imgPost: "",
+        imgOp: "", //Imagem do dono do post
+        imgPost: "", //Imagem do post
         postsVistos: postsVistosNav, 
         descricao: "", 
         likes: "",
@@ -43,7 +43,7 @@
         comentarios: [[]]
     },
     success:function(result){
-        $("#user").text(result.nameOp);
+        $("#donoDoPost").text(result.nameOp);
         $("#postImg").text(result.imgPost);
         $("#description").text(result.descricao);
         $("#likes").text(result.likes);

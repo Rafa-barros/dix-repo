@@ -57,4 +57,23 @@
         window.alert(error);
     }
     });
+
+    var editarPost = $.ajax({
+    url:"app/Models/editarPost.php",
+    dataType: 'json',
+    type: "POST",
+    data: {
+        id: "" //SUBSTITUIR COM VARIAVEL DO POST
+        descript: "",
+        viewAuth: 0
+    },
+    success:function(result){
+        //Result.id
+    },
+    error:function(req, status, error){
+        window.alert(req);
+        window.alert(status);
+        window.alert(error);
+    }
+    });
 </script>

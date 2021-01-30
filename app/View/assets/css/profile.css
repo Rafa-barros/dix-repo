@@ -401,8 +401,8 @@ button:focus {
     margin: 0;
 }
 
-.like, .comment {
-    width: 40%;
+.like, .comment, .donate {
+    width: 30%;
 }
 
 .interactive button:focus {
@@ -471,6 +471,11 @@ button:focus {
 .a-username a {
     color: rgb(10, 10, 10);
 }
+
+
+/* Modal VIP */
+
+
 
 
 @media(max-width: 1250px) {

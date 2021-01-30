@@ -21,8 +21,48 @@
     </div>
 
     <div class="VIP">
-        <button type="button" class="btn btn-warning btn-VIP">Torne-se VIP!</button>
+        <button type="button" class="btn btn-warning btn-VIP" data-toggle="modal" data-target="#modal-vip"> Torne-se VIP!</button>
     </div>
+
+    <!-- Modal VIP-->
+<div class="modal fade" id="modal-vip" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Torne-se VIP!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- Modal Donate-->
+    <div class="modal fade" id="donate-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Gorjeta!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+      </div>
+    </div>
+  </div>
+</div>
+
+
 
     <div class="profile-bottom">
 
@@ -61,6 +101,9 @@
                     <div class="interactive">
                         <div class="like">
                             <button class="btn-like"><span><i style="color: unset" class="fas fa-fire-alt"></i> Curtir</span> </button>
+                        </div>
+                        <div class="donate">
+                            <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button><span>
                         </div>
                         <div class="comment">
                             <button class="btn-comment"><i class="far fa-comment"></i>Comentários</span></button><span>
@@ -120,6 +163,9 @@
                 <div class="like">
                     <button class="btn-like"><span><i style="color: unset" class="fas fa-fire-alt"></i> Curtir</span> </button>
                 </div>
+                <div class="donate">
+                            <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button><span>
+                        </div>
                 <div class="comment">
                     <button class="btn-comment"><i class="far fa-comment"></i>Comentários</span></button><span>
                 </div>

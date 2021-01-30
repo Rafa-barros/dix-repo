@@ -254,7 +254,8 @@
     .title{
         margin-top: 10px;
         background-image: url(img/logo_blue.png);
-        background-size: calc(80px + 10%);
+        background-size: calc(80px + 20%);
+        height: 120px;
         background-repeat: no-repeat;
         background-position: center;
     }

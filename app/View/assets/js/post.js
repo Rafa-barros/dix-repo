@@ -4,14 +4,29 @@ $('.comment-area').hide();
 
 $('.btn-like').click(function (){
         var likeIcon = document.querySelectorAll('.btn-like')[0];
+        let idPost = $(this).parents(".card").attr("id");
+        let buttonLike = $(this);
 
-        if($(this).css("color") == "rgb(0, 0, 0)") $(this).css("color", "rgb(218, 51, 51)");
-        else $( this ).css( "color", "rgb(0, 0, 0)" );
+
+
+        $.ajax({
+            url:"app/Models/darLike.php",
+            dataType: 'json',
+            type: "POST",
+            data: {
+                idPost: idPost, // ID DO POST
+            },
+            complete:function(){
+                if(buttonLike.css("color") == "rgb(0, 0, 0)")buttonLike.css("color", "rgb(218, 51, 51)");
+                else buttonLike.css( "color", "rgb(0, 0, 0)" );
+            }
+            });
+
 
         var card = $(this).parents(".card")
         text = card.find(".nlikes").text();
         if($(this).css("color") == "rgb(0, 0, 0)"){
-        card.find(".nlikes").text((parseInt(text.split()[0])+ 1).toString() + " curtidas");
+            card.find(".nlikes").text((parseInt(text.split()[0])+ 1).toString() + " curtidas");
         } 
         else {card.find(".nlikes").text((parseInt(text.split()[0])- 1).toString() + " curtidas")}
 
@@ -26,21 +41,6 @@ $('.btn-comment').click(function (){
     let idPost = $(this).parents(".card").attr("id");
     var form_url = $(this).attr("action");
 
-    // $.ajax({
-    //     url: form_url,    
-    //     data: {idPost: idPost, comentarios: [], nomesComentarios:[]},     
-    //     cache: false,
-    //     success: function(resposta){
-    //         comentarios = resposta.comentarios;
-    //         pessoas = resposta.nomes;
-    //         let a = comentarios.length;
-    //         if(a > 10) a = 10;
-
-    //         for(var i = 0; i<=a; i++){
-    //             commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+pessoas[i]+'</a></span>'+comentarios[i]+'</p></div><div class="a-comment">');
-    //         }
-    //     }           
-    // });   
     
     /*
         $.ajax({
@@ -48,7 +48,7 @@ $('.btn-comment').click(function (){
             dataType: 'json',
             type: "POST",
             data: {
-                idPost: IDPOST, // ID DO POST
+                idPost: IdPost, // ID DO POST
                 comentarios: [[]]
             },
             success:function(result){

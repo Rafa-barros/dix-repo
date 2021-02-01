@@ -5,15 +5,14 @@
     </nav>
     <div class="center">
       <div class="card-email">
-        <form class="form">
+        <form class="form" method="post">
           <div class="form-container">
             <h1>Redefinir senha</h1>
             <div class="g-border"></div>
-            
             <div class="form-group">
-              <label for="exampleInputEmail1">Insira o seu email para iniciar a recuperação de conta</label>
-              <input type="email" class="form-control" id="inputPassword" placeholder="E-mail">
-              <button type="button" class="btn btn-primary btn-enviar" type="submit">Enviar</button>
+            <label for="exampleInputEmail1">Insira o seu email para iniciar a recuperação de conta</label>
+              <input type="text" class="form-control" id="inputPassword" placeholder="E-mail" name="email">
+              <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
             </div>
           </div>
         </form>

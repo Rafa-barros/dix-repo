@@ -58,7 +58,7 @@
                             <div class="price-btn mb-3">
                                 <input type="radio" id="pago" name="postLiberado" value="0">
                                 <label for="pago">pago</label>
-                                <input type="radio" id="publico" name="postLiberado" value="1">
+                                <input type="radio" id="publico" name="postLiberado" value="1" checked>
                                 <label for="publico">público</label>
                             </div>
                             <div class="input-group mb-3">

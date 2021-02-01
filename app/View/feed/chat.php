@@ -210,7 +210,7 @@
             </div>
             <div class="chat-bottom">
                 <form method="POST" class="d-flex" ajax="true">
-                    <input class="form-control" type="text" placeholder="Mensagem...">
+                    <input class="form-control" type="text" name="msg" placeholder="Mensagem...">
                     <button type="submit" class="btn-chat-enviar">Enviar</span>
                 </form>
             </div>

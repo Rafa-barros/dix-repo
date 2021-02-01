@@ -1,13 +1,22 @@
 
 <div class="all">
-    <nav class="nav">
-        <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
-        <div class="features-containers">
-            <a href="/feed"><i class="fas fa-home"></i></a> 
-            <a href="/chat"><i class="fas fa-comments"></i></a>
-            <a href=""><i class="fas fa-bell "></i></a>
-        </div>
-    </nav>
+<nav class="nav">
+    <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
+    <div class="features-containers">
+        <a href="/feed"><i class="fas fa-home"></i></a> 
+        <a href="/chat" class="i-c"><i class="fas fa-comments"></i></a>
+        <li class="nav-item avatar dropdown">
+            <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fas fa-bell"></i>
+              <span class="badge badge-danger ml-2">4</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
+              <a class="dropdown-item waves-effect waves-light notificacao" href="#"> Você não tem nenhuma notificação</a>
+            </div>
+          </li>
+    </div>
+</nav>
+
     <div class="main-container">
     <div class="contatos">
         <div class="contatos-title-container">
@@ -170,8 +179,10 @@
     </div>
     <div class="chat">
         <div class="chat-title-container">
+        <div class="d-flex chat-title-info">
             <img class="foto-perfil-contato" src="/app/View/assets/css/img/Caio.jpg" alt="foto perfil contato">
             <p class="nome-contato-chat">Marcus Vinícius</p>
+        </div>
         </div>
 
         <div class="initial">
@@ -230,6 +241,14 @@
 
     //contato slecionado
     $(".contato").click(function(){
+
+        if($("body").width() < 975) {
+            $(".contatos").hide();
+            $(".chat").css("width","100%");
+            $(".chat").show();
+            $(".chat-title-info").append('<div class=""></div>');
+        }
+
         let contato = $(this);
         let imgContato = contato.children(".foto-contato").attr("src");
         let nameContato = contato.children(".contato-info").children(".contato-name").text();

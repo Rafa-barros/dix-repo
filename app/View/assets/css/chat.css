@@ -295,6 +295,14 @@ nav p {
     .chat {
         width: 0;
     }
+
+    .features-containers i {
+        font-size: 140%;
+    }
+
+    .features-containers {
+        margin-right: 10%;
+    }
 }
 
 

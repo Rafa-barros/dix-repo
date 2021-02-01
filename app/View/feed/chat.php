@@ -3,8 +3,8 @@
     <nav class="nav">
         <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
         <div class="features-containers">
-            <a href=""><i class="fas fa-home"></i></a> 
-            <a href=""><i class="fas fa-comments"></i></a>
+            <a href="/feed"><i class="fas fa-home"></i></a> 
+            <a href="/chat"><i class="fas fa-comments"></i></a>
             <a href=""><i class="fas fa-bell "></i></a>
         </div>
     </nav>
@@ -245,10 +245,27 @@
 
         $(this).css("background-color", "rgb(245, 244, 244)");
 
+        var form_url = $(this).attr("action");
+
         $(".chat-title-container").html('<img class="foto-perfil-contato" src='+imgContato+' alt="foto perfil contato"><p class="nome-contato-chat">'+nameContato+'</p>');
         $(".chat-title-container").show();
         $(".initial").hide();
         $(".chat-right").show();
+
+        $.ajax({
+            url: form_url, 
+            method: "POST",
+            data: {
+                nameOP: $(".nome-contato-chat").text(),
+                contactName:"caiobrandini"
+            },   
+            // dataType: "json",  
+            cache: false,
+            success: function(resposta){
+            }
+        });
+
+
     });
 
     $(document).ready(function(e) {
@@ -260,13 +277,18 @@
         e.preventDefault();
         
         var form_data = $(this).serialize();
-        var form_url = $(this).attr("action");
         let msg = $(".form-control").val();
+        var form_url = $(this).attr("action");
 
         if(msg != "" && msg != " "){
             $.ajax({
-            url: form_url,    
-            data: form_data,     
+            url: form_url, 
+            method: "POST",
+            data: {
+                menssage: msg,
+                nameOP: $(".nome-contato-chat").text()
+            },   
+            // dataType: "json",  
             cache: false,
             success: function(){
 

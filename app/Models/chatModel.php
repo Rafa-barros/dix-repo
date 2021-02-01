@@ -52,11 +52,11 @@ class chatModel{
 			));
 			$res = $res->fetch();
 			if($chats[$j]['idUser'] == $this->userId){
-				$data = $this->getUserData($chats[$j]['idUser2'])
+				$data = $this->getUserData($chats[$j]['idUser2']);
 				$username = $data['username'];
 				$userImg = $data['imgUser'];
 			}else{
-				$data = $this->getUserData($chats[$j]['idUser'])
+				$data = $this->getUserData($chats[$j]['idUser']);
 				$username = $data['username'];
 				$userImg = $data['imgUser'];
 			}

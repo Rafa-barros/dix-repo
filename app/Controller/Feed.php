@@ -30,8 +30,7 @@ class Feed {
     }
 
     public function carregarCSS(){
-        /*
-        * ENCAMINHAR UM REQUIRE PARA O CSS DA PÁGINA EM TODO CONTROLADOR
-        */
+        echo ("<link rel='stylesheet' href='app/View/assets/css/feed.css'>");
     }
+
 }

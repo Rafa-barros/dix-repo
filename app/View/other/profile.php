@@ -1,11 +1,23 @@
 <nav class="nav">
-        <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
-        <div class="features-containers">
-            <a href="/feed"><i class="fas fa-home"></i></a> 
-            <a href="/chat"><i class="fas fa-comments"></i></a>
-            <a href=""><i class="fas fa-bell "></i></a>
-        </div>
+    <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
+    <div class="features-containers">
+        <a href=""><i class="fas fa-home"></i></a> 
+        <a href="/chat" class="i-c"><i class="fas fa-comments"></i></a>
+        <li class="nav-item avatar dropdown">
+            <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fas fa-bell"></i>
+              <span class="badge badge-danger ml-2">4</span>
+            </a>
+            <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
+              <a class="dropdown-item waves-effect waves-light notificacao" href="#">FernandoAbromovicko curtiu seu post </a>
+              <a class="dropdown-item waves-effect waves-light notificacao" href="#">FernandoAbromovicko curtiu seu post </a>
+              <a class="dropdown-item waves-effect waves-light notificacao" href="#">FernandoAbromovicko curtiu seu post </a>
+              <a class="dropdown-item waves-effect waves-light notificacao" href="#">FernandoAbromovicko curtiu seu post </a>
+            </div>
+          </li>
+    </div>
 </nav>
+
 
 <div class="profile">
     <div class="profile-top">

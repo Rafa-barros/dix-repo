@@ -70,6 +70,17 @@ nav p {
     color: rgba(0, 0, 0, 0.747);
 }
 
+#navbarDropdownMenuLink-5 {
+    padding-left: 0;
+    padding-right: 0;
+    cursor: pointer;
+}
+
+.notificacao {
+    padding: 18px 15px;
+}
+
+
 /* Feed */
 
 
@@ -137,10 +148,6 @@ nav p {
     opacity: 0;
     position: absolute;
     z-index: -1;
- }
-
-
- .price-btn {
  }
 
  .post-price {

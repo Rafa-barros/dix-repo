@@ -15,6 +15,7 @@
               <input type="email" class="form-control" id="inputPassword" placeholder="E-mail">
               <button type="button" class="btn btn-primary btn-enviar" type="submit">Enviar</button>
             </div>
+            
           </div>
         </form>
       </div>

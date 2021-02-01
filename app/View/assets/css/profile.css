@@ -1,16 +1,21 @@
+
+body {
+    background-color: #eeeeee;
+}
+
 /* Navbar */
 
 nav {
-    top: 0;
-    position: sticky;
-    z-index: 99;
     display: flex;
+    top: 0;
+    z-index: 10;
+    position: sticky;
     background-color: rgb(252, 252, 252);
     height: 70px;
     align-items: center;
     justify-content: space-between;
     border: 1px solid rgba(0, 0, 0, 0.178);
-    margin-bottom: 0px !important;
+    margin-bottom: 15px !important;
 }
 
 nav p {
@@ -25,6 +30,15 @@ nav p {
     height: 80px;
     max-width: 100%;
 }
+
+.btn-primary {
+    background-color: #0069D9;
+}
+
+.btn-primary:hover {
+    background-color: #0453a7;
+}
+
 
 .a-logo-dix {
     margin-left: 15%;
@@ -54,6 +68,16 @@ nav p {
 
 .fas:hover {
     color: rgba(0, 0, 0, 0.747);
+}
+
+#navbarDropdownMenuLink-5 {
+    padding-left: 0;
+    padding-right: 0;
+    cursor: pointer;
+}
+
+.notificacao {
+    padding: 18px 15px;
 }
 
 /* Fim Nav */

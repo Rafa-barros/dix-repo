@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-use App\Models\chat;
+use App\Models\chatModel;
 
 class Chat {
     public function index(){
-    	$chat = new chat();
+    	$chat = new chatModel();
         require("App/View/feed/chat.php");
     }
 

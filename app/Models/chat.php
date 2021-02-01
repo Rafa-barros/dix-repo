@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Database;
 
-class chat{
+class chatModel{
 	
 	private $userId;
 	private $email;

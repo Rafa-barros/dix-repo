@@ -19,10 +19,11 @@ while($row = $result->fetch()){
 }
 
 for ($k=0; $k<$i; $k++){
-    $comentariosJS[$k][2] = $comentarios[$k]['descript'];
-    $comentariosJS[$k][3] = $comentarios[$k]['likes'];
-    $comentariosJS[$k][4] = $comentarios[$k]['dateComment'];
-    $comentariosJS[$k][5] = $comentarios[$k]['comments'];
+    $comentariosJS[$k][0] = $comentarios[$k]['idUser'];
+    $comentariosJS[$k][1] = $comentarios[$k]['descript'];
+    $comentariosJS[$k][2] = $comentarios[$k]['likes'];
+    $comentariosJS[$k][3] = $comentarios[$k]['dateComment'];
+    $comentariosJS[$k][4] = $comentarios[$k]['comments'];
 }
 
 echo json_encode(array (

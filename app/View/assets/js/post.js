@@ -40,7 +40,36 @@ $('.btn-comment').click(function (){
     //             commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+pessoas[i]+'</a></span>'+comentarios[i]+'</p></div><div class="a-comment">');
     //         }
     //     }           
-    // });    
+    // });   
+    
+    /*
+        $.ajax({
+            url:"app/Models/loadComments.php",
+            dataType: 'json',
+            type: "POST",
+            data: {
+                idPost: IDPOST, // ID DO POST
+                comentarios: [[]]
+            },
+            success:function(result){
+                //result.comentarios[][]
+                var i = 0;
+                
+                while (result.comentarios[i][0] !== ""){
+                    commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+result.comentarios[i][0]+'</a></span>'+result.comentarios[i][1]+'</p></div><div class="a-comment">');
+                    if (i == 10){
+                        break;
+                    }
+                    i++;
+                }
+            },
+            error:function(req, status, error){
+                window.alert(req);
+                window.alert(status);
+                window.alert(error);
+            }
+            });
+        */
 
 });
 

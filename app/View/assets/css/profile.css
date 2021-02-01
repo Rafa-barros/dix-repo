@@ -1,3 +1,62 @@
+/* Navbar */
+
+nav {
+    top: 0;
+    position: sticky;
+    z-index: 99;
+    display: flex;
+    background-color: rgb(252, 252, 252);
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    margin-bottom: 0px !important;
+}
+
+nav p {
+    margin-right: 50px;
+    margin-bottom: 0;
+    color: #F5F5F5;
+    font-size: 24px;
+    font-weight: 320;
+}
+
+.logo-dix {
+    height: 80px;
+    max-width: 100%;
+}
+
+.a-logo-dix {
+    margin-left: 15%;
+}
+
+.features-containers {
+    display: flex;
+    height: 100%;
+    margin-right: 24%;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.features-containers i {
+    font-size: 26px;
+    color: rgb(36, 35, 35);
+}
+
+.features-containers a {
+    margin-right: 22px;
+}
+
+.fa-home {
+    padding: 8px 0;
+    border-bottom: 2px solid #3984DA;
+}
+
+.fas:hover {
+    color: rgba(0, 0, 0, 0.747);
+}
+
+/* Fim Nav */
 
 button:focus {
     box-shadow: none !important;
@@ -171,6 +230,7 @@ button:focus {
 }
 
 .btn-VIP {
+    font-weight: 500;
     border-radius: 4px;
     background-color: #ebb208;
     width: 120px;
@@ -223,33 +283,11 @@ button:focus {
 
 
 
-
-
-
-
-
-
-
 /* Post-Card */
-
-
-
-
-
-
-
-
-
-
 
 .profile-posts {
     max-width: 98vw;
 }
-
-
-
-
-
 
 
 
@@ -475,8 +513,26 @@ button:focus {
 
 /* Modal VIP */
 
+.modal-vip-container li {
+    font-size: 18px;
+}
 
+.center h5, .center p, .center a {
+    margin-left: 50px;
+    margin-right: 50px;
+}
 
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-vip-container {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
 
 @media(max-width: 1250px) {
     .profile-posts {
@@ -493,6 +549,14 @@ button:focus {
 
 
 @media(max-width: 800px) {
+
+    .features-containers i {
+        font-size: 140%;
+    }
+
+    .features-containers {
+        margin-right: 10%;
+    }
 
     .VIP {
         bottom: 125px;

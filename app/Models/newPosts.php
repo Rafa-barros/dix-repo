@@ -69,27 +69,7 @@ class Post {
         $resultLiked = $resultCond->fetch();
         (empty($resultLiked)) ? ($this->liked = 0) : ($this->liked = 1);
     }
-
-    public function getComments($id){
-        $resultComment = $this->conn->executeQuery('SELECT * FROM comments WHERE idPost = :ID', array(
-            ':ID' => $id
-        ));
-        $i = 0;
-        while($row = $result->fetch()){
-            $comentarios[$i] = $row;
-            $i++;
-        }
-
-        for ($k=0; $k<$i; $k++){
-            $comentariosJS[$k][2] = $comentarios[$k]['descript'];
-            $comentariosJS[$k][3] = $comentarios[$k]['likes'];
-            $comentariosJS[$k][4] = $comentarios[$k]['dateComment'];
-            $comentariosJS[$k][5] = $comentarios[$k]['comments'];
-        }
-
-        return $comentariosJS;
-    }
-
+    
     public function selPost(){
         $tam = count($this->postsVistos);
         $query = 'SELECT * FROM posts WHERE idUser = :ID';
@@ -140,6 +120,5 @@ echo json_encode((array(
     "valor" => intval($postSel['price']),
     "gorjetas" => intval($postSel['amount']),
     "idPost" => intval($postSel['id']),
-    "qtdComentarios" => intval($postSel['comments']),
-    "comentarios" => $comentariosSel
+    "qtdComentarios" => intval($postSel['comments'])
 )));

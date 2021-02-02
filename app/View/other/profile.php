@@ -1,20 +1,19 @@
+
 <nav class="nav">
     <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
     <div class="features-containers">
+        <a href=""><i class="fas fa-user"></i></a>
         <a href=""><i class="fas fa-home"></i></a> 
         <a href="/chat" class="i-c"><i class="fas fa-comments"></i></a>
-        <li class="nav-item avatar dropdown">
-            <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <i class="fas fa-bell"></i>
-              <span class="badge badge-danger ml-2">4</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
-              <a class="dropdown-item waves-effect waves-light notificacao" href="#">FernandoAbromovicko curtiu seu post </a>
-              <a class="dropdown-item waves-effect waves-light notificacao" href="#">FernandoAbromovicko curtiu seu post </a>
-              <a class="dropdown-item waves-effect waves-light notificacao" href="#">FernandoAbromovicko curtiu seu post </a>
-              <a class="dropdown-item waves-effect waves-light notificacao" href="#">FernandoAbromovicko curtiu seu post </a>
+          <div class="btn-group dropleft">
+            <button type="button" class="btn btn-secondary dropdown-toggle btn-notificacao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-bell"></i>
+                <span class="badge badge-danger ml-2">4</span>
+            </button>
+            <div class="dropdown-menu">
+                <a class="dropdown-item waves-effect waves-light notificacao" href="#"> Você não tem nenhuma notificação</a>
             </div>
-          </li>
+        </div>
     </div>
 </nav>
 

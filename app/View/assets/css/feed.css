@@ -208,14 +208,23 @@ nav p {
 /* Card top */
 
 .card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 13px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
     border: 0.3px solid rgba(63, 62, 62, 0.205);
     border-bottom: 1px solid rgb(63, 62, 62);
+}
+
+.top-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px;
+}
+
+.description {
+    margin-bottom: 0px;
+    border: 0;
 }
 
 .btn-card-follow {

@@ -39,6 +39,10 @@ nav p {
     background-color: #0453a7;
 }
 
+.badge-danger {
+    margin-left: 0px !important;
+    margin-right: 15px !important;
+}
 
 .a-logo-dix {
     margin-left: 15%;
@@ -80,7 +84,28 @@ nav p {
     padding: 18px 15px;
 }
 
-/* Fim Nav */
+.btn-notificacao {
+    background-color: transparent !important;
+    padding: 0;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.btn-notificacao:hover, .btn-notificacao:focus {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    box-shadow: 0;
+}
+
+.dropdown-menu {
+    top: 45px !important;
+    left: 60px !important;
+}
+
+.i-c {
+    margin-right: 5px !important;
+}
 
 button:focus {
     box-shadow: none !important;

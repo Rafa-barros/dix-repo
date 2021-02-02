@@ -39,6 +39,10 @@ nav p {
     background-color: #0453a7;
 }
 
+.badge-danger {
+    margin-left: 0px !important;
+    margin-right: 15px !important;
+}
 
 .a-logo-dix {
     margin-left: 15%;
@@ -79,6 +83,31 @@ nav p {
 .notificacao {
     padding: 18px 15px;
 }
+
+.btn-notificacao {
+    background-color: transparent !important;
+    padding: 0;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.btn-notificacao:hover, .btn-notificacao:focus {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    box-shadow: 0;
+}
+
+.dropdown-menu {
+    top: 45px !important;
+    left: 60px !important;
+}
+
+.i-c {
+    margin-right: 5px !important;
+}
+
+
 
 
 /* Feed */
@@ -386,6 +415,7 @@ nav p {
 }
 
 
+
 @media(max-width: 800px) {
 
     .a-logo-dix {
@@ -402,6 +432,7 @@ nav p {
     }
 
     .features-containers {
-        margin-right: 10%;
+        margin-right: 0;
     }
+    
 }

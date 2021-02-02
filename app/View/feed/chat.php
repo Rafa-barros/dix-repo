@@ -1,27 +1,30 @@
 
 <div class="all">
-<nav class="nav">
-    <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
-    <div class="features-containers">
-        <a href="/feed"><i class="fas fa-home"></i></a> 
-        <a href="/chat" class="i-c"><i class="fas fa-comments"></i></a>
-        <li class="nav-item avatar dropdown">
-            <a class="nav-link dropdown-toggle waves-effect waves-light" id="navbarDropdownMenuLink-5" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-              <i class="fas fa-bell"></i>
-              <span class="badge badge-danger ml-2">4</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg-right dropdown-secondary" aria-labelledby="navbarDropdownMenuLink-5">
-              <a class="dropdown-item waves-effect waves-light notificacao" href="#"> Você não tem nenhuma notificação</a>
+
+    <nav class="nav">
+        <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
+        <div class="features-containers">
+            <a href=""><i class="fas fa-user"></i></a>
+            <a href=""><i class="fas fa-home"></i></a> 
+            <a href="/chat" class="i-c"><i class="fas fa-comments"></i></a>
+            <div class="btn-group dropleft">
+                <button type="button" class="btn btn-secondary dropdown-toggle btn-notificacao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge badge-danger ml-2">4</span>
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item waves-effect waves-light notificacao" href="#"> Você não tem nenhuma notificação</a>
+                </div>
             </div>
-          </li>
-    </div>
-</nav>
+        </div>
+    </nav>
+
 
     <div class="main-container">
     <div class="contatos">
         <div class="contatos-title-container">
             <h2>Contatos</h2>
-            <i class="fas fa-search busca-contato"></i>
+            <i class="fas fa-search busca-contato" data-toggle="modal" data-target="#new-chat-modal"></i>
         </div>
         
         <div class="contact-list">
@@ -179,10 +182,10 @@
     </div>
     <div class="chat">
         <div class="chat-title-container">
-        <div class="d-flex chat-title-info">
-            <img class="foto-perfil-contato" src="/app/View/assets/css/img/Caio.jpg" alt="foto perfil contato">
-            <p class="nome-contato-chat">Marcus Vinícius</p>
-        </div>
+            <div class="d-flex chat-title-info">
+                <img class="foto-perfil-contato" src="/app/View/assets/css/img/Caio.jpg" alt="foto perfil contato">
+                <p class="nome-contato-chat">Marcus Vinícius</p>
+            </div>
         </div>
 
         <div class="initial">
@@ -191,7 +194,7 @@
                 <div class="initial-message"> 
                     <span>Suas mensagens</span> 
                     <p>Envie mensagens diretas para seus amigos</p>
-                    <button type="button" class="btn btn-primary">Enviar mensagem</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#new-chat-modal">Enviar mensagem</button>
                 </div>
             </div>
         </div>
@@ -229,141 +232,29 @@
     </div>
 </div>
 
-<script>
+<!-- Modal Novo chat -->
+<div class="modal fade" id="new-chat-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Nova menssagem</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class="input-group mb-2 mt-2">
+            <div class="input-group-prepend">
+                <span class="input-group-text" id="basic-addon1">@</span>
+            </div>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-primary new-chat-btn">Entrar em contato</button>
+      </div>
+    </div>
+  </div>
+</div>
 
-    $(".chat-title-container").hide();
-    $(".chat-right").hide();
-
-    if(window.matchMedia("(max-width: 975px)").matches){
-            $(".chat").hide();
-    } 
-
-
-    //contato slecionado
-    $(".contato").click(function(){
-
-        if($("body").width() < 975) {
-            $(".contatos").hide();
-            $(".chat").css("width","100%");
-            $(".chat").show();
-            $(".chat-title-info").append('<div class=""></div>');
-        }
-
-        let contato = $(this);
-        let imgContato = contato.children(".foto-contato").attr("src");
-        let nameContato = contato.children(".contato-info").children(".contato-name").text();
-        let listaContatos = $(".contato");
-
-
-        listaContatos.each(function(){
-            if($(this).css("background-color") == "rgb(245, 244, 244)"){
-                $(this).css("background-color", "rgb(252, 252, 252)");
-                return;
-            }
-        });
-
-        $(this).css("background-color", "rgb(245, 244, 244)");
-
-        var form_url = $(this).attr("action");
-
-        $(".chat-title-container").html('<img class="foto-perfil-contato" src='+imgContato+' alt="foto perfil contato"><p class="nome-contato-chat">'+nameContato+'</p>');
-        $(".chat-title-container").show();
-        $(".initial").hide();
-        $(".chat-right").show();
-
-        $.ajax({
-            url: form_url, 
-            method: "POST",
-            data: {
-                nameOP: $(".nome-contato-chat").text(),
-                contactName:"caiobrandini"
-            },   
-            // dataType: "json",  
-            cache: false,
-            success: function(resposta){
-            }
-        });
-
-
-    });
-
-    $(document).ready(function(e) {
-    
-
-    //ao enviar mensagem
-    $("form[ajax=true]").submit(function(e) {
-        
-        e.preventDefault();
-        
-        var form_data = $(this).serialize();
-        let msg = $(".form-control").val();
-        var form_url = $(this).attr("action");
-
-        if(msg != "" && msg != " "){
-            $.ajax({
-            url: form_url, 
-            method: "POST",
-            data: {
-                menssage: msg,
-                nameOP: $(".nome-contato-chat").text()
-            },   
-            // dataType: "json",  
-            cache: false,
-            success: function(){
-
-                //envia menssagem
-                let msg = $(".form-control").val();
-                $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(msg)+'</span></div></div>');
-
-
-                //apagar valor do submit
-                $(".form-control").val("");
-
-                let messages = $(".chat-messages").children();
-                let lastMessageDiv = messages[messages.length-1];
-
-                let lastMessage = $(".chat-messages").find(lastMessageDiv).find(".message-content span").text();
-
-                let listaContatos = $(".contato");
-
-                listaContatos.each(function(){
-                    if($(this).css("background-color") == "rgb(245, 244, 244)"){
-                        
-                        if(lastMessage.length > 16){
-                            lastMessage = lastMessage.slice(0,16) + '...';
-                        }
-
-                        $(this).find(".contato-info p").text(lastMessage);
-                        return;
-                    }
-                });
-                
-                //descer barra do chat
-                $(".chat-messages").scrollTop(100000);
-
-
-                //elevar contato
-                listaContatos.each(function(){
-                    if($(this).css("background-color") == "rgb(245, 244, 244)"){
-                        $(this).remove();
-                        $(".contact-list").prepend('<div class="contato" style="background-color: rgb(245, 244, 244)">'+$(this).html()+'</div>');
-                    }
-                });
-
-
-            }           
-        });    
-
-
-        
-        }
-
-    });
-    
-});
-
-function htmlEntities(str) {
-    return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-
-</script>
+<script src="app/View/assets/js/chat.js"></script>

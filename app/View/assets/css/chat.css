@@ -43,6 +43,10 @@ nav p {
     background-color: #0453a7;
 }
 
+.badge-danger {
+    margin-left: 0px !important;
+    margin-right: 15px !important;
+}
 
 .a-logo-dix {
     margin-left: 15%;
@@ -65,7 +69,7 @@ nav p {
     margin-right: 22px;
 }
 
-.fa-comments {
+.fa-home {
     padding: 8px 0;
     border-bottom: 2px solid #3984DA;
 }
@@ -82,6 +86,29 @@ nav p {
 
 .notificacao {
     padding: 18px 15px;
+}
+
+.btn-notificacao {
+    background-color: transparent !important;
+    padding: 0;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.btn-notificacao:hover, .btn-notificacao:focus {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    box-shadow: 0;
+}
+
+.dropdown-menu {
+    top: 45px !important;
+    left: 60px !important;
+}
+
+.i-c {
+    margin-right: 5px !important;
 }
 
 
@@ -174,10 +201,38 @@ nav p {
 
 .chat-title-container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     background-color: rgb(252, 252, 252);
     height: 62px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.178);
+}
+
+.chat-title-info {
+    height: 100%;
+    align-items: center;
+}
+
+.btn-return-mob {
+    font-size: 17px;
+    font-weight: 700;
+    color: #0e72dd;
+    margin-right: 36px;
+    cursor: pointer;
+}
+
+.modal-footer {
+    justify-content: center;
+}
+
+.new-chat-btn {
+    background-color: #0069D9;
+}
+
+.modal-body .input-group {
+    max-width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .nome-contato-chat {

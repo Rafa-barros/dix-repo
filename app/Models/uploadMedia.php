@@ -12,7 +12,7 @@ class uploadMedia{
 	private $conn;
 
 	private function getUserId(){
-		$this->email = 'jorginho';
+		$this->email = 'viniciusventurini@estudante.ufscar.br';
 		$result = $this->conn->executeQuery('SELECT id, posts FROM users WHERE email = :EMAIL', array(
 			':EMAIL' => $this->email
 		));

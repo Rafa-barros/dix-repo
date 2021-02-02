@@ -14,4 +14,3 @@ class Chat {
         echo ("<link rel='stylesheet' href='app/View/assets/css/chat.css'>");
     }
 }
-

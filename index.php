@@ -24,7 +24,7 @@
     <body>
     <!-- Variáveis do Javascript pré-inicializadas -->
     <script>
-        var postsVistosNav = [];
+        var postsVistosNav = [0];
     </script>
     <?php
         $ctrl->carregar();

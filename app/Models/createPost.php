@@ -49,5 +49,5 @@ $upMedia = new uploadMedia();
 $media = $upMedia->uploadPostMedia();
 
 $novoPost = new createPost();
-$novoPost->getInfo('jorginho');
+$novoPost->getInfo('delimaoaskov@gmail.com');
 $novoPost->uploadPost($media, (htmlentities($_POST['descriptPost'])), (htmlentities($_POST['postLiberado'])), (htmlentities($_POST['valor'])));

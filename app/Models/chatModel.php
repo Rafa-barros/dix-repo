@@ -102,6 +102,34 @@ class chatModel{
 		));
 	}
 
+	public function novoChat($username){
+		$result = $this->conn->executeQuery('SELECT id FROM users WHERE username = :USER', array(
+			':USER' => $username
+		));
+		$result = $result->fetch();
+		if(!empty($result)){
+			$id = $result['id'];
+			$res = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :IDUSER AND idUser2 = :IDUSER2', array(
+				':IDUSER' => $this->userId,
+				':IDUSER2' => $id
+			));
+			$res = $res->fetch();
+			if(!empty($res)){
+				$mensagens = $this->carregarMensagens($res['id']);
+				return $mensagens;
+			}else{
+				$this->conn->executeQuery('INSERT INTO chats (idUser, idUser2) VALUES (:ID, :ID2)', array(
+					':ID' => $this->userId,
+					':ID2' => $id
+				));
+				return NULL;
+			}
+		}else{
+			$_SESSION['usuarioNaoEncontrado'] = TRUE;
+			return NULL;
+		}
+	}
+
 }
 
 ?>

@@ -11,6 +11,7 @@ class Post {
     public $conn;
     public $imgOp;
     public $nameOp;
+    public $userOp;
     public $liked;
     private $email;
     private $imgPost;
@@ -54,6 +55,13 @@ class Post {
         $resultName = $resultName->fetch();
         $this->nameOp = $resultName['0'];
 
+        //Encontra o nome do dono do post
+        $resultUser = $this->conn->executeQuery('SELECT username FROM users WHERE id = :ID', array(
+            'ID' => $this->idOp
+        ));
+        $resultUser = $resultUser->fetch();
+        $this->userOp = $resultUser['0'];
+
         //Encontra a foto de perfil do dono do post
         $resultImgOp = $this->conn->executeQuery('SELECT imgUser FROM users WHERE id = :ID', array(
             ':ID' => $this->idOp
@@ -66,17 +74,16 @@ class Post {
             ':IDPOST' => $this->idPost,
             ':IDUSER' => $this->idUser
         ));
-        $resultLiked = $resultCond->fetch();
+        $resultLiked = $resultLiked->fetch();
         (empty($resultLiked)) ? ($this->liked = 0) : ($this->liked = 1);
     }
     
     public function selPost(){
         $tam = count($this->postsVistos);
         $query = 'SELECT * FROM posts WHERE idUser = :ID';
-        for ($i=0;$i<$tam;$i++){
+        for ($i=0;$i<$this->i;$i++){
             $query = $query . ' AND NOT id = ' . $this->postsVistos[$i];
         }
-
         $posts = $this->conn->executeQuery($query, array(
             ':ID' => $this->idOp
         ));
@@ -87,7 +94,6 @@ class Post {
                 $this->postSel = $row;
             }
         }
-
         if ($this->postSel['allowView'] == 0){
             $resultUserBlocked = $this->conn->executeQuery('SELECT idPost FROM assoc_posts WHERE idUser = :ID LIMIT 1', array(
                 ':ID' => $this->idUser
@@ -105,18 +111,18 @@ class Post {
 $postObj = new Post();
 $postObj->getInfo($_POST['email'], $_POST['postsVistos']);
 $postSel = $postObj->selPost();
-$comentariosSel = $postObj->getComments($postSel['id']);
 
 echo json_encode((array(
     'email' => "", 
     'nameOp' => $postObj->nameOp,
+    'userOp' => $postObj->userOp,
     'data' => $postSel['postDate'],
     'imgOp' => $postObj->imgOp, 
     'imgPost' => $postSel['media'],
     "postsVistos" => "",
     "descricao" => $postSel['descript'],
     "likes" => intval($postSel['likes']),
-    "liked" => intval($postSel['liked']),
+    "liked" => $postObj->liked,
     "valor" => intval($postSel['price']),
     "gorjetas" => intval($postSel['amount']),
     "idPost" => intval($postSel['id']),

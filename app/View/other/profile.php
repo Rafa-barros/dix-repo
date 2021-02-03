@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="/app/View/assets/css/nav.css">
 
 <nav class="nav">
     <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 

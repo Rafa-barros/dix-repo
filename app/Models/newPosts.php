@@ -69,13 +69,6 @@ class Post {
         $resultImgOp = $resultImgOp->fetch();
         $this->imgOp = $resultImgOp['0'];
 
-        //Retorna 0 ou 1 se o post foi curtido
-        $resultLiked = $this->conn->executeQuery('SELECT idPost FROM assoc_users_likes WHERE idPost = :IDPOST AND idUser = :IDUSER', array(
-            ':IDPOST' => $this->idPost,
-            ':IDUSER' => $this->idUser
-        ));
-        $resultLiked = $resultLiked->fetch();
-        (empty($resultLiked)) ? ($this->liked = 0) : ($this->liked = 1);
     }
     
     public function selPost(){
@@ -94,6 +87,15 @@ class Post {
                 $this->postSel = $row;
             }
         }
+
+        //Retorna 0 ou 1 se o post foi curtido
+        $resultLiked = $this->conn->executeQuery('SELECT * FROM assoc_users_likes WHERE idPost = :IDPOST AND idUser = :IDUSER', array(
+            ':IDPOST' => $this->postSel['id'],
+            ':IDUSER' => $this->idUser
+        ));
+        $resultLiked = $resultLiked->fetch();
+        empty($resultLiked) ? $this->liked = 0 : $this->liked = 1;
+
         if ($this->postSel['allowView'] == 0){
             $resultUserBlocked = $this->conn->executeQuery('SELECT idPost FROM assoc_posts WHERE idUser = :ID LIMIT 1', array(
                 ':ID' => $this->idUser

@@ -80,6 +80,21 @@ nav p {
     cursor: pointer;
 }
 
+.top-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px;
+}
+
+.description {
+    margin-bottom: 0px;
+    border: 0;
+    border-radius: 5px;
+    padding: 6px 20px;
+    height: 40%;
+}
+
 .notificacao {
     padding: 18px 15px;
 }
@@ -156,7 +171,7 @@ button:focus {
     padding-right: 60px;
 }
 
-.description {
+.prof-description {
     text-align: center;
     font-size: 15px;
     color: rgb(88, 88, 88);
@@ -298,6 +313,10 @@ button:focus {
     background-color: #FFC107;
 }
 
+.btn-editar-perfil {
+    background-color: #3984DA;
+}
+
 /* Area lateral */
 
 .profile-l-content {
@@ -357,14 +376,9 @@ button:focus {
 /* Card top */
 
 .card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 13px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    border: 0.3px solid rgba(63, 62, 62, 0.205);
-    border-bottom: 1px solid rgb(63, 62, 62);
 }
 
 .btn-card-follow {

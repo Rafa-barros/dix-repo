@@ -3,6 +3,16 @@ body {
     background-color: rgb(241, 241, 241);
 }
 
+
+
+/* Post-Card */
+
+.profile-posts {
+    max-width: 98vw;
+}
+
+
+
 .card {
     border: 0;
     width: 100vw;
@@ -13,18 +23,39 @@ body {
     border-radius: 8px;
     box-shadow: 0 5px 15px 0 rgba(46, 45, 45, 0.43);
     margin-bottom: 40px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Card top */
 
 .card-top {
-    display: flex;
-    align-items: center;
     padding: 13px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    border: 0.3px solid rgba(63, 62, 62, 0.205);
-    border-bottom: 1px solid rgb(63, 62, 62);
+}
+
+.btn-card-follow {
+    height: 30px;
+    border-radius: 16px;
+    margin-right: 15px;
+    background-color: rgb(57, 132, 218); 
+    text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    font-size: 14.5px;
+}
+
+
+
+.btn-card-follow:focus {
+    box-shadow: none;
+}
+
+.l-card-top {
+    display: flex;
+    margin-left: 15px;
 }
 
 .profile-image {
@@ -125,8 +156,8 @@ body {
     margin: 0;
 }
 
-.like, .comment {
-    width: 40%;
+.like, .comment, .donate {
+    width: 30%;
 }
 
 .interactive button:focus {
@@ -143,7 +174,6 @@ body {
 .a-comment {
     display: flex;
     margin-left: 20px;
-    /* margin-top: 10px; */
 }
 
 .comment-area {

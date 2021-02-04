@@ -8,7 +8,7 @@
           <div class="btn-group dropleft">
             <button type="button" class="btn btn-secondary dropdown-toggle btn-notificacao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell"></i>
-                <span class="badge badge-danger ml-2">4</span>
+                <span class="badge badge-danger ml-2">0</span>
             </button>
             <div class="dropdown-menu">
                 <a class="dropdown-item waves-effect waves-light notificacao" href="#"> Você não tem nenhuma notificação</a>
@@ -33,7 +33,7 @@
             </div>
         </div>
         <div class="profile-btn-area">
-            <button type="button" class="btn btn-outline-primary btn-profile-follow">Seguir</button>
+        <button type="button" class="btn btn-outline-primary btn-profile-follow" style="background-color: rgb(57, 132, 218); color: white;">Seguindo <i class="fas fa-check check-follow-profile"></i></button>
             <button type="button" class="btn btn-primary btn-profile-message">Mensagem</button>
         </div>
         <div class="profile-img-container-border-bottom"></div>
@@ -249,6 +249,7 @@
 <script src="app/View/assets/js/profile.js" class="deletar-2" ></script>
 
 <script>
+
 
 $('.comment-area').hide();
 

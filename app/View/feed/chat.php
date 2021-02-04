@@ -5,12 +5,12 @@
         <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
         <div class="features-containers">
             <a href=""><i class="fas fa-user"></i></a>
-            <a href=""><i class="fas fa-home"></i></a> 
+            <a href="/feed"><i class="fas fa-home"></i></a> 
             <a href="/chat" class="i-c"><i class="fas fa-comments"></i></a>
             <div class="btn-group dropleft">
                 <button type="button" class="btn btn-secondary dropdown-toggle btn-notificacao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-bell"></i>
-                    <span class="badge badge-danger ml-2">4</span>
+                    <span class="badge badge-danger ml-2">0</span>
                 </button>
                 <div class="dropdown-menu">
                     <a class="dropdown-item waves-effect waves-light notificacao" href="#"> Você não tem nenhuma notificação</a>
@@ -224,7 +224,7 @@
             </div>
             <div class="chat-bottom">
                 <form method="POST" class="d-flex" ajax="true">
-                    <input class="form-control" type="text" name="msg" placeholder="Mensagem...">
+                    <input class="form-control" type="text" name="msg" placeholder="Mensagem..." autocomplete="off">
                     <button type="submit" class="btn-chat-enviar">Enviar</span>
                 </form>
             </div>
@@ -258,3 +258,9 @@
 </div>
 
 <script src="app/View/assets/js/chat.js"></script>
+
+<!-- 
+    By: Caio C. Brandini da Silva - 2021
+
+    Linkedin: https://www.linkedin.com/in/caiobrandini/
+ -->

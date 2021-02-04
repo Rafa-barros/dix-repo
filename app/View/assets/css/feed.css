@@ -32,7 +32,7 @@ nav p {
 }
 
 .btn-primary {
-    background-color: #0069D9;
+    background-color: rgb(57, 132, 218);
 }
 
 .btn-primary:hover {
@@ -423,10 +423,6 @@ nav p {
 
 @media(max-width: 800px) {
 
-    .a-logo-dix {
-        margin-left: 24px;
-    }
-
     .card {
         margin-bottom: 20px;
         width: 95vw;
@@ -436,8 +432,46 @@ nav p {
         font-size: 140%;
     }
 
+    .a-logo-dix {
+        margin-left: 24px;
+    }
+
     .features-containers {
         margin-right: 0;
+    }
+
+
+
+    .description {
+        padding: 2px 4px;
+    }
+
+    .top-card-top {
+        padding: 5px 12px;
+    }
+
+    .top-card-top {
+        justify-content: space-between;
+        padding-bottom: 14px;
+    }
+
+    .l-card-top {
+        margin: 0;
+    }
+
+    .btn-card-follow {
+        margin: 0;
+    }
+
+    .interactive {
+        font-size: 16px;
+        position: relative;
+        right: 20px;
+        padding: 12px 0;
+    }
+
+    .comment-area {
+        font-size: 16px;
     }
     
 }

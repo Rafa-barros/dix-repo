@@ -388,7 +388,14 @@ nav p {
 }
 
 
+@media(max-width: 800px) {
+    .not-pop {
+        display: none !important;
+    }
+}
+
 @media(max-width: 600px){
+    
     .main-container {
         width: 100%;
     }

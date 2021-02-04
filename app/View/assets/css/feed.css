@@ -428,6 +428,10 @@ nav p {
         width: 95vw;
     }
 
+    .not-pop {
+        display: none !important;
+    }
+
     .features-containers i {
         font-size: 140%;
     }
@@ -439,7 +443,6 @@ nav p {
     .features-containers {
         margin-right: 0;
     }
-
 
 
     .description {

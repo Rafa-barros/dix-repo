@@ -10,7 +10,7 @@
                 <i class="fas fa-bell"></i>
                 <span class="badge badge-danger ml-2">0</span>
             </button>
-            <div class="dropdown-menu">
+            <div class="dropdown-menu not-pop">
                 <a class="dropdown-item waves-effect waves-light notificacao" href="#"> Você não tem nenhuma notificação</a>
             </div>
         </div>
@@ -113,6 +113,19 @@
      <!-- post 1 -->
      <div class="card">
                 <div class="card-top">
+                    <div class="card-options-container" style="display: flex; justify-content: flex-end;">
+
+                        <div class="btn-group dropup">
+                            <button type="button" class="btn dropdown-toggle btn-edit-post" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-ellipsis-h mr-4" style="font-size:22px; color:rgb(142, 142, 142,0.7); cursor: pointer;"></i>
+                            </button>
+                            <div class="post-edit-pop dropdown-menu ">
+                                <button class="dropdown-item" type="button">Editar postagem</button>
+                                <button class="dropdown-item" type="button">Apagar postagem</button>
+                            </div>
+                        </div>
+                        
+                    </div>
                     <div class="top-card-top">
                         <div class="l-card-top">
                             <a href=""><img class="profile-image" src="/app/View/assets/css/img/Caio.jpg" alt="Foto perfil"></a>
@@ -251,6 +264,14 @@
 <script>
 
 
+//Redirecionar notficações mobile
+
+$('.fa-bell').click(function(){
+    if(window.matchMedia("(max-width: 800px)").matches){
+        location.replace("/mobNot");
+    } 
+});
+
 $('.comment-area').hide();
 
 //Área lateral
@@ -334,6 +355,42 @@ var flag = 300;
       script2.src= 'app/View/assets/js/profile.js';
       head.appendChild(script2).classList.toggle("deletar-2");
     }
+
+    // var editarPost = $.ajax({
+    // url:"app/Models/editarPost.php",
+    // dataType: 'json',
+    // type: "POST",
+    // data: {
+    //     id: "" //SUBSTITUIR COM VARIAVEL DO POST
+    //     descript: "",
+    //     viewAuth: 0
+    // },
+    // success:function(result){
+    //     //Result.id
+    // },
+    // error:function(req, status, error){
+    //     window.alert(req);
+    //     window.alert(status);
+    //     window.alert(error);
+    // }
+    // });
+
+    // var apagarPost = $.ajax({
+    // url:"app/Models/excluirPost.php",
+    // dataType: 'json',
+    // type: "POST",
+    // data: {
+    //     id: "" //SUBSTITUIR COM VARIAVEL DO POST
+    // },
+    // success:function(result){
+    //     //Result.id
+    // },
+    // error:function(req, status, error){
+    //     window.alert(req);
+    //     window.alert(status);
+    //     window.alert(error);
+    // }
+    // });
 
 </script>
 

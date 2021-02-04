@@ -12,7 +12,7 @@
                     <i class="fas fa-bell"></i>
                     <span class="badge badge-danger ml-2">0</span>
                 </button>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu not-pop">
                     <a class="dropdown-item waves-effect waves-light notificacao" href="#"> Você não tem nenhuma notificação</a>
                 </div>
             </div>
@@ -258,6 +258,15 @@
 </div>
 
 <script src="app/View/assets/js/chat.js"></script>
+<script>
+    //Redirecionar notficações mobile
+
+    $('.fa-bell').click(function(){
+        if(window.matchMedia("(max-width: 800px)").matches){
+            location.replace("/mobNot");
+        } 
+    });
+</script>
 
 <!-- 
     By: Caio C. Brandini da Silva - 2021

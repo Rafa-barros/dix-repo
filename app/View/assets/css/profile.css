@@ -84,13 +84,6 @@ nav p {
     cursor: pointer;
 }
 
-.top-card-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 13px;
-}
-
 .description {
     margin-bottom: 0px;
     border: 0;
@@ -117,7 +110,7 @@ nav p {
     box-shadow: 0;
 }
 
-.dropdown-menu {
+.not-pop {
     top: 45px !important;
     left: 60px !important;
 }
@@ -361,7 +354,13 @@ button:focus {
     max-width: 98vw;
 }
 
+.post-edit-pop {
+    left: -100px !important;
+}
 
+.btn-edit-post::after {
+    display: none !important;
+}
 
 .card {
     border: 0;
@@ -383,6 +382,18 @@ button:focus {
     padding: 13px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+}
+
+.top-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px;
+}
+
+.dropdown-toggle {
+    background-color: transparent;
+    padding: 0;
 }
 
 .btn-card-follow {
@@ -617,6 +628,15 @@ button:focus {
 
 @media(max-width: 800px) {
 
+    .post-edit-pop {
+        top: -10px !important;
+        left: -56px !important;
+    }
+
+     .not-pop {
+         display: none !important;
+    }
+    
     .a-logo-dix {
         margin-left: 24px;
     }

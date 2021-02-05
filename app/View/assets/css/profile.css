@@ -612,6 +612,71 @@ button:focus {
     margin-right: auto;
 }
 
+/* Editar Post */
+
+#new-post {
+    box-shadow: 0 5px 11px 0 rgba(46, 45, 45, 0.43);
+    padding: 12px 30px;
+}
+
+#new-post h1 {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+/* .description {
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    border-radius: 5px;
+    padding: 6px 20px;
+    height: 40%;
+} */
+
+.edit-post-description {
+    border: none;
+    height: 70px;
+}
+
+.edit-post-description:hover {
+    box-shadow: none;
+}
+
+.edit-post-description:focus {
+    box-shadow: none;
+}
+
+.new-post-btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.upload-label {
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 0;
+ }
+
+ .upload-label:hover {
+    color: rgb(64, 66, 209);
+    transition: 0.3s;
+ }
+ 
+ #upload {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+ }
+
+ .post-price {
+     max-width: 130px;
+     width: 20%;
+ }
+
+ .fa-images {
+     display: flex;
+     align-items: center;
+ }
+
 @media(max-width: 1250px) {
     .profile-posts {
         margin-left: auto;
@@ -636,7 +701,7 @@ button:focus {
      .not-pop {
          display: none !important;
     }
-    
+
     .a-logo-dix {
         margin-left: 24px;
     }

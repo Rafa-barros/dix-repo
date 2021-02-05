@@ -20,3 +20,61 @@ function follow() {
         $(".nfollowers").text((parseInt(nfollowers)- 1).toString() );
     }
 }
+
+var postEditado = "";
+
+$(".edit-post-drop").click(function(){
+    let card = $(this).closest('.card');
+    let cardId = card.attr('id');
+    
+    //$.ajax({
+    // url:"app/Models/editarPost.php",
+    // dataType: 'json',
+    // type: "POST",
+    // data: {
+    //     id: cardId,
+    //     descript: "",
+    //     viewAuth: 0
+    // },
+    // success:function(result){
+    //     //Result.id
+    // },
+    // error:function(req, status, error){
+    //     window.alert(req);
+    //     window.alert(status);
+    //     window.alert(error);
+    // }
+    // });
+
+});
+
+
+$(".delete-post-drop").click(function(){
+    cardDel = $(this).closest('.card');
+    $('#modal-del-post').modal('show');
+});
+
+$(".btn-deletar-post").click(function(){
+
+    let id = cardDel.attr('id');
+    cardDel.remove();
+
+    // $.ajax({
+    // url:"app/Models/excluirPost.php",
+    // dataType: 'json',
+    // type: "POST",
+    // data: {
+    //     id: id
+    // },
+    // success:function(result){
+    //      cardDel.remove();
+    // },
+    // error:function(req, status, error){
+    //     window.alert(req);
+    //     window.alert(status);
+    //     window.alert(error);
+    // }
+    // });
+
+    $('#modal-del-post').modal('hide');
+});

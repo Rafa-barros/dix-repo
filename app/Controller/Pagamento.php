@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-class Profile {
+class Pagamento {
     public function index(){
         require('app/Models/gerarTokenPS.php');
         $token = new Token();
@@ -32,11 +32,11 @@ class Profile {
                 echo ("<p>Os dados do cartão e de cobrança são obrigatórios</p>");
             }
         } else {
-            echo ("<p>Os dados do comprador, do cartão e de cobrança são obrigatórios</p>")
+            echo ("<p>Os dados do comprador, do cartão e de cobrança são obrigatórios</p>");
         }
         //require("App/View/other/PAGAMENTO???.php");
     }
-
+ 
     public function carregarCSS(){
         echo ("<link rel='stylesheet' href='app/View/assets/css/profile.css'>");
     }

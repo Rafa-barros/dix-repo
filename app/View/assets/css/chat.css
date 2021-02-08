@@ -320,6 +320,14 @@ nav p {
     padding: 6px 25px;
 }
 
+.btn-chat-enviar:focus {
+    outline: 0px;
+}
+
+.btn-chat-enviar:hover {
+    color: #6b99ce;
+}
+
 .chat-messages {
     height: calc(100% - 82px);
     width: 100%;
@@ -364,6 +372,41 @@ nav p {
     overflow-wrap: break-word;
     max-width: 220px;
 }
+
+.notificacao {
+    display: flex;
+    padding: 24px 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.068);
+    align-items: center;
+}
+
+.notificacao:hover, .notificacao:focus {
+    background-color: rgba(77, 77, 77, 0.082);
+}
+
+.notificacao span {
+    color: rgba(0, 0, 0, 0.733);
+}
+
+.notificacao a {
+    color: rgba(0, 0, 0, 0.733);
+    font-weight: 600;
+    margin-right: 0;
+}
+
+.like-icon, .comment-icon {
+    margin-right: 10px;
+    font-size: 20px !important;
+}
+
+.like-icon {
+    color: rgb(218, 51, 51) !important;
+}
+
+.comment-icon {
+    color: rgb(62, 62, 219) !important; 
+}
+
 
 @media(max-width: 975px){
     .contatos {

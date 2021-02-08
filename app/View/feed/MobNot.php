@@ -8,12 +8,14 @@
 </nav>
 <div class="not-container">
 
+    <div class="notificacao">
+        <i class="fas fa-fire-alt like-icon"></i>
+        <span> <a href="">MarcusCaruso</a>  curtiu a sua publicação! </span>
+    </div>
 
     <div class="notificacao">
-        <span>
-            Você não possui novas notificações 
-        </span>
-    </div>
-    
+    <i class="far fa-comment comment-icon"></i>
+        <span> <a href="">MarcusCaruso</a> curtiu a sua publicação! </span>
+    </div>  
 
 </div>

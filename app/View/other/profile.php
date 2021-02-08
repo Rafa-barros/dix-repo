@@ -33,8 +33,9 @@
             </div>
         </div>
         <div class="profile-btn-area">
-        <button type="button" class="btn btn-outline-primary btn-profile-follow" style="background-color: rgb(57, 132, 218); color: white;">Seguindo <i class="fas fa-check check-follow-profile"></i></button>
-            <button type="button" class="btn btn-primary btn-profile-message">Mensagem</button>
+            <button type="button" class="btn btn-outline-primary btn-profile-follow" style="background-color: rgb(57, 132, 218); color: white;">Seguindo <i class="fas fa-check check-follow-profile"></i></button>
+            <button type="button" class="btn btn-primary btn-profile-message mr-1" id="gorjeta-profile" data-toggle="modal" data-target="#donate-modal">Gorjeta <i class="fas fa-coins"></i> </button>
+            <button type="button" class="btn btn-primary btn-profile-message btn-profile-message-o">Mensagem</button> <br/>
         </div>
         <div class="profile-img-container-border-bottom"></div>
     </div>
@@ -42,7 +43,7 @@
     <div class="VIP">
         <!-- BOTAR PHP AQUI -->
         <button type="button" class="btn btn-warning btn-VIP" data-toggle="modal" data-target="#modal-vip"> Torne-se VIP!</button>
-        <!-- <button type="button" class="btn btn-primary btn-editar-perfil" data-toggle="modal" data-target="#modal-edit-prof"> Editar Perfil</button> -->
+        <button type="button" class="btn btn-primary btn-editar-perfil" data-toggle="modal" data-target="#modal-edit-prof"> Editar Perfil</button>
     </div>
 
     <!-- Modal VIP-->
@@ -129,37 +130,42 @@
 
 <!-- Modal Editar perfil -->
 
-<div class="modal fade" id="edit-post" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+<div class="modal fade" id="modal-edit-prof" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Editar publicação</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">Editar Perfil</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
-      <div class="description mb-3">
-                                <textarea type="text" class="form-control edit-post-description" id="validationDefault01" placeholder="Escreva a descrição aqui..." name="descriptPost"></textarea>
-                            </div>
-                            <div class="d-flex">
-                                <i class="fas fa-images"></i>
-                                <label class="upload-label mb-2" for="upload">Foto</label>
-                                <input type="file" name="arquivo" id="upload" />
-                            </div>
-                            <div class="price-btn mb-3">
-                                <input type="radio" id="pago" name="postLiberado" value="0">
-                                <label for="pago">pago</label>
-                                <input type="radio" id="publico" name="postLiberado" value="1">
-                                <label for="publico">público</label>
-                            </div>
-                            <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <span class="input-group-text">R$</span>
-                            </div>
-                                <input type="number" class="form-control post-price" aria-label="Amount (to the nearest dollar)" placeholder="Preço">
-                            </div>
-      </div>
+      <div class="input-group mb-3 mt-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Descrição Rápida</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" placeholder="Ex.: Atriz e modelo" aria-describedby="inputGroup-sizing-default">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">@</span>
+                </div>
+                <input type="text" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
+            </div>
+            
+        <div class="prof-description mb-2">
+            <textarea type="text" class="form-control edit-post-description edit-profile-description" id="validationDefault01" placeholder="Sobre mim..." name="descriptPost"></textarea>
+        </div>
+        <div class="d-flex">
+            <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de capa</label>
+            <input type="file" name="arquivo" id="upload" />
+        </div>
+        <div class="d-flex">
+            <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de perfil</label>
+            <input type="file" name="arquivo" id="upload" />
+        </div>
+
+    </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary">Salvar mudanças</button>
       </div>
@@ -345,7 +351,9 @@
 <script src="app/View/assets/js/profile.js" class="deletar-2" ></script>
 
 <script>
-
+    if(window.matchMedia("(max-width: 530px)").matches){
+        $(".btn-profile-message-o").hide();
+    } 
 
 //Redirecionar notficações mobile
 
@@ -369,7 +377,7 @@ $('.comment-area').hide();
 var flag = 300;
     $(document).scroll(function (e) {
     var pos = $(this).scrollTop();
-    if (pos > flag){
+    if (pos >= flag){
 
             // $.ajax({
             //     url:"app/Models/newPosts.php",

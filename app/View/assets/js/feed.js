@@ -1,7 +1,7 @@
 
 // Seguir
 
-$(".btn-card-follow").click(function(){
+$(document).on('click', '.btn-card-follow', function(){
     if($(this).hasClass("unfollow")){
         //seguir
         $(this).css("background-color", "rgb(57, 132, 218)").css("color", "white").html('Seguindo <i class="fas fa-check check-follow-profile"></i>');

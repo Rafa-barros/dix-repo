@@ -421,8 +421,8 @@
 </div>
 
 <script src="app/View/assets/js/scrollInfinito.js"></script>
-<script src="app/View/assets/js/feed.js" class="deletar-2"></script>
-<script src="app/View/assets/js/post.js" class="deletar-1" ></script>
+<script src="app/View/assets/js/feed.js"></script>
+<script src="app/View/assets/js/post.js"></script>
 
 <!-- 
     By: Caio C. Brandini da Silva - 2021

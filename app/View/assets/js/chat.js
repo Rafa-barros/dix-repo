@@ -30,12 +30,18 @@ $(".chat-title-container").hide();
 
 
     //contato slecionado
-    $(".contato").click(function(){
+    $(document).on('click', '.contato', function(){
 
         let contato = $(this);
         let imgContato = contato.children(".foto-contato").attr("src");
         let nameContato = contato.children(".contato-info").children(".contato-name").text();
         let listaContatos = $(".contato");
+
+        //mudando para lido 
+        if(contato.find('.contato-name').css('font-weight') != '400'){
+            contato.find('.contato-name').css({'font-weight':'400', 'color':'rgba(0, 0, 0, 0.76)'})
+            contato.find('.contact-last-message').css({'font-weight':'400', 'color':'rgba(0, 0, 0, 0.582)'})
+        }
 
 
         listaContatos.each(function(){
@@ -117,11 +123,68 @@ $(".chat-title-container").hide();
 
     });
 
+
+
+    //Atualizar contatos 
+
+    /*cria uma lista contendo os @ de todas os chats com mensagens não lidas,
+    compara essa lista com o backend, se faltar algum nome recebe o novo contato e sua última msg*/
     
+    
+    /* 
+        Resposta do backend:
+        [][0] nome  
+        [][1] ultima msg
+        [][2] src foto perfil
+     */ 
+
+    $('.contact-list').ready(function(){
+
+        var naolidos = [];
+        var atualizaContatos = setInterval(function(){
+
+            //atualiza lista contatos
+            $('.contato-info').each(function(){
+                let nomeContato = $(this).find('.contato-name');
+                if(nomeContato.css('font-weight') == '500'){
+                    if(naolidos.indexOf(nomeContato.text()) == -1) {
+                        naolidos.push(nomeContato.text());
+                    }
+                }
+            });
+
+            //envia lista e recebe novos contatos
+
+    //         $.ajax({
+    //             url: form_url, 
+    //             method: "POST",
+    //             data: {
+    //                 meuId: "",
+    //                 naolidos: lnaolidos,
+    //             },   
+    //             // dataType: "json",  
+
+    //             cache: false,
+    //             success: function(resposta){
 
 
+    //                 if(resposta.novoContato.length > 0){
+    //                     for(var i=0; i<resposta.nomeContato.length; i++){
+    //                         $('.contato').each(function(){
+    //                             if($(this).find('.contato-name').text() == resposta.nomeContato[i][0]){
+    //                                 $(this).remove();
+    //                             }
+    //                         });
+    //                         $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.novoContato[i][2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name" style="color: rgb(0, 0, 0); font-weight:500;">'+resposta.novoContato[i][0]+'</span> <p class="contact-last-message" style="color: rgb(0, 0, 0); font-weight:500;" >'+resposta.novoContato[i][1]+'</p></div></div>');
+    //                     }
+    //                 }
+    //             }
+    //         });
 
+    //         console.log(naolidos);
+        }, 3000);
 
+    });
 
 
     $(document).ready(function(e) {

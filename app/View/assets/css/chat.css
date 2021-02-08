@@ -182,7 +182,8 @@ nav p {
 }
 
 .contato-name{
-    font-weight: 450;
+    color: rgba(0, 0, 0, 0.76);
+    font-weight: 400;
 }
 
 .contact-last-message {

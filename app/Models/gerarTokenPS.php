@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Models;
-
 use App\Models\Database;
+
 
 class Token {
     private $conn;
@@ -32,6 +32,9 @@ class Token {
         
         return $session;
     }
+    
 }
+
+$token = new Token();
 
 ?>

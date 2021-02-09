@@ -16,7 +16,7 @@ class Cadastro {
                 }
             }
         }
-        require('App/View/login/cadastro.php');
+        require('app/View/login/cadastro.php');
     }
 
     public function carregarCSS() {

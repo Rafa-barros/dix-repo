@@ -31,7 +31,7 @@ class VerificarConta {
     			$_SESSION['erroVerify'] = TRUE;
     		}
     	}
-        require("App/View/login/VerificarConta.php");
+        require("app/View/login/VerificarConta.php");
     }
 
     public function carregarCSS(){

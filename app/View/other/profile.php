@@ -107,6 +107,50 @@
   </div>
 </div>
 
+                <!-- Modal  Edit Post -->
+                <form method="post" enctype="multipart/form-data">
+                    <div class="modal" id="edit-post" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLongTitle">Editar publicação</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body" style="padding: 20px 50px">
+                            <form>
+                                <div class="description mb-3" style="padding-left:0">
+                                    <textarea type="text" class="form-control new-post-description" id="validationDefault01" placeholder="Escreva a descrição aqui..." name="descriptPost"></textarea>
+                                </div>
+                                <div class="d-flex">
+                                    <i class="fas fa-images"></i>
+                                    <label class="upload-label mb-2" for="upload">Foto</label>
+                                    <input type="file" name="arquivo" id="upload" />
+                                </div>
+                                <div class="price-btn mb-3">
+                                    <input type="radio" id="pago" name="postLiberado" value="0">
+                                    <label for="pago">pago</label>
+                                    <input type="radio" id="publico" name="postLiberado" value="1" >
+                                    <label for="publico">público</label>
+                                </div>
+                                <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">R$</span>
+                                </div>
+                                    <input type="number" class="form-control post-price" aria-label="Amount (to the nearest dollar)" placeholder="Preço">
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary" name="enviar">Salvar alterações</button>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </form>
+            </div>
+
 
     <!-- Modal Donate-->
     <div class="modal fade" id="donate-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -140,35 +184,37 @@
         </button>
       </div>
       <div class="modal-body">
-      <div class="input-group mb-3 mt-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Descrição Rápida</span>
+      <form>
+        <div class="input-group mb-3 mt-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Descrição Rápida</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" placeholder="Ex.: Atriz e modelo" aria-describedby="inputGroup-sizing-default">
                 </div>
-                <input type="text" class="form-control" aria-label="Default" placeholder="Ex.: Atriz e modelo" aria-describedby="inputGroup-sizing-default">
-            </div>
-            <div class="input-group mb-3">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">@</span>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">@</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
                 </div>
-                <input type="text" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
+                
+            <div class="prof-description mb-2">
+                <textarea type="text" class="form-control edit-post-description edit-profile-description" id="validationDefault01" placeholder="Sobre mim..." name="descriptPost"></textarea>
             </div>
-            
-        <div class="prof-description mb-2">
-            <textarea type="text" class="form-control edit-post-description edit-profile-description" id="validationDefault01" placeholder="Sobre mim..." name="descriptPost"></textarea>
-        </div>
-        <div class="d-flex">
-            <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de capa</label>
-            <input type="file" name="arquivo" id="upload" />
-        </div>
-        <div class="d-flex">
-            <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de perfil</label>
-            <input type="file" name="arquivo" id="upload" />
-        </div>
-
+            <div class="d-flex">
+                <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de capa</label>
+                <input type="file" name="arquivo" id="upload" />
+            </div>
+            <div class="d-flex">
+                <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de perfil</label>
+                <input type="file" name="arquivo" id="upload" />
+            </div>
+        
     </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary">Salvar mudanças</button>
+        <button type="submit" class="btn btn-primary">Salvar mudanças</button>
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -347,8 +393,8 @@
 </div>
 
 
-<script src="app/View/assets/js/post.js" class="deletar-1" ></script>
-<script src="app/View/assets/js/profile.js" class="deletar-2" ></script>
+<script src="app/View/assets/js/post.js"></script>
+<script src="app/View/assets/js/profile.js"></script>
 
 <script>
     if(window.matchMedia("(max-width: 530px)").matches){
@@ -362,8 +408,6 @@ $('.fa-bell').click(function(){
         location.replace("/mobNot");
     } 
 });
-
-$('.comment-area').hide();
 
 //Área lateral
 
@@ -427,7 +471,6 @@ var flag = 300;
         // var editBtn = '<div class="card-options-container" style="display: flex; justify-content: flex-end;"> <div class="btn-group dropup"> <button type="button" class="btn dropdown-toggle btn-edit-post" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-ellipsis-h mr-4" style="font-size:22px; color:rgb(142, 142, 142,0.7); cursor: pointer;"></i> </button> <div class="post-edit-pop dropdown-menu "> <button class="dropdown-item edit-post-drop" type="button" data-toggle="modal" data-target="#edit-post" >Editar publicação</button> <button class="dropdown-item delete-post-drop" type="button">Apagar publicação</button> </div></div></div>';
         $(".profile-posts").append(' <div class="card"> <div class="card-top"> <div class="top-card-top"> <div class="l-card-top"> <a href=""><img class="profile-image" src="/app/View/assets/css/img/Caio.jpg" alt="Foto perfil"></a> <div class="author-info"> <p class="author-name"> <a href="">Caio Brandini</a></p><p class="post-time"> 34 min </p></div></div><div class="r-card-top"> <button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button> </div></div><div class="bot-card-top"> <p class="description"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos sunt maxime quibusdam sequi impedit porro maiores perspiciatis ad itaque illo.</p></div></div><div class="midia-container"> <img src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t1.0-9/140726030_2932453123741462_2090715909532181379_n.jpg?_nc_cat=104&ccb=2&_nc_sid=730e14&_nc_ohc=OBII42r_vCIAX_KW_Ov&_nc_ht=scontent.fcpq4-1.fna&oh=c5e6105ef7a97f1ede98edc740351769&oe=602F52B8" alt=""> </div><div class="card-bot"> <div class="post-status"> <span class="nlikes">218 curtidas</span> <span class="ncomments">23 comentários</span> </div><div class="g-border"></div><div class="interactive"> <div class="like"> <button class="btn-like"><span><i style="color: unset" class="fas fa-fire-alt"></i> Curtir</span> </button> </div><div class="donate"> <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button><span> </div><div class="comment"> <button class="btn-comment"><i class="far fa-comment"></i>Comentários</span></button><span> </div></div><div class="comment-area"> <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">Gustavo123</a></span> Lorem, ipsum dolor.</p></div><div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">Fernandoo</a></span> Lorem ipsum dolor sit.</p></div><div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">AnaJulia_50</a></span> Lorem, ipsum.</p></div><div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">Marcus13</a></span> Lorem ipsum dolor sit amet consectetur adipisicing.<p> </div><div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href=""> LauraaaSouza</a></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates expedita labore quas possimus. Eaque, molestiae. Nesciunt vero minima assumenda voluptatem?</p></div><div class="end-comment-show"></div><div class="comment-now"> <form method="POST" class="comment-form" ajax="true"> <input type="text" class="form-control comment-input" placeholder="Deixe seu comentário aqui..." required> <button class="btn-send-comment"> Enviar </button> </form> </div></div></div></div><div class="card"> <div class="card-top"> <div class="top-card-top"> <div class="l-card-top"> <a href=""><img class="profile-image" src="/app/View/assets/css/img/Caio.jpg" alt="Foto perfil"></a> <div class="author-info"> <p class="author-name"> <a href="">Caio Brandini</a></p><p class="post-time"> 34 min </p></div></div><div class="r-card-top"> <button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button> </div></div><div class="bot-card-top"> <p class="description"> Lorem ipsum dolor sit.</p></div></div><div class="midia-container"> <img src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t1.0-9/141305301_3904500662933554_4794639086175181746_o.jpg?_nc_cat=1&ccb=2&_nc_sid=730e14&_nc_ohc=yqZx4VzPNUoAX-2Goue&_nc_ht=scontent.fcpq4-1.fna&oh=f56c81a3579170fbcf3217b6d150fb36&oe=60314113" alt=""> </div><div class="card-bot"> <div class="post-status"> <span class="nlikes">218 curtidas</span> <span class="ncomments">23 comentários</span> </div><div class="g-border"></div><div class="interactive"> <div class="like"> <button class="btn-like"><span><i style="color: unset" class="fas fa-fire-alt"></i> Curtir</span> </button> </div><div class="donate"> <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button><span> </div><div class="comment"> <button class="btn-comment"><i class="far fa-comment"></i>Comentários</span></button><span> </div></div><div class="comment-area"> <div class="a-comment"> <span class="a-username"><a href="">Gustavo123</a></span> <p class="r-comment">oioioi</p></div><div class="end-comment-show"></div><div class="comment-now"> <form method="POST" class="comment-form" ajax="true"> <input type="text" class="form-control comment-input" placeholder="Deixe seu comentário aqui..." required> <button class="btn-send-comment"> Enviar </button> </form> </div></div></div></div>')
         flag = flag += 1200;
-        $('.comment-area').hide();
         
     }
     });

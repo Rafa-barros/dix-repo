@@ -729,6 +729,16 @@ button:focus {
     padding-bottom: 0 !important;
 }
 
+.coin-icon {
+    color: #daa520;
+    margin-right: 10px;
+}
+
+.gorjeta-msg {
+    margin-left: 30px;
+}
+
+
 
 
 @media(max-width: 1250px) {

@@ -4,7 +4,7 @@
     <nav class="nav">
         <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
         <div class="features-containers">
-            <a href=""><i class="fas fa-user"></i></a>
+            <a href="/profile" class="me" id=" "><i class="fas fa-user"></i></a>
             <a href="/feed"><i class="fas fa-home"></i></a> 
             <a href="/chat" class="i-c"><i class="fas fa-comments"></i></a>
             <div class="btn-group dropleft">
@@ -258,6 +258,7 @@
 </div>
 
 <script src="app/View/assets/js/chat.js"></script>
+<script src="app/View/assets/js/zerarnot.js"></script>
 <script>
     //Redirecionar notficações mobile
 

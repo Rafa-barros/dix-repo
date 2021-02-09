@@ -80,9 +80,9 @@ nav p {
     cursor: pointer;
 }
 
-.notificacao {
+/* .notificacao {
     padding: 18px 15px;
-}
+} */
 
 .btn-notificacao {
     background-color: transparent !important;
@@ -96,6 +96,45 @@ nav p {
     padding: 0;
     border: 0;
     box-shadow: 0;
+}
+
+.notificacao {
+    display: flex;
+    padding: 24px 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.068);
+    align-items: center;
+}
+
+.notificacao:hover, .notificacao:focus {
+    background-color: rgba(77, 77, 77, 0.082);
+}
+
+.notificacao span {
+    color: rgba(0, 0, 0, 0.733);
+}
+
+.notificacao a {
+    color: rgba(0, 0, 0, 0.733);
+    font-weight: 600;
+    margin-right: 0;
+}
+
+.like-icon, .comment-icon {
+    margin-right: 10px;
+    font-size: 20px !important;
+}
+
+.like-icon {
+    color: rgb(218, 51, 51) !important;
+}
+
+.comment-icon {
+    color: rgb(62, 62, 219) !important; 
+}
+
+.naolido {
+    color: black !important;
+    font-weight: 500 !important;
 }
 
 .dropdown-menu {
@@ -456,6 +495,16 @@ nav p {
     max-width: 100%;
 }
 
+.coin-icon {
+    color: #daa520 !important;
+    margin-right: 10px;
+    font-size: 20px !important;
+
+}
+
+.gorjeta-msg {
+    margin-left: 30px;
+}
 
 
 @media(max-width: 800px) {

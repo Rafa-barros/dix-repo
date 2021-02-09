@@ -1,4 +1,3 @@
-$('.comment-area').hide();
 
 // Botão de like
 

@@ -408,6 +408,12 @@ nav p {
     color: rgb(62, 62, 219) !important; 
 }
 
+.naolido {
+    color: black !important;
+    font-weight: 500 !important;
+}
+
+
 
 @media(max-width: 975px){
     .contatos {

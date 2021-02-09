@@ -47,7 +47,7 @@
           <div class="r-container">
               <img id="logo" src="/app/View/assets/css/img/logo_original.png" alt="logo">
               <p>Bem-vindo à sua plataforma de conexões</P>
-              <button class="about">Sobre</button>
+              <!-- <button class="about">Sobre</button> -->
           </div>
       </div>
 

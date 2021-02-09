@@ -544,6 +544,7 @@ button:focus {
 
 .comment-area {
     margin-top: 10px;
+    display: none;
 }
 
 .a-username {
@@ -719,6 +720,16 @@ button:focus {
 .edit-profile-description{
     border: 1px solid rgba(0, 0, 0, 0.137)
 }
+
+.modal-body {
+    padding: 24px 50px;
+}
+
+.not-pop {
+    padding-bottom: 0 !important;
+}
+
+
 
 @media(max-width: 1250px) {
     .profile-posts {

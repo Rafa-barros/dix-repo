@@ -402,6 +402,7 @@ nav p {
 
 .comment-area {
     margin-top: 10px;
+    display: none;
 }
 
 .a-username {

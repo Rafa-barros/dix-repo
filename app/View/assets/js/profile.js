@@ -5,7 +5,6 @@ $(document).on('click', '.btn-profile-follow', follow);
 $(document).on('click', '.btn-card-follow', follow);
 
 function follow() {
-    console.log(1);
     let thiss =  $(".btn-profile-follow");
     if(!thiss.hasClass('seguindo')){
         let nfollowers = $(".nfollowers").text();

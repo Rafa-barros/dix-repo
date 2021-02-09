@@ -158,26 +158,26 @@
                     <h6 class="modal-confirm-subtitle">Dados do usuário</h6>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Nome:</span>
-                        <span class="ml-2 my-info"></span>
+                        <span class="ml-2 my-info"><?php echo($userInfo['holder']); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Nascimento:</span>
-                        <span class="ml-2 my-info"></span>
+                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['birthDate'])); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">CPF:</span>
-                        <span class="ml-2 my-info"></span>
+                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['cpf'])); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Telefone:</span>
                         <div class="d-flex">
-                            <span class="ml-2 my-info"></span>
-                            <span class="ml-2 my-info"></span>
+                            <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['areaCode'])); ?></span>
+                            <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['phone'])); ?></span>
                         </div>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Email:</span>
-                        <span class="ml-2 my-info"></span>
+                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['emailOwner'])); ?></span>
                     </div>
                 </div>
 
@@ -185,18 +185,18 @@
                     <h6 class="modal-confirm-subtitle">Dados do cartão</h6>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">N do cartão:</span>
-                        <span class="ml-2 my-info"></span>
+                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['nCard'])); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">CVV:</span>
-                        <span class="ml-2 my-info"></span>
+                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['cvv'])); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Validade:</span>
                         <div class="d-flex">
-                            <span class="ml-2 my-info"></span>
+                            <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['monthVal'])); ?></span>
                             <span class="ml-2 ">/</span>
-                            <span class="ml-2 my-info"></span>
+                            <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['yearVal'])); ?></span>
                         </div>
                         
                     </div>

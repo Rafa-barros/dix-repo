@@ -38,9 +38,9 @@ $(".chat-title-container").hide();
         let listaContatos = $(".contato");
 
         //mudando para lido 
-        if(contato.find('.contato-name').css('font-weight') != '400'){
-            contato.find('.contato-name').css({'font-weight':'400', 'color':'rgba(0, 0, 0, 0.76)'})
-            contato.find('.contact-last-message').css({'font-weight':'400', 'color':'rgba(0, 0, 0, 0.582)'})
+        if(contato.find('.contato-name').hasClass('naolido')){
+            contato.find('.contato-name').removeClass('naolido');
+            contato.find('.contact-last-message').removeClass('naolido');
         }
 
 
@@ -152,6 +152,8 @@ $(".chat-title-container").hide();
                     }
                 }
             });
+
+            console.log(naolidos);
 
             //envia lista e recebe novos contatos
 

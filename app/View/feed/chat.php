@@ -31,8 +31,8 @@
             <div class="contato">
                 <img class="foto-contato" src="/app/View/assets/css/img/Caio.jpg" alt="foto de perfil">
                 <div class="contato-info">
-                    <span class="contato-name">Caio Brandini</span>
-                    <p class="contact-last-message">iae</p>
+                    <span class="contato-name naolido">Caio Brandini</span>
+                    <p class="contact-last-message naolido">iae</p>
                 </div>
             </div>
             

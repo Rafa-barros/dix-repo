@@ -1,2 +1,40 @@
+<If "%{REQUEST_URI} =~ m#^/cadastro#">
 RewriteEngine on
 RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
+<If "%{REQUEST_URI} =~ m#^/feed#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
+<If "%{REQUEST_URI} =~ m#^/chat#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
+<If "%{REQUEST_URI} =~ m#^/error404#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
+<If "%{REQUEST_URI} =~ m#^/home#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
+<If "%{REQUEST_URI} =~ m#^/postcard#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
+<If "%{REQUEST_URI} =~ m#^/profile#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
+<If "%{REQUEST_URI} =~ m#^/recuperarsenha#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
+<If "%{REQUEST_URI} =~ m#^/verificarconta#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
+<If "%{REQUEST_URI} =~ m#^/profile/.#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>

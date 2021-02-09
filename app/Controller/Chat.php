@@ -7,7 +7,7 @@ use App\Models\chatModel;
 class Chat {
     public function index(){
     	//$chat = new chatModel();
-        require("App/View/feed/chat.php");
+        require("app/View/feed/chat.php");
     }
 
     public function carregarCSS(){

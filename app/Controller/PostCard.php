@@ -4,7 +4,7 @@ namespace App\Controller;
 
 class PostCard {
     public function index(){
-        require('App/View/feed/post-card.php');
+        require('app/View/feed/post-card.php');
     }
 
     public function carregarCSS() {

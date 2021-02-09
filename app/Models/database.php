@@ -10,7 +10,7 @@ class Database extends PDO{
 	private $db_sqlType = 'mysql'; //Tipo de SQL utilizado ex: mysql, pgsql
 	private $db_name = 'dix'; //Nome do banco de dados
 	private $db_user = 'root'; //Usuário detentor do banco de dados
-	private $db_pwd = ''; //Senha do usuário
+	private $db_pwd = 'Dix@adm78'; //Senha do usuário
 	private $db_host = 'localhost'; //Hospedagem do banco de dados
 	private $db_port = '3306'; //Porta da hospedagem
 

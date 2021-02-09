@@ -17,6 +17,7 @@
         </div>
     </nav>
 
+
     <form method="post">
 
         <div class="pagamento-container">
@@ -125,7 +126,7 @@
                 <input type="text" class="form-control" id="estado" name="estado" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
             </div>
             <div class="form-check salvar-cartao">
-                <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+                <input class="form-check-input" type="checkbox" id="defaultCheck1" name="salvarCartao" value="sim" >
                 <label class="form-check-label" for="defaultCheck1">
                     Salvar cartão
                 </label>
@@ -157,7 +158,7 @@
                     <h6 class="modal-confirm-subtitle">Dados do usuário</h6>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Nome:</span>
-                        <span class="ml-2 my-info"> </span>
+                        <span class="ml-2 my-info"></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Nascimento:</span>
@@ -242,57 +243,5 @@
     <script>
         PagSeguroDirectPayment.setSessionId('<?php echo ($retornoInit)?>');
 
-        //Armazena o SenderHash num input escondido
-        $("#nCartao").on("click", function(){
-            PagSeguroDirectPayment.onSenderHashReady(function(response){
-                if(response.status == 'error') {
-                    console.log(response.message);
-                    return false;
-                }
-                $("#senderHash").val(response.senderHash);
-            });
-        });
 
-        $("#nCartao").change(function(){
-            
-            //Pega a bandeira do cartão
-            if ($("#nCartao").val().length > 14){
-                PagSeguroDirectPayment.getBrand({
-                    cardBin: $("#nCartao").val(),
-                    success: function(response) {
-                        var bandeira = response['brand']['name'];
-                        $("#bandeira").text(bandeira);
-                        $("#brand").val(bandeira);
-                    },
-                    error: function(response) {
-                        //tratamento do erro
-                    },
-                    complete: function(response) {
-                      //tratamento comum para todas chamadas
-                    }
-                });
-            }
-        });
-
-        $("#gerarToken").click(function(){
-            //Cria o token do cartão quando terminá-lo
-            PagSeguroDirectPayment.createCardToken({
-                    cardNumber: $("#nCartao").val(),
-                    brand: $("#bandeira").text(),
-                    cvv: $("#cvv").val(),
-                    expirationMonth: $("#monthVal").val(),
-                    expirationYear: $("#yearVal").val(),
-                    success: function(response) {
-                        console.log(response);
-                        $("#tk").text(response.card.token);
-				        $("#tokenCard").text(response.card.token);
-                    },
-                    error: function(response) {
-                        console.log("Erro no Token do cartão: " + response);
-                    },
-                    complete: function(response) {
-                         // Callback para todas chamadas.
-                    }
-                });   
-        });
     </script>

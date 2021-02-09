@@ -185,6 +185,10 @@ nav p {
         margin-top: 20px;
     }
 
+    .features-containers {
+        margin-right: 5px !important;
+    }
+
     .a-logo-dix {
         margin-left: 15px;
     }

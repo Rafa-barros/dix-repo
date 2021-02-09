@@ -147,6 +147,10 @@ nav p {
     margin-bottom: 30px;
 }
 
+.salvar-cartao{
+    margin-bottom: 14px;
+}
+
 @media(max-width: 800px){
 
     .pagamento-container {

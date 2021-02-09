@@ -34,7 +34,16 @@ RewriteRule ^((?!index\.php).+)$ /index.php [L]
 RewriteEngine on
 RewriteRule ^((?!index\.php).+)$ /index.php [L]
 </If>
+<If "%{REQUEST_URI} =~ m#^/pagamento#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
+<If "%{REQUEST_URI} =~ m#^/mobNot#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
 <If "%{REQUEST_URI} =~ m#^/profile/.#">
 RewriteEngine on
 RewriteRule ^((?!index\.php).+)$ /index.php [L]
 </If>
+ErrorDocument 404 http://dix.net.br/error404

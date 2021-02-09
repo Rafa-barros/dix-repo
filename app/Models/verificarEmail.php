@@ -54,7 +54,7 @@ class verificarEmail{
 
 	//Essa função vai conferir no banco de dados se o id do usuário e o código batem, e vai retornar TRUE ou FALSE para a variável de sessão "verificado", caso retorne true vai chamar a função verificado()
 	private function verificaCredenciais(){
-		$result = $this->conn->executeQuery('SELECT id, email, registerDate, codeAcess FROM codigoverificacao WHERE id = :ID AND codeAcess = :CODIGO AND email = :EMAIL LIMIT 1', array(
+		$result = $this->conn->executeQuery('SELECT id, email, registerDate, codeAccess FROM codigoverificacao WHERE id = :ID AND codeAcess = :CODIGO AND email = :EMAIL LIMIT 1', array(
 			':ID' => $this->id,
 			':CODIGO' => $this->codigo,
 			':EMAIL' => $this->email

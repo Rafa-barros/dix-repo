@@ -420,7 +420,6 @@
 
 </div>
 
-<<<<<<< HEAD
 <script src="app/View/assets/js/feed.js" class="deletar-2"></script>
 <script src="app/View/assets/js/post.js" class="deletar-1" ></script>
 
@@ -526,7 +525,6 @@
 
    
 </script>
-=======
 <script src="app/View/assets/js/scrollInfinito.js"></script>
 <script src="app/View/assets/js/feed.js"></script>
 <script src="app/View/assets/js/post.js"></script>

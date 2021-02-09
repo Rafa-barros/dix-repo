@@ -2,7 +2,7 @@ $('.comment-area').hide();
 
 // Botão de like
 
-$('.btn-like').click(function (){
+$(document).on('click', '.btn-like', function(){
         var likeIcon = document.querySelectorAll('.btn-like')[0];
         let idPost = $(this).parents(".card").attr("id");
         let buttonLike = $(this);
@@ -35,7 +35,7 @@ $('.btn-like').click(function (){
 
 // Comentário
 
-$('.btn-comment').click(function (){
+$(document).on('click', '.btn-comment', function(){
     var commentArea = $(this).parents(".card").find('.comment-area');
     commentArea.show();
     let idPost = $(this).parents(".card").attr("id");
@@ -76,8 +76,8 @@ $('.btn-comment').click(function (){
 
 $(document).ready(function(e) {
     
-    $("form[ajax=true]").submit(function(e) {
-        
+    $(document).on('submit', 'form[ajax=true]', function(e){
+
         e.preventDefault();
         
         var form_data = $(this).serialize();

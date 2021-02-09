@@ -3,15 +3,85 @@ body {
     background-color: #eeeeee;
 }
 
+/* Navbar */
+
+nav {
+    display: flex;
+    top: 0;
+    z-index: 9999;
+    position: sticky;
+    background-color: rgb(252, 252, 252);
+    height: 70px;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    margin-bottom: 15px !important;
+}
+
 .nav {
     margin-bottom: 0 !important;
 }
 
-.top-card-top {
+nav p {
+    margin-right: 50px;
+    margin-bottom: 0;
+    color: #F5F5F5;
+    font-size: 24px;
+    font-weight: 320;
+}
+
+.logo-dix {
+    height: 80px;
+    max-width: 100%;
+}
+
+.btn-primary {
+    background-color: #0069D9;
+}
+
+.btn-primary:hover {
+    background-color: #0453a7;
+}
+
+.badge-danger {
+    margin-left: 0px !important;
+    margin-right: 15px !important;
+}
+
+.a-logo-dix {
+    margin-left: 15%;
+}
+
+.features-containers {
     display: flex;
-    justify-content: space-between;
+    height: 100%;
+    margin-right: 24%;
     align-items: center;
-    padding: 13px;
+    margin-bottom: 10px;
+}
+
+.features-containers i {
+    font-size: 26px;
+    color: rgb(36, 35, 35);
+}
+
+.features-containers a {
+    margin-right: 22px;
+}
+
+.fa-user {
+    padding: 8px 0;
+    border-bottom: 2px solid #3984DA;
+}
+
+.fas:hover {
+    color: rgba(0, 0, 0, 0.747);
+}
+
+#navbarDropdownMenuLink-5 {
+    padding-left: 0;
+    padding-right: 0;
+    cursor: pointer;
 }
 
 .description {
@@ -20,6 +90,33 @@ body {
     border-radius: 5px;
     padding: 6px 20px;
     height: 40%;
+}
+
+.notificacao {
+    padding: 18px 15px;
+}
+
+.btn-notificacao {
+    background-color: transparent !important;
+    padding: 0;
+    border: 0 !important;
+    box-shadow: none !important;
+}
+
+.btn-notificacao:hover, .btn-notificacao:focus {
+    background-color: transparent;
+    padding: 0;
+    border: 0;
+    box-shadow: 0;
+}
+
+.not-pop {
+    top: 45px !important;
+    left: 60px !important;
+}
+
+.i-c {
+    margin-right: 5px !important;
 }
 
 button:focus {
@@ -217,6 +314,10 @@ button:focus {
     background-color: #3984DA;
 }
 
+.btn-editar-perfil:hover{
+    transform: scale(1.12);
+}
+
 /* Area lateral */
 
 .profile-l-content {
@@ -257,7 +358,13 @@ button:focus {
     max-width: 98vw;
 }
 
+.post-edit-pop {
+    left: -100px !important;
+}
 
+.btn-edit-post::after {
+    display: none !important;
+}
 
 .card {
     border: 0;
@@ -279,6 +386,18 @@ button:focus {
     padding: 13px;
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
+}
+
+.top-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px;
+}
+
+.dropdown-toggle {
+    background-color: transparent;
+    padding: 0;
 }
 
 .btn-card-follow {
@@ -435,6 +554,7 @@ button:focus {
 
 .r-comment {
     margin-bottom: 8px;
+    word-break: break-all;
 }
 
 .comment-form {
@@ -497,6 +617,109 @@ button:focus {
     margin-right: auto;
 }
 
+/* Editar Post */
+
+#new-post {
+    box-shadow: 0 5px 11px 0 rgba(46, 45, 45, 0.43);
+    padding: 12px 30px;
+}
+
+#new-post h1 {
+    font-size: 30px;
+    font-weight: 400;
+    margin-bottom: 10px;
+}
+
+/* .description {
+    border: 1px solid rgba(0, 0, 0, 0.178);
+    border-radius: 5px;
+    padding: 6px 20px;
+    height: 40%;
+} */
+
+.edit-post-description {
+    border: none;
+    height: 70px;
+}
+
+.edit-post-description:hover {
+    box-shadow: none;
+}
+
+.edit-post-description:focus {
+    box-shadow: none;
+}
+
+.new-post-btns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.upload-label {
+    cursor: pointer;
+    padding: 10px;
+    margin-bottom: 0;
+ }
+
+ .upload-label:hover {
+    color: rgb(64, 66, 209);
+    transition: 0.3s;
+ }
+ 
+ #upload {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+ }
+
+ .post-price {
+     max-width: 130px;
+     width: 20%;
+ }
+
+ .fa-images {
+     display: flex;
+     align-items: center;
+ }
+
+ .notificacao {
+    display: flex;
+    padding: 24px 18px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.068);
+    align-items: center;
+}
+
+.notificacao:hover, .notificacao:focus {
+    background-color: rgba(77, 77, 77, 0.082);
+}
+
+.notificacao span {
+    color: rgba(0, 0, 0, 0.733);
+}
+
+.notificacao a {
+    color: rgba(0, 0, 0, 0.733);
+    font-weight: 600;
+    margin-right: 0;
+}
+
+.like-icon, .comment-icon {
+    margin-right: 10px;
+    font-size: 20px !important;
+}
+
+.like-icon {
+    color: rgb(218, 51, 51) !important;
+}
+
+.comment-icon {
+    color: rgb(62, 62, 219) !important; 
+}
+
+.edit-profile-description{
+    border: 1px solid rgba(0, 0, 0, 0.137)
+}
+
 @media(max-width: 1250px) {
     .profile-posts {
         margin-left: auto;
@@ -513,12 +736,25 @@ button:focus {
 
 @media(max-width: 800px) {
 
+    .post-edit-pop {
+        top: -10px !important;
+        left: -56px !important;
+    }
+
+     .not-pop {
+         display: none !important;
+    }
+
+    .a-logo-dix {
+        margin-left: 24px;
+    }
+
     .features-containers i {
         font-size: 140%;
     }
 
     .features-containers {
-        margin-right: 10%;
+        margin-right: 0;
     }
 
     .VIP {
@@ -573,6 +809,38 @@ button:focus {
 
     .prof-status-container {
         padding: 20px;
+    }
+
+    .description {
+        padding: 2px 4px;
+    }
+
+    .top-card-top {
+        padding: 5px 12px;
+    }
+
+    .top-card-top {
+        justify-content: space-between;
+        padding-bottom: 14px;
+    }
+
+    .l-card-top {
+        margin: 0;
+    }
+
+    .btn-card-follow {
+        margin: 0;
+    }
+
+    .interactive {
+        font-size: 16px;
+        position: relative;
+        right: 20px;
+        padding: 12px 0;
+    }
+
+    .comment-area {
+        font-size: 16px;
     }
 }
 

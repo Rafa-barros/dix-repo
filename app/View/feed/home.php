@@ -1,24 +1,29 @@
+<navbar>
+    <nav class="nav">
+        <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
+        <div class="features-containers">
+            <a href="/profile"><i class="fas fa-user"></i></a>
+            <a href="/feed"><i class="fas fa-home"></i></a> 
+            <a href="/chat" class="i-c"><i class="fas fa-comments"></i></a>
+            <div class="btn-group dropleft">
+                <button type="button" class="btn btn-secondary dropdown-toggle btn-notificacao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i class="fas fa-bell"></i>
+                    <span class="badge badge-danger ml-2">0</span>
+                </button>
+                <div class="dropdown-menu not-pop" style="width: 425px">
+                    <div class="notificacao">
+                        <span>  <i class="fas fa-fire-alt like-icon"></i><a href="">MarcusCaruso</a>  curtiu a sua publicação! </span>
+                    </div>
+                    <div class="notificacao">
+                        <span> <i class="far fa-comment comment-icon"></i><a href="">MarcusCaruso</a> curtiu a sua publicação! </span>
+                    </div>  
 
-<link rel="stylesheet" href="/app/View/assets/css/nav.css">
-
-<nav class="nav">
-    <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
-    <div class="features-containers">
-        <a href="/profile"><i class="fas fa-user"></i></a>
-        <a href="/feed"><i class="fas fa-home"></i></a> 
-        <a href="/chat" class="i-c"><i class="fas fa-comments"></i></a>
-          <div class="btn-group dropleft">
-            <button type="button" class="btn btn-secondary dropdown-toggle btn-notificacao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <i class="fas fa-bell"></i>
-                <span class="badge badge-danger ml-2">4</span>
-            </button>
-            <div class="dropdown-menu">
-                <a class="dropdown-item waves-effect waves-light notificacao" href="#"> Você não tem nenhuma notificação</a>
+                    <a class="dropdown-item waves-effect waves-light notificacao" href="#"> Você não tem nenhuma nova notificação</a>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
-
+    </nav>
+</navbar>
 
 
 <div class="all">
@@ -415,6 +420,7 @@
 
 </div>
 
+<<<<<<< HEAD
 <script src="app/View/assets/js/feed.js" class="deletar-2"></script>
 <script src="app/View/assets/js/post.js" class="deletar-1" ></script>
 
@@ -520,4 +526,14 @@
 
    
 </script>
+=======
+<script src="app/View/assets/js/scrollInfinito.js"></script>
+<script src="app/View/assets/js/feed.js"></script>
+<script src="app/View/assets/js/post.js"></script>
 
+<!-- 
+    By: Caio C. Brandini da Silva - 2021
+>>>>>>> 56cbfbc2ce6987f59245b041269f10cf5db28c84
+
+    Linkedin: https://www.linkedin.com/in/caiobrandini/
+ -->

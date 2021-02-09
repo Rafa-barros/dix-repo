@@ -1,7 +1,6 @@
 
-<link rel="stylesheet" href="/app/View/assets/css/nav.css">
-
 <div class="all">
+
     <nav class="nav">
         <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
         <div class="features-containers">
@@ -11,9 +10,9 @@
             <div class="btn-group dropleft">
                 <button type="button" class="btn btn-secondary dropdown-toggle btn-notificacao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-bell"></i>
-                    <span class="badge badge-danger ml-2">4</span>
+                    <span class="badge badge-danger ml-2">0</span>
                 </button>
-                <div class="dropdown-menu">
+                <div class="dropdown-menu not-pop">
                     <a class="dropdown-item waves-effect waves-light notificacao" href="#"> Você não tem nenhuma notificação</a>
                 </div>
             </div>
@@ -225,7 +224,7 @@
             </div>
             <div class="chat-bottom">
                 <form method="POST" class="d-flex" ajax="true">
-                    <input class="form-control" type="text" name="msg" placeholder="Mensagem...">
+                    <input class="form-control" type="text" name="msg" placeholder="Mensagem..." autocomplete="off">
                     <button type="submit" class="btn-chat-enviar">Enviar</span>
                 </form>
             </div>
@@ -259,3 +258,18 @@
 </div>
 
 <script src="app/View/assets/js/chat.js"></script>
+<script>
+    //Redirecionar notficações mobile
+
+    $('.fa-bell').click(function(){
+        if(window.matchMedia("(max-width: 800px)").matches){
+            location.replace("/mobNot");
+        } 
+    });
+</script>
+
+<!-- 
+    By: Caio C. Brandini da Silva - 2021
+
+    Linkedin: https://www.linkedin.com/in/caiobrandini/
+ -->

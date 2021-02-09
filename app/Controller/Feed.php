@@ -23,7 +23,7 @@ class Feed {
             header("Location: /");
             die();
         }*/
-        require('App/View/feed/home.php');
+        require('app/View/feed/home.php');
         if (isset($_POST['enviar'])){
             require("app/Models/createPost.php");
         }

@@ -4,7 +4,7 @@ namespace App\Controller;
 
 class RecuperarSenha {
     public function index(){
-        require("App/View/login/recuperarSenha.php");
+        require("app/View/login/recuperarSenha.php");
     }
 
     public function carregarCSS(){

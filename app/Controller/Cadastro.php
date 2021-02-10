@@ -6,7 +6,6 @@ use App\Models\registroUsuario;
 
 class Cadastro {
     public function index(){
-        require('app/View/login/cadastro.php');
         if(isset($_POST['submit'])){
             $cadastro = new registroUsuario();
             if($cadastro->verifyFields($_POST['email'], $_POST['pwd'], $_POST['confirmPwd'])){
@@ -25,6 +24,7 @@ class Cadastro {
 >>>>>>> 55f9b514ba35183d8969aeda2fbb14b4feed5d1b
             }
         }
+        require('app/View/login/cadastro.php');
     }
 
     public function carregarCSS() {

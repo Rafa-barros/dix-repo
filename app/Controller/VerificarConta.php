@@ -4,7 +4,7 @@ namespace App\Controller;
 
 use App\Models\verificarEmail;
 
-class VerificarConta {
+class Verificarconta {
     public function index(){
     	if(isset($_GET['id'])){
     		$_SESSION['id'] = $_GET['id'];

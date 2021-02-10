@@ -11,21 +11,26 @@ class Profile {
         $usuario->username = $this->urlMetodo;
         $usuario->getInfo();
 
-        $id = $usuario->profileInfo['id'];
-        $username = $usuario->profileInfo['username'];
-        $birth = $usuario->profileInfo['birth'];
-        $pname = $usuario->profileInfo['pname'];
-        $typeuser = $usuario->profileInfo['typeuser'];
-        $posts = $usuario->profileInfo['posts'];
-        $img = $usuario->profileInfo['imgUser'];
-        $followers = $usuario->profileInfo['followers'];
-        $bio = $usuario->profileInfo['bio'];
-        $fotoCapa = $usuario->profileInfo['fotoCapa'];
-        $vips = $usuario->profileInfo['vips'];
-        require("app/View/other/profile.php");
+        if (empty($usuario->profile['id'])){
+            require ("app/View/other/error404.php");
+        } else {
+            $id = $usuario->profileInfo['id'];
+            $username = $usuario->profileInfo['username'];
+            $birth = $usuario->profileInfo['birth'];
+            $pname = $usuario->profileInfo['pname'];
+            $typeuser = $usuario->profileInfo['typeuser'];
+            $posts = $usuario->profileInfo['posts'];
+            $img = $usuario->profileInfo['imgUser'];
+            $followers = $usuario->profileInfo['followers'];
+            $bio = $usuario->profileInfo['bio'];
+            $fotoCapa = $usuario->profileInfo['fotoCapa'];
+            $vips = $usuario->profileInfo['vips'];
+            require("app/View/other/profile.php");
+        }
     }
 
     public function carregarCSS(){
         echo ("<link rel='stylesheet' href='../app/View/assets/css/profile.css'>");
+        echo ("<link rel='stylesheet' href='app/View/assets/css/error404.css'>");
     }
 }

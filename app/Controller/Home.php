@@ -33,4 +33,3 @@ class Home {
         echo ("<link rel='stylesheet' href='app/View/assets/css/style.css'>");
     }
 }
-

@@ -4,7 +4,8 @@ namespace App\Controller;
 
 class Profile {
     public function index(){
-        require("app/View/other/profile.php");
+        echo ($this->urlMetodo);
+        //require("app/View/other/profile.php");
     }
 
     public function carregarCSS(){

@@ -11,9 +11,6 @@ class Profile {
         $usuario->username = $this->urlMetodo;
         $usuario->getInfo();
 
-        if (empty($usuario['id'])){
-            //require de uma view de uma pag q não existe
-        } else {
             $id = $usuario['id'];
             $username = $usuario['username'];
             $birth = $usuario['birth'];
@@ -26,7 +23,6 @@ class Profile {
             $fotoCapa = $usuario['fotoCapa'];
             $vips = $usuario['vips'];
             require("app/View/other/profile.php");
-        }
     }
 
     public function carregarCSS(){

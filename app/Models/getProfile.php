@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Database;
+use PDO;
 
 class ProfileModel {
     private $conn;
@@ -15,7 +16,7 @@ class ProfileModel {
 
     public function getInfo(){
         $resultInfo = $conn->executeQuery('SELECT * FROM users WHERE username = :USER', array(
-            ':USER' => $username
+            ':USER' => $this->username
         ));
         $this->profileInfo = $resultInfo->fetch(PDO::FETCH_ASSOC);
     }

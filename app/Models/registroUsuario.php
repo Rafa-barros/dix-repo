@@ -88,9 +88,9 @@ class registroUsuario{
 			if($this->verificaUsuario()){
 				$this->registra();
 				if($this->regCodigo()){
-					//$email = new sendEmail();
-					//$email->mail($this->email, $this->idVerify, $this->codigo);
-					return $this->idVerify;
+					$email = new sendEmail();
+					$email->mail($this->email, $this->idVerify, $this->codigo);
+					return $email;
 				}
 			}else{
 				$_SESSION['existeUsuario'] = TRUE;

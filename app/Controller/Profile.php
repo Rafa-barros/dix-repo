@@ -11,17 +11,17 @@ class Profile {
         $usuario->username = $this->urlMetodo;
         $usuario->getInfo();
 
-        $id = $usuario['id'];
-        $username = $usuario['username'];
-        $birth = $usuario['birth'];
-        $pname = $usuario['pname'];
-        $typeuser = $usuario['typeuser'];
-        $posts = $usuario['posts'];
-        $img = $usuario['imgUser'];
-        $followers = $usuario['followers'];
-        $bio = $usuario['bio'];
-        $fotoCapa = $usuario['fotoCapa'];
-        $vips = $usuario['vips'];
+        $id = $usuario->profileInfo['id'];
+        $username = $usuario->profileInfo['username'];
+        $birth = $usuario->profileInfo['birth'];
+        $pname = $usuario->profileInfo['pname'];
+        $typeuser = $usuario->profileInfo['typeuser'];
+        $posts = $usuario->profileInfo['posts'];
+        $img = $usuari->profileInfoo['imgUser'];
+        $followers = $usuario->profileInfo['followers'];
+        $bio = $usuario->profileInfo['bio'];
+        $fotoCapa = $usuario->profileInfo['fotoCapa'];
+        $vips = $usuario->profileInfo['vips'];
         require("app/View/other/profile.php");
     }
 

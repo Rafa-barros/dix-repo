@@ -11,11 +11,11 @@ class ProfileModel {
     public $profileInfo;
 
     public function __construct(){
-        $conn = new Database();
+        $this->conn = new Database();
     }
 
     public function getInfo(){
-        $resultInfo = $conn->executeQuery('SELECT * FROM users WHERE username = :USER', array(
+        $resultInfo = $this->conn->executeQuery('SELECT * FROM users WHERE username = :USER', array(
             ':USER' => $this->username
         ));
         $this->profileInfo = $resultInfo->fetch(PDO::FETCH_ASSOC);

@@ -16,8 +16,8 @@
             </div>
         </div>
     </nav>
-    
-    
+
+
     <form method="post">
 
         <div class="pagamento-container">
@@ -26,37 +26,37 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default" placeholder="João da Silva">Nome do titular</span>
                 </div>
-                <input type="text" class="form-control" id="nomeTitular" name="nomeTitular" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" id="nomeTitular" name="nomeTitular" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Nascimento</span>
                 </div>
-                <input type="text" class="form-control" id="nascimento" name="nascimento" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="DD/MM/AAAA">
+                <input type="text" class="form-control" id="nascimento" name="nascimento" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="DD/MM/AAAA" required>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">CPF do Titular</span>
                 </div>
-                <input type="text" class="form-control" id="cpfTitular" name="cpfTitular" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="XXXXXXXXXXX">
+                <input type="text" class="form-control" id="cpfTitular" name="cpfTitular" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="XXXXXXXXXXX" required>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">DDD do telefone</span>
                 </div>
-                <input type="text" class="form-control" id="dddTel" name="dddTel" placeholder="XX" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" id="dddTel" name="dddTel" placeholder="XX" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Nº de telefone</span>
                 </div>
-                <input type="text" class="form-control" aria-label="Default" id="numeroTelefone" name="numeroTelefone" placeholder="XXXXXXXXX" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" aria-label="Default" id="numeroTelefone" name="numeroTelefone" placeholder="XXXXXXXXX" aria-describedby="inputGroup-sizing-default" required>
             </div>
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Email</span>
                 </div>
-                <input type="text" class="form-control" id="email" name="email" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Joao@exemplo.com">
+                <input type="text" class="form-control" id="email" name="email" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Joao@exemplo.com" required>
             </div>
             
     
@@ -65,14 +65,14 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Nº do Cartão</span>
                 </div>
-                <input type="text" class="form-control" id="nCartao" name="nCartao" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" id="nCartao" name="nCartao" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
             </div>
     
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">CVV</span>
                 </div>
-                <input type="text" class="form-control" id="cvv" name="cvv" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" id="cvv" name="cvv" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
             </div>
     
             <h6 class="mt-3">Validade do cartão</h6>
@@ -83,11 +83,11 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Mês</span>
                 </div>
-                <input type="text" class="form-control" id="monthVal" name="monthVal" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="MM">
+                <input type="text" class="form-control" id="monthVal" name="monthVal" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="MM" required>
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Ano</span>
                 </div>
-                <input type="text" class="form-control" id="yearVal" name="yearVal" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="AAAA">
+                <input type="text" class="form-control" id="yearVal" name="yearVal" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="AAAA" required>
             </div>
     
             <h2 class="titulo-area" >Endereço de Cobrança</h2>
@@ -95,37 +95,43 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Rua</span>
                 </div>
-                <input type="text" class="form-control" id="rua" name="rua" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" id="rua" name="rua" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
             </div>
     
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Número do Local</span>
                 </div>
-                <input type="text" class="form-control" id="nLocal" name="nLocal" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" id="nLocal" name="nLocal" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
             </div>
     
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Complemento</span>
                 </div>
-                <input type="text" class="form-control" id="complemento" name="complemento" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" id="complemento" name="complemento" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
             </div>
     
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Bairro</span>
                 </div>
-                <input type="text" class="form-control" id="bairro" name="bairro" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" id="bairro" name="bairro" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
             </div>
     
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Estado UF</span>
                 </div>
-                <input type="text" class="form-control" id="estado" name="estado" aria-label="Default" aria-describedby="inputGroup-sizing-default">
+                <input type="text" class="form-control" id="estado" name="estado" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
             </div>
-
+            <div class="form-check salvar-cartao">
+                <input class="form-check-input" type="checkbox" id="defaultCheck1" name="salvarCartao" value="sim" >
+                <label class="form-check-label" for="defaultCheck1">
+                    Salvar cartão
+                </label>
+            </div>    
+        
             <input id="senderHash" name="senderHash" type="hidden"></input>
             <input id="brand" name="bandeira" type="hidden"></input>
             <input id="tokenCard" name="tokenCard" type="hidden"></input>
@@ -147,30 +153,31 @@
             </div>
             <div class="modal-body">
                 
+            <!-- Botar PHP -->
                 <div class="modal-info-session">
                     <h6 class="modal-confirm-subtitle">Dados do usuário</h6>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Nome:</span>
-                        <span class="ml-2 my-info"></span>
+                        <span class="ml-2 my-info"><?php echo($userInfo['holder']); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Nascimento:</span>
-                        <span class="ml-2 my-info"></span>
+                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['birthDate'])); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">CPF:</span>
-                        <span class="ml-2 my-info"></span>
+                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['cpf'])); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Telefone:</span>
                         <div class="d-flex">
-                            <span class="ml-2 my-info"></span>
-                            <span class="ml-2 my-info"></span>
+                            <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['areaCode'])); ?></span>
+                            <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['phone'])); ?></span>
                         </div>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Email:</span>
-                        <span class="ml-2 my-info"></span>
+                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['emailOwner'])); ?></span>
                     </div>
                 </div>
 
@@ -178,18 +185,18 @@
                     <h6 class="modal-confirm-subtitle">Dados do cartão</h6>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">N do cartão:</span>
-                        <span class="ml-2 my-info"></span>
+                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['nCard'])); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">CVV:</span>
-                        <span class="ml-2 my-info"></span>
+                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['cvv'])); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Validade:</span>
                         <div class="d-flex">
-                            <span class="ml-2 my-info"></span>
+                            <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['monthVal'])); ?></span>
                             <span class="ml-2 ">/</span>
-                            <span class="ml-2 my-info"></span>
+                            <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['yearVal'])); ?></span>
                         </div>
                         
                     </div>
@@ -199,23 +206,23 @@
                     <h6 class="modal-confirm-subtitle">Endereço de cobrança</h6>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Rua:</span>
-                        <span class="ml-2 my-info">Caio Brandini</span>
+                        <span class="ml-2 my-info"></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Número do local:</span>
-                        <span class="ml-2 my-info">Caio Brandini</span>
+                        <span class="ml-2 my-info"></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Complemento:</span>
-                        <span class="ml-2 my-info">Caio Brandini</span>
+                        <span class="ml-2 my-info"></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Bairro:</span>
-                        <span class="ml-2 my-info">Caio Brandini</span>
+                        <span class="ml-2 my-info"></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Estado UF:</span>
-                        <span class="ml-2 my-info">SP</span>
+                        <span class="ml-2 my-info"></span>
                     </div>
                 </div>
 
@@ -236,57 +243,5 @@
     <script>
         PagSeguroDirectPayment.setSessionId('<?php echo ($retornoInit)?>');
 
-        //Armazena o SenderHash num input escondido
-        $("#nCartao").on("click", function(){
-            PagSeguroDirectPayment.onSenderHashReady(function(response){
-                if(response.status == 'error') {
-                    console.log(response.message);
-                    return false;
-                }
-                $("#senderHash").val(response.senderHash);
-            });
-        });
 
-        $("#nCartao").change(function(){
-            
-            //Pega a bandeira do cartão
-            if ($("#nCartao").val().length > 14){
-                PagSeguroDirectPayment.getBrand({
-                    cardBin: $("#nCartao").val(),
-                    success: function(response) {
-                        var bandeira = response['brand']['name'];
-                        $("#bandeira").text(bandeira);
-                        $("#brand").val(bandeira);
-                    },
-                    error: function(response) {
-                        //tratamento do erro
-                    },
-                    complete: function(response) {
-                      //tratamento comum para todas chamadas
-                    }
-                });
-            }
-        });
-
-        $("#gerarToken").click(function(){
-            //Cria o token do cartão quando terminá-lo
-            PagSeguroDirectPayment.createCardToken({
-                    cardNumber: $("#nCartao").val(),
-                    brand: $("#bandeira").text(),
-                    cvv: $("#cvv").val(),
-                    expirationMonth: $("#monthVal").val(),
-                    expirationYear: $("#yearVal").val(),
-                    success: function(response) {
-                        console.log(response);
-                        $("#tk").text(response.card.token);
-				        $("#tokenCard").text(response.card.token);
-                    },
-                    error: function(response) {
-                        console.log("Erro no Token do cartão: " + response);
-                    },
-                    complete: function(response) {
-                         // Callback para todas chamadas.
-                    }
-                });   
-        });
     </script>

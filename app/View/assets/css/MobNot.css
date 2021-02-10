@@ -144,6 +144,15 @@ nav p {
     color: rgb(62, 62, 219);
 }
 
+.coin-icon {
+    color: #daa520;
+    margin-right: 10px;
+}
+
+.gorjeta-msg {
+    margin-left: 30px;
+}
+
 
 @media(max-width: 800px) {
 

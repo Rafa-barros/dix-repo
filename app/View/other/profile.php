@@ -18,13 +18,13 @@
 
 <div class="profile">
     <div class="profile-top">
-        <img src="<?php echo($fotoCapa); ?>"  class="img-capa" alt="Imagem de capa">
+        <img src=<?php echo("\"" . $fotoCapa . "\""); ?>  class="img-capa" alt="Imagem de capa">
         <div class="prof-status-container">
             <div class="profile-img-container">
                 <img src="<?php echo($img); ?>" class="profile-img" alt="">
             </div>
             <p class="prof-name"><?php echo($pname); ?></p>
-            <p class="prof-description"><?php echo($bio); ?></p>
+            <p class="prof-description"> </p>
             <div class="follower-status">
                 <span> <b class="nfollowers"><?php echo($followers); ?></b> seguidores</span>
                 <span> <b><?php echo($vips); ?></b> VIPS</span>
@@ -282,10 +282,10 @@
 
         <div class="profile-l-content">
             <h2 class="about-me">Sobre mim</h2>
-            <p class="bio">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam placeat quae magni error, unde laborum quisquam, earum sit illum ipsum et delectus tenetur perferendis soluta sint maiores animi.</p>
+            <p class="bio"><?php echo($bio); ?></p>
             <div class="g-border"></div>
             <h2 class="nposts-title">Número de posts</h2>
-            <p class="nposts">28</p>
+            <p class="nposts"><?php echo($posts) ?></p>
         </div>
     
         <div class="profile-posts">

@@ -202,21 +202,28 @@
             <div class="chat-messages">
                 <!-- Mensagens -->
 
+                <div class="nova-data-msg">
+                    <span>10/02/2021</span>
+                </div>
+
                 <div class="my-message">
                     <div class="message-content">
                         <span>oe</span>
+                        <div class="time"> 20:17 </div>
                     </div>
                 </div>
 
                 <div class="my-message">
                     <div class="message-content">
                         <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span>
+                        <div class="time"> 20:18 </div>
                     </div>
                 </div>
 
                 <div class="your-message">
                     <div class="message-content">
                         <span>Lorem ipsum dolor sit amet consectetur, adipisicing elit.</span>
+                        <div class="time"> 21:12 </div>
                     </div>
                 </div>
 

@@ -26,6 +26,6 @@ class Profile {
     }
 
     public function carregarCSS(){
-        echo ("<link rel='stylesheet' href='app/View/assets/css/profile.css'>");
+        echo ("<link rel='stylesheet' href='../app/View/assets/css/profile.css'>");
     }
 }

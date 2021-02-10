@@ -5,7 +5,7 @@ use App\Models\Database;
 
 class Pagamento {
     public function index(){
-        if (isset($_GET['user']) && isset($_GET['amount'])){
+        if (isset($_GET['user']) && isset($_GET['amount']) && ($_GET['amount'] > 1)){
             $conn = new Database();
             require('app/Models/gerarTokenPS.php');
             $url = "https://ws.pagseguro.uol.com.br/sessions";

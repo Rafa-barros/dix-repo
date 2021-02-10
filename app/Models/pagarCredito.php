@@ -12,13 +12,16 @@ function cripto_ssl($text)
         return $output;
     }
 
+$receiverDB = $conn->executeQuery('SELECT * FROM mVf2Ca6', array());
+$receiver = $receiverDB->fetch(PDO::FETCH_ASSOC);
+
 $parametros = array (
     "payment.mode" => "default",
     "payment.method" => "creditCard",
     "currency" => "BRL",
     "item[1].id" => "000",
-    "item[1].description" => ("Doação para: " . (htmlentities($_POST['nameOp']))),
-    "item[1].amount" => (htmlentities($_POST['price'])),
+    "item[1].description" => ("Doação para: " . (htmlentities($_GET['user']))),
+    "item[1].amount" => (htmlentities($_GET['amount'])),
     "item[1].quantity" => "1",
     "notificationURL" => "dix.net.br/notificacao-pagseguro",
     "reference" => "dix",
@@ -55,44 +58,62 @@ $parametros = array (
     "billingAddress.city" => "Campinas",
     "billingAddress.state" => "SP",
     "billingAddress.country" => "BRA",
-    "receiver[1].publicKey" => "viniciusventurini47@gmail.com",
-    "receiver[1].split.amount" => "0.25"
+    "receiver[1].publicKey" => $receiver['publicKey'],
+    "receiver[1].split.amount" => $receiver['splitAmount']
 );
 
 $url = "https://ws.pagseguro.uol.com.br/transactions?appId=" . $token->id . "&appKey=" . $token->key;
 $retorno = callAPI($url, $parametros);
 
-if (isset($_POST['salvar'])){
+if (strpos($retorno, (htmlentities($_POST['estado']))) !== false){
+    echo ("<div style='display: none' id='cond'>SUCESSO</div>");
+
     $result = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
         ':EMAIL' => (htmlentities($_POST['email']))
     ));
     $result = $result->fetch();
     $idUser = $result['0'];
-    $conn->executeQuery('INSERT INTO cartoes (holder, cpf, birthDate, areaCode, phone, nCard, cvv, monthVal, yearVal, brand, emailOwner) VALUES (
-        :NOMETITULAR,
-        :CPF,
-        :BIRTHDATE,
-        :DDD,
-        :TEL,
-        :NCARD,
-        :CVV,
-        :MONTHVAL,
-        :YEARVAL,
-        :BRAND,
-        :EMAIL
-    )', array(
-        ':NOMETITULAR' => (htmlentities($_POST['nomeTitular'])),
-        ':CPF' => (cripto_ssl(htmlentities($_POST['cpfTitular']))),
-        ':BIRTHDATE' => (cripto_ssl(htmlentities($_POST['nascimento']))),
-        ':DDD' => (cripto_ssl(htmlentities($_POST['dddTel']))),
-        ':TEL' => (cripto_ssl(htmlentities($_POST['numeroTelefone']))),
-        ':NCARD' => (cripto_ssl(htmlentities($_POST['nCartao']))),
-        ':CVV' => (cripto_ssl(htmlentities($_POST['cvv']))),
-        ':MONTHVAL' => (cripto_ssl(htmlentities($_POST['monthVal']))),
-        ':YEARVAL' => (cripto_ssl(htmlentities($_POST['yearVal']))),
-        ':BRAND' => (cripto_ssl(htmlentities($_POST['brand']))),
-        ':EMAIL' => (cripto_ssl(htmlentities($_COOKIE['cUser'])))
+
+    //Libera o acesso do usuário ao post comprado
+    $conn->executeQuery('INSERT INTO assoc_posts (idPost, idUser) VALUES (:POST, :ID)', array(
+        ':POST' => (htmlentities($_GET['post'])),
+        ':ID' => $idUser
     ));
+
+    /*
+    AQUI DEVE RODAR O CÓDIGO PARA ELE ENVIAR UMA MENSAGEM AUTOMÁTICA AO COMPRADOR
+    */
+
+    //Salva o cartão encriptografado
+    if (isset($_POST['salvar'])){
+        $conn->executeQuery('INSERT INTO cartoes (holder, cpf, birthDate, areaCode, phone, nCard, cvv, monthVal, yearVal, brand, emailOwner) VALUES (
+            :NOMETITULAR,
+            :CPF,
+            :BIRTHDATE,
+            :DDD,
+            :TEL,
+            :NCARD,
+            :CVV,
+            :MONTHVAL,
+            :YEARVAL,
+            :BRAND,
+            :EMAIL
+        )', array(
+            ':NOMETITULAR' => (htmlentities($_POST['nomeTitular'])),
+            ':CPF' => (cripto_ssl(htmlentities($_POST['cpfTitular']))),
+            ':BIRTHDATE' => (cripto_ssl(htmlentities($_POST['nascimento']))),
+            ':DDD' => (cripto_ssl(htmlentities($_POST['dddTel']))),
+            ':TEL' => (cripto_ssl(htmlentities($_POST['numeroTelefone']))),
+            ':NCARD' => (cripto_ssl(htmlentities($_POST['nCartao']))),
+            ':CVV' => (cripto_ssl(htmlentities($_POST['cvv']))),
+            ':MONTHVAL' => (cripto_ssl(htmlentities($_POST['monthVal']))),
+            ':YEARVAL' => (cripto_ssl(htmlentities($_POST['yearVal']))),
+            ':BRAND' => (cripto_ssl(htmlentities($_POST['brand']))),
+            ':EMAIL' => (cripto_ssl(htmlentities($_COOKIE['cUser'])))
+        ));
+    }
+} else {
+    echo ("<div style='display: none' id='cond'>ERRO: " . $retorno . "</div>");
 }
 
 /*

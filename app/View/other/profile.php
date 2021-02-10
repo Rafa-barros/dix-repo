@@ -27,7 +27,7 @@
             <p class="prof-description"><?php echo($bio); ?></p>
             <div class="follower-status">
                 <span> <b class="nfollowers"><?php echo($followers); ?></b> seguidores</span>
-                <span> <b><?php echo($vips) ?></b> VIPS</span>
+                <span> <b><?php echo($vips); ?></b> VIPS</span>
             </div>
         </div>
         <div class="profile-btn-area">

@@ -21,7 +21,7 @@
         <img src=<?php echo("\"" . $fotoCapa . "\""); ?>  class="img-capa" alt="Imagem de capa">
         <div class="prof-status-container">
             <div class="profile-img-container">
-                <img src="<?php echo("\"" . $img . "\""); ?>" class="profile-img" alt="">
+                <img src=<?php echo("\"" . $img . "\""); ?> class="profile-img" alt="">
             </div>
             <p class="prof-name"><?php echo($pname); ?></p>
             <p class="prof-description"> </p>

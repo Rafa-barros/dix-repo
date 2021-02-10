@@ -1,4 +1,3 @@
-
 <nav class="nav">
     <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
     <div class="features-containers">
@@ -17,19 +16,18 @@
     </div>
 </nav>
 
-
 <div class="profile">
     <div class="profile-top">
-        <img src="https://pesquisei.club/wp-content/uploads/2018/05/img_5af35102b4d4c.png"  class="img-capa" alt="Imagem de capa">
+        <img src="<?php echo($fotoCapa); ?>"  class="img-capa" alt="Imagem de capa">
         <div class="prof-status-container">
             <div class="profile-img-container">
-                <img src="<?php echo($perfil->imgUser); ?>" class="profile-img" alt="">
+                <img src="<?php echo($img); ?>" class="profile-img" alt="">
             </div>
-            <p class="prof-name"><?php echo($perfil->pname); ?></p>
-            <p class="prof-description"><?php echo($perfil->bio); ?></p>
+            <p class="prof-name"><?php echo($pname); ?></p>
+            <p class="prof-description"><?php echo($bio); ?></p>
             <div class="follower-status">
-                <span> <b class="nfollowers"><?php echo($perfil->followers); ?></b> seguidores</span>
-                <span> <b>7</b> VIPS</span>
+                <span> <b class="nfollowers"><?php echo($followers); ?></b> seguidores</span>
+                <span> <b><?php echo($vips) ?></b> VIPS</span>
             </div>
         </div>
         <div class="profile-btn-area">

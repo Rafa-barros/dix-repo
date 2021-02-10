@@ -11,7 +11,6 @@ class ProfileModel {
 
     public function __construct(){
         $conn = new Database();
-        echo ("TESTE");
     }
 
     public function getInfo(){

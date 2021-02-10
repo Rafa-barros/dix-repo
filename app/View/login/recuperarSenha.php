@@ -3,6 +3,7 @@
       <a href="/" class="btn-return"><i class="fas fa-arrow-left fa-2x"></i></a>
       <img class="logo-dix" src="/app/View/assets/css/img/logo_original.png" alt="logo">
     </nav>
+
     <div class="center">
       <div class="card-email">
         <form class="form" method="post">
@@ -20,6 +21,44 @@
       </div>
     </div>
     </div>
+
+    <div class="center">
+      <div class="card-email">
+        <form class="form" method="post">
+          <div class="form-container">
+            <h1>Redefinir senha</h1>
+            <div class="g-border"></div>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Insira o Código enviado em seu e-mail</label>
+              <input type="text" class="form-control" placeholder="XXXXXX" name="email">
+              <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
+            </div>
+            
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+    
+    <div class="center">
+      <div class="card-email">
+        <form class="form" method="post">
+          <div class="form-container">
+            <h1>Redefinir senha</h1>
+            <div class="g-border"></div>
+            <div class="form-group">
+            <label for="exampleInputEmail1">Tudo pronto! Escolha sua nova senha</label>
+              <input type="text" class="form-control" placeholder="Nova Senha" name="email">
+              <input type="text" class="form-control" placeholder="Nova Senha" name="email">
+              <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
+            </div>
+            
+          </div>
+        </form>
+      </div>
+    </div>
+    </div>
+
     <div class="footer">
       <div class="copyright">
         <p>© 2021 - Dix corporation</p>

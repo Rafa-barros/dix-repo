@@ -75,18 +75,35 @@ $(".chat-title-container").hide();
             });
         }
 
-        $.ajax({
-            url: form_url, 
-            method: "POST",
-            data: {
-                nameOP: $(".nome-contato-chat").text(),
-                contactName:"caiobrandini"
-            },   
-            // dataType: "json",  
-            cache: false,
-            success: function(resposta){
-            }
-        });
+
+        //Carregar mensagens
+        
+        // var meuId = $('.me').attr('id');
+
+        // $.ajax({
+        //     url: form_url, 
+        //     method: "POST",
+        //     data: {
+        //         contato: $(".nome-contato-chat").text(),
+        //         username: meuId
+        //     },   
+        //     dataType: "json",  
+        //     cache: false,
+        //     success: function(resposta){
+        //         let chat = resposta.mensagens;
+
+        //         for(var i=0; i < chat.length; i++){
+        //             if(chat[i][1] == 1) { //mensagem minha
+        //                 $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span></div></div>');
+        //             }
+        //             else { //mensagem do outro
+        //                 $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span></div></div>');
+        //             }
+        //         }
+
+        //     }
+        // });
+
 
 
         //atualizar Chat
@@ -156,12 +173,13 @@ $(".chat-title-container").hide();
             console.log(naolidos);
 
             //envia lista e recebe novos contatos
-
+        
+    //         var meuId = $('.me').attr('id');        PEGA ID DA ANCORA PROFILE
     //         $.ajax({
     //             url: form_url, 
     //             method: "POST",
     //             data: {
-    //                 meuId: "",
+    //                 username: meuId,
     //                 naolidos: lnaolidos,
     //             },   
     //             // dataType: "json",  

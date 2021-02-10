@@ -8,13 +8,28 @@
 </nav>
 <div class="not-container">
 
+
+        <div class="notificacao" style="display: block;">
+            <i class="fas fa-coins coin-icon"></i>
+            <span> <a href="">MarcusCaruso</a>  te deu <b>50R$</b> de gorjeta! </span>
+            <div class="d-flex">
+                <span class="gorjeta-msg">mensagem: Oi princesa</span>
+            </div>
+        </div>
+
+
     <div class="notificacao">
         <i class="fas fa-fire-alt like-icon"></i>
         <span> <a href="">MarcusCaruso</a>  curtiu a sua publicação! </span>
     </div>
 
     <div class="notificacao">
-    <i class="far fa-comment comment-icon"></i>
+        <i class="fas fa-fire-alt like-icon"></i>
+        <span> <a href="">MarcusCaruso</a>  curtiu a sua publicação! </span>
+    </div>
+
+    <div class="notificacao">
+        <i class="far fa-comment comment-icon"></i>
         <span> <a href="">MarcusCaruso</a> curtiu a sua publicação! </span>
     </div>  
 

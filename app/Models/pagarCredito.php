@@ -1,15 +1,27 @@
 <?php
 
+function cripto_ssl($text) 
+    {
+        $encrypt_method = "AES-256-CBC";
+        $secret_key = '9ccf0060e4b92f6d803367d940a2f61e0be2040d97b98c1e6134a4d78edc76d8';
+        $salt = '00c4a240956cf121a244b2e0a1bc82f0';
+        $key = hash('sha256', $secret_key);
+        $iv = substr(hash('sha256', $salt), 0, 16);
+        $output = openssl_encrypt($text, $encrypt_method, $key, 0, $iv);
+        $output = base64_encode($output);
+        return $output;
+    }
+
 $parametros = array (
     "payment.mode" => "default",
     "payment.method" => "creditCard",
     "currency" => "BRL",
-    "item[1].id" => (htmlentities($_POST['id'])),
-    "item[1].description" => "a",
+    "item[1].id" => "000",
+    "item[1].description" => ("Doação para: " . (htmlentities($_POST['nameOp']))),
     "item[1].amount" => (htmlentities($_POST['price'])),
     "item[1].quantity" => "1",
     "notificationURL" => "dix.net.br/notificacao-pagseguro",
-    "reference" => "",
+    "reference" => "dix",
     "sender.name" => (htmlentities($_POST['nomeTitular'])),
     "sender.CPF" => (htmlentities($_POST['cpfTitular'])),
     "sender.areaCode" => (htmlentities($_POST['dddTel'])),
@@ -38,17 +50,50 @@ $parametros = array (
     "billingAddress.street" => "Rua Santa Maria Rossello",
     "billingAddress.number" => "180",
     "billingAddress.complement" => "Apt. 607",
-    "billingAddress.district" => "Mansões Santo Antônio",
+    "billingAddress.district" => "Mansoes Santo Antônio",
     "billingAddress.postalCode" => "13087503",
     "billingAddress.city" => "Campinas",
     "billingAddress.state" => "SP",
     "billingAddress.country" => "BRA",
-    "receiver[1].publicKey" => "PUBCCC6E4E477164E0987EE5DB12EC12D93",
+    "receiver[1].publicKey" => "viniciusventurini47@gmail.com",
     "receiver[1].split.amount" => "0.25"
 );
 
 $url = "https://ws.pagseguro.uol.com.br/transactions?appId=" . $token->id . "&appKey=" . $token->key;
 $retorno = callAPI($url, $parametros);
+
+if (isset($_POST['salvar'])){
+    $result = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
+        ':EMAIL' => (htmlentities($_POST['email']))
+    ));
+    $result = $result->fetch();
+    $idUser = $result['0'];
+    $conn->executeQuery('INSERT INTO cartoes (holder, cpf, birthDate, areaCode, phone, nCard, cvv, monthVal, yearVal, brand, emailOwner) VALUES (
+        :NOMETITULAR,
+        :CPF,
+        :BIRTHDATE,
+        :DDD,
+        :TEL,
+        :NCARD,
+        :CVV,
+        :MONTHVAL,
+        :YEARVAL,
+        :BRAND,
+        :EMAIL
+    )', array(
+        ':NOMETITULAR' => (htmlentities($_POST['nomeTitular'])),
+        ':CPF' => (cripto_ssl(htmlentities($_POST['cpfTitular']))),
+        ':BIRTHDATE' => (cripto_ssl(htmlentities($_POST['nascimento']))),
+        ':DDD' => (cripto_ssl(htmlentities($_POST['dddTel']))),
+        ':TEL' => (cripto_ssl(htmlentities($_POST['numeroTelefone']))),
+        ':NCARD' => (cripto_ssl(htmlentities($_POST['nCartao']))),
+        ':CVV' => (cripto_ssl(htmlentities($_POST['cvv']))),
+        ':MONTHVAL' => (cripto_ssl(htmlentities($_POST['monthVal']))),
+        ':YEARVAL' => (cripto_ssl(htmlentities($_POST['yearVal']))),
+        ':BRAND' => (cripto_ssl(htmlentities($_POST['brand']))),
+        ':EMAIL' => (cripto_ssl(htmlentities($_COOKIE['cUser'])))
+    ));
+}
 
 /*
     Tratamento de erros aqui com switch case para cada caso de código

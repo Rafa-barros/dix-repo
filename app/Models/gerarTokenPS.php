@@ -3,7 +3,6 @@
 namespace App\Models;
 use App\Models\Database;
 
-
 class Token {
     private $conn;
     public $key;

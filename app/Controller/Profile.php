@@ -5,7 +5,7 @@ namespace App\Controller;
 class Profile {
     public function index(){
         require("app/Models/getProfile.php");
-        $usuario = new ProfileModel();
+        $usuario = new App\Models\ProfileModel();
         $usuario->username = $this->urlMetodo;
         echo ($usuario->username);
         $usuario->getInfo();

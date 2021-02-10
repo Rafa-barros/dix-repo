@@ -88,8 +88,8 @@ class registroUsuario{
 			if($this->verificaUsuario()){
 				$this->registra();
 				if($this->regCodigo()){
-					//$email = new sendEmail();
-					//$email->mail($this->email, $this->idVerify, $this->codigo);
+					$email = new sendEmail();
+					$email->mail($this->email, $this->idVerify, $this->codigo);
 					return $this->idVerify;
 				}
 			}else{

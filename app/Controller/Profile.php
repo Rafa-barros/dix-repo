@@ -17,7 +17,7 @@ class Profile {
         $pname = $usuario->profileInfo['pname'];
         $typeuser = $usuario->profileInfo['typeuser'];
         $posts = $usuario->profileInfo['posts'];
-        $img = $usuario->profileInfoo['imgUser'];
+        $img = $usuario->profileInfo['imgUser'];
         $followers = $usuario->profileInfo['followers'];
         $bio = $usuario->profileInfo['bio'];
         $fotoCapa = $usuario->profileInfo['fotoCapa'];

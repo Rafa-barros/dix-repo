@@ -16,7 +16,7 @@
                         <i class="fas fa-coins coin-icon"></i>
                         <span> <a href="">MarcusCaruso</a>  te deu <b>50R$</b> de gorjeta! </span>
                         <div class="d-flex">
-                            <span class="gorjeta-msg">mensagem: Oi princesa</span>
+                            <span class="gorjeta-msg">mensagem: Lorem ipsum dolor sit amet consectetur.</span>
                         </div>
                     </div>
 
@@ -103,6 +103,45 @@
                     </div>
                 </form>
             </div>
+
+        <!-- Modal Donate-->
+        <div class="modal fade" id="donate-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Gorjeta!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" data-target="#donate-modal"> 
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    
+                <form action="/pagamento" method="get">
+                    <div class="input-group mb-3 mt-3">
+                            <div class="input-group mb-3">
+                                <span class="subtitle-modal-gorjeta">Envie uma gorjeta para <a href="" class="nome-alvo"></a>!</span> 
+                            </div>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="inputGroup-sizing-default">Valor (R$)</span>
+                                </div>
+                                <input type="text" class="form-control" aria-label="Default" placeholder="Ex.: 34,00" aria-describedby="inputGroup-sizing-default" name="valor">
+                            </div>
+
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control" aria-label="Default" placeholder="Mensagem..." aria-describedby="inputGroup-sizing-default" name="msg">
+                            </div>
+                    
+                    </div>
+                <div class=" modal-footer" style="justify-content: center; padding-top: 30px">
+                    <button type="submit" class="btn btn-primary">Enviar gorjeta</button>
+                </div>
+                </form>
+
+                </div>
+                </div>
+            </div>
+        </div>
 
     <!-- Início Posts -->
 

@@ -9,6 +9,7 @@ class Profile {
         require("app/Models/getProfile.php");
         $usuario = new \app\Models\ProfileModel();
         $usuario->username = $this->urlMetodo;
+        echo ($usuario->username);
         $usuario->getInfo();
 
             $id = $usuario['id'];

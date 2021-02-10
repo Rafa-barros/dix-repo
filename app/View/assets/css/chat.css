@@ -348,7 +348,7 @@ nav p {
     background-color: rgba(0, 0, 0, 0.068);
     border-radius: 12px;
     min-height: 44px;
-    max-width: 40%;
+    max-width: 60%;
 }
 
 .your-message {
@@ -363,7 +363,7 @@ nav p {
     background-color: rgba(0, 0, 0, 0.021);
     border-radius: 12px;
     min-height: 44px;
-    max-width: 40%;
+    max-width: 60%;
 }
 
 
@@ -371,7 +371,6 @@ nav p {
     justify-content: flex-end;
     word-wrap: break-word !important;
     overflow-wrap: break-word;
-    max-width: 220px;
 }
 
 .notificacao {
@@ -420,6 +419,33 @@ nav p {
 
 .gorjeta-msg {
     margin-left: 30px;
+}
+
+.nova-data-msg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0;
+    color: rgb(81, 89, 97);
+}
+
+.nova-data-msg span {
+    padding: 5px 8px;
+    background-color: rgba(112, 128, 144, 0.103);
+    border-radius: 20px;
+    font-size: 14.5px;
+}
+
+.message-content {
+    display: flex;
+}
+
+.time {
+    display: flex;
+    align-items: flex-end;
+    margin-left: 6px;
+    font-size: 13.7px;
+    color: slategray;
 }
 
 

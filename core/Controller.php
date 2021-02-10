@@ -57,6 +57,9 @@ class Controller {
 
     public function carregar(){
         $paginaCarregada = new $this->pag;
+        if (isset($this->urlMetodo)){
+            $paginaCarregada->urlMetodo = $this->urlMetodo;
+        }
         $paginaCarregada->index();
     }
 }

@@ -23,12 +23,12 @@
         <img src="https://pesquisei.club/wp-content/uploads/2018/05/img_5af35102b4d4c.png"  class="img-capa" alt="Imagem de capa">
         <div class="prof-status-container">
             <div class="profile-img-container">
-                <img src="/app/View/assets/css/img/Caio.jpg" class="profile-img" alt="">
+                <img src="<?php echo($perfil->imgUser); ?>" class="profile-img" alt="">
             </div>
-            <p class="prof-name">Caio Brandini</p>
-            <p class="prof-description">Lorem ipsum dolor sit amet.</p>
+            <p class="prof-name"><?php echo($perfil->pname); ?></p>
+            <p class="prof-description"><?php echo($perfil->bio); ?></p>
             <div class="follower-status">
-                <span> <b class="nfollowers">12</b> seguidores</span>
+                <span> <b class="nfollowers"><?php echo($perfil->followers); ?></b> seguidores</span>
                 <span> <b>7</b> VIPS</span>
             </div>
         </div>

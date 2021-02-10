@@ -10,7 +10,6 @@ class Profile {
         $usuario = new \app\Models\ProfileModel();
         $usuario->username = $this->urlMetodo;
         $usuario->getInfo();
-        echo ($usuario['id']);
 
             $id = $usuario['id'];
             $username = $usuario['username'];

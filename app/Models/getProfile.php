@@ -17,6 +17,6 @@ class ProfileModel {
         $resultInfo = $conn->executeQuery('SELECT * FROM users WHERE username = :USER', array(
             ':USER' => $username
         ));
-        $this->username = $resultInfo->fetch(PDO::FETCH_ASSOC);
+        $this->profileInfo = $resultInfo->fetch(PDO::FETCH_ASSOC);
     }
 }

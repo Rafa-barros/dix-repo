@@ -72,7 +72,6 @@ $(document).on('click', '.btn-comment', function(){
 
 });
 
-
 $(document).ready(function(e) {
     
     $(document).on('submit', 'form[ajax=true]', function(e){
@@ -100,6 +99,11 @@ $(document).ready(function(e) {
         
     });
     
+});
+
+$(document).on('click', '.btn-donate', function(){
+    let nomeCard = $(this).closest('.card').find('.author-name').text();
+    $('.nome-alvo').text(nomeCard);
 });
 
 // HtmlEntities

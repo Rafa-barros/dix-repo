@@ -78,3 +78,7 @@ $(document).on('click', '.btn-deletar-post', function(){
 
     $('#modal-del-post').modal('hide');
 });
+
+$('#gorjeta-profile').click(function(){
+    $('.nome-alvo').text($('.prof-name').text());
+});

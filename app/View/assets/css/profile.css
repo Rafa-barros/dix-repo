@@ -738,8 +738,36 @@ button:focus {
     margin-left: 30px;
 }
 
+/* gorjeta modal */
 
+.nome-alvo {
+    color: rgba(0, 0, 0, 0.733);
+    font-weight: 600;
+    margin-right: 2px;
+}
 
+.nome-alvo:hover {
+    color: rgba(0, 0, 0, 0.733);
+}
+
+.subtitle-modal-gorjeta {
+    font-size: 18px;
+}
+
+/* Cinfig */
+
+#btn-config {
+    width: unset;
+}
+
+.config-label {
+    font-weight: 500;
+    margin-top: 20px;
+}
+
+.data-nascimento {
+    margin-right: 8px;
+}
 
 @media(max-width: 1250px) {
     .profile-posts {

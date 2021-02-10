@@ -33,9 +33,13 @@
             </div>
         </div>
         <div class="profile-btn-area">
-            <button type="button" class="btn btn-outline-primary btn-profile-follow seguindo" style="background-color: rgb(57, 132, 218); color: white;">Seguindo <i class="fas fa-check check-follow-profile"></i></button>
+            <!-- Se o perfil não for seu -->
+            <!-- <button type="button" class="btn btn-outline-primary btn-profile-follow seguindo" style="background-color: rgb(57, 132, 218); color: white;">Seguindo <i class="fas fa-check check-follow-profile"></i></button>
             <button type="button" class="btn btn-primary btn-profile-message mr-1" id="gorjeta-profile" data-toggle="modal" data-target="#donate-modal">Gorjeta <i class="fas fa-coins"></i> </button>
-            <button type="button" class="btn btn-primary btn-profile-message btn-profile-message-o">Mensagem</button> <br/>
+            <button type="button" class="btn btn-primary btn-profile-message btn-profile-message-o">Mensagem</button> <br/> -->
+
+            <!-- Se o perfil for seu -->
+            <button type="button" class="btn btn-primary btn-profile-message mr-1" id="btn-config" data-toggle="modal" data-target="#modal-config">Configurações <i class="fas fa-cog"></i> </button>
         </div>
         <div class="profile-img-container-border-bottom"></div>
     </div>
@@ -163,9 +167,29 @@
         </button>
       </div>
       <div class="modal-body">
-        ...
+        
+      <form action="/pagamento" method="get">
+        <div class="input-group mb-3 mt-3">
+                <div class="input-group mb-3">
+                    <span class="subtitle-modal-gorjeta">Envie uma gorjeta para <a href="" class="nome-alvo"></a>!</span> 
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Valor (R$)</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" placeholder="Ex.: 34,00" aria-describedby="inputGroup-sizing-default" name="valor">
+                </div>
+
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-label="Default" placeholder="Mensagem..." aria-describedby="inputGroup-sizing-default" name="msg">
+                </div>
+        
+        </div>
+      <div class=" modal-footer" style="justify-content: center; padding-top: 30px">
+        <button type="submit" class="btn btn-primary">Enviar gorjeta</button>
       </div>
-      <div class="modal-footer">
+      </form>
+
       </div>
     </div>
   </div>
@@ -191,12 +215,6 @@
                     </div>
                     <input type="text" class="form-control" aria-label="Default" placeholder="Ex.: Atriz e modelo" aria-describedby="inputGroup-sizing-default">
                 </div>
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="inputGroup-sizing-default">@</span>
-                    </div>
-                    <input type="text" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
-                </div>
                 
             <div class="prof-description mb-2">
                 <textarea type="text" class="form-control edit-post-description edit-profile-description" id="validationDefault01" placeholder="Sobre mim..." name="descriptPost"></textarea>
@@ -216,10 +234,51 @@
       </div>
       </form>
     </div>
+
   </div>
 </div>
 
 
+<!-- Modal Configurações -->
+
+<div class="modal fade" id="modal-config" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Configurações</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <form>
+                <label class="config-label">Alterar Username</label>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">@</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
+                </div>
+                
+                <label class="config-label">Data de nascimento</label>
+                <div class="input-group mb-3 d-flex">
+                    <div class="d-flex">
+                        <input type="text" class="form-control data-nascimento" aria-label="Default" placeholder="DD" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" class="form-control data-nascimento" aria-label="Default" placeholder="MM" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" class="form-control data-nascimento" aria-label="Default" placeholder="AAAA" aria-describedby="inputGroup-sizing-default">
+                    </div>
+                </div>
+                
+        
+    </div>
+      <div class="modal-footer">
+        <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+      </div>
+      </form>
+    </div>
+
+  </div>
+</div>
 
     <div class="profile-bottom">
 
@@ -254,7 +313,7 @@
                         <div class="l-card-top">
                             <a href=""><img class="profile-image" src="/app/View/assets/css/img/Caio.jpg" alt="Foto perfil"></a>
                             <div class="author-info">
-                                <p class="author-name"> <a href="">Caio Brandini</a></p>
+                                <p class="author-name"> <a href="">Giovana</a></p>
                                 <p class="post-time"> 34 min </p>
                             </div>
                         </div>

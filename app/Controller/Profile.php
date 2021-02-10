@@ -11,7 +11,7 @@ class Profile {
         $usuario->username = $this->urlMetodo;
         $usuario->getInfo();
 
-        if (empty($usuario->profile['id'])){
+        if (empty($usuario->profileInfo['id'])){
             require ("app/View/other/error404.php");
         } else {
             $id = $usuario->profileInfo['id'];
@@ -31,6 +31,6 @@ class Profile {
 
     public function carregarCSS(){
         echo ("<link rel='stylesheet' href='../app/View/assets/css/profile.css'>");
-        echo ("<link rel='stylesheet' href='app/View/assets/css/error404.css'>");
+        echo ("<link rel='stylesheet' href='../app/View/assets/css/error404.css'>");
     }
 }

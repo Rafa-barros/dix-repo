@@ -38,11 +38,12 @@ class Notificacao {
 	}
 
 	public function getProfile(){
-		$resultProfile = $this->conn->executeQuery('SELECT username FROM users WHERE id = :ID', array(
-			':ID' => $idUser
-		));
-		$resultProfile = $resultProfile->fetch();
-		
-		return $resultProfile['0'];
-	}
+        $resultProfile = $this->conn->executeQuery('SELECT username FROM users WHERE id = :ID', array(
+            ':ID' => $idUser
+        ));
+        $resultProfile = $resultProfile->fetch();
+        $profile = $resultProfile['0'];
+
+        return $profile;
+    }
 }

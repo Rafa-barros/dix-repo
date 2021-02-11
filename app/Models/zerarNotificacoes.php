@@ -10,13 +10,12 @@ require "../../vendor/autoload.php";
 $idUser = base64_decode(htmlentities($_POST['data']));
 $conn = new Database();
 
-
 $conn->executeQuery('UPDATE notifications SET jaVisto = 1 WHERE idReceiver = :ID', array(
     ':ID' => $idUser
 ));
 
 echo (json_encode(array(
-    'data' => "sucesso"
+    'data' => $idUser
 )));
 
 ?>

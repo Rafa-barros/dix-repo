@@ -6,10 +6,10 @@ $('.dropdown-toggle').click(function(){
         dataType: 'json',
         type: "POST",
         data: {
-            data: dataUser // ID DO POST
+            userID: dataUser // ID DO POST
         },
         success:function(result){
-            console.log("Protocolo das Notificações: " + result.data);
+            console.log("Protocolo das Notificações: " + result.userID);
         }
     });
 });

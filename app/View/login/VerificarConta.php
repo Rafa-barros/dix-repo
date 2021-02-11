@@ -5,13 +5,7 @@
     </nav>
     <div class="center">
       <div class="card-email">
-        <?php
-          if(isset($_GET['id']) && isset($_GET['email'])){
-            echo '<form class="form" action="/VerificarConta?id=' . $_GET['id'] .'&email=' . $_GET['email'] . '&" method="get">';
-          }else{
-            echo '<form class="form" action="/VerificarConta" method="get">';
-          }
-        ?>
+        <form class="form" action="/verificarconta" method="get">
           <div class="form-container">
             <h1>Verificar Código</h1>
             <div class="g-border"></div>

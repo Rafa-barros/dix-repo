@@ -6,7 +6,6 @@ use App\Models\verificarEmail;
 
 class Verificarconta {
     public function index(){
-        require("app/View/login/VerificarConta.php");
         if(isset($_GET['id'])){
             $_SESSION['id'] = $_GET['id'];
         }
@@ -16,6 +15,7 @@ class Verificarconta {
         if(isset($_GET['codigo'])){
             $_SESSION['codigo'] = $_GET['codigo'];
         }
+        require("app/View/login/VerificarConta.php");
         if(isset($_SESSION['id']) && isset($_SESSION['email']) && isset($_SESSION['codigo'])){
             $verificar = new verificarEmail($_SESSION['email']);
             $result = $verificar->verify($_SESSION['id'], $_SESSION['codigo']);

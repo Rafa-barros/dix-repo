@@ -28,7 +28,7 @@ class Notificacao {
 		$resultNot = $this->conn->executeQuery("SELECT * FROM notifications WHERE idReceiver = :ID AND NOT jaVisto = '1'", array(
 			':ID' => $this->idUser
 		));
-        $qtdNotificacoes = 0;
+        $this->qtdNotificacoes = 0;
         while ($row = $resultNot->fetch(PDO::FETCH_ASSOC)){
             $this->notificacoes[$qtdNotificacoes] = $row;
 			$this->qtdNotificacoes++;

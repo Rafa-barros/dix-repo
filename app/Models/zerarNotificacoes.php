@@ -15,7 +15,7 @@ $conn->executeQuery('UPDATE notifications SET jaVisto = 1 WHERE idReceiver = :ID
 ));
 
 echo (json_encode(array(
-    'data' => $idUser
+    'userID' => $idUser
 )));
 
 ?>

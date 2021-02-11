@@ -14,14 +14,21 @@ class sendEmail{
         try {
 
             $mail->isSMTP();
-            $mail->SMTPDebug  = false;
-            $mail->do_debug   = 0;
-            $mail->Host       = 'smtp.gmail.com';
-            $mail->SMTPAuth   = true;
+            $mail->SMTPDebug  = true;
+            $mail->do_debug   = 1;
+            $mail->Host       = 'dix.net.br';
+            $mail->SMTPAuth   = false;
             $mail->Username   = 'admdix78@gmail.com';
             $mail->Password   = 'dixadm78';
-            $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
-            $mail->Port       = 587;
+            $mail->SMTPSecure = 'ssl';
+            $mail->Port       = 465;
+	    $mail->SMTPOptions = array(
+          	'ssl' => array(
+            		'verify_peer' => FALSE,
+            		'verify_peer_name' => FALSE,
+            		'allow_self_signed' => TRUE
+          	)
+	    );
             $mail->CharSet    = 'UTF-8';
 
             //Recipients
@@ -31,10 +38,10 @@ class sendEmail{
             // Content
             $mail->isHTML(true);
             $mail->Subject = 'Ativação de conta Dix';
-            $mail->Body    = '<div class="jorge" style="background-color: blue;">Para a Ativação de sua conta Dix, insira esse código<br>
+            $mail->Body    = '<div class="jorge" style="background-color: #fafafa;">Para a Ativação de sua conta Dix, insira esse código<br>
                             ' . $codigo . '<br>
                             Ou então clique aqui!<br>
-                            <a href="http://localhost:8080/verificarconta?id=' . $id . '&email=' . $email . '&codigo=' . $codigo . '"><button>verificar</button></a></div>';
+                            <a href="http://dix.net.br/verificarconta?id=' . $id . '&email=' . $email . '&codigo=' . $codigo . '"><button>verificar</button></a></div>';
             $mail->AltBody = 'Para a Ativação de sua conta Dix, insira esse código ' . $codigo;
 
             $mail->send();

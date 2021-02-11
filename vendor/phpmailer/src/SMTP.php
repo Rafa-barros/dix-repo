@@ -343,20 +343,8 @@ class SMTP
         // Get any announcement
         $this->last_reply = $this->get_lines();
         $this->edebug('SERVER -> CLIENT: ' . $this->last_reply, self::DEBUG_SERVER);
-        $responseCode = (int)substr($this->last_reply, 0, 3);
-        if ($responseCode === 220) {
-            return true;
-        }
-        //Anything other than a 220 response means something went wrong
-        //RFC 5321 says the server will wait for us to send a QUIT in response to a 554 error
-        //https://tools.ietf.org/html/rfc5321#section-3.1
-        if ($responseCode === 554) {
-            $this->quit();
-        }
-        //This will handle 421 responses which may not wait for a QUIT (e.g. if the server is being shut down)
-        $this->edebug('Connection: closing due to error', self::DEBUG_CONNECTION);
-        $this->close();
-        return false;
+
+        return true;
     }
 
     /**
@@ -798,16 +786,7 @@ class SMTP
     public function hello($host = '')
     {
         //Try extended hello first (RFC 2821)
-        if ($this->sendHello('EHLO', $host)) {
-            return true;
-        }
-
-        //Some servers shut down the SMTP service here (RFC 5321)
-        if (substr($this->helo_rply, 0, 3) == '421') {
-            return false;
-        }
-
-        return $this->sendHello('HELO', $host);
+        return $this->sendHello('EHLO', $host) or $this->sendHello('HELO', $host);
     }
 
     /**

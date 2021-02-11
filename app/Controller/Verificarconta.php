@@ -22,7 +22,7 @@ class Verificarconta {
     			unset($_SESSION['id']);
     			unset($_SESSION['email']);
     			unset($_SESSION['codigo']);
-    			header("Location: /");
+    			echo '<script type="text/javascript">window.location.href="http://dix.net.br"</script>';
     			die();
     		}else{
     			unset($_SESSION['id']);

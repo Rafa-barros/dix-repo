@@ -15,7 +15,6 @@ class Verificarconta {
         if(isset($_GET['codigo'])){
             $_SESSION['codigo'] = $_GET['codigo'];
         }
-        require("app/View/login/VerificarConta.php");
         if(isset($_SESSION['id']) && isset($_SESSION['email']) && isset($_SESSION['codigo'])){
             $verificar = new verificarEmail($_SESSION['email']);
             $result = $verificar->verify($_SESSION['id'], $_SESSION['codigo']);
@@ -23,7 +22,7 @@ class Verificarconta {
                 unset($_SESSION['id']);
                 unset($_SESSION['email']);
                 unset($_SESSION['codigo']);
-                echo '<script type="text/javascript">window.location.href="http://dix.net.br"</script>';
+                header("Location: http://dix.net.br");
                 die();
             }else{
                 unset($_SESSION['id']);
@@ -32,6 +31,7 @@ class Verificarconta {
                 $_SESSION['erroVerify'] = TRUE;
             }
         }
+        require("app/View/login/VerificarConta.php");
     }
 
     public function carregarCSS(){

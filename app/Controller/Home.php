@@ -10,10 +10,8 @@ class Home {
     	if(isset($_POST['email']) && isset($_POST['pwd'])){
     		$login = new loginUsuario();
     		$login->Login($_POST['email'], $_POST['pwd']);
+            header("Location: http://dix.net.br");
     	}
-    	require_once("app/Models/facebookAuth.php");
-    	require_once("app/Models/googleAuth.php");
-        require("app/View/login/index.php");
         if(isset($_COOKIE['cUser']) && isset($_COOKIE['token'])){
             $email = base64_decode($_COOKIE['cUser']);
             $conn = new Database();
@@ -22,10 +20,13 @@ class Home {
             ));
             $result = $result->fetch();
             if(!empty($result) && $result['token'] == $_COOKIE['token']){
-                echo '<script type="text/javascript">window.location.href="http://dix.net.br/feed"</script>';
+                header("Location: http://dix.net.br/feed");
                 die();
             }
         }
+    	require_once("app/Models/facebookAuth.php");
+    	require_once("app/Models/googleAuth.php");
+        require("app/View/login/index.php");
     }
 
     public function carregarCSS(){

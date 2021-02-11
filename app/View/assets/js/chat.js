@@ -94,10 +94,10 @@ $(".chat-title-container").hide();
 
         //         for(var i=0; i < chat.length; i++){
         //             if(chat[i][1] == 1) { //mensagem minha
-        //                 $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span></div></div>');
+        //                 $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ chat[i][2] +' </div> </div></div>');
         //             }
         //             else { //mensagem do outro
-        //                 $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span></div></div>');
+        //                 $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ chat[i][2] +' </div> </div></div>');
         //             }
         //         }
 
@@ -231,8 +231,14 @@ $(".chat-title-container").hide();
             success: function(){
 
                 //envia menssagem
+                var data = new Date();
                 let msg = $(".form-control").val();
-                $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(msg)+'</span></div></div>');
+                let horaAtual = data.getHours();
+                if(horaAtual < 10) horaAtual = '0' + horaAtual;
+                let minutoAtual = data.getMinutes();
+                if(minutoAtual < 10) minutoAtual = '0' + minutoAtual;
+                let horario = horaAtual + ':' + minutoAtual
+                $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(msg)+'</span> <div class="time"> '+ horario +' </div> </div></div>');
 
 
                 //apagar valor do submit

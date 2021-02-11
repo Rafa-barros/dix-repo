@@ -451,9 +451,9 @@
 </div>
 
 
-<script src="app/View/assets/js/post.js"></script>
-<script src="app/View/assets/js/profile.js"></script>
-<script src="app/View/assets/js/zerarnot.js"></script>
+<script src="../app/View/assets/js/post.js"></script>
+<script src="../app/View/assets/js/profile.js"></script>
+<script src="../app/View/assets/js/zerarnot.js"></script>
 
 <script>
     if(window.matchMedia("(max-width: 530px)").matches){

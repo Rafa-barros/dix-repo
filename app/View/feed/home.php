@@ -20,10 +20,12 @@
                                 echo ('<div class="notificacao">
                                 <span>  <i class="fas fa-fire-alt like-icon"></i><a href="">' . $notificacoes[$i]['username'] . '</a>  curtiu a sua publicação! </span>
                             </div>');
+                                break;
                             case 1:
                                 echo ('<div class="notificacao">
                                 <span> <i class="far fa-comment comment-icon"></i><a href="">' . $notificacoes[$i]['username'] . '</a> comentou na sua publicação! </span>
                             </div>  ');
+                                break;
                             case 2:
                                 echo ('<div class="notificacao" style="display: block;">
                                 <i class="fas fa-coins coin-icon"></i>
@@ -32,6 +34,7 @@
                                     <span class="gorjeta-msg">mensagem: ' . $notificacoes[$i]['msg'] . '.</span>
                                 </div>
                             </div>');
+                                break;
                         }
                     }
                 } else {

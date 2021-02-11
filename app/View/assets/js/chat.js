@@ -4,10 +4,10 @@
 //     setInterval(function(){
 
 //         $.ajax({
-//             url: form_url, 
+//             url: 'app/Models/chatModel.php', 
 //             method: "POST",
 //             data: {
-//                 nameOP: $(".nome-contato-chat").text(),
+//                 username: $(".nome-contato-chat").text(),
 //             },   
 //             // dataType: "json",  
 //             cache: false,
@@ -52,8 +52,6 @@ $(".chat-title-container").hide();
 
         $(this).css("background-color", "rgb(245, 244, 244)");
 
-        var form_url = $(this).attr("action");
-
         $(".chat-title-container").html('<div class="d-flex chat-title-info"><img class="foto-perfil-contato" src='+imgContato+' alt="foto perfil contato"><p class="nome-contato-chat">'+nameContato+'</p></div>');
         $(".chat-title-container").show();
         $(".initial").hide();
@@ -76,15 +74,12 @@ $(".chat-title-container").hide();
 
 
         //Carregar mensagens
-        
-        // var meuId = $('.me').attr('id');
 
         // $.ajax({
-        //     url: form_url, 
+        //     url: 'app/Models/chatModel.php', 
         //     method: "POST",
         //     data: {
         //         contato: $(".nome-contato-chat").text(),
-        //         username: meuId
         //     },   
         //     dataType: "json",  
         //     cache: false,
@@ -114,21 +109,24 @@ $(".chat-title-container").hide();
         atualizaChat = setInterval(function(){
                 var lastmsggrr = $(".message-content")[$(".message-content").length - 1];
                 var lastmsg = $(".chat-messages").find(lastmsggrr).find("span").text();
-                var chatId = $(".chat").attr("id");
+                var targetUser = $('.nome-contato-chat').text();
 
                 $.ajax({
-                    url: form_url, 
+                    url: 'app/Models/chatModel.php', 
                     method: "POST",
                     data: {
-                        novaMenssagem: "",
-                        ultimaMenssagem: lastmsg,
-                        chatId: chatId
+                        username: targetUser,
+                        novamensagem: "",
+                        ultimamensagem: lastmsg,
                     },   
                     // dataType: "json",  
                     cache: false,
                     success: function(resposta){
-                        if(resposta.novaMenssagem != "" && resposta.novaMenssagem != undefined){
-                            $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(resposta.novaMenssagem)+'</span></div></div>');
+                        //[0] mensagem
+                        //[1] Tempo
+                        let msgTime = separaTempo(resposta.novamensagem[1])
+                        if(resposta.novamensagem != "" && resposta.novamensagem != undefined){
+                            $(".chat-messages").append(' <div class="your-message"> <div class="message-content"> <span>'+htmlEntities(resposta.novamensagem[0])+'</span> <div class="time"> '+ msgTime +' </div></div></div>');
                         }
                     }
                 });
@@ -152,6 +150,7 @@ $(".chat-title-container").hide();
         [][0] nome  
         [][1] ultima msg
         [][2] src foto perfil
+        [][3] horário da msg
      */ 
 
     $('.contact-list').ready(function(){
@@ -175,7 +174,7 @@ $(".chat-title-container").hide();
         
     //         var meuId = $('.me').attr('id');        PEGA ID DA ANCORA PROFILE
     //         $.ajax({
-    //             url: form_url, 
+    //             url: 'app/Models/chatModel.php', 
     //             method: "POST",
     //             data: {
     //                 naolidos: lnaolidos,
@@ -207,28 +206,28 @@ $(".chat-title-container").hide();
 
     $(document).ready(function(e) {
     
+
+
     //ao enviar mensagem
     $("form[ajax=true]").submit(function(e) {
         
         e.preventDefault();
         
-        var form_data = $(this).serialize();
         let msg = $(".form-control").val();
-        var form_url = $(this).attr("action");
 
         if(msg != "" && msg != " "){
             $.ajax({
-            url: form_url, 
+            url: 'app/Models/chatModel.php', 
             method: "POST",
             data: {
-                menssage: msg,
-                nameOP: $(".nome-contato-chat").text()
+                message: msg,
+                username: $(".nome-contato-chat").text()
             },   
             // dataType: "json",  
             cache: false,
             success: function(){
 
-                //envia menssagem
+                //envia mensagem
                 var data = new Date();
                 let msg = $(".form-control").val();
                 let horaAtual = data.getHours();
@@ -237,6 +236,7 @@ $(".chat-title-container").hide();
                 if(minutoAtual < 10) minutoAtual = '0' + minutoAtual;
                 let horario = horaAtual + ':' + minutoAtual
                 $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(msg)+'</span> <div class="time"> '+ horario +' </div> </div></div>');
+
 
 
                 //apagar valor do submit
@@ -261,6 +261,7 @@ $(".chat-title-container").hide();
                     }
                 });
                 
+
                 //descer barra do chat
                 $(".chat-messages").scrollTop(100000);
 
@@ -287,4 +288,8 @@ $(".chat-title-container").hide();
 
 function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+}
+
+function separaTempo(fullTime){
+    return fullTime.split(' ')[1].slice(0, 5);
 }

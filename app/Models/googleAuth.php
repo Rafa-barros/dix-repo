@@ -6,7 +6,7 @@ $google_client->setClientId('662087267373-pnt38uracj02i9gj1a7itqpt3d6hsklq.apps.
 
 $google_client->setClientSecret('UkGukwl_VSb9orO_Jt3TOr5L');
 
-$google_client->setRedirectUri('http://localhost:8080');
+$google_client->setRedirectUri('http://dix.net.br');
 
 $google_client->addScope('email');
 $google_client->addScope('profile');
@@ -24,11 +24,11 @@ if(isset($_GET["code"])){
 		$registerGoogleAuth = new App\Models\registroUsuario();
 		if($registerGoogleAuth->verificaEmail($data['email'])){
 			$registerGoogleAuth->newUserAuth($data['email'], $data['name'], $data['id']);
-			header("Location: /home");
+			header("Location: http://dix.net.br");
 		}else{
 			$loginGoogleAuth = new App\Models\loginUsuario();
 			$loginGoogleAuth->loginAuth($data['email'], $data['id']);
-			header("Location: /home");
+			header("Location: http://dix.net.br");
 		}
 		unset($_SESSION['access_token']);
 	}

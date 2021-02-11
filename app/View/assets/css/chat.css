@@ -443,7 +443,7 @@ nav p {
 .time {
     display: flex;
     align-items: flex-end;
-    margin-left: 6px;
+    margin-left: 11px;
     font-size: 13.7px;
     color: slategray;
 }

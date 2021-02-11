@@ -148,6 +148,7 @@ button:focus {
 
 .img-capa {
     max-width: 880px;
+    max-height: 350px;
     width: 80vw;
     border-bottom-right-radius: 12px;
     border-bottom-left-radius: 12px;
@@ -196,6 +197,7 @@ button:focus {
 
 .bio {
     height: 38%;
+    text-align: center;
 }
 
 

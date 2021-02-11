@@ -7,7 +7,7 @@ use PDO;
 
 require "../../vendor/autoload.php";
 
-$idUser = base64_decode($_POST['data']);
+$idUser = base64_decode(htmlentities($_POST['dataUser']));
 $conn = new Database();
 
 $conn->executeQuery('UPDATE notifications SET jaVisto = 1 WHERE idReceiver = :ID', array(

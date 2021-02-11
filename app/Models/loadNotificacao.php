@@ -31,7 +31,7 @@ class Notificacao {
         $qtdNotificacoes = 0;
         while ($row = $resultNot->fetch(PDO::FETCH_ASSOC)){
             $this->notificacoes[$qtdNotificacoes] = $row;
-			$qtdNotificacoes++;
+			$this->qtdNotificacoes++;
         }
 	}
 

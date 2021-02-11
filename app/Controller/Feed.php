@@ -32,9 +32,6 @@ class Feed {
         $notificacoes = $notification->notificacoes;
         $tam = $notification->qtdNotificacoes;
 
-        echo ("<h1>" . $tam . "</h1>");
-        echo ("<h1>" . $notificacoes[0]['type'] . "</h1>");
-
         require('app/View/feed/home.php');
         if (isset($_POST['enviar'])){
             require("app/Models/createPost.php");

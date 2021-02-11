@@ -233,7 +233,11 @@ $(".chat-title-container").hide();
                 //envia menssagem
                 var data = new Date();
                 let msg = $(".form-control").val();
-                let horario = data.getHours() + ':' + data.getMinutes()
+                let horaAtual = data.getHours();
+                if(horaAtual < 10) horaAtual = '0' + horaAtual;
+                let minutoAtual = data.getMinutes();
+                if(minutoAtual < 10) minutoAtual = '0' + minutoAtual;
+                let horario = horaAtual + ':' + minutoAtual
                 $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(msg)+'</span> <div class="time"> '+ horario +' </div> </div></div>');
 
 

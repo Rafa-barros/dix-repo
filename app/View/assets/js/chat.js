@@ -8,7 +8,6 @@
 //             method: "POST",
 //             data: {
 //                 nameOP: $(".nome-contato-chat").text(),
-//                 contactName:"caiobrandini"
 //             },   
 //             // dataType: "json",  
 //             cache: false,
@@ -179,7 +178,6 @@ $(".chat-title-container").hide();
     //             url: form_url, 
     //             method: "POST",
     //             data: {
-    //                 username: meuId,
     //                 naolidos: lnaolidos,
     //             },   
     //             // dataType: "json",  

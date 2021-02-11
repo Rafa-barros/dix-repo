@@ -26,7 +26,7 @@ class Feed {
         //Sistema de Notificações e Perfil
         require("app/Models/loadNotificacao.php");
         $notification = new \app\Models\Notificacao();
-        $notification->email = "marvinn2002vcl@gmail.com"; //TROCAR PRA $_COOKIE['cUser']
+        $notification->email = $_COOKIE['cUser'];
         $notification->getNotifications();
         $username = $notification->getProfile();
         $notificacoes = $notification->notificacoes;

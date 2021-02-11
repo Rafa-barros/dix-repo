@@ -39,7 +39,7 @@ class Notificacao {
 
 	public function getProfile(){
 		$resultProfile = $this->conn->executeQuery('SELECT username FROM users WHERE id = :ID', array(
-			':ID' => $idUser
+			':ID' => $this->idUser
 		));
 		$resultProfile = $resultProfile->fetch();
 		

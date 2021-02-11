@@ -8,7 +8,7 @@
             <div class="btn-group dropleft">
                 <button type="button" class="btn btn-secondary dropdown-toggle btn-notificacao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="fas fa-bell"></i>
-                    <span class="badge badge-danger ml-2"><?php echo($tam + 1);?></span>
+                    <span class="badge badge-danger ml-2"><?php echo($tam);?></span>
                 </button>
                 <div class="dropdown-menu not-pop" style="width: 425px">
                 

@@ -11,7 +11,7 @@ $idUser = base64_decode(htmlentities($_POST['data']));
 $conn = new Database();
 
 
-$conn->executeQuery('DELETE FROM notifications WHERE idReceiver = :ID', array(
+$conn->executeQuery('UPDATE notifications SET jaVisto = 1 WHERE idReceiver = :ID', array(
     ':ID' => $idUser
 ));
 

@@ -20,10 +20,10 @@ class Profile {
             $pname = $usuario->profileInfo['pname'];
             $typeuser = $usuario->profileInfo['typeuser'];
             $posts = $usuario->profileInfo['posts'];
-            $img = $usuario->profileInfo['imgUser'];
+            $img = ("../" . $usuario->profileInfo['imgUser']);
             $followers = $usuario->profileInfo['followers'];
             $bio = $usuario->profileInfo['bio'];
-            $fotoCapa = $usuario->profileInfo['fotoCapa'];
+            $fotoCapa = ("../" . $usuario->profileInfo['fotoCapa']);
             $vips = $usuario->profileInfo['vips'];
             require("app/View/other/profile.php");
         }

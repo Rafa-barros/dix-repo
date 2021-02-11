@@ -10,7 +10,7 @@ $conn = new Database();
 
 //Encontra o id do usuário
 $resultIdUser = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
-    ':EMAIL' => htmlentities($_COOKIE['cUser'])
+    ':EMAIL' => htmlentities(base64_decode($_COOKIE['cUser']))
 ));
 $resultIdUser = $resultIdUser->fetch();
 $idUser = $resultIdUser['0'];
@@ -32,6 +32,24 @@ if (!(empty($resultCond))){
     //Adiciona um like
     $conn->executeQuery('UPDATE posts SET likes=likes+1 WHERE id = :ID', array(
         ':ID' => $idPost
+    ));
+
+    //Notifica o dono do post
+    $resultOp = $conn->executeQuery('SELECT idUser FROM posts WHERE id = :ID', array(
+        ':ID' => $idPost
+    ));
+    $resultOp = $resultOp->fetch();
+    $idOp = $resultOp['0'];
+
+    $resultUsername = $conn->executeQuery('SELECT username FROM users WHERE id = :ID', array(
+        ':ID' => $idUser
+    ));
+    $resultUsername = $resultUsername->fetch();
+    $username = $resultUsername['0'];
+
+    $conn->executeQuery('INSERT INTO notifications (idReceiver, type, amount, msg, username, jaVisto) VALUES (:ID, 0, 0, "", :USER, 0)', array(
+        ':ID' => $idOp,
+        ':USER' => $username
     ));
 } else {
     $codigo = 201;

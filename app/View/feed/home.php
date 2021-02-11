@@ -3,7 +3,7 @@
         <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
         <div class="features-containers">
             <a href=<?php echo("\"" . "profile/" . $username . "\""); ?>><i class="fas fa-user"></i></a>
-            <a href="/feed"><i class="fas fa-home"></i></a> 
+            <a href="/feed"><i class="fas fa-home"></i></a>
             <a href="/chat" class="i-c"><i class="fas fa-comments"></i></a>
             <div class="btn-group dropleft">
                 <button type="button" class="btn btn-secondary dropdown-toggle btn-notificacao" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

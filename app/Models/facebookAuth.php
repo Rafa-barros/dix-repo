@@ -42,6 +42,6 @@ if(isset($_GET['code']) && isset($_GET['state'])){
 }
 
 $facebook_permissions = ['email'];
-$facebook_login_url = $facebook_helper->getLoginUrl('http://localhost:8080', $facebook_permissions);
+$facebook_login_url = $facebook_helper->getLoginUrl('http://dix.net.br', $facebook_permissions);
 
 ?>

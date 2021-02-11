@@ -15,6 +15,8 @@ class MobNot {
         $notificacoes = $notification->notificacoes;
         $tam = $notification->qtdNotificacoes;
 
+        echo ("<script>var dataUser =" . $notification->idUser . "</script>");
+
         require("app/View/feed/MobNot.php");
     }
 

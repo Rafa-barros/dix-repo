@@ -9,7 +9,7 @@ class Notificacao {
 	public $email;
 	public $qtdNotificacoes;
 	public $notificacoes;
-	private $idUser;
+	public $idUser;
 	private $conn;
 
 	public function __construct(){

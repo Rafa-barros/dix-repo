@@ -31,6 +31,8 @@ class Feed {
         $username = $notification->getProfile();
         $notificacoes = $notification->notificacoes;
         $tam = $notification->qtdNotificacoes;
+        
+        echo ("<script>var dataUser =" . $notification->idUser . "</script>");
 
         require('app/View/feed/home.php');
         if (isset($_POST['enviar'])){

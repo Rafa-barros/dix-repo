@@ -36,6 +36,20 @@
                 } else {
                     echo ('<a class="dropdown-item waves-effect waves-light notificacao" href="#"> Você não tem nenhuma nova notificação</a>');
                 }
-                ?>  
+                ?>
 
 </div>
+
+<script>
+    $.ajax({
+        url:"app/Models/zerarNotificacoes.php",
+        dataType: 'json',
+        type: "POST",
+        data: {
+            data: dataUser // ID DO POST
+        },
+        success:function(result){
+            console.log("Protocolo das Notificações: " + result.data);
+        }
+    });
+</script>

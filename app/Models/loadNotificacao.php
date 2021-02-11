@@ -5,10 +5,10 @@ namespace App\Models;
 use App\Models\Database;
 use PDO;
 
-require "../../vendor/autoload.php";
-
 class Notificacao {
 	public $email;
+	public $qtdNotificacoes;
+	public $notificacoes;
 	private $idUser;
 	private $conn;
 
@@ -24,6 +24,23 @@ class Notificacao {
         $resultIdUser = $resultIdUser->fetch();
         $this->idUser = $resultIdUser['0'];
 
-        
+		//Query das notificações
+		$resultNot = $this->conn->executeQuery("SELECT * FROM notifications WHERE idReceiver = :ID AND NOT jaVisto = '1'", array(
+			':ID' => $this->idUser
+		));
+        $qtdNotificacoes = 0;
+        while ($row = $resultNot->fetch(PDO::FETCH_ASSOC)){
+            $this->notificacoes[$qtdNotificacoes] = $row;
+			$qtdNotificacoes++;
+        }
+	}
+
+	public function getProfile(){
+		$resultProfile = $this->conn->executeQuery('SELECT username FROM users WHERE id = :ID', array(
+			':ID' => $idUser
+		));
+		$resultProfile = $resultProfile->fetch();
+		
+		return $resultProfile['0'];
 	}
 }

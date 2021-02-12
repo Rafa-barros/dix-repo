@@ -33,10 +33,10 @@
                 $tam = count($chatsAbertos);
                 for($i = 0; $i < $tam; $i++) { 
                     echo('<div class="contato">
-                            <img class="foto-contato" src="' . $chatsAbertos[2] . '" alt="foto de perfil">
+                            <img class="foto-contato" src="' . $chatsAbertos[i][2] . '" alt="foto de perfil">
                             <div class="contato-info">
-                                <span class="contato-name">' . $chatsAbertos[0] . '</span>
-                                <p class="contact-last-message">' . $chatsAbertos[1] . '</p>
+                                <span class="contato-name">' . $chatsAbertos[i][0] . '</span>
+                                <p class="contact-last-message">' . $chatsAbertos[i][1] . '</p>
                             </div>
                         </div>');
                 }

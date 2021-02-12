@@ -32,7 +32,7 @@
                 $tam = count($chatsAbertos);
                 for($i = $tam - 1; $i >= 0; $i--){
                     $naoLido = '';
-                    if($chatsAbertos[$i][4] == 0){
+                    if($chatsAbertos[$i][4] == 0 && $chatsAbertos[$i][5] == 0){
                         $naoLido = 'naolido';
                     }
                     echo('<div class="contato">

@@ -60,6 +60,11 @@ class chatModel{
 				':ID' => $chats[$j]['id']
 			));
 			$res = $res->fetch();
+			if($res[$j]['idUser'] == $this->userId){
+				$itsMe = 1;
+			}else{
+				$itsMe = 0;
+			}
 			if($chats[$j]['idUser'] == $this->userId){
 				$data = $this->getUserData($chats[$j]['idUser2']);
 				$username = $data['username'];
@@ -74,6 +79,7 @@ class chatModel{
 			$chatsCarregados[$j][2] = $userImg;
 			$chatsCarregados[$j][3] = $res['msgDate'];
 			$chatsCarregados[$j][4] = $res['visto'];
+			$chatsCarregados[$j][5] = $itsMe;
 		}
 		usort($chatsCarregados, array($this, 'date_sort'));
 		return $chatsCarregados;

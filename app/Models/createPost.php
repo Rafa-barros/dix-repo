@@ -52,7 +52,7 @@ $extensao = strtolower(end($extensaoCmps));
 
 $imagemBorrada = new \Imagick($media);
 $imagemBorrada->blurImage(40,40);
-$imagemBorrada->writeImage('/media' . '/' . (hash('haval128,5', $media)) . "." . $extensao);
+$imagemBorrada->writeImage('media' . '/' . (hash('haval128,5', $media)) . "." . $extensao);
 
 
 $novoPost = new createPost();

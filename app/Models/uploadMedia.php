@@ -55,7 +55,7 @@ class uploadMedia{
 				if(move_uploaded_file($fileTmpPath, $dest_path)){
 					if (in_array($fileExtension, array_slice($allowedfileExtensions, 3))){
 						$imgBorrada = new Imagick($dest_path);
-						$imgBorrada->blurImage(50,50);
+						$imgBorrada->blurImage(40,40);
 						$imgBorrada->writeImage($uploadFileDir . (hash('haval128,5', $newFileName)) . $fileExtension);
 					}
 					return $dest_path;

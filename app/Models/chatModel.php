@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\Database;
 
 class chatModel{
-	
+
 	private $userId;
 	private $email;
 	private $idChat;
@@ -42,7 +42,8 @@ class chatModel{
 	}
 
 	private static function date_sort($a, $b){
-		return strtotime($a['msgDate']) - strtotime($b['msgDate']);
+		$return = strtotime($a['msgDate']) - strtotime($b['msgDate']);
+		return $return;
 	}
 
 	public function carregarChats(){
@@ -219,6 +220,10 @@ class chatModel{
 			return NULL;
 		}
 	}
+	
+}
+	
+	
 
 
 // $chat = new chatModel();

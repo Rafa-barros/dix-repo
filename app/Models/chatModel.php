@@ -18,6 +18,7 @@ class chatModel{
 		));
 		$result = $result->fetch();
 		$this->userId = $result['id'];
+		echo $this->userId;
 	}
 
 	public function __construct(){
@@ -222,16 +223,16 @@ class chatModel{
 
 }
 
-$chat = new chatModel();
-if($_POST['funcao'] == "novoChat"){
-	$res = $chat->novoChat($_POST['username']);
-}else if($_POST['funcao'] == "carregarMensagens"){
-	$res = $chat->carregarMensagens($_POST['username']);
-}
+// $chat = new chatModel();
+// if($_POST['funcao'] == "novoChat"){
+// 	$res = $chat->novoChat($_POST['username']);
+// }else if($_POST['funcao'] == "carregarMensagens"){
+// 	$res = $chat->carregarMensagens($_POST['username']);
+// }
 
 
-echo json_encode((array(
-    'username' => "",
-    'funcao' => "",
-    'resposta' => $res
-)));
+// echo json_encode((array(
+//     'username' => "",
+//     'funcao' => "",
+//     'resposta' => $res
+// )));

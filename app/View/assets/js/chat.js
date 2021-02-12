@@ -78,28 +78,30 @@ $(".chat-title-container").hide();
 
         //Carregar mensagens
 
-        // $.ajax({
-        //     url: 'app/Models/chatModel.php', 
-        //     method: "POST",
-        //     data: {
-        //         contato: $(".nome-contato-chat").text(),
-        //     },   
-        //     dataType: "json",  
-        //     cache: false,
-        //     success: function(resposta){
-        //         let chat = resposta.mensagens;
+        $.ajax({
+            url: 'app/Models/chatMsg.php', 
+            method: "POST",
+            data: {
+                username: $(".nome-contato-chat").text(),
+                funcao: 'carregarMensagens',
+                mensagens: [[]]
+            },   
+            dataType: "json",  
+            cache: false,
+            success: function(resposta){
+                let chat = resposta.mensagens;
 
-        //         for(var i=0; i < chat.length; i++){
-        //             if(chat[i][1] == 1) { //mensagem minha
-        //                 $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ chat[i][2] +' </div> </div></div>');
-        //             }
-        //             else { //mensagem do outro
-        //                 $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ chat[i][2] +' </div> </div></div>');
-        //             }
-        //         }
+                for(var i=0; i < chat.length; i++){
+                    if(chat[i][1] == 1) { //mensagem minha
+                        $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
+                    }
+                    else { //mensagem do outro
+                        $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
+                    }
+                }
 
-        //     }
-        // });
+            }
+        });
 
 
 
@@ -294,7 +296,7 @@ $(".chat-title-container").hide();
         $('#new-chat-modal').modal('hide');
 
         $.ajax({
-            url: 'app/Models/chatModel.php', 
+            url: 'app/Models/chatMgs.php', 
             method: "POST",
             data: {
                 username: newUser

@@ -29,12 +29,14 @@ class Notificacao {
 			':ID' => $this->idUser
 		));
         $this->qtdNotificacoes = 0;
-        while ($row = $resultNot->fetch(PDO::FETCH_ASSOC)){
-            $this->notificacoes[$this->qtdNotificacoes] = $row;
-			if ($row['jaVisto'] == 0){
-				$this->qtdNotificacoes++;
-			}
-        }
+        if(!empty($resultNot)){
+	        while ($row = $resultNot->fetch(PDO::FETCH_ASSOC)){
+	            $this->notificacoes[$this->qtdNotificacoes] = $row;
+				if ($row['jaVisto'] == 0){
+					$this->qtdNotificacoes++;
+				}
+	        }
+    	}
 	}
 
 	public function getProfile(){

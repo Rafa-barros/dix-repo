@@ -74,6 +74,7 @@ class chatModel{
 			$chatsCarregados[$j][1] = $res['msg'];
 			$chatsCarregados[$j][2] = $userImg;
 			$chatsCarregados[$j][3] = $res['msgDate'];
+			$chatsCarregados[$j][4] = $res['visto'];
 		}
 		usort($chatsCarregados, array($this, 'date_sort'));
 		return $chatsCarregados;
@@ -224,19 +225,3 @@ class chatModel{
 
 }
 	
-	
-
-
-$chat = new chatModel();
-if($_POST['funcao'] == "novoChat"){
-	$res = $chat->novoChat($_POST['username']);
-}else if($_POST['funcao'] == "carregarMensagens"){
-	$res = $chat->carregarMensagens($_POST['username']);
-}
-
-
-echo json_encode((array(
-    'username' => "",
-    'funcao' => "",
-    'mensagens' => $res
-)));

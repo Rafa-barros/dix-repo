@@ -31,82 +31,10 @@ $(".chat-title-container").hide();
     //contato slecionado
     $(document).on('click', '.contato', function(){
 
-        //Apagar mensagens anteriores
-        if($(this).find('.contato-name').text() != $('.nome-contato-chat').text()) $('.chat-messages').html(' ');
-
         let contato = $(this);
         let imgContato = contato.children(".foto-contato").attr("src");
         let nameContato = contato.children(".contato-info").children(".contato-name").text();
         let listaContatos = $(".contato");
-
-
-        //Carregar mensagens
-
-        if($(this).find('.contato-name').text() != $('.nome-contato-chat').text()){
-
-            $.ajax({
-                url: 'app/Models/chatMsg.php', 
-                method: "POST",
-                data: {
-                    username: $(".nome-contato-chat").text(),
-                    funcao: 'carregarMensagens',
-                    mensagens: [[]]
-                },   
-                dataType: "json",  
-                cache: false,
-                success: function(resposta){
-                    let chat = resposta.mensagens;
-    
-                    for(var i=0; i < chat.length; i++){
-                        if(chat[i][1] == 1) { //mensagem minha
-                            $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
-                        }
-                        else { //mensagem do outro
-                            $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
-                        }
-                    }
-    
-                }
-            });
-    
-    
-    
-            //atualizar Chat
-    
-            // $(".chat-messages").unbind("ready");
-            // $(".chat-messages").ready(function(){
-            // if (typeof atualizaChat !== 'undefined') clearInterval(atualizaChat);
-    
-            // atualizaChat = setInterval(function(){
-            //         var lastmsggrr = $(".message-content")[$(".message-content").length - 1];
-            //         var lastmsg = $(".chat-messages").find(lastmsggrr).find("span").text();
-            //         var targetUser = $('.nome-contato-chat').text();
-    
-            //         $.ajax({
-            //             url: 'app/Models/chatModel.php', 
-            //             method: "POST",
-            //             data: {
-            //                 username: targetUser,
-            //                 novamensagem: "",
-            //                 ultimamensagem: lastmsg,
-            //             },   
-            //             // dataType: "json",  
-            //             cache: false,
-            //             success: function(resposta){
-            //                 //[0] mensagem
-            //                 //[1] Tempo
-            //                 let msgTime = separaTempo(resposta.novamensagem[1])
-            //                 if(resposta.novamensagem != "" && resposta.novamensagem != undefined){
-            //                     $(".chat-messages").append(' <div class="your-message"> <div class="message-content"> <span>'+htmlEntities(resposta.novamensagem[0])+'</span> <div class="time"> '+ msgTime +' </div></div></div>');
-            //                 }
-            //             }
-            //         });
-            //     }, 300);
-    
-            // });
-    
-        }
-
 
         //mudando para lido 
         if(contato.find('.contato-name').hasClass('naolido')){
@@ -144,8 +72,72 @@ $(".chat-title-container").hide();
             });
         }
 
+        //Apagar mensagens anteriores
+        $('.chat-messages').html(' ');
 
 
+        //Carregar mensagens
+
+        $.ajax({
+            url: 'app/Models/chatMsg.php', 
+            method: "POST",
+            data: {
+                username: $(".nome-contato-chat").text(),
+                funcao: 'carregarMensagens',
+                mensagens: [[]]
+            },   
+            dataType: "json",  
+            cache: false,
+            success: function(resposta){
+                let chat = resposta.mensagens;
+
+                for(var i=0; i < chat.length; i++){
+                    if(chat[i][1] == 1) { //mensagem minha
+                        $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
+                    }
+                    else { //mensagem do outro
+                        $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
+                    }
+                }
+
+            }
+        });
+
+
+
+        //atualizar Chat
+
+        // $(".chat-messages").unbind("ready");
+        // $(".chat-messages").ready(function(){
+        // if (typeof atualizaChat !== 'undefined') clearInterval(atualizaChat);
+
+        // atualizaChat = setInterval(function(){
+        //         var lastmsggrr = $(".message-content")[$(".message-content").length - 1];
+        //         var lastmsg = $(".chat-messages").find(lastmsggrr).find("span").text();
+        //         var targetUser = $('.nome-contato-chat').text();
+
+        //         $.ajax({
+        //             url: 'app/Models/chatModel.php', 
+        //             method: "POST",
+        //             data: {
+        //                 username: targetUser,
+        //                 novamensagem: "",
+        //                 ultimamensagem: lastmsg,
+        //             },   
+        //             // dataType: "json",  
+        //             cache: false,
+        //             success: function(resposta){
+        //                 //[0] mensagem
+        //                 //[1] Tempo
+        //                 let msgTime = separaTempo(resposta.novamensagem[1])
+        //                 if(resposta.novamensagem != "" && resposta.novamensagem != undefined){
+        //                     $(".chat-messages").append(' <div class="your-message"> <div class="message-content"> <span>'+htmlEntities(resposta.novamensagem[0])+'</span> <div class="time"> '+ msgTime +' </div></div></div>');
+        //                 }
+        //             }
+        //         });
+        //     }, 300);
+
+        // });
         
 
     });
@@ -230,10 +222,11 @@ $(".chat-title-container").hide();
 
         if(msg != "" && msg != " "){
             $.ajax({
-            url: 'app/Models/sendMsg.php', 
+            url: 'app/Models/chatModel.php', 
             method: "POST",
             data: {
-                message: msg
+                message: msg,
+                username: $(".nome-contato-chat").text()
             },   
             // dataType: "json",  
             cache: false,

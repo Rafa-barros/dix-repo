@@ -42,7 +42,7 @@ class chatModel{
 	}
 
 	public static function date_sort($a, $b){
-		return strtotime($a['msgDate']) - strtotime($b['msgDate']);
+		return strtotime($a[3]) - strtotime($b[3]);
 	}
 
 	public function carregarChats(){
@@ -75,7 +75,6 @@ class chatModel{
 			$chatsCarregados[$j][3] = $res['msgDate'];
 			$chatsCarregados[$j][4] = $res['visto'];
 		}
-		echo strtotime($chatsCarregados[1][3]);
 		usort($chatsCarregados, array($this, 'date_sort'));
 		return $chatsCarregados;
 	}

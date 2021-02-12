@@ -30,8 +30,7 @@
             <?php
                 $chatsAbertos = $chat->carregarChats();
                 $tam = count($chatsAbertos);
-                for($i = 0; $i < $tam; $i++){ 
-                    echo $chatsAbertos[$i][0];
+                for($i = 0; $i < $tam; $i++){
                     echo('<div class="contato">
                             <img class="foto-contato" src="' . $chatsAbertos[$i][2] . '" alt="foto de perfil">
                             <div class="contato-info">

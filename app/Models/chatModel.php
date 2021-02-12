@@ -53,6 +53,7 @@ class chatModel{
 		$i = 0;
 		while($row = $result->fetch()){
 			$chats[$i] = $row;
+			echo $row;
 			$i++;
 		}
 		for($j = 0; $j < $i; $j++){ 
@@ -69,7 +70,6 @@ class chatModel{
 				$username = $data['username'];
 				$userImg = $data['imgUser'];
 			}
-			echo $username;
 			$chatsCarregados[$j][0] = $username;
 			$chatsCarregados[$j][1] = $res['msg'];
 			$chatsCarregados[$j][2] = $userImg;

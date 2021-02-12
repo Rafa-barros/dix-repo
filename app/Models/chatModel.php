@@ -33,6 +33,14 @@ class chatModel{
 		return $result;
 	}
 
+	private function getId($username){
+		$result = $this->conn->executeQuery('SELECT id FROM users WHERE username = :USER LIMIT 1', array(
+			':USER' => $username
+		));
+		$result = $result->fetch();
+		return $result['id'];
+	}
+
 	private static function date_sort($a, $b){
 		return strtotime($a['msgDate']) - strtotime($b['msgDate']);
 	}
@@ -60,45 +68,114 @@ class chatModel{
 				$username = $data['username'];
 				$userImg = $data['imgUser'];
 			}
-			$chatsCarregados[$j][0] = $chats[$j]['id'];
-			$chatsCarregados[$j][1] = $username;
+			$chatsCarregados[$j][0] = $username;
+			$chatsCarregados[$j][1] = $res['msg'];
 			$chatsCarregados[$j][2] = $userImg;
-			$chatsCarregados[$j][3] = $res['msg'];
-			$chatsCarregados[$j][4] = $res['msgDate'];
+			$chatsCarregados[$j][3] = $res['msgDate'];
 		}
 		usort($chatsCarregados, array($this, 'date_sort'));
 		return $chatsCarregados;
 	}
 
-	public function carregarMensagens($id){
-		$this->idChat;
-		$result = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate ASC', array(
-			':ID' => $id
+	private function alterar_lido(){
+		$this->conn->executeQuery('UPDATE assoc_chats SET vistos = 1 WHERE id = :ID', array(
+			':ID' => $this->idChat;
 		));
-		$i = 0;
-		while($row = $result->fetch()){
-			$mensagem[$i] = $row;
-			$i++;
-		}
-		for($j = 0; $j < $i; $j++){
-			if($mensagem[$j]['idUser'] == $this->userId){
-				$itsMe = TRUE;
+	}
+
+	public function carregarMensagens($username){
+		$idUser = $this->getId($username);
+		$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :IDUSER AND idUser2 = :IDUSER2', array(
+			':IDUSER' => $this->userId,
+			':IDUSER2' => $idUser
+		));
+		$result = $result->fetch();
+		if(empty($result)){
+			$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :IDUSER AND idUser2 = :IDUSER2', array(
+				':IDUSER' => $idUser,
+				':IDUSER2' => $this->userId
+			));
+			$result = $result->fetch();
+			if(empty($result)){
+				return NULL;			
 			}else{
-				$itsMe = FALSE;
+				$this->idChat = $result['id'];
+				$result = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate ASC', array(
+					':ID' => $this->idChat
+				));
+				$i = 0;
+				while($row = $result->fetch()){
+					$mensagem[$i] = $row;
+					$i++;
+				}
+				for($j = 0; $j < $i; $j++){
+					if($mensagem[$j]['idUser'] == $this->userId){
+						$itsMe = TRUE;
+					}else{
+						$itsMe = FALSE;
+					}
+					$mensagens[$j][0] = $mensagem[$j]['msg'];
+					$mensagens[$j][1] = $mensagem[$j]['msgDate'];
+					$mensagens[$j][2] = $itsMe;
+				}
+				return $mensagens;
 			}
-			$mensagens[$j][0] = $mensagem[$j]['msg'];
-			$mensagens[$j][1] = $mensagem[$j]['msgDate'];
-			$mensagens[$j][2] = $itsMe;
+		}else{
+			$this->idChat = $result['id'];
+			$result = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate ASC', array(
+				':ID' => $this->idChat
+			));
+			$i = 0;
+			while($row = $result->fetch()){
+				$mensagem[$i] = $row;
+				$i++;
+			}
+			for($j = 0; $j < $i; $j++){
+				if($mensagem[$j]['idUser'] == $this->userId){
+					$itsMe = TRUE;
+				}else{
+					$itsMe = FALSE;
+				}
+				$mensagens[$j][0] = $mensagem[$j]['msg'];
+				$mensagens[$j][1] = $mensagem[$j]['msgDate'];
+				$mensagens[$j][2] = $itsMe;
+			}
+			return $mensagens;
 		}
-		return $mensagens;
+	}
+
+	private function selectChat($id, $idUser, $isNew){
+		$user = $this->getUserData($idUser);
+		if($isNew == 0){
+			$result = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate ASC', array(
+				':ID' => $id
+			));
+			$result = $result->fetch();
+			$newChat[0] = $user['username'];
+			$newChat[1] = $result['msg'];
+			$newChat[2] = $user['imgUser'];
+			$newChat[3] = $result['msgDate'];
+			return $newChat;
+		}else{
+			$result = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate ASC', array(
+				':ID' => $id
+			));
+			$result = $result->fetch();
+			$newChat[0] = $user['username'];
+			$newChat[1] = "Envie uma nova mensagem";
+			$newChat[2] = $user['imgUser'];
+			$newChat[3] = (date("Y-m-d H:i:s"));
+			return $newChat;
+		}
 	}
 
 	public function enviarMensagem($mensagem){
-		$this->conn->executeQuery('INSERT INTO assoc_chats VALUES (:ID, :MSG, :IDUSER, :MSGDATE)', array(
+		$this->conn->executeQuery('INSERT INTO assoc_chats VALUES (:ID, :MSG, :IDUSER, :MSGDATE, :VISTO)', array(
 			':ID' => $this->idChat,
 			':MSG' => $mensagem,
 			':IDUSER' => $this->userId,
-			':MSGDATE' => (date("Y-m-d H:i:s"))
+			':MSGDATE' => (date("Y-m-d H:i:s")),
+			':VISTO' => 0
 		));
 	}
 
@@ -115,14 +192,27 @@ class chatModel{
 			));
 			$res = $res->fetch();
 			if(!empty($res)){
-				$mensagens = $this->carregarMensagens($res['id']);
-				return $mensagens;
+				return $this->selectChat($res['id'], $id, 0);
 			}else{
-				$this->conn->executeQuery('INSERT INTO chats (idUser, idUser2) VALUES (:ID, :ID2)', array(
-					':ID' => $this->userId,
-					':ID2' => $id
+				$res = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :IDUSER AND idUser2 = :IDUSER2', array(
+					':IDUSER' => $id,
+					':IDUSER2' => $this->userId
 				));
-				return NULL;
+				$res = $res->fetch();
+				if(!empty($res)){
+					return $this->selectChat($res['id'], $id, 0);
+				}else{
+					$this->conn->executeQuery('INSERT INTO chats (idUser, idUser2) VALUES (:ID, :ID2)', array(
+						':ID' => $this->userId,
+						':ID2' => $id
+					));
+					$res = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :IDUSER AND idUser2 = :IDUSER2', array(
+						':IDUSER' => $this->userId,
+						':IDUSER2' => $id
+					));
+					$res = $res->fetch();
+					return $this->selectChat($res['id'], $id, 1);
+				}
 			}
 		}else{
 			$_SESSION['usuarioNaoEncontrado'] = TRUE;
@@ -132,4 +222,16 @@ class chatModel{
 
 }
 
-?>
+$chat = new chatModel();
+if($_POST['funcao'] == "novoChat"){
+	$res = $chat->novoChat($_POST['username']);
+}else if($_POST['funcao'] == "carregarMensagens"){
+	$res = $chat->carregarMensagens($_POST['username']);
+}
+
+
+echo json_encode((array(
+    'username' => "",
+    'funcao' => "",
+    'resposta' => $res
+)));

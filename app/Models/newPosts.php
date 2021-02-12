@@ -103,6 +103,9 @@ class Post {
             $resultUserBlocked = $resultUserBlocked->fetch();
             if (empty($resultUserBlocked)){
                 $extension = substr($this->postSel['media'], strpos($this->postSel['media'], '.'));
+                $imgBorrada = new Imagick($this->postSel['media']);
+				$imgBorrada->blurImage(40,40);
+				$imgBorrada->writeImage('/media' . (hash('haval128,5', $this->postSel['media'])) . $extension);
                 $this->postSel['media'] = (((hash('haval128,5', $this->postSel['media'])) . $extension));
             }
         }

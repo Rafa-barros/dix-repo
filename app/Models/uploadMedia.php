@@ -53,16 +53,6 @@ class uploadMedia{
 				$dest_path = $uploadFileDir . $newFileName;
 
 				if(move_uploaded_file($fileTmpPath, $dest_path)){
-					if (!extension_loaded('imagick')){
-						echo 'imagick not installed';
-					}
-
-					if (in_array($fileExtension, array_slice($allowedfileExtensions, 3))){
-						$imgBorrada = new Imagick($dest_path);
-						$imgBorrada->blurImage(40,40);
-						//$imgBorrada->writeImage($uploadFileDir . (hash('haval128,5', $newFileName)) . $fileExtension);
-						$imgBorrada->writeImage("so_esse.png");
-					}
 					return $dest_path;
 
 				}else{

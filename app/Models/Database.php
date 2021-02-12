@@ -19,6 +19,7 @@ class Database extends PDO{
 
 	//Quando um novo objeto é criado, essa função é executada se conectando ao banco de dados
 	public function __construct(){
+		echo "teste";
 		$this->connection = new PDO("$this->db_sqlType:dbname=$this->db_name;host=$this->db_host;port=$this->db_port", "$this->db_user", "$this->db_pwd");
 	}
 

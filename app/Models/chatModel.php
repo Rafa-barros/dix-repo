@@ -21,7 +21,6 @@ class chatModel{
 	}
 
 	public function __construct(){
-		echo "a";
 		$this->conn = new Database();
 		$this->getUserId();
 	}

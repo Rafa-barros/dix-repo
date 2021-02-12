@@ -30,7 +30,7 @@
             <?php
                 $chatsAbertos = $chat->carregarChats();
                 $tam = count($chatsAbertos);
-                for($i = 0; $i < $tam; $i++){
+                for($i = $tam - 1; $i >= 0; $i--){
                     $naoLido = '';
                     if($chatsAbertos[$i][4] == 0){
                         $naoLido = 'naolido';

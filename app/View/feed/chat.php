@@ -27,7 +27,21 @@
         </div>
         
         <div class="contact-list">
-            <div class="contato">
+            <?php
+                $chat = new chatModel();
+                $chatsAbertos = $chat->carregarChats();
+                $tam = count($chatsAbertos);
+                for($i = 0; $i < $tam; $i++) { 
+                    echo('<div class="contato">
+                            <img class="foto-contato" src="' . $chatsAbertos[2] . '" alt="foto de perfil">
+                            <div class="contato-info">
+                                <span class="contato-name">' . $chatsAbertos[0] . '</span>
+                                <p class="contact-last-message">' . $chatsAbertos[1] . '</p>
+                            </div>
+                        </div>');
+                }
+            ?>
+            <!-- <div class="contato">
                 <img class="foto-contato" src="/app/View/assets/css/img/Caio.jpg" alt="foto de perfil">
                 <div class="contato-info">
                     <span class="contato-name naolido">Caio Brandini</span>
@@ -169,11 +183,8 @@
                     <span class="contato-name">Marcus Vinícius</span>
                     <p class="contact-last-message">iae</p>
                 </div>
-            </div>
+            </div> -->
             
-
-
-        
 
         
         <!-- Fim contatos -->

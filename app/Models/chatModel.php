@@ -51,10 +51,10 @@ class chatModel{
 		$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID OR idUser2 = :ID', array(
 			':ID' => $this->userId
 		));
+		print_r($result);
 		$i = 0;
 		while($row = $result->fetch()){
 			$chats[$i] = $row;
-			echo $row;
 			$i++;
 		}
 		for($j = 0; $j < $i; $j++){ 

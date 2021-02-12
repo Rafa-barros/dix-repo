@@ -3,10 +3,10 @@
 namespace App\Controller;
 
 use App\Models\chatModel;
+use App\Models\Database;
 
 class Chat {
     public function index(){
-    	echo base64_decode($_COOKIE['cUser']);
     	$chat = new chatModel();
         require("app/View/feed/chat.php");
     }

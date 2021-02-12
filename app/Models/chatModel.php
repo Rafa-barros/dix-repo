@@ -86,7 +86,7 @@ class chatModel{
 	}
 
 	private function alterar_lido($id){
-		$this->conn->executeQuery('UPDATE assoc_chats SET vistos = 1 WHERE id = :ID', array(
+		$this->conn->executeQuery('UPDATE assoc_chats SET visto = 1 WHERE id = :ID', array(
 			':ID' => $id
 		));
 	}

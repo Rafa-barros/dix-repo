@@ -278,10 +278,39 @@ $(".chat-title-container").hide();
             }           
         });    
 
-
-        
         }
 
+    });
+
+
+    //adicionar novo contato
+    $(".new-chat-form").submit(function(e){
+        e.preventDefault();
+        var newUser = $('.input-novo-contato').val();
+
+        $.ajax({
+            url: 'app/Models/chatModel.php', 
+            method: "POST",
+            data: {
+                username: newUser
+            },   
+            dataType: "json",  
+            cache: false,
+            success: function(resposta){
+                let listaContatos = $(".contato");
+                
+                $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.contato[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.contato[0]+'</span> <p class="contact-last-message">'+resposta.contato[1]+'</p></div></div>'+$(this).html()+'</div>');
+                listaContatos.each(function(){
+                    if($(this).find('.contato-name').text() == newUser){
+                        $(this).remove();
+                        $(".contact-list").prepend('<div class="contato" style="background-color: rgb(245, 244, 244)">'+$(this).html()+'</div>');
+                    }
+		        })
+            }
+
+        });
+
+        
     });
     
 });

@@ -249,16 +249,18 @@
         </button>
       </div>
       <div class="modal-body">
+        <form class="new-chat-form">
         <div class="input-group mb-2 mt-2">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">@</span>
             </div>
-            <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" id="input-novo-contato" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary new-chat-btn">Entrar em contato</button>
+        <button type="submit" class="btn btn-primary new-chat-btn">Entrar em contato</button>
       </div>
+      </form>
     </div>
   </div>
 </div>

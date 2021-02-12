@@ -46,7 +46,6 @@ class Database extends PDO{
 	public function executeQuery(string $query, array $parameters = []){
 		$stmt = $this->connection->prepare($query);
 		$this->mountQuery($stmt, $parameters);
-		print_r($stmt);
 		$verify = $stmt->execute();
 		if($verify == TRUE){
 			return $stmt;

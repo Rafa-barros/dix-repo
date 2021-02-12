@@ -56,7 +56,8 @@ class chatModel{
 			$chats[$i] = $row;
 			$i++;
 		}
-		for($j = 0; $j < $i; $j++){ 
+		for($j = 0; $j < $i; $j++){
+			echo $chats[$j]['id'];
 			$res = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate DESC', array(
 				':ID' => $chats[$j]['id']
 			));

@@ -102,8 +102,9 @@ class Post {
             ));
             $resultUserBlocked = $resultUserBlocked->fetch();
             if (empty($resultUserBlocked)){
-                $extension = substr($this->postSel['media'], strpos($this->postSel['media'], '.'));
-                $this->postSel['media'] = (((hash('haval128,5', $this->postSel['media'])) . $extension));
+                $extensaoCmps = explode(".", $this->postSel['media']);
+                $extensao = strtolower(end($extensaoCmps));
+                $this->postSel['media'] = (((hash('haval128,5', $this->postSel['media'])) . $extensao));
             }
         }
 

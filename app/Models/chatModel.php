@@ -48,12 +48,11 @@ class chatModel{
 
 	public function carregarChats(){
 		$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID OR idUser2 = :ID', array(
-			':ID' => $this->userId
+			':ID' => intval($this->userId)
 		));
 		$i = 0;
 		while($row = $result->fetch()){
 			$chats[$i] = $row;
-			echo $chats[$i];
 			$i++;
 		}
 		for($j = 0; $j < $i; $j++){ 

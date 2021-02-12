@@ -249,6 +249,7 @@
 </div>
 
 <!-- Modal Novo chat -->
+<form class="new-chat-form">
 <div class="modal fade" id="new-chat-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
@@ -259,7 +260,6 @@
         </button>
       </div>
       <div class="modal-body">
-        <form class="new-chat-form">
         <div class="input-group mb-2 mt-2">
             <div class="input-group-prepend">
                 <span class="input-group-text" id="basic-addon1">@</span>
@@ -270,10 +270,10 @@
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary new-chat-btn">Entrar em contato</button>
       </div>
-      </form>
     </div>
   </div>
 </div>
+</form>
 
 <script src="app/View/assets/js/chat.js"></script>
 <script src="app/View/assets/js/zerarnot.js"></script>

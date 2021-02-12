@@ -1,8 +1,12 @@
 <?php
 
-use App\Models\Database;
-use App\Models\chatModel;
+namespace App\Models;
 
+use App\Models\chatModel;
+use App\Models\Database;
+use PDO;
+
+require "../../vendor/autoload.php";
 $chatMsg = new chatModel();
 if($_POST['funcao'] == "novoChat"){
 	$res = $chatMsg->novoChat($_POST['username']);

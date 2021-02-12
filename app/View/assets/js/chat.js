@@ -79,7 +79,7 @@ $(".chat-title-container").hide();
         //Carregar mensagens
 
         $.ajax({
-            url: 'app/Models/chatModel.php', 
+            url: 'app/Models/chatMsg.php', 
             method: "POST",
             data: {
                 username: $(".nome-contato-chat").text(),

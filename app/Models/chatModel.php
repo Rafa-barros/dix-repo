@@ -76,7 +76,7 @@ class chatModel{
 			$chatsCarregados[$j][4] = $res['visto'];
 		}
 		echo strtotime($chatsCarregados[1][3]);
-		usort($chatsCarregados, array('chatModel', 'date_sort'));
+		usort($chatsCarregados, array($this, 'date_sort'));
 		return $chatsCarregados;
 	}
 

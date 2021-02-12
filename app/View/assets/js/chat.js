@@ -32,7 +32,7 @@ $(".chat-title-container").hide();
     $(document).on('click', '.contato', function(){
 
         //Apagar mensagens anteriores
-        if($(this).find('contato-name').text() != $('nome-contato-chat').text()) $('.chat-messages').html(' ');
+        if($(this).find('.contato-name').text() != $('.nome-contato-chat').text()) $('.chat-messages').html(' ');
 
         let contato = $(this);
         let imgContato = contato.children(".foto-contato").attr("src");

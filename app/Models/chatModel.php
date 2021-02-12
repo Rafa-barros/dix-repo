@@ -113,9 +113,9 @@ class chatModel{
 				}
 				for($j = 0; $j < $i; $j++){
 					if($mensagem[$j]['idUser'] == $this->userId){
-						$itsMe = TRUE;
+						$itsMe = 1;
 					}else{
-						$itsMe = FALSE;
+						$itsMe = 0;
 					}
 					$mensagens[$j][0] = $mensagem[$j]['msg'];
 					$mensagens[$j][1] = $itsMe;
@@ -135,9 +135,9 @@ class chatModel{
 			}
 			for($j = 0; $j < $i; $j++){
 				if($mensagem[$j]['idUser'] == $this->userId){
-					$itsMe = TRUE;
+					$itsMe = 1;
 				}else{
-					$itsMe = FALSE;
+					$itsMe = 0;
 				}
 				$mensagens[$j][0] = $mensagem[$j]['msg'];
 				$mensagens[$j][1] = $itsMe;

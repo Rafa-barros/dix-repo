@@ -92,7 +92,7 @@ $(".chat-title-container").hide();
                 let chat = resposta.mensagens;
 
                 for(var i=0; i < chat.length; i++){
-                    if(chat[i][1] == 0) { //mensagem minha
+                    if(chat[i][1] == 1) { //mensagem minha
                         $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
                     }
                     else { //mensagem do outro

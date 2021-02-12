@@ -47,6 +47,7 @@ class chatModel{
 	}
 
 	public function carregarChats(){
+		echo $this->userId;
 		$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID OR idUser2 = :ID', array(
 			':ID' => $this->userId
 		));

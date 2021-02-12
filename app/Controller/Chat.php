@@ -3,7 +3,6 @@
 namespace App\Controller;
 
 use App\Models\chatModel;
-use App\Models\Database;
 
 class Chat {
     public function index(){

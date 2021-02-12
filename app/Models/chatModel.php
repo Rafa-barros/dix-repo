@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use App\Models\Database;
+
 class chatModel{
 	
 	private $userId;
@@ -19,7 +21,6 @@ class chatModel{
 	}
 
 	public function __construct(){
-		echo "fuck";
 		$this->conn = new Database();
 		$this->getUserId();
 	}
@@ -219,7 +220,6 @@ class chatModel{
 		}
 	}
 
-}
 
 // $chat = new chatModel();
 // if($_POST['funcao'] == "novoChat"){

@@ -28,8 +28,8 @@
         
         <div class="contact-list">
             <?php
-                $chat = new chatModel();
                 $chatsAbertos = $chat->carregarChats();
+                print_r($chatsAbertos);
                 $tam = count($chatsAbertos);
                 for($i = 0; $i < $tam; $i++) { 
                     echo('<div class="contato">

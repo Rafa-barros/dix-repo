@@ -284,7 +284,7 @@ $(".chat-title-container").hide();
 
 
     //adicionar novo contato
-    $(".new-chat-form").submit(function(e){
+    $(document).on('submit', '.new-chat-form', function(e){
         e.preventDefault();
         alert(1);
         var newUser = $('.input-novo-contato').val();

@@ -5,7 +5,6 @@ namespace App\Models;
 use App\Models\Database;
 use App\Models\chatModel;
 
-
 $chat = new chatModel();
 if($_POST['funcao'] == "novoChat"){
 	$res = $chat->novoChat($_POST['username']);

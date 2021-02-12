@@ -174,14 +174,37 @@ class chatModel{
 		}
 	}
 
-	public function enviarMensagem($mensagem){
-		$this->conn->executeQuery('INSERT INTO assoc_chats VALUES (:ID, :MSG, :IDUSER, :MSGDATE, :VISTO)', array(
-			':ID' => $this->idChat,
-			':MSG' => $mensagem,
-			':IDUSER' => $this->userId,
-			':MSGDATE' => (date("Y-m-d H:i:s")),
-			':VISTO' => 0
+	public function enviarMensagem($username, $mensagem){
+		$idUser2 = $this->getId($username);
+		$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
+			':ID' => $this->userId,
+			':ID2' => $idUser2
 		));
+		$result = $result->fetch();
+		if(empty($result)){
+			$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
+				':ID' => $idUser2,
+				':ID2' => $this->userId
+			));
+			$result = $result->fetch();
+			$idChat = $result['id'];
+			$this->conn->executeQuery('INSERT INTO assoc_chats VALUES (:ID, :MSG, :IDUSER, :MSGDATE, :VISTO)', array(
+				':ID' => $idChat,
+				':MSG' => $mensagem,
+				':IDUSER' => $this->userId,
+				':MSGDATE' => (date("Y-m-d H:i:s")),
+				':VISTO' => 0
+			));
+		}else{
+			$idChat = $result['id'];
+			$this->conn->executeQuery('INSERT INTO assoc_chats VALUES (:ID, :MSG, :IDUSER, :MSGDATE, :VISTO)', array(
+				':ID' => $idChat,
+				':MSG' => $mensagem,
+				':IDUSER' => $this->userId,
+				':MSGDATE' => (date("Y-m-d H:i:s")),
+				':VISTO' => 0
+			));
+		}
 	}
 
 	public function novoChat($username){

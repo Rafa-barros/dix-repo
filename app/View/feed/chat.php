@@ -252,8 +252,8 @@
 
 <div class="modal fade" id="new-chat-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
-  <form class="new-chat-form">
     <div class="modal-content">
+    <form class="new-chat-form">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Nova menssagem</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -271,8 +271,8 @@
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary new-chat-btn">Entrar em contato</button>
       </div>
+      </form>
     </div>
-    </form>
   </div>
 </div>
 

@@ -60,7 +60,7 @@ class chatModel{
 				':ID' => $chats[$j]['id']
 			));
 			$res = $res->fetch();
-			if($res[$j]['idUser'] == $this->userId){
+			if($res['idUser'] == $this->userId){
 				$itsMe = 1;
 			}else{
 				$itsMe = 0;

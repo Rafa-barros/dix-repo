@@ -31,6 +31,9 @@ $(".chat-title-container").hide();
     //contato slecionado
     $(document).on('click', '.contato', function(){
 
+        //Apagar mensagens anteriores
+        if($(this).find('contato-name').text() != $('nome-contato-chat').text()) $('.chat-messages').html(' ');
+
         let contato = $(this);
         let imgContato = contato.children(".foto-contato").attr("src");
         let nameContato = contato.children(".contato-info").children(".contato-name").text();
@@ -71,9 +74,6 @@ $(".chat-title-container").hide();
                 clearInterval(atualizaChat);
             });
         }
-
-        //Apagar mensagens anteriores
-        if($(this).find('contato-name').text() != $('nome-contato-chat').text()) $('.chat-messages').html(' ');
 
 
         //Carregar mensagens

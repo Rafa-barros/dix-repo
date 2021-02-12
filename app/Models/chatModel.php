@@ -42,10 +42,7 @@ class chatModel{
 	}
 
 	private static function date_sort($a, $b){
-		print_r(strtotime($a['msgDate']));
-		echo strtotime($b['msgDate']);
-		$return = strtotime($a['msgDate']) - strtotime($b['msgDate']);
-		return $return;
+		return strtotime($a['msgDate']) - strtotime($b['msgDate']);
 	}
 
 	public function carregarChats(){

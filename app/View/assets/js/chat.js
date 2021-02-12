@@ -78,6 +78,8 @@ $(".chat-title-container").hide();
 
         //Carregar mensagens
 
+        if($(this).find('.contato-name').text() != $('.nome-contato-chat').text()){
+
         $.ajax({
             url: 'app/Models/chatMsg.php', 
             method: "POST",
@@ -138,6 +140,8 @@ $(".chat-title-container").hide();
         //     }, 300);
 
         // });
+
+    }
         
 
     });
@@ -222,11 +226,10 @@ $(".chat-title-container").hide();
 
         if(msg != "" && msg != " "){
             $.ajax({
-            url: 'app/Models/chatModel.php', 
+            url: 'app/Models/sendMsg.php', 
             method: "POST",
             data: {
-                message: msg,
-                username: $(".nome-contato-chat").text()
+                message: msg
             },   
             // dataType: "json",  
             cache: false,

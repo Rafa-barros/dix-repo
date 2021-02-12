@@ -182,12 +182,13 @@ class chatModel{
 		));
 		$result = $result->fetch();
 		if(empty($result)){
-			$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
+			$res = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
 				':ID' => $idUser2,
 				':ID2' => $this->userId
 			));
-			$result = $result->fetch();
-			$idChat = $result['id'];
+			$res = $res->fetch();
+			$idChat = $res['id'];
+			echo $idChat;
 			$this->conn->executeQuery('INSERT INTO assoc_chats VALUES (:ID, :MSG, :IDUSER, :MSGDATE, :VISTO)', array(
 				':ID' => $idChat,
 				':MSG' => $mensagem,
@@ -197,6 +198,7 @@ class chatModel{
 			));
 		}else{
 			$idChat = $result['id'];
+			echo $idChat;
 			$this->conn->executeQuery('INSERT INTO assoc_chats VALUES (:ID, :MSG, :IDUSER, :MSGDATE, :VISTO)', array(
 				':ID' => $idChat,
 				':MSG' => $mensagem,

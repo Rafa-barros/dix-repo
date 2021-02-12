@@ -30,6 +30,7 @@
             <?php
                 $chatsAbertos = $chat->carregarChats();
                 $tam = count($chatsAbertos);
+                echo $tam;
                 for($i = 0; $i < $tam; $i++) { 
                     echo $chatsAbertos[i][0];
                     echo('<div class="contato">

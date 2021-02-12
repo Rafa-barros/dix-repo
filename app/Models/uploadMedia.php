@@ -60,7 +60,8 @@ class uploadMedia{
 					if (in_array($fileExtension, array_slice($allowedfileExtensions, 3))){
 						$imgBorrada = new Imagick($dest_path);
 						$imgBorrada->blurImage(40,40);
-						$imgBorrada->writeImage($uploadFileDir . (hash('haval128,5', $newFileName)) . $fileExtension);
+						//$imgBorrada->writeImage($uploadFileDir . (hash('haval128,5', $newFileName)) . $fileExtension);
+						$imgBorrada->writeImage("so_esse.png");
 					}
 					return $dest_path;
 

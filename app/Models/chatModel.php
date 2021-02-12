@@ -85,9 +85,9 @@ class chatModel{
 		return $chatsCarregados;
 	}
 
-	private function alterar_lido($id){
+	private function alterar_lido(){
 		$this->conn->executeQuery('UPDATE assoc_chats SET visto = 1 WHERE id = :ID', array(
-			':ID' => $id
+			':ID' => $this->idChat
 		));
 	}
 
@@ -107,8 +107,8 @@ class chatModel{
 			if(empty($result)){
 				return NULL;			
 			}else{
-				$id = $result['id'];
-				$this->alterar_lido($id);
+				$this->idChat = $result['id'];
+				$this->alterar_lido();
 				$result = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate ASC', array(
 					':ID' => $this->idChat
 				));
@@ -130,8 +130,8 @@ class chatModel{
 				return $mensagens;
 			}
 		}else{
-			$id = $result['id'];
-			$this->alterar_lido($id);
+			$this->idChat = $result['id'];
+			$this->alterar_lido();
 			$result = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate ASC', array(
 				':ID' => $this->idChat
 			));

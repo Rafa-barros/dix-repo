@@ -287,7 +287,7 @@ $(".chat-title-container").hide();
     $(document).on('submit', '.new-chat-form', function(e){
         e.preventDefault();
         var newUser = $('#input-novo-contato').val();
-        newUser.val(' ');
+        $('#input-novo-contato').val(' ');
         $('#new-chat-modal').modal('hide');
 
         $.ajax({

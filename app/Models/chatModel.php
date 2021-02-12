@@ -57,11 +57,11 @@ class chatModel{
 			$i++;
 		}
 		for($j = 0; $j < $i; $j++){
-			echo $chats[$j]['id'];
 			$res = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate DESC', array(
 				':ID' => $chats[$j]['id']
 			));
 			$res = $res->fetch();
+			print_r($res);
 			if($chats[$j]['idUser'] == $this->userId){
 				$data = $this->getUserData($chats[$j]['idUser2']);
 				$username = $data['username'];

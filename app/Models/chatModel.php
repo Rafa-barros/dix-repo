@@ -125,8 +125,8 @@ class chatModel{
 				return $mensagens;
 			}
 		}else{
-			$this->alterar_lido();
 			$this->idChat = $result['id'];
+			echo $this->idChat;
 			$result = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate ASC', array(
 				':ID' => $this->idChat
 			));

@@ -117,8 +117,8 @@ class chatModel{
 						$itsMe = FALSE;
 					}
 					$mensagens[$j][0] = $mensagem[$j]['msg'];
-					$mensagens[$j][1] = $mensagem[$j]['msgDate'];
-					$mensagens[$j][2] = $itsMe;
+					$mensagens[$j][1] = $itsMe;
+					$mensagens[$j][2] = $mensagem[$j]['msgDate'];
 				}
 				return $mensagens;
 			}
@@ -139,8 +139,8 @@ class chatModel{
 					$itsMe = FALSE;
 				}
 				$mensagens[$j][0] = $mensagem[$j]['msg'];
-				$mensagens[$j][1] = $mensagem[$j]['msgDate'];
-				$mensagens[$j][2] = $itsMe;
+				$mensagens[$j][1] = $itsMe;
+				$mensagens[$j][2] = $mensagem[$j]['msgDate'];
 			}
 			return $mensagens;
 		}
@@ -238,5 +238,5 @@ if($_POST['funcao'] == "novoChat"){
 echo json_encode((array(
     'username' => "",
     'funcao' => "",
-    'resposta' => $res
+    'mensagens' => $res
 )));

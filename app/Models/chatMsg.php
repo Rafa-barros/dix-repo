@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Database;
 
-$chat = new App\Models\chatModel();
+$chat = new chatModel();
 if($_POST['funcao'] == "novoChat"){
 	$res = $chat->novoChat($_POST['username']);
 }else if($_POST['funcao'] == "carregarMensagens"){

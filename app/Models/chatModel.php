@@ -41,7 +41,7 @@ class chatModel{
 		return $result['id'];
 	}
 
-	private static function date_sort($a, $b){
+	public static function date_sort($a, $b){
 		return strtotime($a['msgDate']) - strtotime($b['msgDate']);
 	}
 

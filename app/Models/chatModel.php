@@ -18,7 +18,6 @@ class chatModel{
 		));
 		$result = $result->fetch();
 		$this->userId = $result['id'];
-		echo $this->userId;
 	}
 
 	public function __construct(){
@@ -70,6 +69,7 @@ class chatModel{
 				$username = $data['username'];
 				$userImg = $data['imgUser'];
 			}
+			echo $username;
 			$chatsCarregados[$j][0] = $username;
 			$chatsCarregados[$j][1] = $res['msg'];
 			$chatsCarregados[$j][2] = $userImg;

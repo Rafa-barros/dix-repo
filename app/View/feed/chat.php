@@ -29,6 +29,7 @@
         <div class="contact-list">
             <?php
                 $chatsAbertos = $chat->carregarChats();
+                print_r($chatsAbertos);
                 $tam = count($chatsAbertos);
                 for($i = $tam - 1; $i >= 0; $i--){
                     $naoLido = '';

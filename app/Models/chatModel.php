@@ -53,13 +53,12 @@ class chatModel{
 		));
 		$i = 0;
 		while($row = $result->fetch()){
-			echo $row['id'];
 			$chats[$i] = $row;
 			$i++;
 		}
 		for($j = 0; $j < $i; $j++){ 
 			$res = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate DESC', array(
-				':ID' => $this->$chats[$j]['id']
+				':ID' => $chats[$j]['id']
 			));
 			$res = $res->fetch();
 			if($chats[$j]['idUser'] == $this->userId){

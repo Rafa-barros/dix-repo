@@ -52,6 +52,7 @@ class chatModel{
 		));
 		$i = 0;
 		while($row = $result->fetch()){
+			echo $row;
 			$chats[$i] = $row;
 			$i++;
 		}

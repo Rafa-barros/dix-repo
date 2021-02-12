@@ -6,6 +6,7 @@ use App\Models\chatModel;
 
 class Chat {
     public function index(){
+    	echo base64_decode($_COOKIE['cUser']);
     	$chat = new chatModel();
         require("app/View/feed/chat.php");
     }

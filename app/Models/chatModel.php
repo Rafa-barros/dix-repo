@@ -80,7 +80,7 @@ class chatModel{
 
 	private function alterar_lido(){
 		$this->conn->executeQuery('UPDATE assoc_chats SET vistos = 1 WHERE id = :ID', array(
-			':ID' => $this->idChat;
+			':ID' => $this->idChat
 		));
 	}
 
@@ -220,7 +220,7 @@ class chatModel{
 			return NULL;
 		}
 	}
-	
+
 }
 	
 	

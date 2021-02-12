@@ -29,9 +29,9 @@
         <div class="contact-list">
             <?php
                 $chatsAbertos = $chat->carregarChats();
-                print_r($chatsAbertos);
                 $tam = count($chatsAbertos);
                 for($i = 0; $i < $tam; $i++) { 
+                    echo $chatsAbertos[i][0];
                     echo('<div class="contato">
                             <img class="foto-contato" src="' . $chatsAbertos[i][2] . '" alt="foto de perfil">
                             <div class="contato-info">

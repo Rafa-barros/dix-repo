@@ -72,6 +72,9 @@ $(".chat-title-container").hide();
             });
         }
 
+        //Apagar mensagens anteriores
+        $('.chat-messages').html(' ');
+
 
         //Carregar mensagens
 

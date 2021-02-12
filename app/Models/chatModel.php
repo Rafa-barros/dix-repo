@@ -70,14 +70,13 @@ class chatModel{
 				$username = $data['username'];
 				$userImg = $data['imgUser'];
 			}
-			echo $username;
-			echo $userImg;
 			$chatsCarregados[$j][0] = $username;
 			$chatsCarregados[$j][1] = $res['msg'];
 			$chatsCarregados[$j][2] = $userImg;
 			$chatsCarregados[$j][3] = $res['msgDate'];
 		}
 		usort($chatsCarregados, array($this, 'date_sort'));
+		print_r($chatsCarregados);
 		return $chatsCarregados;
 	}
 

@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\Database;
 
 class uploadMedia{
-
+	public $fileName;
 	private $email;
 	private $userId;
 	private $nPosts;
@@ -41,7 +41,7 @@ class uploadMedia{
 			$fileExtension = strtolower(end($fileNameCmps));
 
 			//Novo nome que o arquivo vai receber ao ser armazenado no servidor
-			$newFileName = md5($this->email . $this->nPosts) . '.' . $fileExtension;
+			$this->fileName = md5($this->email . $this->nPosts) . '.' . $fileExtension;
 
 			//Lista de extensões permitidas para a foto de perfil
 			$allowedfileExtensions = array('jpg', 'jpeg', 'png', 'gif', 'mp4', 'avi', 'webp');
@@ -50,11 +50,10 @@ class uploadMedia{
 			if(in_array($fileExtension, $allowedfileExtensions)){
 
 				$uploadFileDir = 'media/';
-				$dest_path = $uploadFileDir . $newFileName;
+				$dest_path = $uploadFileDir . $this->fileName;
 
 				if(move_uploaded_file($fileTmpPath, $dest_path)){
 					return $dest_path;
-
 				}else{
 
 					$_SESSION['erro'] = TRUE;

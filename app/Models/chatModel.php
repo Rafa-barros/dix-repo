@@ -74,8 +74,8 @@ class chatModel{
 			$chatsCarregados[$j][2] = $userImg;
 			$chatsCarregados[$j][3] = $res['msgDate'];
 		}
-		usort($chatsCarregados, array($this, 'date_sort'));
 		print_r($chatsCarregados);
+		usort($chatsCarregados, array($this, 'date_sort'));
 		return $chatsCarregados;
 	}
 

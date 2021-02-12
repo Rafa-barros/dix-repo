@@ -5,7 +5,7 @@ namespace App\Models;
 use App\Models\Database;
 
 class chatModel{
-	
+
 	private $userId;
 	private $email;
 	private $idChat;
@@ -42,11 +42,13 @@ class chatModel{
 	}
 
 	private static function date_sort($a, $b){
-		return strtotime($a['msgDate']) - strtotime($b['msgDate']);
+		$return = strtotime($a['msgDate']) - strtotime($b['msgDate']);
+		return $return;
 	}
 
 	public function carregarChats(){
-		$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID OR idUser2 = :ID', array(
+		$this->userId = intval($this->userId);
+		$result = $this->conn->executeQuery('SELECT * FROM chats WHERE idUser = :ID OR idUser2 = :ID', array(
 			':ID' => $this->userId
 		));
 		$i = 0;
@@ -56,7 +58,7 @@ class chatModel{
 		}
 		for($j = 0; $j < $i; $j++){ 
 			$res = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate DESC', array(
-				':ID' => $this->$chats[$j]['id']
+				':ID' => $chats[$j]['id']
 			));
 			$res = $res->fetch();
 			if($chats[$j]['idUser'] == $this->userId){
@@ -79,7 +81,7 @@ class chatModel{
 
 	private function alterar_lido(){
 		$this->conn->executeQuery('UPDATE assoc_chats SET vistos = 1 WHERE id = :ID', array(
-			':ID' => $this->idChat;
+			':ID' => $this->idChat
 		));
 	}
 
@@ -221,17 +223,20 @@ class chatModel{
 	}
 
 }
-
-$chat = new chatModel();
-if($_POST['funcao'] == "novoChat"){
-	$res = $chat->novoChat($_POST['username']);
-}else if($_POST['funcao'] == "carregarMensagens"){
-	$res = $chat->carregarMensagens($_POST['username']);
-}
+	
+	
 
 
-echo json_encode((array(
-    'username' => "",
-    'funcao' => "",
-    'resposta' => $res
-)));
+// $chat = new chatModel();
+// if($_POST['funcao'] == "novoChat"){
+// 	$res = $chat->novoChat($_POST['username']);
+// }else if($_POST['funcao'] == "carregarMensagens"){
+// 	$res = $chat->carregarMensagens($_POST['username']);
+// }
+
+
+// echo json_encode((array(
+//     'username' => "",
+//     'funcao' => "",
+//     'resposta' => $res
+// )));

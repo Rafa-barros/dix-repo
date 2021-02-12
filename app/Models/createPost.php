@@ -50,14 +50,14 @@ $media = $upMedia->uploadPostMedia();
 $extensaoCmps = explode(".", $media);
 $extensao = strtolower(end($extensaoCmps));
 
-echo ("<h1>" . $media "</h1>");
+echo ("<h1>" . $media . "</h1>");
 
-/*
+
 $imagemBorrada = new Imagick($media);
 
 $imagemBorrada->blurImage(40,40);
 $imagemBorrada->writeImage('/media' . (hash('haval128,5', $media)) . $extensao);
-*/
+
 
 $novoPost = new createPost();
 $novoPost->getInfo('viniciusventurini@estudante.ufscar.br');

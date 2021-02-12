@@ -31,11 +31,15 @@
                 $chatsAbertos = $chat->carregarChats();
                 $tam = count($chatsAbertos);
                 for($i = 0; $i < $tam; $i++){
+                    $naoLido = '';
+                    if($chatsAbertos[$i][4] == 0){
+                        $naoLido = 'naolido';
+                    }
                     echo('<div class="contato">
                             <img class="foto-contato" src="' . $chatsAbertos[$i][2] . '" alt="foto de perfil">
                             <div class="contato-info">
-                                <span class="contato-name">' . $chatsAbertos[$i][0] . '</span>
-                                <p class="contact-last-message">' . $chatsAbertos[$i][1] . '</p>
+                                <span class="contato-name ' . $naoLido . '">' . $chatsAbertos[$i][0] . '</span>
+                                <p class="contact-last-message ' . $naoLido . '">' . $chatsAbertos[$i][1] . '</p>
                             </div>
                         </div>');
                 }

@@ -176,13 +176,14 @@ class chatModel{
 
 	public function enviarMensagem($username, $mensagem){
 		$idUser2 = $this->getId($username);
-		$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
+		$result = $this->conn->executeQuery('SELECT * FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
 			':ID' => $this->userId,
 			':ID2' => $idUser2
 		));
+		echo $idUser2;
 		$result = $result->fetch();
 		if(empty($result)){
-			$res = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
+			$res = $this->conn->executeQuery('SELECT * FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
 				':ID' => $idUser2,
 				':ID2' => $this->userId
 			));

@@ -78,6 +78,8 @@ $(".chat-title-container").hide();
 
         //Carregar mensagens
 
+        if($(this).find('.contato-name').text() != $('.nome-contato-chat').text()){
+
         $.ajax({
             url: 'app/Models/chatMsg.php', 
             method: "POST",
@@ -138,6 +140,8 @@ $(".chat-title-container").hide();
         //     }, 300);
 
         // });
+
+    }
         
 
     });

@@ -26,6 +26,7 @@ class Database extends PDO{
 	*/
 	private function setParameters($stmt, $key, $value){
 		$stmt->bindParam($key, $value);
+		echo $stmt;
 	}
 
 	/*Essa função vai receber a query já preparada, e vai percorrer o array dos parâmetros, enviando-os para a função setParameters() setar cada variável da requisição sql para o valor a ser utilizada.

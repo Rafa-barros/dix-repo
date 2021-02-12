@@ -73,7 +73,7 @@ $(".chat-title-container").hide();
         }
 
         //Apagar mensagens anteriores
-        $('.chat-messages').html(' ');
+        if((this).find('contato-name').text() != $('nome-contato-chat').text()) $('.chat-messages').html(' ');
 
 
         //Carregar mensagens

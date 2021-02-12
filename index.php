@@ -2,9 +2,6 @@
     session_start();
     require './vendor/autoload.php';
     $ctrl = new Core\Controller();
-$im = new Imagick('media/921a177b94945eea8cc684babaa1a980.jpg');
-$im->blurImage(50,50);
-$im->writeImage("media/albumBorrado.jpg");
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

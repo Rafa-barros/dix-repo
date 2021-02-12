@@ -5,6 +5,7 @@ namespace App\Models;
 use App\Models\Database;
 
 class uploadMedia{
+
 	private $email;
 	private $userId;
 	private $nPosts;
@@ -53,6 +54,7 @@ class uploadMedia{
 
 				if(move_uploaded_file($fileTmpPath, $dest_path)){
 					return $dest_path;
+
 				}else{
 
 					$_SESSION['erro'] = TRUE;

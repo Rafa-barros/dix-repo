@@ -18,6 +18,7 @@ class chatModel{
 		));
 		$result = $result->fetch();
 		$this->userId = $result['id'];
+		echo $this->userId;
 	}
 
 	public function __construct(){
@@ -74,7 +75,6 @@ class chatModel{
 			$chatsCarregados[$j][2] = $userImg;
 			$chatsCarregados[$j][3] = $res['msgDate'];
 		}
-		print_r($chatsCarregados);
 		usort($chatsCarregados, array($this, 'date_sort'));
 		return $chatsCarregados;
 	}

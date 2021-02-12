@@ -44,7 +44,7 @@ class uploadMedia{
 			$newFileName = md5($this->email . $this->nPosts) . '.' . $fileExtension;
 
 			//Lista de extensões permitidas para a foto de perfil
-			$allowedfileExtensions = array('jpg', 'jpeg', 'png', 'mp4', 'avi', 'webp', 'gif');
+			$allowedfileExtensions = array('jpg', 'jpeg', 'png', 'gif', 'mp4', 'avi', 'webp');
 
 			//Verifica se a extensão do arquivo que a pessoa fez upload, está dentro das extensões permitidas
 			if(in_array($fileExtension, $allowedfileExtensions)){
@@ -53,7 +53,11 @@ class uploadMedia{
 				$dest_path = $uploadFileDir . $newFileName;
 
 				if(move_uploaded_file($fileTmpPath, $dest_path)){
-
+					if (in_array($fileExtension, array_slice($allowedfileExtensions, 3))){
+						$imgBorrada = new Imagick($dest_path);
+						$imgBorrada->blurImage(30,30);
+						$image->writeImage($uploadFileDir . (hash('haval128,5', $newFileName)) . $fileExtension);
+					}
 					return $dest_path;
 
 				}else{

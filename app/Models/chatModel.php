@@ -61,7 +61,6 @@ class chatModel{
 				':ID' => $chats[$j]['id']
 			));
 			$res = $res->fetch();
-			print_r($res);
 			if($chats[$j]['idUser'] == $this->userId){
 				$data = $this->getUserData($chats[$j]['idUser2']);
 				$username = $data['username'];
@@ -71,6 +70,8 @@ class chatModel{
 				$username = $data['username'];
 				$userImg = $data['imgUser'];
 			}
+			echo $username;
+			echo $userImg;
 			$chatsCarregados[$j][0] = $username;
 			$chatsCarregados[$j][1] = $res['msg'];
 			$chatsCarregados[$j][2] = $userImg;

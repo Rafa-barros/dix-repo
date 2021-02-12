@@ -19,6 +19,7 @@ class chatModel{
 	}
 
 	public function __construct(){
+		echo "fuck";
 		$this->conn = new Database();
 		$this->getUserId();
 	}

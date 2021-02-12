@@ -18,10 +18,10 @@ class chatModel{
 		));
 		$result = $result->fetch();
 		$this->userId = $result['id'];
-		echo $this->userId;
 	}
 
 	public function __construct(){
+		echo "a";
 		$this->conn = new Database();
 		$this->getUserId();
 	}

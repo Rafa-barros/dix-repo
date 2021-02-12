@@ -180,7 +180,6 @@ class chatModel{
 			':ID' => $this->userId,
 			':ID2' => $idUser2
 		));
-		echo $idUser2;
 		$result = $result->fetch();
 		if(empty($result)){
 			$res = $this->conn->executeQuery('SELECT * FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
@@ -189,7 +188,6 @@ class chatModel{
 			));
 			$res = $res->fetch();
 			$idChat = $res['id'];
-			echo $idChat;
 			$this->conn->executeQuery('INSERT INTO assoc_chats VALUES (:ID, :MSG, :IDUSER, :MSGDATE, :VISTO)', array(
 				':ID' => $idChat,
 				':MSG' => $mensagem,
@@ -199,7 +197,6 @@ class chatModel{
 			));
 		}else{
 			$idChat = $result['id'];
-			echo $idChat;
 			$this->conn->executeQuery('INSERT INTO assoc_chats VALUES (:ID, :MSG, :IDUSER, :MSGDATE, :VISTO)', array(
 				':ID' => $idChat,
 				':MSG' => $mensagem,

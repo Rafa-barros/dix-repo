@@ -222,7 +222,7 @@ $(".chat-title-container").hide();
 
         if(msg != "" && msg != " "){
             $.ajax({
-            url: 'app/Models/chatModel.php', 
+            url: 'app/Models/sendMsg.php', 
             method: "POST",
             data: {
                 message: msg,

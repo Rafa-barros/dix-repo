@@ -466,7 +466,7 @@
 
         $.ajax({
             dataType: 'json',
-            type: "POST",
+            method: "POST",
             url: "app/Models/logout.php",    
             data: {logout: 1},     
             cache: false        

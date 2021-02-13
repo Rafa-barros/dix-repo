@@ -23,7 +23,11 @@ class Recuperarsenha {
         	$recuperar->verificaCodigo($_SESSION['id'], $_SESSION['email'], $_SESSION['codigo']);
         }
     	if(isset($_POST['email'])){
-    		$recuperar->insertEmail($_POST['email']);
+    		$result = $recuperar->insertEmail($_POST['email']);
+            if($result == TRUE){
+                header("Location: http://dix.net.br/recuperarsenha?id=" . $_SESSION['newId'] . "&email=" . $_POST['email'] . );
+                unset($_SESSION['newId']);
+            }
     	}
         require("app/View/login/recuperarSenha.php");
     }

@@ -6,13 +6,13 @@
 
     <?php
       if(!isset($_SESSION['inserirCodigo']) && !isset($_SESSION['newPwd'])){
-        echo '<div class="center">
-            <div class="card-email">';
         if(isset($_SESSION['emailInvalido'])){
-          echo 'E-mail inválido<br>';
+          echo '<script>alert (E-mail inválido)</script>';
           unset($_SESSION['emailInvalido']);
         }
-        echo '<form class="form" method="post">
+        echo '<div class="center">
+            <div class="card-email">
+            <form class="form" method="post">
               <div class="form-container">
                 <h1>Redefinir senha</h1>
                 <div class="g-border"></div>

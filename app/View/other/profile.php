@@ -470,7 +470,9 @@
             url: 'app/Models/logout.php',    
             data: {logout: 1},     
             cache: false        
-        });    
+        });
+
+        window.location.href("http://dix.net.br");    
 
     });
 

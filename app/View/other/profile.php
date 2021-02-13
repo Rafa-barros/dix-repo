@@ -31,8 +31,6 @@
             </div>
         </div>
         <div class="profile-btn-area">
-        <!-- remover esse botao (debug) -->
-        <button type="button" class="btn btn-primary btn-profile-message mr-1" id="btn-config" data-toggle="modal" data-target="#modal-config">Configurações <i class="fas fa-cog"></i> </button>'
             <?php if(base64_decode($_COOKIE['cUser']) == $email){
                echo ('<button type="button" class="btn btn-primary btn-profile-message mr-1" id="btn-config" data-toggle="modal" data-target="#modal-config">Configurações <i class="fas fa-cog"></i> </button>');
             } else {

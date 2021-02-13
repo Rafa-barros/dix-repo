@@ -10,7 +10,6 @@ require "../../vendor/autoload.php";
 
 $logout = new cookie();
 $logout->deleteCookie(base64_decode($_COOKIE['cUser']));
-echo "teste";
 
 echo json_encode((array(
     'logout' => ''

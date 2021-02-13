@@ -61,6 +61,15 @@ nav p {
     border-radius: 10px;
 }
 
+.card-email-senha {
+    width: 45vw;
+    max-width: 600px;
+    height: 320px;
+    background-color: white;
+    box-shadow: 0 5px 15px 0 rgba(46, 45, 45, 0.43);
+    border-radius: 10px;
+}
+
 .form {
     height: 280px;
 }

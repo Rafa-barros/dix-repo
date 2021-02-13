@@ -30,7 +30,7 @@
             <div class="g-border"></div>
             <div class="form-group">
             <label for="exampleInputEmail1">Insira o Código enviado em seu e-mail</label>
-              <input type="text" class="form-control" placeholder="XXXXXX" name="email">
+              <input type="text" class="form-control" placeholder="XXXXXX" name="codigo">
               <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
             </div>
             
@@ -41,15 +41,15 @@
     </div>
     
     <div class="center">
-      <div class="card-email">
+      <div class="card-email-senha">
         <form class="form" method="post">
           <div class="form-container">
             <h1>Redefinir senha</h1>
             <div class="g-border"></div>
             <div class="form-group">
             <label for="exampleInputEmail1">Tudo pronto! Escolha sua nova senha</label>
-              <input type="text" class="form-control" placeholder="Nova Senha" name="email">
-              <input type="text" class="form-control" placeholder="Nova Senha" name="email">
+              <input type="text" class="form-control" placeholder="Nova Senha" name="pwd">
+              <input type="text" class="form-control" placeholder="Nova Senha" name="confirmPwd">
               <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
             </div>
             

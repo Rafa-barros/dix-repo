@@ -97,14 +97,19 @@ class Post {
         empty($resultLiked) ? $this->liked = 0 : $this->liked = 1;
 
         if ($this->postSel['allowView'] == 0){
-            $resultUserBlocked = $this->conn->executeQuery('SELECT idPost FROM assoc_posts WHERE idUser = :ID LIMIT 1', array(
-                ':ID' => $this->idUser
+            $resultUserBlocked = $this->conn->executeQuery('SELECT idPost FROM assoc_posts WHERE idUser = :ID AND idPost = :IDPOST', array(
+                ':ID' => $this->idUser,
+                ':IDPOST' => $this->postSel['id']
             ));
             $resultUserBlocked = $resultUserBlocked->fetch();
             if (empty($resultUserBlocked)){
                 $extensaoCmps = explode(".", $this->postSel['media']);
                 $extensao = strtolower(end($extensaoCmps));
-                $this->postSel['media'] = (((hash('haval128,5', $this->postSel['media'])) . $extensao));
+                if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
+                    $this->postSel['media'] = (((hash('haval128,5', $this->postSel['media'])) . $extensao));
+                } else {
+                    $this->postSel['media'] = "media/blockedVideo.png";
+                }
             }
         }
 

@@ -50,9 +50,11 @@ $media = $upMedia->uploadPostMedia();
 $extensaoCmps = explode(".", $media);
 $extensao = strtolower(end($extensaoCmps));
 
-$imagemBorrada = new \Imagick($media);
-$imagemBorrada->blurImage(40,40);
-$imagemBorrada->writeImage('media' . '/' . (hash('haval128,5', $media)) . "." . $extensao);
+if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
+    $imagemBorrada = new \Imagick($media);
+    $imagemBorrada->blurImage(40,40);
+    $imagemBorrada->writeImage('media' . '/' . (hash('haval128,5', $media)) . "." . $extensao);
+}
 
 $novoPost = new createPost();
 $novoPost->getInfo('viniciusventurini@estudante.ufscar.br');

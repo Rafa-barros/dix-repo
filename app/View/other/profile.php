@@ -33,7 +33,7 @@
         <div class="profile-btn-area">
         <!-- remover esse botao (debug) -->
         <button type="button" class="btn btn-primary btn-profile-message mr-1" id="btn-config" data-toggle="modal" data-target="#modal-config">Configurações <i class="fas fa-cog"></i> </button>'
-            <?php if($_COOKIE['cUser'] == $email){
+            <?php if(base64_decode($_COOKIE['cUser']) == $email){
                echo ('<button type="button" class="btn btn-primary btn-profile-message mr-1" id="btn-config" data-toggle="modal" data-target="#modal-config">Configurações <i class="fas fa-cog"></i> </button>');
             } else {
                echo ('<button type="button" class="btn btn-outline-primary btn-profile-follow seguindo" style="background-color: rgb(57, 132, 218); color: white;">Seguindo <i class="fas fa-check check-follow-profile"></i></button>
@@ -270,7 +270,7 @@
                     </div>
                 </div>
                 
-                <button type="button" class="btn btn-outline-danger">Log out</button>
+                <button type="button" class="btn btn-outline-danger mt-4">Log out</button>
         
     </div>
       <div class="modal-footer">

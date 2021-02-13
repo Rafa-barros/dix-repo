@@ -469,11 +469,12 @@
             method: "POST",
             url: "../app/Models/logout.php",    
             data: {logout: 1},     
-            cache: false        
+            cache: false,
+            success:function(){
+              window.location.href("http://dix.net.br");
+            }        
         });
-
-        window.location.href("http://dix.net.br");    
-
+        
     });
 
     if(window.matchMedia("(max-width: 530px)").matches){

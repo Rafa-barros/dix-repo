@@ -4,7 +4,7 @@ namespace App\Models;
 
 use App\Models\Database;
 
-class recuperarSenha{
+class novaSenha{
 
 	private $idUser;
 	private $email;

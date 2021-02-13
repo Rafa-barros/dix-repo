@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
-use App\Models\recuperarSenha;
+use App\Models\novaSenha;
 
 class Recuperarsenha {
     public function index(){
-    	$recuperar = new recuperarSenha();
+    	$recuperar = new novaSenha();
     	if(isset($_GET['id'])){
             $_SESSION['id'] = $_GET['id'];
         }

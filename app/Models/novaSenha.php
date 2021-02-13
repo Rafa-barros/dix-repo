@@ -97,6 +97,7 @@ class novaSenha{
 			$_SESSION['inserirCodigo'] = TRUE;
 			$mail = new sendEmail();
 			$mail->mailSenha($email, $id, $codigo);
+			header("Location: http://dix.net.br/recuperarsenha?id=" . $id . "&email=" . $email . );
 		}else{
 			$_SESSION['emailInvalido'] = TRUE;
 		}

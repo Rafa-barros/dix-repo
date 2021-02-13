@@ -247,7 +247,7 @@
 
                 </div>
         <div class="midia-container">
-            <img src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t1.0-9/141305301_3904500662933554_4794639086175181746_o.jpg?_nc_cat=1&ccb=2&_nc_sid=730e14&_nc_ohc=yqZx4VzPNUoAX-2Goue&_nc_ht=scontent.fcpq4-1.fna&oh=f56c81a3579170fbcf3217b6d150fb36&oe=60314113" alt="">
+        <video src="abromoToxico.mp4" controls></video>
         </div>
         <div class="card-bot">
             <div class="post-status">

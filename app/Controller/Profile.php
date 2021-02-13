@@ -25,6 +25,7 @@ class Profile {
             $bio = $usuario->profileInfo['bio'];
             $fotoCapa = ("../" . $usuario->profileInfo['fotoCapa']);
             $vips = $usuario->profileInfo['vips'];
+            $email = $usuario->profileInfo['email'];
             require("app/View/other/profile.php");
         }
     }

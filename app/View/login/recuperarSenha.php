@@ -6,13 +6,13 @@
 
     <?php
       if(!isset($_SESSION['inserirCodigo']) && !isset($_SESSION['newPwd'])){
-        echo '<div class="center">';
+        echo '<div class="center">
+            <div class="card-email">';
         if(isset($_SESSION['emailInvalido'])){
           echo 'E-mail inválido<br>';
           unset($_SESSION['emailInvalido']);
         }
-        echo '<div class="card-email">
-            <form class="form" method="post">
+        echo '<form class="form" method="post">
               <div class="form-container">
                 <h1>Redefinir senha</h1>
                 <div class="g-border"></div>
@@ -28,13 +28,13 @@
         </div>
         </div>';
       }else if(isset($_SESSION['inserirCodigo']) && $_SESSION['inserirCodigo'] == TRUE){
-        echo '<div class="center">';
+        echo '<div class="center">
+            <div class="card-email">';
         if(isset($_SESSION['codigoExpirado'])){
-          echo 'Código de verificação expirado<br>';
+          echo 'Código de verificação expirado';
           unset($_SESSION['codigoExpirado']);
         }
-        echo '<div class="card-email">
-            <form class="form" method="get">
+        echo '<form class="form" method="get">
               <div class="form-container">
                 <h1>Redefinir senha</h1>
                 <div class="g-border"></div>
@@ -50,13 +50,13 @@
         </div>
         </div>';
       }else if(isset($_SESSION['newPwd']) && $_SESSION['newPwd'] == TRUE){
-        echo '<div class="center">';
+        echo '<div class="center">
+              <div class="card-email-senha">';
         if(isset($_SESSION['senhaDiferente'])){
-          echo 'A confirmação de senha falhou<br>';
+          echo 'A confirmação de senha falhou';
           unset($_SESSION['senhaDiferente']);
         }
-        echo '<div class="card-email-senha">
-            <form class="form" method="post">
+        echo '<form class="form" method="post">
               <div class="form-container">
                 <h1>Redefinir senha</h1>
                 <div class="g-border"></div>

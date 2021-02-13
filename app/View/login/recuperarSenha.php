@@ -7,7 +7,7 @@
     <?php
       if(!isset($_SESSION['inserirCodigo']) && !isset($_SESSION['newPwd'])){
         if(isset($_SESSION['emailInvalido'])){
-          echo '<script>alert (E-mail inválido)</script>';
+          echo '<script>alert ("E-mail inválido");</script>';
           unset($_SESSION['emailInvalido']);
         }
         echo '<div class="center">

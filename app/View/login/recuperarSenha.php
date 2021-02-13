@@ -4,60 +4,64 @@
       <img class="logo-dix" src="/app/View/assets/css/img/logo_original.png" alt="logo">
     </nav>
 
-    <div class="center">
-      <div class="card-email">
-        <form class="form" method="post">
-          <div class="form-container">
-            <h1>Redefinir senha</h1>
-            <div class="g-border"></div>
-            <div class="form-group">
-            <label for="exampleInputEmail1">Insira o seu email para iniciar a recuperação de conta</label>
-              <input type="text" class="form-control" id="inputPassword" placeholder="E-mail" name="email" required>
-              <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
-            </div>
-            
+    <?php
+      if(!isset($_SESSION['inserirCodigo']) && !isset($_SESSION['newPwd']))
+        echo '<div class="center">
+          <div class="card-email">
+            <form class="form" method="post">
+              <div class="form-container">
+                <h1>Redefinir senha</h1>
+                <div class="g-border"></div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Insira o seu email para iniciar a recuperação de conta</label>
+                  <input type="text" class="form-control" id="inputPassword" placeholder="E-mail" name="email" required>
+                  <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
+                </div>
+                
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
-    </div>
-    </div>
-
-    <div class="center">
-      <div class="card-email">
-        <form class="form" method="post">
-          <div class="form-container">
-            <h1>Redefinir senha</h1>
-            <div class="g-border"></div>
-            <div class="form-group">
-            <label for="exampleInputEmail1">Insira o Código enviado em seu e-mail</label>
-              <input type="text" class="form-control" placeholder="XXXXXX" name="codigo" required>
-              <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
-            </div>
-            
+        </div>
+        </div>';
+      }else if(isset($_SESSION['inserirCodigo']) && $_SESSION['inserirCodigo'] == TRUE){
+        echo '<div class="center">
+          <div class="card-email">
+            <form class="form" method="get">
+              <div class="form-container">
+                <h1>Redefinir senha</h1>
+                <div class="g-border"></div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Insira o Código enviado em seu e-mail</label>
+                  <input type="text" class="form-control" placeholder="XXXXXX" name="codigo" required>
+                  <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
+                </div>
+                
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
-    </div>
-    </div>
-    
-    <div class="center">
-      <div class="card-email-senha">
-        <form class="form" method="post">
-          <div class="form-container">
-            <h1>Redefinir senha</h1>
-            <div class="g-border"></div>
-            <div class="form-group">
-            <label for="exampleInputEmail1">Tudo pronto! Escolha sua nova senha</label>
-              <input type="text" class="form-control" placeholder="Nova Senha" minlength="8" name="pwd" required>
-              <input type="text" class="form-control" placeholder="Confirmar Nova Senha" minlength="8" name="confirmPwd" required>
-              <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
-            </div>
-            
+        </div>
+        </div>';
+      }else if(isset($_SESSION['newPwd']) && $_SESSION['newPwd'] == TRUE){
+        echo '<div class="center">
+          <div class="card-email-senha">
+            <form class="form" method="post">
+              <div class="form-container">
+                <h1>Redefinir senha</h1>
+                <div class="g-border"></div>
+                <div class="form-group">
+                <label for="exampleInputEmail1">Tudo pronto! Escolha sua nova senha</label>
+                  <input type="text" class="form-control" placeholder="Nova Senha" minlength="8" name="pwd" required>
+                  <input type="text" class="form-control" placeholder="Confirmar Nova Senha" minlength="8" name="confirmPwd" required>
+                  <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
+                </div>
+                
+              </div>
+            </form>
           </div>
-        </form>
-      </div>
-    </div>
-    </div>
+        </div>
+        </div>';
+      }
+    ?>
 
     <div class="footer">
       <div class="copyright">

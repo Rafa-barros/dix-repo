@@ -38,6 +38,7 @@ class recuperarSenha{
 			':ID' => $this->idUser
 		));
 		$this->updateIDS();
+		unset($_SESSION['newPwd']);
 	}
 
 	public function verificaCodigo($id, $email, $codigo){
@@ -50,31 +51,48 @@ class recuperarSenha{
 		));
 		$result = $result->fetch();
 		if(empty($result)){
-			return FALSE;
+			$_SESSION['codigoInvalido'] = TRUE;
 		}else{
 			$datetime1 = new DateTime($result['registerDate']);
 			$datetime2 = new DateTime(date('Y-m-d'));
 			$interval = $datetime2->diff($datetime1);
 			$interval = $interval->format('%a');
 			if(intval($interval) > 7){
-				return FALSE;
+				$_SESSION['codigoExpirado'] = TRUE;
+				unset($_SESSION['id']);
+                unset($_SESSION['email']);
+                unset($_SESSION['codigo']);
+				$this->updateIDS();
 			}else{
-				return TRUE;
+				unset($_SESSION['inserirCodigo']);
+				unset($_SESSION['id']);
+                unset($_SESSION['email']);
+                unset($_SESSION['codigo']);
+				$_SESSION['newPwd'] = TRUE;
 			}
 		}
 	}
 
-	public function recuperarSenha($email){
-		$id = rand(1, 1000000000);
-		$id = md5($id . $email);
-		$codigo = rand(100000, 999999);
-		$data = date("Y-m-d");
-		$this->conn->executeQuery('INSERT INTO codigoverificacao VALUES (:ID, :EMAIL, :DATA, :CODE);', array(
-			':ID' => $id,
-			':EMAIL' => $email,
-			':DATA' => $data,
-			':CODE' => $codigo
+	public function insertEmail($email){
+		$result = $this->conn->executeQuery('SELECT * FROM users WHERE email = :EMAIL LIMIT 1', array(
+			':EMAIL' => $email
 		));
+		$result = $result->fetch();
+		if(!empty($result)){
+			$id = rand(1, 1000000000);
+			$id = md5($id . $email);
+			$codigo = rand(100000, 999999);
+			$data = date("Y-m-d");
+			$this->conn->executeQuery('INSERT INTO codigoverificacao VALUES (:ID, :EMAIL, :DATA, :CODE);', array(
+				':ID' => $id,
+				':EMAIL' => $email,
+				':DATA' => $data,
+				':CODE' => $codigo
+			));
+			$_SESSION['inserirCodigo'] = TRUE;
+		}else{
+			$_SESSION['emailInvalido'] = TRUE;
+		}
 	}
 
 }

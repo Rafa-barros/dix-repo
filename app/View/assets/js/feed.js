@@ -11,7 +11,9 @@ $(document).on('click', '.btn-card-follow', function(){
         $(this).css("background-color", "rgb(45, 81, 122))").html('Seguindo <i style="margin-left:6px;" class="fas fa-check"></i>').toggleClass("unfollow");
 
         // $.ajax({
-        //     url: 'app/Models/follow.php',    
+        //     url: 'app/Models/follow.php', 
+        //     dataType: 'json',
+        //     type: "POST",   
         //     data: {username: targetName},     
         //     cache: false,
         //     success: function(){
@@ -28,7 +30,9 @@ $(document).on('click', '.btn-card-follow', function(){
         $(this).css("background-color", "rgb(45, 81, 122))").html('seguir').toggleClass("unfollow");
 
         // $.ajax({
-        //     url: 'app/Models/unfollow.php',    
+        //     url: 'app/Models/unfollow.php',   
+        //     dataType: 'json',
+        //     type: "POST", 
         //     data: {username: targetName},     
         //     cache: false,
         //     success: function(){

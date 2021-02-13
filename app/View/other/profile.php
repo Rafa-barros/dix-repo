@@ -465,6 +465,8 @@
     $(document).on('click', '#btn-logout', function(){
 
         $.ajax({
+            dataType: 'json',
+            type: "POST",
             url: 'app/Models/logout.php',    
             data: {logout: 1},     
             cache: false        

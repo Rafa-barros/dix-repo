@@ -35,6 +35,7 @@ class novaSenha{
 	public function alterarSenha($password, $confirmPwd){
 		if($password !== $confirmPwd){
 			$_SESSION['senhaDiferente'] = TRUE;
+			return FALSE;
 		}else{
 			$this->getUserId();
 			$password = md5($password . $this->email);
@@ -44,6 +45,7 @@ class novaSenha{
 			));
 			$this->updateIDS();
 			unset($_SESSION['newPwd']);
+			return TRUE;
 		}
 	}
 

@@ -8,7 +8,10 @@ class Recuperarsenha {
     public function index(){
     	$recuperar = new novaSenha();
         if(isset($_POST['pwd']) && isset($_POST['confirmPwd'])){
-            $recuperar->insertEmail($_POST['email']);
+            $result = $recuperar->alterarSenha($_POST['pwd'], $_POST['confirmPwd']);
+            if($result == TRUE){
+                header("Location: http://dix.net.br");
+            }
         }
     	if(isset($_GET['id'])){
             $_SESSION['id'] = $_GET['id'];

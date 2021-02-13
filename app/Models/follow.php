@@ -11,7 +11,7 @@ $conn = new Database();
 
 //Encontra o id do follower
 $resultIdUser = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
-    ':EMAIL' => htmlentities($_POST['email'])
+    ':EMAIL' => base64_decode($_COOKIE['cUser'])
 ));
 $resultIdUser = $resultIdUser->fetch();
 $idUser = $resultIdUser['0'];
@@ -35,6 +35,5 @@ $conn->executeQuery('UPDATE users SET followers=followers+1 WHERE id = :ID', arr
 ));
 
 echo json_encode(array(
-    'email' => "",
     'username' => ""
 ));

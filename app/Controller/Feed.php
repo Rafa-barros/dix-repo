@@ -32,7 +32,7 @@ class Feed {
         $notificacoes = $notification->notificacoes;
         $tam = $notification->qtdNotificacoes;
         
-        echo ("<script>var dataUser =" . $notification->idUser . ";" . "var cEmail=" . $notification->email . "</script>");
+        echo ("<script>var dataUser =" . $notification->idUser . ";" . "</script>");
 
         require('app/View/feed/home.php');
         if (isset($_POST['enviar'])){

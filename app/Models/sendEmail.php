@@ -14,8 +14,8 @@ class sendEmail{
         try {
 
             $mail->isSMTP();
-            $mail->SMTPDebug  = true;
-            $mail->do_debug   = 1;
+            $mail->SMTPDebug  = false;
+            $mail->do_debug   = 0;
             $mail->Host       = 'dix.net.br';
             $mail->SMTPAuth   = false;
             $mail->Username   = 'admdix78@gmail.com';
@@ -57,8 +57,8 @@ class sendEmail{
         try {
 
             $mail->isSMTP();
-            $mail->SMTPDebug  = true;
-            $mail->do_debug   = 1;
+            $mail->SMTPDebug  = false;
+            $mail->do_debug   = 0;
             $mail->Host       = 'dix.net.br';
             $mail->SMTPAuth   = false;
             $mail->Username   = 'admdix78@gmail.com';

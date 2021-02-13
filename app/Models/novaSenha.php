@@ -18,7 +18,7 @@ class novaSenha{
 	}
 
 	private function getUserId(){
-		$result = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
+		$result = $conn->executeQuery('SELECT * FROM users WHERE email = :EMAIL', array(
 			':EMAIL' => $this->email
 		));
 		$result = $result->fetch();

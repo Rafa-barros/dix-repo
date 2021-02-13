@@ -22,6 +22,7 @@ class novaSenha{
 			':EMAIL' => $this->email
 		));
 		$result = $result->fetch();
+		echo $result['id'];
 		$this->idUser = $result['id'];
 	}
 
@@ -39,7 +40,6 @@ class novaSenha{
 		}else{
 			$this->getUserId();
 			$password = md5($password . $this->email);
-			echo $this->idUser;
 			$this->conn->executeQuery('UPDATE users SET pwd = :PWD WHERE id = :ID', array(
 				':PWD' => $password,
 				':ID' => $this->idUser

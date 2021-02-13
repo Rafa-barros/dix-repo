@@ -19,7 +19,7 @@ class novaSenha{
 
 	private function getUserId(){
 		$result = $this->conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
-			':EMAIL' => $this->email
+			':EMAIL' => $_SESSION['email']
 		));
 		echo $this->email;
 		$result = $result->fetch();
@@ -28,8 +28,8 @@ class novaSenha{
 
 	private function updateIDS(){
 		$this->conn->executeQuery('DELETE FROM codigoverificacao WHERE id = :ID AND email = :EMAIL', array(
-			':ID' => $this->id,
-			':EMAIL' => $this->email
+			':ID' => $_SESSION['id'],
+			':EMAIL' => $_SESSION['email']
 		));
 	}
 
@@ -46,13 +46,14 @@ class novaSenha{
 			));
 			$this->updateIDS();
 			unset($_SESSION['newPwd']);
+			unset($_SESSION['id']);
+			unset($_SESSION['email']);
 			return TRUE;
 		}
 	}
 
 	public function verificaCodigo($id, $email, $codigo){
 		$this->id = $id;
-		$this->email = $email;
 		$result = $this->conn->executeQuery('SELECT id, email, registerDate, codeAccess FROM codigoverificacao WHERE id = :ID AND email = :EMAIL AND codeAccess = :CODIGO LIMIT 1', array(
 			':ID' => $id,
 			':EMAIL' => $email,
@@ -68,14 +69,10 @@ class novaSenha{
 			$interval = $interval->format('%a');
 			if(intval($interval) > 7){
 				$_SESSION['codigoExpirado'] = TRUE;
-				unset($_SESSION['id']);
-                unset($_SESSION['email']);
                 unset($_SESSION['codigo']);
 				$this->updateIDS();
 			}else{
 				unset($_SESSION['inserirCodigo']);
-				unset($_SESSION['id']);
-                unset($_SESSION['email']);
                 unset($_SESSION['codigo']);
 				$_SESSION['newPwd'] = TRUE;
 			}

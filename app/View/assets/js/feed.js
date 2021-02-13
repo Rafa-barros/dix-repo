@@ -12,7 +12,7 @@ $(document).on('click', '.btn-card-follow', function(){
 
         // $.ajax({
         //     url: 'app/Models/follow.php',    
-        //     data: targetName,     
+        //     data: {username: targetName},     
         //     cache: false,
         //     success: function(){
         //         $(this).css("background-color", "rgb(57, 132, 218)").css("color", "white").html('Seguindo <i class="fas fa-check check-follow-profile"></i>');
@@ -29,7 +29,7 @@ $(document).on('click', '.btn-card-follow', function(){
 
         // $.ajax({
         //     url: 'app/Models/unfollow.php',    
-        //     data: targetName,     
+        //     data: {username: targetName},     
         //     cache: false,
         //     success: function(){
         //        $(this).css("background-color", "transparent").css("color", "rgb(57, 132, 218)").text("Seguir");

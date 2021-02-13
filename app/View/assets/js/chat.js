@@ -177,7 +177,6 @@ $(".chat-title-container").hide();
 
             //envia lista e recebe novos contatos
         
-    //         var meuId = $('.me').attr('id');        PEGA ID DA ANCORA PROFILE
     //         $.ajax({
     //             url: 'app/Models/chatModel.php', 
     //             method: "POST",

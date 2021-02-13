@@ -5,7 +5,7 @@
     </nav>
 
     <?php
-      if(!isset($_SESSION['inserirCodigo']) && !isset($_SESSION['newPwd']))
+      if(!isset($_SESSION['inserirCodigo']) && !isset($_SESSION['newPwd'])){
         echo '<div class="center">
           <div class="card-email">
             <form class="form" method="post">

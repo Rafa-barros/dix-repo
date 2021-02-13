@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Models\Database;
+use App\Models\sendEmail;
 
 class novaSenha{
 
@@ -94,6 +95,8 @@ class novaSenha{
 				':CODE' => $codigo
 			));
 			$_SESSION['inserirCodigo'] = TRUE;
+			$mail = new sendEmail();
+			$mail->mailSenha($email, $id, $codigo);
 		}else{
 			$_SESSION['emailInvalido'] = TRUE;
 		}

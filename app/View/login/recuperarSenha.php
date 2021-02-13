@@ -12,7 +12,7 @@
             <div class="g-border"></div>
             <div class="form-group">
             <label for="exampleInputEmail1">Insira o seu email para iniciar a recuperação de conta</label>
-              <input type="text" class="form-control" id="inputPassword" placeholder="E-mail" name="email">
+              <input type="text" class="form-control" id="inputPassword" placeholder="E-mail" name="email" required>
               <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
             </div>
             
@@ -30,7 +30,7 @@
             <div class="g-border"></div>
             <div class="form-group">
             <label for="exampleInputEmail1">Insira o Código enviado em seu e-mail</label>
-              <input type="text" class="form-control" placeholder="XXXXXX" name="codigo">
+              <input type="text" class="form-control" placeholder="XXXXXX" name="codigo" required>
               <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
             </div>
             
@@ -48,8 +48,8 @@
             <div class="g-border"></div>
             <div class="form-group">
             <label for="exampleInputEmail1">Tudo pronto! Escolha sua nova senha</label>
-              <input type="text" class="form-control" placeholder="Nova Senha" name="pwd">
-              <input type="text" class="form-control" placeholder="Nova Senha" name="confirmPwd">
+              <input type="text" class="form-control" placeholder="Nova Senha" minlength="8" name="pwd" required>
+              <input type="text" class="form-control" placeholder="Confirmar Nova Senha" minlength="8" name="confirmPwd" required>
               <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
             </div>
             

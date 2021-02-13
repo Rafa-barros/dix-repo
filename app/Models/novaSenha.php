@@ -39,7 +39,7 @@ class novaSenha{
 			return FALSE;
 		}else{
 			$this->getUserId();
-			$password = md5($password . $this->email);
+			$password = md5($password . $_SESSION['email']);
 			$this->conn->executeQuery('UPDATE users SET pwd = :PWD WHERE id = :ID', array(
 				':PWD' => $password,
 				':ID' => $this->idUser

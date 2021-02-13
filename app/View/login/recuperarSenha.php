@@ -8,7 +8,7 @@
       if(!isset($_SESSION['inserirCodigo']) && !isset($_SESSION['newPwd'])){
         echo '<div class="center">';
         if(isset($_SESSION['emailInvalido'])){
-          echo 'E-mail inválido';
+          echo 'E-mail inválido<br>';
           unset($_SESSION['emailInvalido']);
         }
         echo '<div class="card-email">
@@ -30,7 +30,7 @@
       }else if(isset($_SESSION['inserirCodigo']) && $_SESSION['inserirCodigo'] == TRUE){
         echo '<div class="center">';
         if(isset($_SESSION['codigoExpirado'])){
-          echo 'Código de verificação expirado';
+          echo 'Código de verificação expirado<br>';
           unset($_SESSION['codigoExpirado']);
         }
         echo '<div class="card-email">
@@ -52,7 +52,7 @@
       }else if(isset($_SESSION['newPwd']) && $_SESSION['newPwd'] == TRUE){
         echo '<div class="center">';
         if(isset($_SESSION['senhaDiferente'])){
-          echo 'A confirmação de senha falhou';
+          echo 'A confirmação de senha falhou<br>';
           unset($_SESSION['senhaDiferente']);
         }
         echo '<div class="card-email-senha">

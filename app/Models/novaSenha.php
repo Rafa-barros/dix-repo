@@ -21,8 +21,8 @@ class novaSenha{
 		$result = $this->conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
 			':EMAIL' => $this->email
 		));
-		$result = $result->fetch();
 		print_r($result);
+		$result = $result->fetch();
 		$this->idUser = $result['id'];
 	}
 

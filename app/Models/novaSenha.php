@@ -49,7 +49,7 @@ class novaSenha{
 	public function verificaCodigo($id, $email, $codigo){
 		$this->id = $id;
 		$this->email = $email;
-		$result = $this->conn->executeQuery('SELECT id, email, registerDate, codeAcess FROM codigoverificacao WHERE id = :ID AND email = :EMAIL AND codeAcess = :CODIGO LIMIT 1', array(
+		$result = $this->conn->executeQuery('SELECT id, email, registerDate, codeAccess FROM codigoverificacao WHERE id = :ID AND email = :EMAIL AND codeAccess = :CODIGO LIMIT 1', array(
 			':ID' => $id,
 			':EMAIL' => $email,
 			':CODIGO' => $codigo

@@ -62,8 +62,8 @@
                 <div class="g-border"></div>
                 <div class="form-group">
                 <label for="exampleInputEmail1">Tudo pronto! Escolha sua nova senha</label>
-                  <input type="text" class="form-control" placeholder="Nova Senha" minlength="8" name="pwd" required>
-                  <input type="text" class="form-control" placeholder="Confirmar Nova Senha" minlength="8" name="confirmPwd" required>
+                  <input type="password" class="form-control" placeholder="Nova Senha" minlength="8" name="pwd" required>
+                  <input type="password" class="form-control" placeholder="Confirmar Nova Senha" minlength="8" name="confirmPwd" required>
                   <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
                 </div>
                 

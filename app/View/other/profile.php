@@ -254,7 +254,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <form>
+      <form method="post">
                 <label class="config-label">Alterar Username</label>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
@@ -272,7 +272,7 @@
                     </div>
                 </div>
                 
-                <button type="button" class="btn btn-outline-danger mt-4">Log out</button>
+                <button type="button" name="logout" id="btn-logout" class="btn btn-outline-danger mt-4">Log out</button>
         
     </div>
       <div class="modal-footer">
@@ -461,6 +461,17 @@
 <script src="../app/View/assets/js/zerarnot.js"></script>
 
 <script>
+
+    $(document).on('click', '#btn-logout', function(){
+
+        $.ajax({
+            url: 'app/Models/logout.php',    
+            data: {logout: 1},     
+            cache: false        
+        });    
+
+    });
+
     if(window.matchMedia("(max-width: 530px)").matches){
         $(".btn-profile-message-o").hide();
     } 

@@ -471,7 +471,7 @@
             data: {logout: 1},     
             cache: false,
             success:function(){
-              window.location.href("http://dix.net.br");
+              window.location.href = "http://dix.net.br";
             }        
         });
         

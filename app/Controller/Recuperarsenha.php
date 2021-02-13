@@ -9,9 +9,9 @@ class Recuperarsenha {
     	$recuperar = new novaSenha();
         if(isset($_POST['pwd']) && isset($_POST['confirmPwd'])){
             $result = $recuperar->alterarSenha($_POST['pwd'], $_POST['confirmPwd']);
-            if($result == TRUE){
-                header("Location: http://dix.net.br");
-            }
+            // if($result == TRUE){
+            //     header("Location: http://dix.net.br");
+            // }
         }
     	if(isset($_GET['id'])){
             $_SESSION['id'] = $_GET['id'];

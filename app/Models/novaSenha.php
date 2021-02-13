@@ -23,6 +23,7 @@ class novaSenha{
 		));
 		$result = $result->fetch();
 		$this->idUser = $result['id'];
+		echo $this->idUser;
 	}
 
 	private function updateIDS(){

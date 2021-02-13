@@ -22,7 +22,7 @@ class novaSenha{
 			':EMAIL' => $this->email
 		));
 		$result = $result->fetch();
-		$this->userId = $result['id'];
+		$this->idUser = $result['id'];
 	}
 
 	private function updateIDS(){

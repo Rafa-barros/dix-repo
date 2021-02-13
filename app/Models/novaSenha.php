@@ -30,15 +30,19 @@ class novaSenha{
 		));
 	}
 
-	public function alterarSenha($password){
-		$this->getUserId();
-		$password = md5($password . $this->email);
-		$this->conn->executeQuery('UPDATE users SET pwd = :PWD WHERE id = :ID', array(
-			':PWD' => $password,
-			':ID' => $this->idUser
-		));
-		$this->updateIDS();
-		unset($_SESSION['newPwd']);
+	public function alterarSenha($password, $confirmPwd){
+		if($password !== $confirmPwd){
+			$_SESSION['senhaDiferente'] = TRUE;
+		}else{
+			$this->getUserId();
+			$password = md5($password . $this->email);
+			$this->conn->executeQuery('UPDATE users SET pwd = :PWD WHERE id = :ID', array(
+				':PWD' => $password,
+				':ID' => $this->idUser
+			));
+			$this->updateIDS();
+			unset($_SESSION['newPwd']);
+		}
 	}
 
 	public function verificaCodigo($id, $email, $codigo){

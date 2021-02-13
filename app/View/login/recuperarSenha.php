@@ -6,6 +6,10 @@
 
     <?php
       if(!isset($_SESSION['inserirCodigo']) && !isset($_SESSION['newPwd'])){
+        if(isset($_SESSION['emailInvalido'])){
+          echo 'E-mail inválido';
+          unset($_SESSION['emailInvalido']);
+        }
         echo '<div class="center">
           <div class="card-email">
             <form class="form" method="post">
@@ -24,6 +28,10 @@
         </div>
         </div>';
       }else if(isset($_SESSION['inserirCodigo']) && $_SESSION['inserirCodigo'] == TRUE){
+        if(isset($_SESSION['codigoExpirado'])){
+          echo 'Código de verificação expirado';
+          unset($_SESSION['codigoExpirado']);
+        }
         echo '<div class="center">
           <div class="card-email">
             <form class="form" method="get">
@@ -32,7 +40,7 @@
                 <div class="g-border"></div>
                 <div class="form-group">
                 <label for="exampleInputEmail1">Insira o Código enviado em seu e-mail</label>
-                  <input type="text" class="form-control" placeholder="XXXXXX" name="codigo" required>
+                  <input type="number" class="form-control" placeholder="XXXXXX" name="codigo" required>
                   <button type="submit" class="btn btn-primary btn-enviar">Enviar</button>
                 </div>
                 
@@ -42,6 +50,10 @@
         </div>
         </div>';
       }else if(isset($_SESSION['newPwd']) && $_SESSION['newPwd'] == TRUE){
+        if(isset($_SESSION['senhaDiferente'])){
+          echo 'A confirmação de senha falhou';
+          unset($_SESSION['senhaDiferente']);
+        }
         echo '<div class="center">
           <div class="card-email-senha">
             <form class="form" method="post">

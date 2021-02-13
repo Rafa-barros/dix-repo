@@ -7,6 +7,9 @@ use App\Models\novaSenha;
 class Recuperarsenha {
     public function index(){
     	$recuperar = new novaSenha();
+        if(isset($_POST['pwd']) && isset($_POST['confirmPwd'])){
+            $recuperar->insertEmail($_POST['email']);
+        }
     	if(isset($_GET['id'])){
             $_SESSION['id'] = $_GET['id'];
         }

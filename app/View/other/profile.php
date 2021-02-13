@@ -230,12 +230,11 @@
                 <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de perfil</label>
                 <input type="file" name="arquivo" id="upload" />
             </div>
-        
+            </form>
     </div>
       <div class="modal-footer">
         <button type="submit" class="btn btn-primary">Salvar mudanças</button>
       </div>
-      </form>
     </div>
 
   </div>

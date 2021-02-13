@@ -86,3 +86,6 @@ $(document).scroll(function (e){
     
 }});
 
+function separaTempo(fullTime){
+    return fullTime.split(' ')[1].slice(0, 5);
+}

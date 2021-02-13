@@ -44,9 +44,13 @@
     </div>
 
     <div class="VIP">
-        <!-- BOTAR PHP AQUI -->
-        <button type="button" class="btn btn-warning btn-VIP" data-toggle="modal" data-target="#modal-vip"> Torne-se VIP!</button>
-        <button type="button" class="btn btn-primary btn-editar-perfil" data-toggle="modal" data-target="#modal-edit-prof"> Editar Perfil</button>
+    <?php if(base64_decode($_COOKIE['cUser']) == $email){
+               echo ('<button type="button" class="btn btn-primary btn-editar-perfil" data-toggle="modal" data-target="#modal-edit-prof"> Editar Perfil</button>');
+            } else {
+               echo ('<button type="button" class="btn btn-warning btn-VIP" data-toggle="modal" data-target="#modal-vip"> Torne-se VIP!</button>');
+            }
+            ?>
+        
     </div>
 
     <!-- Modal VIP-->

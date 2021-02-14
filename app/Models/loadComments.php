@@ -13,18 +13,13 @@ $conn = new Database();
 $resultComment = $conn->executeQuery('SELECT * FROM comments WHERE idPost = :ID', array(
     ':ID' => $id
 ));
-$i = 0;
-while($row = $resultComment->fetch(PDO::FETCH_ASSOC)){
-    $comentarios[$i] = $row;
-    $i++;
-}
 
-for ($k=0; $k<$i; $k++){
-    $comentariosJS[$k][0] = $comentarios[$k]['username'];
-    $comentariosJS[$k][1] = $comentarios[$k]['descript'];
-    $comentariosJS[$k][2] = $comentarios[$k]['likes'];
-    $comentariosJS[$k][3] = $comentarios[$k]['dateComment'];
-    $comentariosJS[$k][4] = $comentarios[$k]['comments'];
+while($row = $resultComment->fetch(PDO::FETCH_ASSOC)){
+    $comentarios[$k][0] = $row['username'];
+    $comentarios[$k][1] = $row['descript'];
+    $comentarios[$k][2] = $row['likes'];
+    $comentarios[$k][3] = $row['dateComment'];
+    $comentarios[$k][4] = $row['comments'];
 }
 
 echo json_encode(array (

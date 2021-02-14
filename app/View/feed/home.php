@@ -91,7 +91,7 @@
                             </div>
                             <div class="d-flex">
                                 <i class="fas fa-images"></i>
-                                <label class="upload-label mb-2" for="upload">Foto</label>
+                                <label class="upload-label mb-2" for="upload">Escolher foto/vídeo</label>
                                 <input type="file" name="arquivo" id="upload" />
                             </div>
                             <div class="price-btn mb-3">

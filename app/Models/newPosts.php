@@ -13,7 +13,6 @@ class Post {
     public $nameOp;
     public $userOp;
     public $liked;
-    private $email;
     private $imgPost;
     private $descript;
     private $likes;
@@ -28,11 +27,11 @@ class Post {
         $this->conn = new Database();
     }
 
-    public function getInfo($email, $postsVistosJS){
+    public function getInfo($postsVistosJS){
         if (!empty($postsVistosJS)){
             $this->postsVistos = $postsVistosJS;
         }
-        $this->email = htmlentities($email);
+        $this->email = base64_decode($_COOKIE['cUser']);
 
         //Encontra o id do usuário
         $resultIdUser = $this->conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
@@ -120,7 +119,7 @@ class Post {
 }
 
 $postObj = new Post();
-$postObj->getInfo($_POST['email'], $_POST['postsVistos']);
+$postObj->getInfo($_POST['postsVistos']);
 $postSel = $postObj->selPost();
 
 echo json_encode((array(

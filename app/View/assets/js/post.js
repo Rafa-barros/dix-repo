@@ -41,13 +41,12 @@ $(document).on('click', '.btn-comment', function(){
     var form_url = $(this).attr("action");
 
     
-    /*
         $.ajax({
             url:"app/Models/loadComments.php",
             dataType: 'json',
             type: "POST",
             data: {
-                idPost: IdPost, // ID DO POST
+                idPost: idPost, // ID DO POST
                 comentarios: [[]]
             },
             success:function(result){
@@ -68,7 +67,7 @@ $(document).on('click', '.btn-comment', function(){
                 window.alert(error);
             }
             });
-        */
+        
 
 });
 

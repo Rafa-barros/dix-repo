@@ -58,7 +58,7 @@ $extensaoCmps = explode(".", $media);
 $extensao = strtolower(end($extensaoCmps));
 
 $novoPost = new createPost();
-$novoPost->getInfo('viniciusventurini@estudante.ufscar.br');
+$novoPost->getInfo(base64_decode($_COOKIE['cUser']));
 $novoPost->uploadPost($media, (htmlentities($_POST['descriptPost'])), (htmlentities($_POST['postLiberado'])), (htmlentities($_POST['valor'])));
 
 if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){

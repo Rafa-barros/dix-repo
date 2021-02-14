@@ -20,7 +20,7 @@ while($row = $resultComment->fetch()){
 }
 
 for ($k=0; $k<$i; $k++){
-    $comentariosJS[$k][0] = $comentarios[$k]['idUser'];
+    $comentariosJS[$k][0] = $comentarios[$k]['username'];
     $comentariosJS[$k][1] = $comentarios[$k]['descript'];
     $comentariosJS[$k][2] = $comentarios[$k]['likes'];
     $comentariosJS[$k][3] = $comentarios[$k]['dateComment'];

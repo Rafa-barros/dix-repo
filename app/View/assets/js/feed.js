@@ -14,8 +14,8 @@ $(document).on('click', '.btn-card-follow', function(){
         //     cache: false,
         //     success: function(){
                 if(btnFollow.hasClass("unfollow")){
-        //         btnFollow.css("background-color", "rgb(57, 132, 218)").css("color", "white").html('Seguindo <i class="fas fa-check check-follow-profile"></i>');
-        //         btnFollow.css("background-color", "rgb(45, 81, 122))").html('Seguindo <i style="margin-left:6px;" class="fas fa-check"></i>').toggleClass("unfollow");
+                    btnFollow.css("background-color", "rgb(57, 132, 218)").css("color", "white").html('Seguindo <i class="fas fa-check check-follow-profile"></i>');
+                    btnFollow.css("background-color", "rgb(45, 81, 122))").html('Seguindo <i style="margin-left:6px;" class="fas fa-check"></i>').toggleClass("unfollow");
                 }
 
                 else {

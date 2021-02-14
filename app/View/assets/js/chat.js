@@ -227,7 +227,7 @@ $(".chat-title-container").hide();
                 message: msg,
                 username: $(".nome-contato-chat").text()
             },   
-            // dataType: "json",  
+            dataType: "json",  
             cache: false,
             success: function(){
 

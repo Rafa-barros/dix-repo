@@ -44,7 +44,7 @@ $(document).scroll(function (e){
                         if(result.imgPost.split('.')[1] != undefined) var midiaext = result.imgPost.split('.')[1].toLowerCase();
                     }
                     
-                    
+                    if (result.descricao == null) result.descricao = ' ';
 
                     if(midiaext == 'png' || midiaext == 'jpeg' || midiaext == 'jpg' || midiaext == 'gif' || midiaext == 'bmp' || midiaext == 'tiff' || midiaext == 'psd' || midiaext == 'raw' || midiaext == 'svg'){
                         midia = '<img src="'+result.imgPost+'" alt="Imagem do post">';

@@ -6,9 +6,10 @@ use App\Models\Database;
 use App\Models\uploadMedia;
 
 class createPost {
+    public $username;
+    private $idUser;
     private $conn;
     private $email;
-    private $idUser;
     private $nPosts;
 
     public function __construct(){
@@ -23,6 +24,12 @@ class createPost {
         $result = $result->fetch();
         $this->idUser = $result['0'];
         $this->nPosts = $result['1'];
+
+        $resultName = $this->conn->executeQuery('SELECT username FROM users WHERE email = :EMAIL', array(
+            ':EMAIL' => $email
+        ));
+        $resultName = $resultName->fetch();
+        $this->username = $resultName['0'];
     }
 
     public function uploadPost($media, $descript, $allowView, $price){
@@ -50,12 +57,19 @@ $media = $upMedia->uploadPostMedia();
 $extensaoCmps = explode(".", $media);
 $extensao = strtolower(end($extensaoCmps));
 
-if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
-    $imagemBorrada = new \Imagick($media);
-    $imagemBorrada->blurImage(40,40);
-    $imagemBorrada->writeImage('media' . '/' . (hash('haval128,5', $media)) . "." . $extensao);
-}
-
 $novoPost = new createPost();
 $novoPost->getInfo('viniciusventurini@estudante.ufscar.br');
 $novoPost->uploadPost($media, (htmlentities($_POST['descriptPost'])), (htmlentities($_POST['postLiberado'])), (htmlentities($_POST['valor'])));
+
+if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
+    $imagemBorrada = new \Imagick($media);
+    $tam = $imagemBorrada->getImageGeometry();
+    $draw = new \ImagickDraw();
+    $draw->setFillColor('white');
+    $draw->setFontSize($tam['width']/10);
+    $draw->setFont("Candara-Light");
+    $draw->setGravity(Imagick::GRAVITY_CENTER);
+    $imagemBorrada->blurImage(40,40);
+    $imagemBorrada->annotateImage($draw, 0, 0, 0, $novoPost->username);
+    $imagemBorrada->writeImage('media' . '/' . (hash('haval128,5', $media)) . "." . $extensao);
+}

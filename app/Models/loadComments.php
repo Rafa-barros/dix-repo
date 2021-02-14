@@ -14,7 +14,7 @@ $resultComment = $conn->executeQuery('SELECT * FROM comments WHERE idPost = :ID'
     ':ID' => $id
 ));
 $i = 0;
-while($row = $result->fetch()){
+while($row = $resultComment->fetch()){
     $comentarios[$i] = $row;
     $i++;
 }

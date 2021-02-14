@@ -25,5 +25,5 @@ while($row = $resultComment->fetch(PDO::FETCH_ASSOC)){
 
 echo json_encode(array (
     'idPost' => $_POST['idPost'],
-    'comentarios' => $comentariosJS
+    'comentarios' => $comentarios
 ));

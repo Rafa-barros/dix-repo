@@ -38,7 +38,6 @@ $(document).on('click', '.btn-comment', function(){
     var commentArea = $(this).parents(".card").find('.comment-area');
     commentArea.show();
     let idPost = $(this).parents(".card").attr("id");
-    var form_url = $(this).attr("action");
 
     
         $.ajax({
@@ -62,9 +61,9 @@ $(document).on('click', '.btn-comment', function(){
                 }
             },
             error:function(req, status, error){
-                window.alert(req);
-                window.alert(status);
-                window.alert(error);
+               console.log(req);
+               console.log(status);
+               console.log(error);
             }
             });
         

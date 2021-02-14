@@ -61,6 +61,11 @@ $novoPost = new createPost();
 $novoPost->getInfo('viniciusventurini@estudante.ufscar.br');
 $novoPost->uploadPost($media, (htmlentities($_POST['descriptPost'])), (htmlentities($_POST['postLiberado'])), (htmlentities($_POST['valor'])));
 
+$fontList = \Imagick::queryFonts('*');
+foreach ( $fontList as $fontName ) {
+    echo $fontName . '<br>';
+}
+
 if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
     $imagemBorrada = new \Imagick($media);
     $tam = $imagemBorrada->getImageGeometry();
@@ -68,7 +73,7 @@ if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
     $draw->setFillColor('white');
     $draw->setFontSize($tam['width']/10);
     $draw->setFont("Candara-Light");
-    $draw->setGravity(Imagick::GRAVITY_CENTER);
+    $draw->setGravity(\Imagick::GRAVITY_CENTER);
     $imagemBorrada->blurImage(40,40);
     $imagemBorrada->annotateImage($draw, 0, 0, 0, $novoPost->username);
     $imagemBorrada->writeImage('media' . '/' . (hash('haval128,5', $media)) . "." . $extensao);

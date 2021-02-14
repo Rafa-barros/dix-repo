@@ -40,7 +40,8 @@ $(document).scroll(function (e){
                         postLiked = 'style="color: rgb(218, 51, 51)"';
                     }
 
-                    let midiaext = result.imgPost.split('.')[1].toLowerCase();
+                    if(result.imgPost != undefined) var midiaext = result.imgPost.split('.')[1].toLowerCase();
+                    
 
                     if(midiaext == 'png' || midiaext == 'jpeg' || midiaext == 'jpg' || midiaext == 'gif' || midiaext == 'bmp' || midiaext == 'tiff' || midiaext == 'psd' || midiaext == 'raw' || midiaext == 'svg'){
                         midia = '<img src="'+result.imgPost+'" alt="Imagem do post">';

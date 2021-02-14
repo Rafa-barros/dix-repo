@@ -132,10 +132,10 @@ echo json_encode((array(
     'imgPost' => $postSel['media'],
     "postsVistos" => "",
     "descricao" => $postSel['descript'],
-    "likes" => intval($postSel['likes']),
+    "likes" => $postSel['likes'],
     "liked" => $postObj->liked,
-    "valor" => intval($postSel['price']),
-    "gorjetas" => intval($postSel['amount']),
-    "idPost" => intval($postSel['id']),
-    "qtdComentarios" => intval($postSel['comments'])
+    "valor" => $postSel['price'],
+    "gorjetas" => $postSel['amount'],
+    "idPost" => $postSel['id'],
+    "qtdComentarios" => $postSel['comments']
 )));

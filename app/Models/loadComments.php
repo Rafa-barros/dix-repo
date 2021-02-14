@@ -14,7 +14,7 @@ $resultComment = $conn->executeQuery('SELECT * FROM comments WHERE idPost = :ID'
     ':ID' => $id
 ));
 $i = 0;
-while($row = $resultComment->fetch()){
+while($row = $resultComment->fetch(PDO::FETCH_ASSOC)){
     $comentarios[$i] = $row;
     $i++;
 }

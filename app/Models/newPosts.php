@@ -123,7 +123,6 @@ $postObj->getInfo($_POST['postsVistos']);
 $postSel = $postObj->selPost();
 
 echo json_encode((array(
-    'email' => "", 
     'nameOp' => $postObj->nameOp,
     'userOp' => $postObj->userOp,
     'data' => $postSel['postDate'],

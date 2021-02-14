@@ -66,7 +66,7 @@ if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
     $tam = $imagemBorrada->getImageGeometry();
     $draw = new \ImagickDraw();
     $draw->setFillColor('white');
-    $draw->setFontSize($tam['width']/11);
+    $draw->setFontSize($tam['width']/15);
     $draw->setFont("Bookman-Light");
     $draw->setGravity(\Imagick::GRAVITY_CENTER);
     $imagemBorrada->blurImage(40,40);

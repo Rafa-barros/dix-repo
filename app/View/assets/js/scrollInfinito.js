@@ -32,11 +32,7 @@ $(document).scroll(function (e){
                 },
                 success:function(result){
 
-                    var elementoImagem = '';
-
-                    if(result.imgPost != 0){
-                        elementoImagem = '<img src="'+result.imgPost+'" alt="Imagem do post">';
-                    }
+                    var midia = '';
 
                     var postLiked = '';
                     
@@ -44,7 +40,21 @@ $(document).scroll(function (e){
                         postLiked = 'style="color: rgb(218, 51, 51)"';
                     }
 
-                    $(".posts").append('<div class="card" id='+result.toString()+'> <div class="card-top"> <div class="top-card-top"> <div class="l-card-top"> <a href="/'+result.userOp+'"><img class="profile-image" src="'+result.imgOp+'" alt="Foto perfil"></a> <div class="author-info"> <p class="author-name"> <a href="/'+result.userOp+'">'+result.nameOp+'</a></p><p class="post-time"> '+ separaTempo(result.data)+' </p></div></div><div class="r-card-top"> <button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button> </div></div><div class="bot-card-top"> <p class="description"> '+result.descricao+' </p></div></div><div class="midia-container"> '+elementoImagem+' </div><div class="card-bot"> <div class="post-status"> <span class="nlikes">'+result.likes+' curtidas</span> <span class="ncomments">'+result.qtdComentarios.toString()+' comentários </span> </div><div class="g-border"></div><div class="interactive"> <div class="like"> <button class="btn-like" '+postLiked+'><span><i style="color: unset" class="fas fa-fire-alt"></i> Curtir</span> </button> </div><div class="donate"> <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button> <span> </div><div class="comment"> <button class="btn-comment"><i class="far fa-comment"></i>Comentários</span></button><span> </div></div><div class="comment-area"> <div class="end-comment-show"></div><div class="comment-now"> <form method="POST" class="comment-form" ajax="true"> <input type="text" class="form-control comment-input" placeholder="Deixe seu comentário aqui..." required> <button class="btn-send-comment"> Enviar </button> </form> </div></div></div></div>');
+                    let midiaext = result.imgPost.split('.')[1].toLowerCase();
+
+                    if(midiaext == 'png' || midiaext == 'jpeg' || midiaext == 'jpg' || midiaext == 'gif' || midiaext == 'bmp' || midiaext == 'tiff' || midiaext == 'psd' || midiaext == 'raw' || midiaext == 'svg'){
+                        midia = '<img src="'+result.imgPost+'" alt="Imagem do post">';
+                    } 
+
+                    else if (midiaext == undefined) {
+                        midia = ' '
+                    }
+
+                    else {
+                        midia = '<video src="'+result.imgPost+'" controls controlslist="nodownload" style="max-width:100%;"></video>'
+                    }
+
+                    $(".posts").append('<div class="card" id='+result.idPost.toString()+'> <div class="card-top"> <div class="top-card-top"> <div class="l-card-top"> <a href="/'+result.userOp+'"><img class="profile-image" src="'+result.imgOp+'" alt="Foto perfil"></a> <div class="author-info"> <p class="author-name"> <a href="/'+result.userOp+'">'+result.nameOp+'</a></p><p class="post-time"> '+ separaTempo(result.data)+' </p></div></div><div class="r-card-top"> <button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button> </div></div><div class="bot-card-top"> <p class="description"> '+result.descricao+' </p></div></div><div class="midia-container"> '+ midia +' </div><div class="card-bot"> <div class="post-status"> <span class="nlikes">'+result.likes+' curtidas</span> <span class="ncomments">'+result.qtdComentarios.toString()+' comentários </span> </div><div class="g-border"></div><div class="interactive"> <div class="like"> <button class="btn-like" '+postLiked+'><span><i style="color: unset" class="fas fa-fire-alt"></i> Curtir</span> </button> </div><div class="donate"> <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button> <span> </div><div class="comment"> <button class="btn-comment"><i class="far fa-comment"></i>Comentários</span></button><span> </div></div><div class="comment-area"> <div class="end-comment-show"></div><div class="comment-now"> <form method="POST" class="comment-form" ajax="true"> <input type="text" class="form-control comment-input" placeholder="Deixe seu comentário aqui..." required> <button class="btn-send-comment"> Enviar </button> </form> </div></div></div></div>');
 
                     postsVistosNav.push(result.idPost);
 

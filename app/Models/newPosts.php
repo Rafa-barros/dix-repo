@@ -106,7 +106,7 @@ class Post {
                     $extensaoCmps = explode(".", $this->postSel['media']);
                     $extensao = strtolower(end($extensaoCmps));
                     if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
-                        $this->postSel['media'] = (((hash('haval128,5', $this->postSel['media'])) . $extensao));
+                        $this->postSel['media'] = (((hash('haval128,5', $this->postSel['media'])) . "." . $extensao));
                     } else {
                         $this->postSel['media'] = "media/blockedVideo.png";
                     }

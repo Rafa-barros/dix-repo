@@ -52,12 +52,14 @@ $(document).on('click', '.btn-comment', function(){
                 //result.comentarios[][]
                 var i = 0;
                 
-                while (result.comentarios[i][0] !== ""){
-                    commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+result.comentarios[i][0]+'</a></span>'+result.comentarios[i][1]+'</p></div><div class="a-comment">');
-                    if (i == 10){
-                        break;
+                if(result.comentarios != null){
+                    while (result.comentarios[i][0] !== ""){
+                        commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+result.comentarios[i][0]+'</a></span>'+result.comentarios[i][1]+'</p></div><div class="a-comment">');
+                        if (i == 10){
+                            break;
+                        }
+                        i++;
                     }
-                    i++;
                 }
             },
             error:function(req, status, error){

@@ -102,13 +102,15 @@ class Post {
                 ':IDPOST' => $this->postSel['id']
             ));
             $resultUserBlocked = $resultUserBlocked->fetch();
-            if (empty($resultUserBlocked)){
-                $extensaoCmps = explode(".", $this->postSel['media']);
-                $extensao = strtolower(end($extensaoCmps));
-                if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
-                    $this->postSel['media'] = (((hash('haval128,5', $this->postSel['media'])) . $extensao));
-                } else {
-                    $this->postSel['media'] = "media/blockedVideo.png";
+            if (isset($this->postSel['media'])){
+                if (empty($resultUserBlocked)){
+                    $extensaoCmps = explode(".", $this->postSel['media']);
+                    $extensao = strtolower(end($extensaoCmps));
+                    if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
+                        $this->postSel['media'] = (((hash('haval128,5', $this->postSel['media'])) . $extensao));
+                    } else {
+                        $this->postSel['media'] = "media/blockedVideo.png";
+                    }
                 }
             }
         }

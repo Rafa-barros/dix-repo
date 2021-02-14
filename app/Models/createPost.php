@@ -72,7 +72,7 @@ if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
     $draw = new \ImagickDraw();
     $draw->setFillColor('white');
     $draw->setFontSize($tam['width']/10);
-    $draw->setFont("Candara-Light");
+    $draw->setFont("Helvetica");
     $draw->setGravity(\Imagick::GRAVITY_CENTER);
     $imagemBorrada->blurImage(40,40);
     $imagemBorrada->annotateImage($draw, 0, 0, 0, $novoPost->username);

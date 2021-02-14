@@ -63,14 +63,9 @@ $novoPost->uploadPost($media, (htmlentities($_POST['descriptPost'])), (htmlentit
 
 if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
     $imagemBorrada = new \Imagick($media);
-    $tam = $imagemBorrada->getImageGeometry();
-    $draw = new \ImagickDraw();
-    $draw->setFillColor('white');
-    $draw->setFontSize($tam['width']/15);
-    $draw->setFont("Bookman-Light");
-    $draw->setGravity(\Imagick::GRAVITY_CENTER);
-    $imagemBorrada->blurImage(40,40);
-    $imagemBorrada->annotateImage($draw, 0, 0, 0, ("@" . strtolower($novoPost->username)));
+    $lock = new Imagick('media/lock.png');
+    $imagemBorrada->blurImage(35,35);
+    $imagemBorrada->compositeImage($lock, Imagick::COMPOSITE_DEFAULT, (((($imagemBorrada->getImageWidth()) - ($lock->getImageWidth())))/2), (((($imagemBorrada->getImageHeight()) - ($lock->getImageHeight())))/2));
     $imagemBorrada->writeImage('media' . '/' . (hash('haval128,5', $media)) . "." . $extensao);
 }
 

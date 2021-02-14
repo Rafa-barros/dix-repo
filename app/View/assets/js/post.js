@@ -41,13 +41,12 @@ $(document).on('click', '.btn-comment', function(){
     var form_url = $(this).attr("action");
 
     
-    /*
         $.ajax({
             url:"app/Models/loadComments.php",
             dataType: 'json',
             type: "POST",
             data: {
-                idPost: IdPost, // ID DO POST
+                idPost: idPost, // ID DO POST
                 comentarios: [[]]
             },
             success:function(result){
@@ -68,7 +67,7 @@ $(document).on('click', '.btn-comment', function(){
                 window.alert(error);
             }
             });
-        */
+        
 
 });
 
@@ -78,16 +77,19 @@ $(document).ready(function(e) {
 
         e.preventDefault();
         
-        var form_data = $(this).serialize();
-        var form_url = $(this).attr("action");
-        
         var card = $(this).parents(".card");
+        let idPost = card.attr('id');
         var commentInput = card.find(".comment-input").val();
         var newComment = '<div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">CaioBrandini</a></span>'+ htmlEntities(commentInput) +'</p> </div>';
 
         $.ajax({
-            url: form_url,    
-            data: form_data,     
+            url: 'app/Models/comentarPost.php',
+            method: "POST",
+            dataType: "json",     
+            data: {
+                idPost: idPost,
+                descript: commentInput
+            },     
             cache: false,
             success: function(){
                 var commentInput = card.find(".end-comment-show").before(newComment);

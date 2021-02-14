@@ -9,7 +9,7 @@ $(document).on('click', '.btn-like', function(){
 
 
         $.ajax({
-            url:"app/Models/darLike.php",
+            url:"app/Models/curtirPost.php",
             dataType: 'json',
             type: "POST",
             data: {

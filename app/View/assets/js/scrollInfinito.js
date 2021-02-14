@@ -64,7 +64,7 @@ $(document).scroll(function (e){
                     console.log(status);
                     console.log(error);
                 }
-                });
+            });
 
 
 

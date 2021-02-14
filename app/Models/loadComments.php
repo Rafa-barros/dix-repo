@@ -1,6 +1,8 @@
 <?php
-
 namespace App\Models;
+
+header('charset=UTF-8');
+mb_internal_encoding('UTF-8');
 
 use App\Models\Database;
 use PDO;
@@ -26,4 +28,4 @@ while($row = $resultComment->fetch(PDO::FETCH_ASSOC)){
 echo json_encode(array (
     'idPost' => $_POST['idPost'],
     'comentarios' => $comentarios
-));
+), JSON_UNESCAPED_UNICODE);

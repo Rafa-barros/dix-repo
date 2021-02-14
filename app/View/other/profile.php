@@ -506,7 +506,7 @@ var flag = 300;
         //         url:"app/Models/newPosts.php",
         //         dataType: 'json',
         //         type: "POST",
-        //         data: {email: "marvinn2002vcl@gmail.com",
+        //         data: {
         //             nameOp: "", //Dono do post
         //             userOp: "", //Dono do post
         //             data: "", 

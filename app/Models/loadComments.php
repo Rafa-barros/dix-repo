@@ -8,12 +8,13 @@ use PDO;
 require "../../vendor/autoload.php";
 
 $id = htmlentities($_POST['idPost']);
+$conn = new Database();
 
-$resultComment = $this->conn->executeQuery('SELECT * FROM comments WHERE idPost = :ID', array(
+$resultComment = $conn->executeQuery('SELECT * FROM comments WHERE idPost = :ID', array(
     ':ID' => $id
 ));
 $i = 0;
-while($row = $result->fetch()){
+while($row = $resultComment->fetch()){
     $comentarios[$i] = $row;
     $i++;
 }

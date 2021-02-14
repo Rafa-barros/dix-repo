@@ -35,7 +35,7 @@ class Post {
 
         //Encontra o id do usuário
         $resultIdUser = $this->conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
-            ':EMAIL' => $email
+            ':EMAIL' => $this->email
         ));
         $resultIdUser = $resultIdUser->fetch();
         $this->idUser = $resultIdUser['0'];

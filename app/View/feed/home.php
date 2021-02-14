@@ -247,7 +247,7 @@
 
                 </div>
         <div class="midia-container">
-        <video src="abromoToxico.mp4" controls></video>
+        <video src="abromoToxico.mp4" controls controlslist="nodownload" style="max-width:100%;"></video>
         </div>
         <div class="card-bot">
             <div class="post-status">

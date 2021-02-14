@@ -23,4 +23,9 @@ $conn->executeQuery('INSERT INTO comments (username, descript, likes, dateCommen
     ':IDPOST' => htmlentities($_POST['idPost'])
 ));
 
+echo json_encode(array(
+    'descript' => 'sucesso',
+    'idPost' => htmlentities($_POST['idPost'])
+));
+
 ?>

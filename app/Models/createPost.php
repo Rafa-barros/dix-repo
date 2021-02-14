@@ -61,20 +61,24 @@ $novoPost = new createPost();
 $novoPost->getInfo('viniciusventurini@estudante.ufscar.br');
 $novoPost->uploadPost($media, (htmlentities($_POST['descriptPost'])), (htmlentities($_POST['postLiberado'])), (htmlentities($_POST['valor'])));
 
-$fontList = \Imagick::queryFonts('*');
-foreach ( $fontList as $fontName ) {
-    echo $fontName . '<br>';
-}
-
 if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
     $imagemBorrada = new \Imagick($media);
     $tam = $imagemBorrada->getImageGeometry();
     $draw = new \ImagickDraw();
     $draw->setFillColor('white');
-    $draw->setFontSize($tam['width']/10);
-    $draw->setFont("Helvetica");
+    $draw->setFontSize($tam['width']/11);
+    $draw->setFont("Bookman-Light");
     $draw->setGravity(\Imagick::GRAVITY_CENTER);
     $imagemBorrada->blurImage(40,40);
-    $imagemBorrada->annotateImage($draw, 0, 0, 0, $novoPost->username);
+    $imagemBorrada->annotateImage($draw, 0, 0, 0, ("@" . strtolower($novoPost->username)));
     $imagemBorrada->writeImage('media' . '/' . (hash('haval128,5', $media)) . "." . $extensao);
 }
+
+/*
+PARA VER AS FONTES DISPONÍVEIS
+
+$fontList = \Imagick::queryFonts('*');
+foreach ( $fontList as $fontName ) {
+    echo $fontName . '<br>';
+}
+*/

@@ -44,7 +44,7 @@ class Post {
         $this->idUser = $resultIdUser['0'];
 
         //Encontra o id do dono do post
-        $tam = count($this->postsVistos);
+        $tam = count($this->usersVistos);
         $query = 'SELECT id FROM assoc_users WHERE idFollower = :ID';
         for ($i=0;$i<$tam;$i++){
             $query = $query . ' AND NOT id = ' . $this->usersVistos[$i];
@@ -53,7 +53,9 @@ class Post {
         $resultIdOp = $this->conn->executeQuery($query, array(
             ':ID' => $this->idUser
         ));
-        $resultIdOp = $resultIdOp->fetch();
+        if(!empty($resultIdOp)){
+            $resultIdOp = $resultIdOp->fetch();
+        }
         $this->idOp = $resultIdOp['0'];
 
         //Encontra o nome do dono do post

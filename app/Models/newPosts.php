@@ -99,10 +99,10 @@ class Post {
             }
         }
 
-        if($this->postSel == NULL){
+        if($this->postSel == null){
             $this->postSel['userV'] = $this->idOp;
         }else{
-            $this->postSel['userV'] = NULL;
+            $this->postSel['userV'] = null;
         }
 
         //Retorna 0 ou 1 se o post foi curtido
@@ -132,6 +132,7 @@ class Post {
             }
         }
 
+        print_r($this->postSel);
         return $this->postSel;
     }
 }

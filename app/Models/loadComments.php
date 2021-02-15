@@ -15,7 +15,7 @@ $resultComment = $conn->executeQuery('SELECT * FROM comments WHERE idPost = :ID'
 $k = 0;
 while($row = $resultComment->fetch(PDO::FETCH_ASSOC)){
     $comentarios[$k][0] = $row['username'];
-    $comentarios[$k][1] = $row['descript'];
+    $comentarios[$k][1] = encodeURIComponent($row['descript']);
     $comentarios[$k][2] = $row['likes'];
     $comentarios[$k][3] = $row['dateComment'];
     $comentarios[$k][4] = $row['comments'];
@@ -25,4 +25,4 @@ while($row = $resultComment->fetch(PDO::FETCH_ASSOC)){
 echo json_encode(array (
     'idPost' => $_POST['idPost'],
     'comentarios' => $comentarios
-), JSON_UNESCAPED_UNICODE);
+));

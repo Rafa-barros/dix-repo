@@ -28,5 +28,10 @@ $(document).on('click', '.btn-card-follow', function(){
 
 });
 
+//Buscar Pessoa
+
+$(document).on('submit', '.buscar-pessoa-form', function(){
+    window.location.href = 'http://dix.net.br/profile/' + $('#input-novo-contato').val();
+});
 
 

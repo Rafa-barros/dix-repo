@@ -129,7 +129,7 @@
         <div class="modal fade" id="buscar-pessoas-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
-            <form class="new-chat-form">
+            <form class="buscar-pessoa-form">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLongTitle">Buscar Pessoa</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">

@@ -80,10 +80,12 @@ class Post {
             ':ID' => $this->idOp
         ));
         $likes = 0;
-        while ($row = $posts->fetch(PDO::FETCH_ASSOC)){
-            if ($row['likes'] >= $likes){
-                $likes = $row['likes'];
-                $this->postSel = $row;
+        if(!empty($posts)){
+            while ($row = $posts->fetch(PDO::FETCH_ASSOC)){
+                if ($row['likes'] >= $likes){
+                    $likes = $row['likes'];
+                    $this->postSel = $row;
+                }
             }
         }
 

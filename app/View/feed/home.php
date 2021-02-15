@@ -118,8 +118,10 @@
             </div>
 
             <div id="buscar-pessoas" class="card">
-                <span class="ml-1"> Encontre pessoas! </span>
-                <button type="button" class="btn btn-primary mr-1" data-toggle="modal" data-target="#buscar-pessoas-modal">Nova publicação</button>
+                <div class="d-flex encontrar-pessoas-container">
+                    <span class="ml-1"> Encontre novas pessoas! </span>
+                    <button type="button" class="btn btn-primary mr-1 btn-encontrar-pessoas" data-toggle="modal" data-target="#buscar-pessoas-modal"><i class="fas fa-search"></i></button>
+                </div>
             </div>
 
         <!-- Modal Buscar pessoas -->

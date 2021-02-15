@@ -148,7 +148,7 @@ echo json_encode((array(
     'imgPost' => $postSel['media'],
     "postsVistos" => "",
     "usersVistos" => "",
-    "userReturn" => $this->postSel['userV'],
+    "userReturn" => $postSel['userV'],
     "descricao" => utf8_encode($postSel['descript']),
     "likes" => $postSel['likes'],
     "liked" => $postObj->liked,

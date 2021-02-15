@@ -305,15 +305,25 @@ $(".chat-title-container").hide();
             dataType: "json",  
             cache: false,
             success: function(resposta){
-                let listaContatos = $(".contato");
-                
-                listaContatos.each(function(){
-                    if($(this).find('.contato-name').text() == resposta.mensagens[0]){
-                        $(this).remove();
-                        return false;
-                    }
-		        })
-                $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.mensagens[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.mensagens[0]+'</span> <p class="contact-last-message">'+resposta.mensagens[1]+'</p></div></div>');
+
+                if(resposta.mensagens == null){
+                    $('.modal-body').html('<span>Contato não encontrado...</span>');
+                    $('.new-chat-btn').text('Tentar novamente').addClass('tentarNovamente');
+                    $(document).on('click', '.tentarNovamente', function(){
+                        $(this).unbind().removeClass('tentarNovamente');
+                        $('.modal-body').html(' <div class="input-group mb-2 mt-2"> <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">@</span> </div><input type="text" id="input-novo-contato" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"> </div>');
+                    });
+                }
+                else{
+                    let listaContatos = $(".contato");
+                    listaContatos.each(function(){
+                        if($(this).find('.contato-name').text() == resposta.mensagens[0]){
+                            $(this).remove();
+                            return false;
+                        }
+                    })
+                    $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.mensagens[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.mensagens[0]+'</span> <p class="contact-last-message">'+resposta.mensagens[1]+'</p></div></div>');
+                }
             }
 
         });

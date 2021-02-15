@@ -313,9 +313,8 @@ $(".chat-title-container").hide();
                     $('.modal-body').html('<span>Contato não encontrado...</span>');
                     $('.new-chat-btn').text('Tentar novamente').addClass('tentarNovamente').attr('type','button');
                     $(document).on('click', '.tentarNovamente', function(){
-                        $(this).unbind().removeClass('tentarNovamente');
+                        $(this).unbind().removeClass('tentarNovamente').text('Entrar em contato').attr('type','submit');;
                         $('.modal-body').html(' <div class="input-group mb-2 mt-2"> <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">@</span> </div><input type="text" id="input-novo-contato" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"> </div>');
-                        $('.new-chat-btn').text('Entrar em contato').addClass('tentarNovamente').attr('type','submit');
                     });
                 }
                 else{

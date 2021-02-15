@@ -27,7 +27,7 @@
                   echo('<img src="' . $img . '" class="profile-img" alt="Foto de perfil">'); 
                 ?> 
             </div>
-            <p class="prof-name"><?php echo(htmlentities($pname)); ?></p>
+            <p class="prof-name"><?php echo($pname); ?></p>
             <p class="prof-description"> </p>
             <div class="follower-status">
                 <span> <b class="nfollowers"><?php echo($followers); ?></b> seguidores</span>

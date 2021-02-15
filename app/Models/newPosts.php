@@ -89,6 +89,12 @@ class Post {
             }
         }
 
+        if($this->postSel == NULL){
+            $userV = $this->idOp;
+        }else{
+            $userV = NULL;
+        }
+
         //Retorna 0 ou 1 se o post foi curtido
         $resultLiked = $this->conn->executeQuery('SELECT * FROM assoc_users_likes WHERE idPost = :IDPOST AND idUser = :IDUSER', array(
             ':IDPOST' => $this->postSel['id'],
@@ -131,6 +137,8 @@ echo json_encode((array(
     'imgOp' => $postObj->imgOp, 
     'imgPost' => $postSel['media'],
     "postsVistos" => "",
+    "userVistos" => "",
+    "userReturn" => $userV,
     "descricao" => utf8_encode($postSel['descript']),
     "likes" => $postSel['likes'],
     "liked" => $postObj->liked,

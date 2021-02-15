@@ -136,7 +136,7 @@ class Post {
 }
 
 $postObj = new Post();
-$postObj->getInfo($_POST['postsVistos']);
+$postObj->getInfo($_POST['postsVistos'], $_POST['usersVistos']);
 $postSel = $postObj->selPost();
 
 echo json_encode((array(

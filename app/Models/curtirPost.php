@@ -23,7 +23,7 @@ $resultCond = $conn->executeQuery('SELECT idPost FROM assoc_users_likes WHERE id
 ));
 $resultCond = $resultCond->fetch();
 
-if (!(empty($resultCond))){
+if (empty($resultCond)){
     $codigo = 200;
     //Insere o like do usuario no post
     $conn->executeQuery('INSERT INTO assoc_users_likes (idPost, idUser) VALUES (:IDPOST, :IDUSER)', array(

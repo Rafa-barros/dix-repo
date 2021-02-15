@@ -10,6 +10,7 @@ var flag = 500;
 $(document).scroll(function (e){
     var pos = $(this).scrollTop();
     if (pos >= flag){
+            console.log(userVistosNav);
 
             $.ajax({
                 url:"app/Models/newPosts.php",
@@ -33,7 +34,6 @@ $(document).scroll(function (e){
                     qtdComentarios: 0
                 },
                 success:function(result){
-                    console.log(result.userReturn);
 
                     var midia = '';
 

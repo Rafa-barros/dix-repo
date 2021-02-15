@@ -123,13 +123,13 @@ $postObj->getInfo($_POST['postsVistos']);
 $postSel = $postObj->selPost();
 
 echo json_encode((array(
-    'nameOp' => $postObj->nameOp,
+    'nameOp' => urlencode($postObj->nameOp),
     'userOp' => $postObj->userOp,
     'data' => $postSel['postDate'],
     'imgOp' => $postObj->imgOp, 
     'imgPost' => $postSel['media'],
     "postsVistos" => "",
-    "descricao" => $postSel['descript'],
+    "descricao" => urlencode($postSel['descript']),
     "likes" => $postSel['likes'],
     "liked" => $postObj->liked,
     "valor" => $postSel['price'],

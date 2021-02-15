@@ -99,7 +99,7 @@ class Post {
             }
         }
 
-        if($this->postSel == null){
+        if($this->postSel['idOp'] == null){
             $this->postSel['userV'] = $this->idOp;
         }else{
             $this->postSel['userV'] = null;

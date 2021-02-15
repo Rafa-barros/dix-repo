@@ -192,14 +192,14 @@
         
         <!-- Fim contatos -->
         </div>
-<!--     </div>
-    <div class="chat">
+    </div>
+    <!-- <div class="chat">
         <div class="chat-title-container">
             <div class="d-flex chat-title-info">
                 <img class="foto-perfil-contato" src="/app/View/assets/css/img/Caio.jpg" alt="foto perfil contato">
                 <p class="nome-contato-chat">Marcus Vinícius</p>
             </div>
-        </div>
+        </div> -->
 
         <div class="initial">
             <div class="initial-main">
@@ -250,7 +250,7 @@
             </div>
         </div>
     </div>
-</div> -->
+</div>
 
 <!-- Modal Novo chat -->
 

@@ -295,7 +295,7 @@ $(".chat-title-container").hide();
         $('#new-chat-modal').modal('hide');
 
         $.ajax({
-            url: 'app/Models/chatMgs.php', 
+            url: 'app/Models/chatMsg.php', 
             method: "POST",
             data: {
                 username: newUser,

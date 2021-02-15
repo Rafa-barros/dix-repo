@@ -84,7 +84,7 @@ $(document).ready(function(e) {
         var card = $(this).parents(".card");
         let idPost = card.attr('id');
         var commentInput = card.find(".comment-input").val();
-        var newComment = '<div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+ $('.features-containers a').text().split('/')[1] +'</a></span>'+ htmlEntities(commentInput) +'</p> </div>';
+        var newComment = '<div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+ $('.features-containers a').attr('href').split('/')[1] +'</a></span>'+ htmlEntities(commentInput) +'</p> </div>';
 
         $.ajax({
             url: 'app/Models/comentarPost.php',

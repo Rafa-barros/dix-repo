@@ -172,7 +172,25 @@ nav p {
 #buscar-pessoas {
     display: flex;
     max-height: 155px;
+    min-height: unset;
     justify-content: space-between;
+}
+
+.encontrar-pessoas-container {
+    justify-content: space-around;
+    align-items: center;
+}
+
+.encontrar-pessoas-container span {
+    font-size: 20px;
+}
+
+.btn-encontrar-pessoas {
+    border-radius: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #new-post, #buscar-pessoas {

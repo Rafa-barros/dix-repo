@@ -166,11 +166,21 @@ nav p {
 /* New Post */
 
 #new-post {
+    margin-bottom: 10px;
+}
+
+#buscar-pessoas {
+    display: flex;
+    max-height: 155px;
+    justify-content: space-between;
+}
+
+#new-post, #buscar-pessoas {
     box-shadow: 0 5px 11px 0 rgba(46, 45, 45, 0.43);
     padding: 12px 30px;
 }
 
-#new-post h1 {
+#new-post h1, #buscar-pessoas h1 {
     font-size: 30px;
     font-weight: 400;
     margin-bottom: 10px;

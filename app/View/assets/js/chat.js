@@ -299,7 +299,7 @@ $(".chat-title-container").hide();
             method: "POST",
             data: {
                 username: newUser,
-                funcao: novoChat,
+                funcao: 'novoChat',
                 menssagens: ''
             },   
             dataType: "json",  

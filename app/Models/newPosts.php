@@ -91,6 +91,7 @@ class Post {
 
         if($this->postSel == NULL){
             $userV = $this->idOp;
+            echo $userV;
         }else{
             $userV = NULL;
         }

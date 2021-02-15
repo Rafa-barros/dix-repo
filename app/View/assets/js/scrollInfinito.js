@@ -10,7 +10,6 @@ var flag = 500;
 $(document).scroll(function (e){
     var pos = $(this).scrollTop();
     if (pos >= flag){
-            console.log(userVistosNav);
 
             $.ajax({
                 url:"app/Models/newPosts.php",

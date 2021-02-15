@@ -82,7 +82,7 @@ class Post {
     
     public function selPost(){
         $tam = count($this->postsVistos);
-        $query = 'SELECT * FROM posts WHERE idUser = :ID';
+        $query = 'SELECT * FROM posts WHERE idUser = :ID AND NOT id = 60';
         for ($i=0;$i<$tam;$i++){
             $query = $query . ' AND NOT id = ' . $this->postsVistos[$i];
         }
@@ -91,8 +91,8 @@ class Post {
         ));
         $likes = 0;
         while ($row = $posts->fetch(PDO::FETCH_ASSOC)){
-            print_r($row);
             if ($row['likes'] >= $likes){
+                print_r($row);
                 $likes = $row['likes'];
                 $this->postSel = $row;
             }

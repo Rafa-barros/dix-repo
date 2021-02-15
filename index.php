@@ -25,7 +25,7 @@
     <body>
     <!-- Variáveis do Javascript pré-inicializadas -->
     <script>
-        var postsVistosNav = [0, 90];
+        var postsVistosNav = [0, 60];
         var usersVistosNav = [0];
     </script>
     <?php

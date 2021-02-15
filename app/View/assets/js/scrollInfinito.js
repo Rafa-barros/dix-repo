@@ -21,9 +21,7 @@ $(document).scroll(function (e){
                     data: "", 
                     imgOp: "", //Imagem do dono do post
                     imgPost: "", //Imagem do post
-                    postsVistos: postsVistosNav, 
-                    usersVistos: usersVistosNav,
-                    userReturn: "",
+                    postsVistos: postsVistosNav,
                     descricao: "", 
                     likes: "",
                     liked: 0,
@@ -67,7 +65,6 @@ $(document).scroll(function (e){
                     if(result.qtdComentarios == 1) $("#"+result.idPost.toString()).find('.ncomments').text('1 Comentário');
 
                     postsVistosNav.push(result.idPost);
-                    usersVistosNav.push(result.userReturn);
 
                 },
                 error:function(req, status, error){

@@ -28,10 +28,9 @@ class Post {
         $this->conn = new Database();
     }
 
-    public function getInfo($postsVistosJS, $usersVistosJS){
+    public function getInfo($postsVistosJS){
         if (!empty($postsVistosJS)){
             $this->postsVistos = $postsVistosJS;
-            $this->usersVistos = $usersVistosJS;
         }
         $this->email = base64_decode($_COOKIE['cUser']);
 
@@ -43,18 +42,10 @@ class Post {
         $this->idUser = $resultIdUser['0'];
 
         //Encontra o id do dono do post
-        $tam = count($this->usersVistos);
-        $query = 'SELECT id FROM assoc_users WHERE idFollower = :ID';
-        for ($i=0;$i<$tam;$i++){
-            $query = $query . ' AND NOT id = ' . $this->usersVistos[$i];
-        }
-        $query = $query . ' ORDER BY RAND() LIMIT 1';
-        $resultIdOp = $this->conn->executeQuery($query, array(
+        $resultIdOp = $this->conn->executeQuery('SELECT id FROM assoc_users WHERE idFollower = :ID ORDER BY RAND() LIMIT 1', array(
             ':ID' => $this->idUser
         ));
-        if(!empty($resultIdOp)){
-            $resultIdOp = $resultIdOp->fetch();
-        }
+        $resultIdOp = $resultIdOp->fetch();
         $this->idOp = $resultIdOp['0'];
 
         //Encontra o nome do dono do post
@@ -138,7 +129,7 @@ class Post {
 }
 
 $postObj = new Post();
-$postObj->getInfo($_POST['postsVistos'], $_POST['usersVistos']);
+$postObj->getInfo($_POST['postsVistos']);
 $postSel = $postObj->selPost();
 
 echo json_encode((array(
@@ -148,8 +139,6 @@ echo json_encode((array(
     'imgOp' => $postObj->imgOp, 
     'imgPost' => $postSel['media'],
     "postsVistos" => "",
-    "usersVistos" => "",
-    "userReturn" => $postSel['userV'],
     "descricao" => utf8_encode($postSel['descript']),
     "likes" => $postSel['likes'],
     "liked" => $postObj->liked,

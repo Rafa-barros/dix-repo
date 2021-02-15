@@ -1,3 +1,37 @@
+
+    $(document).on('click', '#btn-logout', function(){
+
+        $.ajax({
+            dataType: 'json',
+            method: "POST",
+            url: "../app/Models/logout.php",    
+            data: {logout: 1},     
+            cache: false,
+            success:function(){
+              window.location.href = "http://dix.net.br";
+            }        
+        });
+        
+    });
+
+    if(window.matchMedia("(max-width: 530px)").matches){
+        $(".btn-profile-message-o").hide();
+    } 
+
+//Redirecionar notficações mobile
+
+$('.fa-bell').click(function(){
+    if(window.matchMedia("(max-width: 800px)").matches){
+        location.replace("/mobNot");
+    } 
+});
+
+//Área lateral
+
+    if(window.matchMedia("(max-width: 1250px)").matches){
+        $(".profile-l-content").hide();
+    } 
+
 // Seguir
 
 $(document).on('click', '.btn-profile-follow', follow);

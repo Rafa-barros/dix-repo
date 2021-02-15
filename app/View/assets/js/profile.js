@@ -113,6 +113,6 @@ $(document).on('click', '.btn-deletar-post', function(){
     $('#modal-del-post').modal('hide');
 });
 
-$('#gorjeta-profile').click(function(){
+$('#gorjeta-profile').click(function(e){
     $('.nome-alvo').text($('.prof-name').text());
 });

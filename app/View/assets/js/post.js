@@ -55,7 +55,7 @@ $(document).on('click', '.btn-comment', function(){
                 
                 if(result.comentarios != null){
                     while (result.comentarios[i][0] !== ""){
-                        commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+urldecodepirata(result.comentarios[i][0])+'</a></span>'+urldecodepirata(result.comentarios[i][1])+'</p></div><div class="a-comment">');
+                        commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+result.comentarios[i][0]+'</a></span>'+result.comentarios[i][1]+'</p></div><div class="a-comment">');
                         if (i == 10){
                             break;
                         }

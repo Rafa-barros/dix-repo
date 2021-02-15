@@ -42,7 +42,7 @@ $(document).scroll(function (e){
                         postLiked = 'style="color: rgb(218, 51, 51)"';
                     }
 
-                    if(result.imgPost != 0){
+                    if(result.imgPost != null){
                         if(result.imgPost.split('.')[1] != undefined) var midiaext = result.imgPost.split('.')[1].toLowerCase();
                     }
                     

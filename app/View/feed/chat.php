@@ -192,7 +192,7 @@
         
         <!-- Fim contatos -->
         </div>
-    </div>
+<!--     </div>
     <div class="chat">
         <div class="chat-title-container">
             <div class="d-flex chat-title-info">
@@ -250,7 +250,7 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->
 
 <!-- Modal Novo chat -->
 

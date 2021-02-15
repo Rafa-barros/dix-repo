@@ -62,7 +62,7 @@ if (empty($resultCond)){
     ));
 
     //Diminui um like
-    $conn->executeQuery('UPDATE posts SET likes=likes+1 WHERE id = :ID', array(
+    $conn->executeQuery('UPDATE posts SET likes=likes-1 WHERE id = :ID', array(
         ':ID' => $idPost
     ));
 }

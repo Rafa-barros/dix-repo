@@ -116,3 +116,7 @@ $(document).on('click', '.btn-deletar-post', function(){
 $('#gorjeta-profile').click(function(){
     $('.nome-alvo').text($('.prof-name').text());
 });
+
+$(document).on('submit', '.buscar-pessoa-form', function(){
+    window.location.href = 'http://dix.net.br/profile/' + $('#input-novo-contato').val();
+});

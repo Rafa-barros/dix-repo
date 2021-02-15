@@ -89,7 +89,7 @@ class Post {
             }
         }
 
-        if($this->postSel == NULL){
+        if($this->postSel === NULL){
             $userV = $this->idOp;
             echo $userV;
         }else{

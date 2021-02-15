@@ -117,6 +117,39 @@
                 </form>
             </div>
 
+            <div id="buscar-pessoas" class="card">
+                <span class="ml-1"> Encontre pessoas! </span>
+                <button type="button" class="btn btn-primary mr-1" data-toggle="modal" data-target="#buscar-pessoas-modal">Nova publicação</button>
+            </div>
+
+        <!-- Modal Buscar pessoas -->
+
+        <div class="modal fade" id="buscar-pessoas-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <form class="new-chat-form">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Buscar Pessoa</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group mb-2 mt-2">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">@</span>
+                    </div>
+                    <input type="text" id="input-novo-contato" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-primary new-chat-btn">Entrar em contato</button>
+            </div>
+            </form>
+            </div>
+        </div>
+        </div>
+
         <!-- Modal Donate-->
         <div class="modal fade" id="donate-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">

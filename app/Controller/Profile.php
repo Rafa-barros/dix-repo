@@ -18,6 +18,7 @@ class Profile {
             $username = $usuario->profileInfo['username'];
             $birth = $usuario->profileInfo['birth'];
             $pname = $usuario->profileInfo['pname'];
+            $pname = htmlentities($pname);
             $typeuser = $usuario->profileInfo['typeuser'];
             $posts = $usuario->profileInfo['posts'];
             $img = ("../" . $usuario->profileInfo['imgUser']);

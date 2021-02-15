@@ -307,7 +307,7 @@ $(".chat-title-container").hide();
             success: function(resposta){
                 let listaContatos = $(".contato");
                 
-                $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.menssagens[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.menssagens[0]+'</span> <p class="contact-last-message">'+resposta.menssagens[1]+'</p></div></div>'+$(this).html()+'</div>');
+                $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.mensagens[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.mensagens[0]+'</span> <p class="contact-last-message">'+resposta.mensagens[1]+'</p></div></div>'+$(this).html()+'</div>');
                 listaContatos.each(function(){
                     if($(this).find('.contato-name').text() == newUser){
                         $(this).remove();

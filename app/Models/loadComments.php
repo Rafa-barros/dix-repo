@@ -1,9 +1,6 @@
 <?php
 namespace App\Models;
 
-header('charset=UTF-8');
-mb_internal_encoding('UTF-8');
-
 use App\Models\Database;
 use PDO;
 

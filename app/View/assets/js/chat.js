@@ -307,7 +307,9 @@ $(".chat-title-container").hide();
             success: function(resposta){
 
                 if(resposta.mensagens == null){
-                    $('#new-chat-modal').modal('show')
+                    setTimeout(function(){
+                        $('#new-chat-modal').modal('show');
+                    }, 2000);
                     $('.modal-body').html('<span>Contato não encontrado...</span>');
                     $('.new-chat-btn').text('Tentar novamente').addClass('tentarNovamente').attr('type','button');
                     $(document).on('click', '.tentarNovamente', function(){

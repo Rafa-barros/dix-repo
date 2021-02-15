@@ -13,7 +13,7 @@ $(document).on('click', '.btn-like', function(){
             dataType: 'json',
             type: "POST",
             data: {
-                idPost: idPost, // ID DO POST
+                id: idPost, // ID DO POST
             },
             complete:function(){
                 if(buttonLike.css("color") == "rgb(0, 0, 0)")buttonLike.css("color", "rgb(218, 51, 51)");

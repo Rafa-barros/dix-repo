@@ -165,7 +165,7 @@ class chatModel{
 			$newChat[3] = (date("Y-m-d H:i:s"));
 			return $newChat;
 		}else{
-			$result = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate ASC', array(
+			$result = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate DESC', array(
 				':ID' => $id
 			));
 			$result = $result->fetch();

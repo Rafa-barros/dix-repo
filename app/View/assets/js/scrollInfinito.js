@@ -10,7 +10,6 @@ var flag = 500;
 $(document).scroll(function (e){
     var pos = $(this).scrollTop();
     if (pos >= flag){
-            console.log(userVistosNav);
 
             $.ajax({
                 url:"app/Models/newPosts.php",
@@ -23,7 +22,7 @@ $(document).scroll(function (e){
                     imgOp: "", //Imagem do dono do post
                     imgPost: "", //Imagem do post
                     postsVistos: postsVistosNav, 
-                    userVistos: userVistosNav,
+                    usersVistos: usersVistosNav,
                     userReturn: "",
                     descricao: "", 
                     likes: "",
@@ -68,7 +67,7 @@ $(document).scroll(function (e){
                     if(result.qtdComentarios == 1) $("#"+result.idPost.toString()).find('.ncomments').text('1 Comentário');
 
                     postsVistosNav.push(result.idPost);
-                    userVistosNav.push(result.userReturn);
+                    usersVistosNav.push(result.userReturn);
 
                 },
                 error:function(req, status, error){

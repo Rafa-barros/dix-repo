@@ -17,11 +17,12 @@ $resultIdUser = $resultIdUser->fetch();
 $idUser = $resultIdUser['0'];
 
 //Encontra o id do user
-$resultUser = $conn->executeQuery('SELECT id FROM users WHERE username = :USERNAME', array(
+$resultUser = $conn->executeQuery('SELECT id, followers FROM users WHERE username = :USERNAME', array(
     ':USERNAME' => htmlentities($_POST['username'])
 ));
 $resultUser = $resultUser->fetch();
-$idFlw = $resultUser['0'];
+$idFlw = $resultUser['id'];
+$followers = intval($resultUser['followers']) + 1;
 
 //Adiciona o seguidor no usuário
 $conn->executeQuery('INSERT INTO assoc_users (id, idFollower) VALUES (:IDUSER, :IDFLW)', array(
@@ -30,7 +31,8 @@ $conn->executeQuery('INSERT INTO assoc_users (id, idFollower) VALUES (:IDUSER, :
 ));
 
 //Soma um follower na DB
-$conn->executeQuery('UPDATE users SET followers=followers+1 WHERE id = :ID', array(
+$conn->executeQuery('UPDATE users SET followers = :FOLLOWERS WHERE id = :ID', array(
+	':FOLLOWERS' => $followers,
     ':ID' => $idFlw
 ));
 

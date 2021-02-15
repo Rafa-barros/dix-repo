@@ -55,7 +55,7 @@ $(document).on('click', '.btn-comment', function(){
                 
                 if(result.comentarios != null){
                     while (result.comentarios[i][0] !== ""){
-                        commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+decodeURI(result.comentarios[i][0])+'</a></span>'+decodeURI(result.comentarios[i][1])+'</p></div><div class="a-comment">');
+                        commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+urldecodepirata(result.comentarios[i][0])+'</a></span>'+urldecodepirata(result.comentarios[i][1])+'</p></div><div class="a-comment">');
                         if (i == 10){
                             break;
                         }
@@ -117,3 +117,9 @@ $(document).on('click', '.btn-donate', function(){
 function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
+
+
+//URL DECODE
+function urldecodepirata(url) {
+    return decodeURIComponent(url.replace(/+/g, ' '));
+  }

@@ -24,7 +24,7 @@
         <div class="prof-status-container">
             <div class="profile-img-container">
                 <?php 
-                  echo('<img src="' . $img . '" class="profile-img" alt="">'); 
+                  echo('<img src="' . $img . '" class="profile-img" alt="Foto de perfil">'); 
                 ?> 
             </div>
             <p class="prof-name"><?php echo($pname); ?></p>

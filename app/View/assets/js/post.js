@@ -39,7 +39,8 @@ $(document).on('click', '.btn-comment', function(){
     commentArea.show();
     let idPost = $(this).parents(".card").attr("id");
 
-    
+    //Carregar comentários
+
         $.ajax({
             url:"app/Models/loadComments.php",
             dataType: 'json',
@@ -54,7 +55,7 @@ $(document).on('click', '.btn-comment', function(){
                 
                 if(result.comentarios != null){
                     while (result.comentarios[i][0] !== ""){
-                        commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+result.comentarios[i][0]+'</a></span>'+result.comentarios[i][1]+'</p></div><div class="a-comment">');
+                        commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+decodeURIComponent(result.comentarios[i][0])+'</a></span>'+decodeURIComponent(result.comentarios[i][1])+'</p></div><div class="a-comment">');
                         if (i == 10){
                             break;
                         }
@@ -74,6 +75,8 @@ $(document).on('click', '.btn-comment', function(){
 
 $(document).ready(function(e) {
     
+    //Enviar comentários
+
     $(document).on('submit', 'form[ajax=true]', function(e){
 
         e.preventDefault();

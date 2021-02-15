@@ -300,7 +300,7 @@ $(".chat-title-container").hide();
             data: {
                 username: newUser,
                 funcao: 'novoChat',
-                menssagens: ''
+                mensagens: ''
             },   
             dataType: "json",  
             cache: false,

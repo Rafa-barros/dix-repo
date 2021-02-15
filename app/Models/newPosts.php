@@ -13,7 +13,6 @@ class Post {
     public $nameOp;
     public $userOp;
     public $liked;
-    public $userV;
     private $imgPost;
     private $descript;
     private $likes;
@@ -100,10 +99,10 @@ class Post {
             }
         }
 
-        if($this->postSel === NULL){
-            $this->userV = $this->idOp;
+        if($this->postSel == NULL){
+            $this->postSel['userV'] = $this->idOp;
         }else{
-            $this->userV = NULL;
+            $this->postSel['userV'] = NULL;
         }
 
         //Retorna 0 ou 1 se o post foi curtido
@@ -149,7 +148,7 @@ echo json_encode((array(
     'imgPost' => $postSel['media'],
     "postsVistos" => "",
     "usersVistos" => "",
-    "userReturn" => $postObj->userV,
+    "userReturn" => $this->postSel['userV'],
     "descricao" => utf8_encode($postSel['descript']),
     "likes" => $postSel['likes'],
     "liked" => $postObj->liked,

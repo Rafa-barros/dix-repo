@@ -39,7 +39,7 @@
                             <img class="foto-contato" src="' . $chatsAbertos[$i][2] . '" alt="foto de perfil">
                             <div class="contato-info">
                                 <span class="contato-name ' . $naoLido . '">' . $chatsAbertos[$i][0] . '</span>
-                                <p class="contact-last-message ' . $naoLido . '">' . $chatsAbertos[$i][1] . '</p>
+                                <p class="contact-last-message ' . $naoLido . '">' . htmlentities($chatsAbertos[$i][1]) . '</p>
                             </div>
                         </div>');
                 }

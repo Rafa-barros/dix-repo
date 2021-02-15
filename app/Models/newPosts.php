@@ -84,10 +84,10 @@ class Post {
         $tam = count($this->postsVistos);
         $query = 'SELECT * FROM posts WHERE idUser = :ID';
         for ($i=0;$i<$tam;$i++){
-            $query = $query . ' AND NOT id = ' . $this->postsVistos[$i];
+            $query = $query . ' AND NOT id = ' . intval($this->postsVistos[$i]);
         }
         $posts = $this->conn->executeQuery($query, array(
-            ':ID' => $this->idOp
+            ':ID' => intval($this->idOp)
         ));
         $likes = 0;
         if(!empty($posts)){

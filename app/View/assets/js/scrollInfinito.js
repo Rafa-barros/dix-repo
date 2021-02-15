@@ -34,6 +34,7 @@ $(document).scroll(function (e){
                     qtdComentarios: 0
                 },
                 success:function(result){
+                    console.log(result.userReturn);
 
                     var midia = '';
 

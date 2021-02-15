@@ -80,7 +80,6 @@ class Post {
         $posts = $this->conn->executeQuery($query, array(
             ':ID' => intval($this->idOp)
         ));
-        echo $query;
         $likes = 0;
         if(!empty($posts)){
             while ($row = $posts->fetch(PDO::FETCH_ASSOC)){

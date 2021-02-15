@@ -119,7 +119,7 @@
 
             <div id="buscar-pessoas" class="card">
                 <div class="d-flex encontrar-pessoas-container">
-                    <span> Encontre novas pessoas! </span>
+                    <span> Encontre novas pessoas: </span>
                     <button type="button" class="btn btn-primary btn-encontrar-pessoas" data-toggle="modal" data-target="#buscar-pessoas-modal"><i class="fas fa-search"></i></button>
                 </div>
             </div>

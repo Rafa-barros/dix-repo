@@ -82,7 +82,7 @@ class Post {
     
     public function selPost(){
         $tam = count($this->postsVistos);
-        $query = 'SELECT * FROM posts WHERE idUser = :ID AND NOT id = 60';
+        $query = 'SELECT * FROM posts WHERE idUser = :ID';
         for ($i=0;$i<$tam;$i++){
             $query = $query . ' AND NOT id = ' . $this->postsVistos[$i];
         }

@@ -195,7 +195,7 @@ nav p {
 }
 
 #new-post, #buscar-pessoas {
-    box-shadow: 0 5px 11px 0 rgba(46, 45, 45, 0.43);
+    box-shadow:0 2px 6px 0 rgb(46 45 45 / 43%);
     padding: 12px 30px;
 }
 

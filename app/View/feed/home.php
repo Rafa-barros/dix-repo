@@ -119,8 +119,8 @@
 
             <div id="buscar-pessoas" class="card">
                 <div class="d-flex encontrar-pessoas-container">
-                    <span class="ml-1"> Encontre novas pessoas! </span>
-                    <button type="button" class="btn btn-primary mr-1 btn-encontrar-pessoas" data-toggle="modal" data-target="#buscar-pessoas-modal"><i class="fas fa-search"></i></button>
+                    <span> Encontre novas pessoas! </span>
+                    <button type="button" class="btn btn-primary btn-encontrar-pessoas" data-toggle="modal" data-target="#buscar-pessoas-modal"><i class="fas fa-search"></i></button>
                 </div>
             </div>
 
@@ -145,7 +145,7 @@
                 </div>
             </div>
             <div class="modal-footer">
-                <button type="submit" class="btn btn-primary new-chat-btn">Entrar em contato</button>
+                <button type="submit" class="btn btn-primary new-chat-btn">Buscar</button>
             </div>
             </form>
             </div>

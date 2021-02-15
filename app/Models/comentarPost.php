@@ -23,6 +23,18 @@ $conn->executeQuery('INSERT INTO comments (username, descript, likes, dateCommen
     ':IDPOST' => htmlentities($_POST['idPost'])
 ));
 
+$comments = $conn->executeQuery('SELECT comments FROM posts WHERE id = :ID', array(
+    ':ID' => htmlentities($_POST['idPost'])
+));
+
+$comments = $comments->fetch();
+$comments = intval($comments['comments']) + 1;
+
+$conn->executeQuery('UPDATE posts SET comments = :COMMENTS WHERE id = :ID', array(
+	':COMMENTS' => $comments,
+	':ID' => htmlentities($_POST['idPost'])
+));
+
 echo json_encode(array(
     'descript' => 'sucesso',
     'idPost' => htmlentities($_POST['idPost'])

@@ -91,8 +91,8 @@ class Post {
         ));
         $likes = 0;
         while ($row = $posts->fetch(PDO::FETCH_ASSOC)){
+            print_r($row);
             if ($row['likes'] >= $likes){
-                print_r($row);
                 $likes = $row['likes'];
                 $this->postSel = $row;
             }

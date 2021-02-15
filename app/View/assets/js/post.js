@@ -51,15 +51,15 @@ $(document).on('click', '.btn-comment', function(){
             },
             success:function(result){
                 //result.comentarios[][]
-                var i = 0;
+                var i = result.comentarios.length - 1;
                 
                 if(result.comentarios != null && result.comentarios != undefined){
                     while (result.comentarios[i][0] !== ""){
-                        commentArea.append(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+result.comentarios[i][0]+'</a></span>'+result.comentarios[i][1]+'</p></div><div class="a-comment">');
-                        if (i == 10){
+                        commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+result.comentarios[i][0]+'</a></span>'+result.comentarios[i][1]+'</p></div><div class="a-comment">');
+                        if (i == 0){
                             break;
                         }
-                        i++;
+                        i--;
                     }
                 }
             },

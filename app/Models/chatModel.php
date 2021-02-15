@@ -81,7 +81,9 @@ class chatModel{
 			$chatsCarregados[$j][4] = $res['visto'];
 			$chatsCarregados[$j][5] = $itsMe;
 		}
-		usort($chatsCarregados, array($this, 'date_sort'));
+		if($i != 0){
+			usort($chatsCarregados, array($this, 'date_sort'));
+		}
 		return $chatsCarregados;
 	}
 

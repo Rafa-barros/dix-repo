@@ -307,13 +307,13 @@ $(".chat-title-container").hide();
             success: function(resposta){
                 let listaContatos = $(".contato");
                 
-                $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.mensagens[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.mensagens[0]+'</span> <p class="contact-last-message">'+resposta.mensagens[1]+'</p></div></div>');
                 listaContatos.each(function(){
                     if($(this).find('.contato-name').text() == resposta.mensagens[0]){
                         $(this).remove();
-                        $(".contact-list").prepend('<div class="contato" style="background-color: rgb(245, 244, 244)">'+$(this).html()+'</div>');
+                        return false;
                     }
 		        })
+                $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.mensagens[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.mensagens[0]+'</span> <p class="contact-last-message">'+resposta.mensagens[1]+'</p></div></div>');
             }
 
         });

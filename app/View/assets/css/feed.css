@@ -176,6 +176,8 @@ nav p {
 
 #new-post {
     margin-bottom: 10px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
 }
 
 #buscar-pessoas {
@@ -183,6 +185,8 @@ nav p {
     max-height: 155px;
     min-height: unset;
     justify-content: space-between;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
 }
 
 .encontrar-pessoas-container {

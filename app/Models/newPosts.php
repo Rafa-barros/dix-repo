@@ -131,8 +131,7 @@ class Post {
                 }
             }
         }
-
-        print_r($this->postSel);
+        
         return $this->postSel;
     }
 }

@@ -49,7 +49,6 @@ class Post {
             $query = $query . ' AND NOT id = ' . $this->usersVistos[$i];
         }
         $query = $query . ' ORDER BY RAND() LIMIT 1';
-        echo $query;
         $resultIdOp = $this->conn->executeQuery($query, array(
             ':ID' => $this->idUser
         ));

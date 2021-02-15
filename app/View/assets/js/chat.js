@@ -291,21 +291,23 @@ $(".chat-title-container").hide();
     $(document).on('submit', '.new-chat-form', function(e){
         e.preventDefault();
         var newUser = $('#input-novo-contato').val();
-        $('#input-novo-contato').val(' ');
+        $('#input-novo-contato').val('');
         $('#new-chat-modal').modal('hide');
 
         $.ajax({
             url: 'app/Models/chatMgs.php', 
             method: "POST",
             data: {
-                username: newUser
+                username: newUser,
+                funcao: novoChat,
+                menssagens: ''
             },   
             dataType: "json",  
             cache: false,
             success: function(resposta){
                 let listaContatos = $(".contato");
                 
-                $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.contato[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.contato[0]+'</span> <p class="contact-last-message">'+resposta.contato[1]+'</p></div></div>'+$(this).html()+'</div>');
+                $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.menssagens[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.menssagens[0]+'</span> <p class="contact-last-message">'+resposta.menssagens[1]+'</p></div></div>'+$(this).html()+'</div>');
                 listaContatos.each(function(){
                     if($(this).find('.contato-name').text() == newUser){
                         $(this).remove();

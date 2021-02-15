@@ -33,7 +33,7 @@ $(document).on('click', '.btn-card-follow', function(){
 $(document).on('submit', '.buscar-pessoa-form', function(e){
     e.preventDefault();
     window.location.href = 'http://dix.net.br/profile/' + $('#input-novo-contato').val();
-    $('#input-novo-contato').val(' ');
+    $('#input-novo-contato').val('');
 });
 
 

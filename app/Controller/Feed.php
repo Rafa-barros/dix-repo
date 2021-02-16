@@ -23,17 +23,6 @@ class Feed {
             die();
         }*/
 
-        //Sistema de Notificações e Perfil
-        require("app/Models/loadNotificacao.php");
-        $notification = new \app\Models\Notificacao();
-        $notification->email = base64_decode($_COOKIE['cUser']);
-        $notification->getNotifications();
-        $username = $notification->getProfile();
-        $notificacoes = $notification->notificacoes;
-        $tam = $notification->qtdNotificacoes;
-        
-        echo ("<script>var dataUser =" . $notification->idUser . ";" . "</script>");
-
         require('app/View/feed/home.php');
         if (isset($_POST['enviar'])){
             require("app/Models/createPost.php");

@@ -353,7 +353,7 @@ class chatModel{
 			$cn['msg'] = htmlentities($res['msg']);
 	        if(strlen($cn['msg']) > 16){
 	            $cn['msg'] = substr($cn['msg'], 0, 15);
-	            $cn['msg'] = $cn['msg'] . '...';
+	            $cn['msg'] = $cn['msg'] . ';...';
 	        }
 			$cn['msgDate'] = $res['msgDate'];
 			echo "cn\n";

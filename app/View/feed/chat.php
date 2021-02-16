@@ -37,7 +37,7 @@
                     }
                     $lastMsg = htmlentities($chatsAbertos[$i][1]);
                     if(strlen($lastMsg) > 16){
-                        substr($lastMsg, 0, 15);
+                        $lastMsg = substr($lastMsg, 0, 15);
                         $lastMsg = $lastMsg . '...';
                     }
                     echo('<div class="contato">

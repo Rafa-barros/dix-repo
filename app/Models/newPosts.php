@@ -13,6 +13,7 @@ class Post {
     public $nameOp;
     public $userOp;
     public $liked;
+    public $postsVistosJS;
     private $imgPost;
     private $descript;
     private $likes;
@@ -28,9 +29,9 @@ class Post {
         $this->conn = new Database();
     }
 
-    public function getInfo($postsVistosJS){
+    public function getInfo(){
         if (!empty($postsVistosJS)){
-            $this->postsVistos = $postsVistosJS;
+            $this->postsVistos = implode(',', $postsVistosJS);
         }
         $this->email = base64_decode($_COOKIE['cUser']);
 
@@ -72,13 +73,10 @@ class Post {
     }
     
     public function selPost(){
-        $query = 'SELECT * FROM posts WHERE idUser = :ID AND NOT IN (';
-        foreach ($this->postsVistos as $idCancelado){
-            $query = $query . ", " . $idCancelado;
-        }
-        $query = $query . ')';
+        $query = 'SELECT * FROM posts WHERE idUser = :ID AND NOT IN (:IDCANCELADO)';
         $posts = $this->conn->executeQuery($query, array(
-            ':ID' => intval($this->idOp)
+            ':ID' => intval($this->idOp),
+            ':IDCANCELADO' => $this->postsVistos
         ));
         $likes = 0;
         if(!empty($posts)){
@@ -129,7 +127,8 @@ class Post {
 }
 
 $postObj = new Post();
-$postObj->getInfo($_POST['postsVistos']);
+$postObj->postsVistosJS = $_POST['postsVistos'];
+$postObj->getInfo();
 $postSel = $postObj->selPost();
 
 echo json_encode((array(

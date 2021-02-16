@@ -156,7 +156,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary btn-send-post-edit" name="enviar">Salvar alterações</button>
+                            <button type="submit" class="btn btn-primary btn-send-post-edit" name="enviar">Salvar alterações</button>
                         </div>
                         </div>
                     </div>

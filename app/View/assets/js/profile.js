@@ -97,22 +97,22 @@ $(document).on('click', '.btn-deletar-post', function(){
     let id = cardDel.attr('id');
     cardDel.remove();
 
-    // $.ajax({
-    // url:"app/Models/excluirPost.php",
-    // dataType: 'json',
-    // type: "POST",
-    // data: {
-    //     id: id
-    // },
-    // success:function(result){
-    //      cardDel.remove();
-    // },
-    // error:function(req, status, error){
-    //     window.alert(req);
-    //     window.alert(status);
-    //     window.alert(error);
-    // }
-    // });
+    $.ajax({
+    url:"app/Models/excluirPost.php",
+    dataType: 'json',
+    type: "POST",
+    data: {
+        id: id
+    },
+    success:function(){
+         cardDel.remove();
+    },
+    error:function(req, status, error){
+        window.alert(req);
+        window.alert(status);
+        window.alert(error);
+    }
+    });
 
     $('#modal-del-post').modal('hide');
 });

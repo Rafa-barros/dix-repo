@@ -218,7 +218,8 @@ $(".chat-title-container").hide();
                 url: 'app/Models/attChats.php', 
                 method: "POST",
                 data: {
-                    chatsCarregados: contactList
+                    chatsCarregados: contactList,
+                    newChats: [[]]
                 },   
                 dataType: "json",  
 

@@ -466,6 +466,10 @@ button:focus {
     max-width: 620px;
 }
 
+video:focus {
+    outline: none;
+}
+
 /* Card Bottom */
 
 .card-bot {

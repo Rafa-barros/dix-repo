@@ -359,10 +359,11 @@ class chatModel{
 	            $cn['msg'] = $cn['msg'] . '...';
 	        }
 			$cn['msgDate'] = $res['msgDate'];
+			print_r($cn);
+			print_r($cl);
 			for($k = 0; $k < $tam; $k++){
 				if($cl[$k]['id'] == $cn['id']){
 					$result = array_diff($cn, $cl[$k]);
-					print_r($result);
 					if(!empty($result)){
 						if($res['idUser'] == $this->userId){
 							$itsMe = 1;

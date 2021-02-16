@@ -283,6 +283,8 @@ class chatModel{
 			}else{
 				$newMsg[0] = $lastMsg['msg'];
 				$newMsg[1] = $lastMsg['msgDate'];
+				$this->idChat = $idChat;
+				$this->alterar_lido($idUser);
 				return $newMsg;
 			}
 		}else{
@@ -302,6 +304,8 @@ class chatModel{
 			}else{
 				$newMsg[0] = $lastMsg['msg'];
 				$newMsg[1] = $lastMsg['msgDate'];
+				$this->idChat = $idChat;
+				$this->alterar_lido($idUser);
 				return $newMsg;
 			}
 		}

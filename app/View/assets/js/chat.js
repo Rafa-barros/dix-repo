@@ -230,6 +230,9 @@ $(".chat-title-container").hide();
                     if(resposta.newChats != null){
                         for(var i=0; i<resposta.newChats.length; i++){
                             negrito = '';
+                            if(resposta.newChats[i][1].length > 16){
+                                resposta.newChats[i][1] = resposta.newChats[i][1].slice(0,16) + '...';
+                            }
                             $('.contato').each(function(){
                                 if($(this).find('.contato-name').text() == resposta.newChats[i][0]){
                                     $(this).remove();

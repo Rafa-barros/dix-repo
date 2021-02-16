@@ -264,34 +264,45 @@ class chatModel{
 		}
 	}
 
-	// public function verificarNewMsg($mensagem, $username, $msgDate){
-	// 	$idUser = $this->getId($username);
-	// 	$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :IDUSER AND idUser2 = :IDUSER2', array(
-	// 		':IDUSER' => $this->userId,
-	// 		':IDUSER2' => $idUser
-	// 	));
-	// 	$result = $result->fetch();
-	// 	if(!empty($result)){
-	// 		$idChat = $result['id'];
-	// 		$lastMsg = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID AND idUser = :IDUSER DESC', array(
-	// 			':ID' => $idChat,
-	// 			':IDUSER' => $idUser
-	// 		));
-	// 		if($lastMsg['msg'] == $mensagem && $lastMsg['idUser'] == $id && $lastMsg['msgDate'] == $msgDate){
-	// 			return 0;
-	// 		}else{
-	// 			$newMsg[0] = $lastMsg['msg'];
-	// 		}
-	// 	}else{
-	// 		$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :IDUSER AND idUser2 = :IDUSER2', array(
-	// 			':IDUSER' => $idUser,
-	// 			':IDUSER2' => $this->userId
-	// 		));
-	// 		$result = $result->fetch();
-	// 		if(!empty($result)){
-
-	// 		}
-	// 	}
-	// }
+	public function verificarNewMsg($mensagem, $username, $msgDate){
+		$idUser = $this->getId($username);
+		$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :IDUSER AND idUser2 = :IDUSER2', array(
+			':IDUSER' => $this->userId,
+			':IDUSER2' => $idUser
+		));
+		$result = $result->fetch();
+		if(!empty($result)){
+			$idChat = $result['id'];
+			$lastMsg = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID AND idUser = :IDUSER DESC', array(
+				':ID' => $idChat,
+				':IDUSER' => $idUser
+			));
+			if($lastMsg['msg'] == $mensagem && $lastMsg['msgDate'] == $msgDate){
+				return 0;
+			}else{
+				$newMsg[0] = $lastMsg['msg'];
+				$newMsg[1] = $lastMsg['msgDate'];
+				return $newMsg;
+			}
+		}else{
+			$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :IDUSER AND idUser2 = :IDUSER2', array(
+				':IDUSER' => $idUser,
+				':IDUSER2' => $this->userId
+			));
+			$result = $result->fetch();
+			$idChat = $result['id'];
+			$lastMsg = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID AND idUser = :IDUSER DESC', array(
+				':ID' => $idChat,
+				':IDUSER' => $idUser
+			));
+			if($lastMsg['msg'] == $mensagem && $lastMsg['msgDate'] == $msgDate){
+				return 0;
+			}else{
+				$newMsg[0] = $lastMsg['msg'];
+				$newMsg[1] = $lastMsg['msgDate'];
+				return $newMsg;
+			}
+		}
+	}
 
 }

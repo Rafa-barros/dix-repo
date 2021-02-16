@@ -164,8 +164,8 @@ $(".chat-title-container").hide();
                         //[0] mensagem
                         //[1] Tempo
                 
-                        let msgTime = separaTempo(resposta.newMsg[1])
                         if(resposta.newMsg != "" && resposta.newMsg != undefined && resposta.newMsg != 0 && resposta.newMsg != null){
+                            let msgTime = separaTempo(resposta.newMsg[1])
                             $(".chat-messages").append(' <div class="your-message"> <div class="message-content"> <span>'+htmlEntities(resposta.newMsg[0])+'</span> <div class="time" id="' +resposta.newMsg[1].replace(' ','/')+'" > '+ msgTime +' </div></div></div>');
                         }
                     }

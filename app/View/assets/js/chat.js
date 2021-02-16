@@ -226,7 +226,7 @@ $(".chat-title-container").hide();
                 success: function(resposta){
 
 
-                    if(resposta.novoContato.length > 0){
+                    if(resposta.newChats.length > 0){
                         for(var i=0; i<resposta.newChats.length; i++){
                             $('.contato').each(function(){
                                 if($(this).find('.contato-name').text() == resposta.newChats[i][0]){

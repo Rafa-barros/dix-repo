@@ -359,7 +359,9 @@ class chatModel{
 	            $cn['msg'] = $cn['msg'] . '...';
 	        }
 			$cn['msgDate'] = $res['msgDate'];
+			echo "cn<br>";
 			print_r($cn);
+			echo "cl<br>";
 			print_r($cl);
 			for($k = 0; $k < $tam; $k++){
 				if($cl[$k]['id'] == $cn['id']){

@@ -40,19 +40,33 @@ $(document).on('click', '.btn-card-follow', follow);
 
 function follow() {
     let thiss =  $(".btn-profile-follow");
-    if(!thiss.hasClass('seguindo')){
-        let nfollowers = $(".nfollowers").text();
-        thiss.css("background-color", "rgb(57, 132, 218)").css("color", "white").html('Seguindo <i class="fas fa-check check-follow-profile"></i>').addClass('seguindo');
-        $(".btn-card-follow").css("background-color", "rgb(45, 81, 122))").html('Seguindo <i style="margin-left:6px;" class="fas fa-check"></i>');
-        $(".nfollowers").text((parseInt(nfollowers)+ 1).toString() );
-    }
-    
-    else {
-        let nfollowers = $(".nfollowers").text();
-        thiss.css("background-color", "transparent").css("color", "rgb(57, 132, 218)").text("Seguir").removeClass('seguindo');
-        $(".btn-card-follow").css("background-color", "rgb(45, 81, 122))").html('seguir');
-        $(".nfollowers").text((parseInt(nfollowers)- 1).toString() );
-    }
+    let profuser = window.location.href.split('/')[4];
+
+    $.ajax({
+        url: 'app/Models/follow.php', 
+        dataType: 'json',
+        type: "POST",   
+        data: {username: profuser},     
+        cache: false,
+        success: function(){
+
+            if(!thiss.hasClass('seguindo')){
+                let nfollowers = $(".nfollowers").text();
+                thiss.css("background-color", "rgb(57, 132, 218)").css("color", "white").html('Seguindo <i class="fas fa-check check-follow-profile"></i>').addClass('seguindo');
+                $(".btn-card-follow").css("background-color", "rgb(45, 81, 122))").html('Seguindo <i style="margin-left:6px;" class="fas fa-check"></i>');
+                $(".nfollowers").text((parseInt(nfollowers)+ 1).toString() );
+            }
+            
+            else {
+                let nfollowers = $(".nfollowers").text();
+                thiss.css("background-color", "transparent").css("color", "rgb(57, 132, 218)").text("Seguir").removeClass('seguindo');
+                $(".btn-card-follow").css("background-color", "rgb(45, 81, 122))").html('seguir');
+                $(".nfollowers").text((parseInt(nfollowers)- 1).toString() );
+            }
+        }           
+    });   
+
+
 }
 
 postEditado = "";

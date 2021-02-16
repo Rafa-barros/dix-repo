@@ -72,10 +72,9 @@ class Post {
     }
     
     public function selPost(){
-        $tam = count($this->postsVistos);
         $query = 'SELECT * FROM posts WHERE idUser = :ID';
-        for ($i=0;$i<$tam;$i++){
-            $query = $query . ' AND NOT id = ' . intval($this->postsVistos[$i]);
+        foreach ($this->postsVistos as $idCancelado){
+            $query = ($query . ' AND NOT id = ' . $idCancelado);
         }
         $posts = $this->conn->executeQuery($query, array(
             ':ID' => intval($this->idOp)

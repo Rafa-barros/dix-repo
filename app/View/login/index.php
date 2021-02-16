@@ -13,7 +13,7 @@
                     </div>
                     <?php
 	                  if(isset($_SESSION['LoginFailed'])){
-	                    echo '<div style="color: "rgb(183, 9, 9); margin-bottom: 12px; margin-top: -20px">O Credenciais invalidas!</div>';
+	                    echo '<div style="color: rgb(183, 9, 9); margin-bottom: 12px; margin-top: -20px">Credenciais invalidas!</div>';
 	                    unset($_SESSION['LoginFailed']);
 	                  }
 	                ?>

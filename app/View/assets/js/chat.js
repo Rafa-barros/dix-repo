@@ -286,6 +286,10 @@ $(".chat-title-container").hide();
 
     });
 
+    $(document).on('click', '.tentarNovamente', function(){
+        $('.modal-footer').html('<button type="submit" class="btn btn-primary new-chat-btn">Entrar em contato</button>');
+        $('.modal-body').html(' <div class="input-group mb-2 mt-2"> <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">@</span> </div><input type="text" id="input-novo-contato" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"> </div>');
+    });
 
     //adicionar novo contato
     $(document).on('submit', '.new-chat-form', function(e){
@@ -311,12 +315,7 @@ $(".chat-title-container").hide();
                         $('#new-chat-modal').modal('show');
                     }, 1000);
                     $('.modal-body').html('<span>Contato não encontrado...</span>');
-                    $('.modal-footer').html('<button type="button" class="btn btn-primary new-chat-btn">Tentar novamente</button>');
-                    $('.new-chat-form').replaceTag('div', false);
-                    $('.new-chat-btn').unbind().click( function(){
-                        $(this).unbind().text('Entrar em contato').attr('type','submit');
-                        $('.modal-body').html(' <div class="input-group mb-2 mt-2"> <div class="input-group-prepend"> <span class="input-group-text" id="basic-addon1">@</span> </div><input type="text" id="input-novo-contato" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1"> </div>');
-                    });
+                    $('.modal-footer').html('<div class="btn btn-primary tentarNovamente">Tentar novamente</div>');
                 }
                 else{
                     let listaContatos = $(".contato");

@@ -353,7 +353,11 @@ class chatModel{
 			$res = $res->fetch();
 			$cn['id'] = $res['id'];
 			$cn['idUser'] = $res['idUser'];
-			$cn['msg'] = $res['msg'];
+			$cn['msg'] = htmlentities($res['msg']);
+	        if(strlen($cn['msg']) > 16){
+	            $cn['msg'] = substr($cn['msg'], 0, 15);
+	            $cn['msg'] = $cn['msg'] . '...';
+	        }
 			$cn['msgDate'] = $res['msgDate'];
 			for($k = 0; $k < $tam; $k++){
 				if($cl[$k]['id'] == $cn['id']){

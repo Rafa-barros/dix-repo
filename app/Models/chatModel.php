@@ -349,7 +349,7 @@ class chatModel{
 				':ID' => $chats[$j]['id']
 			));
 			$res = $res->fetch();
-			$cn['idUser'] = $res['idUser'];
+			$cn['id'] = $res['id'];
 			$cn['msg'] = htmlentities($res['msg']);
 	        if(strlen($cn['msg']) > 16){
 	            $cn['msg'] = substr($cn['msg'], 0, 15);

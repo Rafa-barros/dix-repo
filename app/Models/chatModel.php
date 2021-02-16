@@ -327,8 +327,7 @@ class chatModel{
 			$result = $result->fetch();
 			if(!empty($result)){
 				$cl[$j]['id'] = $result['id'];
-				$cl[$j]['idUser'] = $id;
-				$cl[$j]['msg'] = $chatsLidos[$j][1];
+				$cl[$j]['msg'] = htmlentities($chatsLidos[$j][1]);
 				$cl[$j]['msgDate'] = str_replace('/', ' ', $chatsLidos[$j][2]);
 			}else{
 				$result = $this->conn->executeQuery('SELECT * FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
@@ -337,8 +336,7 @@ class chatModel{
 				));
 				$result = $result->fetch();
 				$cl[$j]['id'] = $result['id'];
-				$cl[$j]['idUser'] = $id;
-				$cl[$j]['msg'] = $chatsLidos[$j][1];
+				$cl[$j]['msg'] = htmlentities($chatsLidos[$j][1]);
 				$cl[$j]['msgDate'] = str_replace('/', ' ', $chatsLidos[$j][2]);
 			}
 		}
@@ -351,7 +349,6 @@ class chatModel{
 				':ID' => $chats[$j]['id']
 			));
 			$res = $res->fetch();
-			$cn['id'] = $res['id'];
 			$cn['idUser'] = $res['idUser'];
 			$cn['msg'] = htmlentities($res['msg']);
 	        if(strlen($cn['msg']) > 16){

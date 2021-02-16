@@ -279,7 +279,8 @@ class chatModel{
 			));
 			$lastMsg = $lastMsg->fetch();
 			if($lastMsg['msg'] == $mensagem && $lastMsg['msgDate'] == $msgDate){
-				return 0;
+				$newMsg[0] = 0;
+				return $newMsg;
 			}else{
 				$newMsg[0] = $lastMsg['msg'];
 				$newMsg[1] = $lastMsg['msgDate'];
@@ -298,7 +299,8 @@ class chatModel{
 			));
 			$lastMsg = $lastMsg->fetch();
 			if($lastMsg['msg'] == $mensagem && $lastMsg['msgDate'] == $msgDate){
-				return 0;
+				$newMsg[0] = 0;
+				return $newMsg;
 			}else{
 				$newMsg[0] = $lastMsg['msg'];
 				$newMsg[1] = $lastMsg['msgDate'];

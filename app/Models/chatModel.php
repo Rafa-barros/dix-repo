@@ -318,7 +318,7 @@ class chatModel{
 		}
 		$diff = 0;
 		$tam = count($chatsLidos);
-		for($j = 0; $j < $tam; $j++){
+		for($j = 0; $j <= $tam; $j++){
 			$id = $this->getId($chatsLidos[$j][0]);
 			$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
 				':ID' => $this->userId,
@@ -342,7 +342,7 @@ class chatModel{
 				$cl[$j]['msgDate'] = str_replace('/', ' ', $chatsLidos[$j][2]);
 			}
 		}
-		if($tam < $i){
+		if(($tam - 1) < $i){
 			$diff = $i - $tam;
 		}
 		$n = 0;

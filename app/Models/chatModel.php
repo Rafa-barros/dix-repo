@@ -353,7 +353,11 @@ class chatModel{
 			$res = $res->fetch();
 			$cn['id'] = $res['id'];
 			$cn['idUser'] = $res['idUser'];
-			$cn['msg'] = $res['msg'];
+			$cn['msg'] = htmlentities($res['msg']);
+	        if(strlen($cn['msg']) > 16){
+	            $cn['msg'] = substr($cn['msg'], 0, 15);
+	            $cn['msg'] = $cn['msg'] . '...';
+	        }
 			$cn['msgDate'] = $res['msgDate'];
 			for($k = 0; $k < $tam; $k++){
 				if($cl[$k]['id'] == $cn['id']){
@@ -374,11 +378,7 @@ class chatModel{
 							$userImg = $data['imgUser'];
 						}
 						$newMsg[$n][0] = $username;
-						$newMsg[$n][1] = htmlentities($res['msg']);
-	                    if(strlen($newMsg[$n][1]) > 16){
-	                        $newMsg[$n][1] = substr($newMsg[$n][1], 0, 15);
-	                        $newMsg[$n][1] = $newMsg[$n][1] . '...';
-	                    }
+						$newMsg[$n][1] = $res['msg'];
 						$newMsg[$n][2] = $userImg;
 						$newMsg[$n][3] = $res['msgDate'];
 						$newMsg[$n][4] = $res['visto'];
@@ -401,11 +401,7 @@ class chatModel{
 						$userImg = $data['imgUser'];
 					}
 					$newMsg[$n][0] = $username;
-					$newMsg[$n][1] = htmlentities($res['msg']);
-	                if(strlen($newMsg[$n][1]) > 16){
-	                    $newMsg[$n][1] = substr($newMsg[$n][1], 0, 15);
-	                    $newMsg[$n][1] = $newMsg[$n][1] . '...';
-	                }
+					$newMsg[$n][1] = $res['msg'];
 					$newMsg[$n][2] = $userImg;
 					$newMsg[$n][3] = $res['msgDate'];
 					$newMsg[$n][4] = $res['visto'];

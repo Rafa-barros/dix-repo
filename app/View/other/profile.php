@@ -136,11 +136,11 @@
                                 <div class="description mb-3" style="padding-left:0">
                                     <textarea type="text" class="form-control new-post-description" id="validationDefault01" placeholder="Escreva a descrição aqui..." name="descriptPost"></textarea>
                                 </div>
-                                <div class="d-flex">
+                                <!-- <div class="d-flex">
                                     <i class="fas fa-images"></i>
                                     <label class="upload-label mb-2" for="upload">Foto</label>
                                     <input type="file" name="arquivo" id="upload" />
-                                </div>
+                                </div> -->
                                 <div class="price-btn mb-3">
                                     <input type="radio" id="pago" name="postLiberado" value="0">
                                     <label for="pago">pago</label>
@@ -156,7 +156,7 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary" name="enviar">Salvar alterações</button>
+                            <button type="submit" class="btn btn-primary btn-send-post-edit" name="enviar">Salvar alterações</button>
                         </div>
                         </div>
                     </div>

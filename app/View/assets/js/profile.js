@@ -55,30 +55,34 @@ function follow() {
     }
 }
 
-var postEditado = "";
+postEditado = "";
 
 $(document).on('click', '.edit-post-drop', function(){
-    let card = $(this).closest('.card');
-    let cardId = card.attr('id');
+    postEditado = $(this).closest('.card');
+});
+
+$(document).on('click', '.btn-send-post-edit', function(){
+    let cardId = postEditado.attr('id');
+    let pago = $('input:checked').val();
+    let editPostDescrption = $('.new-post-description').val();
+    let editPostPrice = $('.post-price').val();
     
-    //$.ajax({
-    // url:"app/Models/editarPost.php",
-    // dataType: 'json',
-    // type: "POST",
-    // data: {
-    //     id: cardId,
-    //     descript: "",
-    //     viewAuth: 0
-    // },
-    // success:function(result){
-    //     //Result.id
-    // },
-    // error:function(req, status, error){
-    //     window.alert(req);
-    //     window.alert(status);
-    //     window.alert(error);
-    // }
-    // });
+    $.ajax({
+        url: 'app/Models/editarPost.php', 
+        dataType: 'json',
+        type: "POST",   
+        data: {
+            id: cardId, 
+            descript: editPostDescrption, 
+            viewAuth: pago, 
+            price: editPostPrice
+        },     
+        cache: false,
+        success: function(){
+            window.Location.reload();
+        }
+                
+    });   
 
 });
 

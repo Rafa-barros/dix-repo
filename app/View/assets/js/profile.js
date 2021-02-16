@@ -43,7 +43,7 @@ function follow() {
     let profuser = window.location.href.split('/')[4];
 
     $.ajax({
-        url: 'app/Models/follow.php', 
+        url: '../app/Models/follow.php', 
         dataType: 'json',
         type: "POST",   
         data: {username: profuser},     
@@ -80,7 +80,7 @@ $(document).on('click', '.btn-send-post-edit', function(){
     let editPostPrice = $('.post-price').val();
     
     $.ajax({
-        url: 'app/Models/editarPost.php', 
+        url: '../app/Models/editarPost.php', 
         dataType: 'json',
         type: "POST",   
         data: {
@@ -110,7 +110,7 @@ $(document).on('click', '.btn-deletar-post', function(){
     cardDel.remove();
 
     $.ajax({
-    url:"app/Models/excluirPost.php",
+    url:"../app/Models/excluirPost.php",
     dataType: 'json',
     type: "POST",
     data: {

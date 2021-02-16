@@ -158,7 +158,7 @@ $(".chat-title-container").hide();
                         msgDate: lastDate.replace('/',' '),
                         newMsg: []
                     },   
-                    // dataType: "json",  
+                     dataType: "json",  
                     cache: false,
                     success: function(resposta){
                         //[0] mensagem

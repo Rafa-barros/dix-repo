@@ -17,7 +17,7 @@
                         unset($_SESSION['LoginFailed']);
                       }
                     ?>
-                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Nome de usuário ou e-mail" name="email" required>
+                    <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email" required>
                   </div>
                   <div class="form-group" style="margin-bottom: 14px;">
                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Senha" name="pwd" required> 

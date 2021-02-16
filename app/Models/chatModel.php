@@ -277,6 +277,7 @@ class chatModel{
 				':ID' => $idChat,
 				':IDUSER' => $idUser
 			));
+			$lastMsg = $lastMsg->fetch();
 			if($lastMsg['msg'] == $mensagem && $lastMsg['msgDate'] == $msgDate){
 				return 0;
 			}else{
@@ -295,6 +296,7 @@ class chatModel{
 				':ID' => $idChat,
 				':IDUSER' => $idUser
 			));
+			$lastMsg = $lastMsg->fetch();
 			if($lastMsg['msg'] == $mensagem && $lastMsg['msgDate'] == $msgDate){
 				return 0;
 			}else{

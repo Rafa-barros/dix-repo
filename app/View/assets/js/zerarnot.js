@@ -1,5 +1,5 @@
 
-$('.dropdown-toggle').click(function(){
+$('.btn-notificacao').click(function(){
     $(this).find('.badge-danger').text('0');
     $.ajax({
         url:"app/Models/zerarNotificacoes.php",

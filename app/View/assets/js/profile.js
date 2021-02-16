@@ -79,7 +79,7 @@ $(document).on('click', '.btn-send-post-edit', function(){
         },     
         cache: false,
         success: function(){
-            window.Location.reload();
+            //window.Location.reload();
         }
                 
     });   

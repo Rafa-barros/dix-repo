@@ -142,9 +142,9 @@
                                     <input type="file" name="arquivo" id="upload" />
                                 </div> -->
                                 <div class="price-btn mb-3">
-                                    <input type="radio" id="pago" name="postLiberado" value="0">
+                                    <input type="radio" id="pago" name="postLiberado" value="1">
                                     <label for="pago">pago</label>
-                                    <input type="radio" id="publico" name="postLiberado" value="1" >
+                                    <input type="radio" id="publico" name="postLiberado" value="0" >
                                     <label for="publico">público</label>
                                 </div>
                                 <div class="input-group mb-3">

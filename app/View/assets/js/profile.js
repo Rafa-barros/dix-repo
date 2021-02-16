@@ -74,8 +74,8 @@ $(document).on('click', '.btn-send-post-edit', function(){
         data: {
             id: cardId, 
             descript: editPostDescrption, 
+            price: editPostPrice,
             viewAuth: pago, 
-            price: editPostPrice
         },     
         cache: false,
         success: function(){

@@ -14,8 +14,7 @@
                     <?php
 	                  if(isset($_SESSION['LoginFailed'])){
 	                    echo "O login falhou!";
-	                 	print_r($_SESSION['LoginFailed']);
-	                    unset($_SESSION['LoginFailed']);
+	                    echo(unset($_SESSION['LoginFailed']));
 	                  }
 	                ?>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email" required>

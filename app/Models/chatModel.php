@@ -273,7 +273,7 @@ class chatModel{
 		$result = $result->fetch();
 		if(!empty($result)){
 			$idChat = $result['id'];
-			$lastMsg = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID AND idUser = :IDUSER DESC', array(
+			$lastMsg = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID AND idUser = :IDUSER ORDER BY msgDate DESC', array(
 				':ID' => $idChat,
 				':IDUSER' => $idUser
 			));
@@ -291,7 +291,7 @@ class chatModel{
 			));
 			$result = $result->fetch();
 			$idChat = $result['id'];
-			$lastMsg = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID AND idUser = :IDUSER DESC', array(
+			$lastMsg = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID AND idUser = :IDUSER ORDER BY msgDate DESC', array(
 				':ID' => $idChat,
 				':IDUSER' => $idUser
 			));
@@ -303,6 +303,84 @@ class chatModel{
 				return $newMsg;
 			}
 		}
+	}
+
+	public function attContatos($chatsLidos){
+		$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID OR idUser2 = :ID', array(
+			':ID' => $this->userId
+		));
+		$i = 0;
+		while($row = $result->fetch()){
+			$chats[$i] = $result['id'];
+			$i++;
+		}
+		$diff = 0;
+		$tam = count($chatsLidos);
+		if($tam < $i){
+			$diff = $i - $tam;
+		}
+		$n = 0;
+		for($j = 0; $j < $i; $j++){
+			$res = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate DESC', array(
+				':ID' => $chats[$j]['id']
+			));
+			$res = $res->fetch();
+			for($k = 0; $k < $tam; $k++){
+				if($chatsLidos[$k]['id'] == $res['id']){
+					$result = array_diff($res, $chatsLidos[$k]);
+					if(!empty($result)){
+						if($res['idUser'] == $this->userId){
+							$itsMe = 1;
+						}else{
+							$itsMe = 0;
+						}
+						if($chats[$j]['idUser'] == $this->userId){
+							$data = $this->getUserData($chats[$j]['idUser2']);
+							$username = $data['username'];
+							$userImg = $data['imgUser'];
+						}else{
+							$data = $this->getUserData($chats[$j]['idUser']);
+							$username = $data['username'];
+							$userImg = $data['imgUser'];
+						}
+						$newMsg[$n][0] = $username;
+						$newMsg[$n][1] = $res['msg'];
+						$newMsg[$n][2] = $userImg;
+						$newMsg[$n][3] = $res['msgDate'];
+						$newMsg[$n][4] = $res['visto'];
+						$newMsg[$n][5] = $itsMe;
+						$n++;
+					}
+				}else if($k == ($tam - 1) && $diff != 0){
+					if($res['idUser'] == $this->userId){
+						$itsMe = 1;
+					}else{
+						$itsMe = 0;
+					}
+					if($chats[$j]['idUser'] == $this->userId){
+						$data = $this->getUserData($chats[$j]['idUser2']);
+						$username = $data['username'];
+						$userImg = $data['imgUser'];
+					}else{
+						$data = $this->getUserData($chats[$j]['idUser']);
+						$username = $data['username'];
+						$userImg = $data['imgUser'];
+					}
+					$newMsg[$n][0] = $username;
+					$newMsg[$n][1] = $res['msg'];
+					$newMsg[$n][2] = $userImg;
+					$newMsg[$n][3] = $res['msgDate'];
+					$newMsg[$n][4] = $res['visto'];
+					$newMsg[$n][5] = $itsMe;
+					$n++;
+				}
+			}
+		}
+		if($n != 0){
+			usort($newMsg, array($this, 'date_sort'));
+		}
+		
+		return $newMsg;
 	}
 
 }

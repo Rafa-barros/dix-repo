@@ -308,7 +308,7 @@ class chatModel{
 	}
 
 	public function attContatos($chatsLidos){
-		$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID OR idUser2 = :ID', array(
+		$result = $this->conn->executeQuery('SELECT * FROM chats WHERE idUser = :ID OR idUser2 = :ID', array(
 			':ID' => $this->userId
 		));
 		$i = 0;
@@ -320,7 +320,7 @@ class chatModel{
 		$tam = count($chatsLidos);
 		for($j = 0; $j <= $tam; $j++){
 			$id = $this->getId($chatsLidos[$j][0]);
-			$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
+			$result = $this->conn->executeQuery('SELECT * FROM chats WHERE idUser = :ID AND idUser2 = :ID2', array(
 				':ID' => $this->userId,
 				':ID2' => $id
 			));
@@ -359,7 +359,7 @@ class chatModel{
 	            $cn['msg'] = $cn['msg'] . '...';
 	        }
 			$cn['msgDate'] = $res['msgDate'];
-			for($k = 0; $k < $tam; $k++){
+			for($k = 0; $k <= $tam; $k++){
 				if($cl[$k]['id'] == $cn['id']){
 					$result = array_diff($cn, $cl[$k]);
 					if(!empty($result)){

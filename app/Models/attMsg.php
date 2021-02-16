@@ -8,7 +8,7 @@ use PDO;
 
 require "../../vendor/autoload.php";
 $chatMsg = new chatModel();
-$result = $chatMsg->verificarNewMsg($_POST['mensagem'], $_POST['username'], $_POST['msgDate'])
+$result = $chatMsg->verificarNewMsg($_POST['mensagem'], $_POST['username'], $_POST['msgDate']);
 
 echo json_encode((array(
     'username' => "",

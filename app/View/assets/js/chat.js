@@ -225,15 +225,20 @@ $(".chat-title-container").hide();
 
                 cache: false,
                 success: function(resposta){
+                    let negrito = '';
 
                     if(resposta.newChats != null){
                         for(var i=0; i<resposta.newChats.length; i++){
+                            negrito = '';
                             $('.contato').each(function(){
                                 if($(this).find('.contato-name').text() == resposta.newChats[i][0]){
                                     $(this).remove();
                                 }
                             });
-                            $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.newChats[i][2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name" style="color: rgb(0, 0, 0); font-weight:500;">'+resposta.newChats[i][0]+'</span> <p class="contact-last-message" id="'+resposta.newChats[3].replace(' ', '/')+'" style="color: rgb(0, 0, 0); font-weight:500;" >'+resposta.newChats[i][1]+'</p></div></div>');
+                            if(resposta.newChats[i][4] == 0 && resposta.newChats[i][4] == 0) negrito = 'naolido'
+                            
+                            $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.newChats[i][2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name '+ negrito +'" style="color: rgb(0, 0, 0); font-weight:500;">'+resposta.newChats[i][0]+'</span> <p class="contact-last-message '+negrito+'" id="'+resposta.newChats[3].replace(' ', '/')+'" style="color: rgb(0, 0, 0); font-weight:500;" >'+resposta.newChats[i][1]+'</p></div></div>');
+
                         }
                     }
                 }

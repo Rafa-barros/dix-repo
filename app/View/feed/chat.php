@@ -35,11 +35,16 @@
                     if($chatsAbertos[$i][4] == 0 && $chatsAbertos[$i][5] == 0){
                         $naoLido = 'naolido';
                     }
+                    $lastMsg = htmlentities($chatsAbertos[$i][1]);
+                    if(strlen($lastMsg) > 16){
+                        substr($lastMsg, 0, 15);
+                        $lastMsg = $lastMsg . '...';
+                    }
                     echo('<div class="contato">
                             <img class="foto-contato" src="' . $chatsAbertos[$i][2] . '" alt="foto de perfil">
                             <div class="contato-info">
                                 <span class="contato-name ' . $naoLido . '">' . $chatsAbertos[$i][0] . '</span>
-                                <p class="contact-last-message ' . $naoLido . '">' . htmlentities($chatsAbertos[$i][1]) . '</p>
+                                <p class="contact-last-message ' . $naoLido . '">' . $lastMsg . '</p>
                             </div>
                         </div>');
                 }

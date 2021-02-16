@@ -30,8 +30,8 @@ class Post {
     }
 
     public function getInfo(){
-        if (!empty($postsVistosJS)){
-            $this->postsVistos = implode(',', $postsVistosJS);
+        if (!empty($this->postsVistosJS)){
+            $this->postsVistos = implode(',', $this->postsVistosJS);
         }
         $this->email = base64_decode($_COOKIE['cUser']);
 

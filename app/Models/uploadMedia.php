@@ -12,7 +12,7 @@ class uploadMedia{
 	private $conn;
 
 	private function getUserId(){
-		$this->email = $_COOKIE['cUser'];
+		$this->email = base64_decode($_COOKIE['cUser']);
 		$result = $this->conn->executeQuery('SELECT id, posts FROM users WHERE email = :EMAIL', array(
 			':EMAIL' => $this->email
 		));

@@ -12,7 +12,7 @@
                       <h2>Entrar</h2>
                     </div>
                     <?php
-	                  if(isset($_SESSION['LoginFailed']) && $_SESSION['LoginFailed'] == TRUE){
+	                  if(isset($_SESSION['LoginFailed'])){
 	                    echo "O login falhou!";
 	                    unset($_SESSION['LoginFailed']);
 	                  }

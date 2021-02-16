@@ -198,7 +198,8 @@ $(".chat-title-container").hide();
 
         var contactList = [[]];
         var atualizaContatos = setInterval(function(){
-
+            contactList = [[]];
+            
             //atualiza lista contatos
             $('.contato-info').each(function(){
                 let nomeContato = $(this).find('.contato-name');

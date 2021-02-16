@@ -8,6 +8,7 @@ use PDO;
 class Notificacao {
 	public $email;
 	public $qtdNotificacoes;
+	public $notificacoesNovas;
 	public $notificacoes;
 	public $idUser;
 	private $conn;
@@ -29,12 +30,14 @@ class Notificacao {
 			':ID' => $this->idUser
 		));
         $this->qtdNotificacoes = 0;
+		$this->notificacoesNovas = 0;
         if(!empty($resultNot)){
 	        while ($row = $resultNot->fetch(PDO::FETCH_ASSOC)){
 	            $this->notificacoes[$this->qtdNotificacoes] = $row;
 				if ($row['jaVisto'] == 0){
-					$this->qtdNotificacoes++;
+					$this->notificacoesNovas++;
 				}
+				$this->qtdNotificacoes++;
 	        }
     	}
 	}

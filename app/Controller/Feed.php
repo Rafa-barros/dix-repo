@@ -30,6 +30,7 @@ class Feed {
         $notification->getNotifications();
         $username = $notification->getProfile();
         $notificacoes = $notification->notificacoes;
+        $tamNovas = $notification->notificacoesNovas;
         $tam = $notification->qtdNotificacoes;
         
         echo ("<script>var dataUser =" . $notification->idUser . ";" . "</script>");

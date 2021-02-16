@@ -131,7 +131,7 @@ $(".chat-title-container").hide();
                         $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time" id="' +chat[i][2].replace(' ','/')+'"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
                     }
                 }
-
+                $('.chat-messages').scrollTop(1000000);
             }
         });
 
@@ -167,6 +167,7 @@ $(".chat-title-container").hide();
                         if(resposta.newMsg != null){
                             let msgTime = separaTempo(resposta.newMsg[1])
                             $(".chat-messages").append(' <div class="your-message"> <div class="message-content"> <span>'+htmlEntities(resposta.newMsg[0])+'</span> <div class="time" id="' +resposta.newMsg[1].replace(' ','/')+'" > '+ msgTime +' </div></div></div>');
+                            $('.chat-messages').scrollTop(1000000);
                         }
                     }
                 });

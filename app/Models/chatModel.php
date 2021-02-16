@@ -342,7 +342,7 @@ class chatModel{
 				$cl[$j]['msgDate'] = str_replace('/', ' ', $chatsLidos[$j][2]);
 			}
 		}
-		if(($tam - 1) < $i){
+		if($tam < $i){
 			$diff = $i - $tam;
 		}
 		$n = 0;
@@ -359,7 +359,7 @@ class chatModel{
 	            $cn['msg'] = $cn['msg'] . '...';
 	        }
 			$cn['msgDate'] = $res['msgDate'];
-			for($k = 0; $k < $tam; $k++){
+			for($k = 0; $k <= $tam; $k++){
 				if($cl[$k]['id'] == $cn['id']){
 					$result = array_diff($cn, $cl[$k]);
 					if(!empty($result)){
@@ -385,7 +385,7 @@ class chatModel{
 						$newMsg[$n][5] = $itsMe;
 						$n++;
 					}
-				}else if($k == ($tam - 1) && $diff != 0){
+				}else if($k == $tam && $diff != 0){
 					if($res['idUser'] == $this->userId){
 						$itsMe = 1;
 					}else{

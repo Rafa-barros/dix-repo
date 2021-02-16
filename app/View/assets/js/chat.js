@@ -156,7 +156,7 @@ $(".chat-title-container").hide();
                         username: targetUser,
                         mensagem: lastmsg,
                         msgDate: lastDate,
-                        newMsg = []
+                        newMsg: []
                     },   
                     // dataType: "json",  
                     cache: false,

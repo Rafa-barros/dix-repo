@@ -39,8 +39,8 @@ class Pagamento {
             }
 
             //Checa se o usuário tem um cartão salvo
-            $resultSaved = $conn->executeQuery('SELECT holder FROM cartoes WHERE email = :EMAIL', array(
-                ':EMAIL' => (htmlentities($_POST['cUser']))
+            $resultSaved = $conn->executeQuery('SELECT holder FROM cartoes WHERE emailOwner = :EMAIL', array(
+                ':EMAIL' => base64_decode($_COOKIE['cUser'])
             ));
             $resultSaved = $resultSaved->fetch();
 

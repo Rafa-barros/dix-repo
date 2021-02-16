@@ -357,7 +357,7 @@ class chatModel{
 	            $cn['msg'] = substr($cn['msg'], 0, 15);
 	            $cn['msg'] = $cn['msg'] . '...';
 	        }
-	        $cn['msg'] = html_entity_decode($cn['msg'])
+	        $cn['msg'] = html_entity_decode($cn['msg']);
 			$cn['msgDate'] = $res['msgDate'];
 			echo "cl\n";
 			print_r($cl);

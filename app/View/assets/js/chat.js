@@ -22,7 +22,7 @@ if(window.location.href.split('username=')[1] != undefined){
                     return false;
                 }
             })
-            $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.mensagens[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.mensagens[0]+'</span> <p class="contact-last-message">'+resposta.mensagens[1]+'</p></div></div>');
+            $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.mensagens[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.mensagens[0]+'</span> <p class="contact-last-message" id="'+resposta.mensagens[3].replace(' ', '/')+'">'+resposta.mensagens[1]+'</p></div></div>');
             
         }
 
@@ -196,49 +196,48 @@ $(".chat-title-container").hide();
 
     $('.contact-list').ready(function(){
 
-        var naolidos = [];
+        var contactList = [[]];
         var atualizaContatos = setInterval(function(){
 
             //atualiza lista contatos
             $('.contato-info').each(function(){
                 let nomeContato = $(this).find('.contato-name');
-                if(nomeContato.css('font-weight') == '500'){
-                    if(naolidos.indexOf(nomeContato.text()) == -1) {
-                        naolidos.push(nomeContato.text());
+                let lastmsg = $(this).find('.contact-last-message').text();
+                let time = $(this).find('.contact-last-message').attr('id');
+
+                let contato = [nomeContato, lastmsg, time];
+                contactList.push(contato);
+            });
+
+            console.log(contactList);
+
+            //envia lista e recebe novos contatos
+        
+            $.ajax({
+                url: 'app/Models/attChats.php', 
+                method: "POST",
+                data: {
+                    chatsCarregados: contactList,
+                },   
+                dataType: "json",  
+
+                cache: false,
+                success: function(resposta){
+
+
+                    if(resposta.novoContato.length > 0){
+                        for(var i=0; i<resposta.newChats.length; i++){
+                            $('.contato').each(function(){
+                                if($(this).find('.contato-name').text() == resposta.newChats[i][0]){
+                                    $(this).remove();
+                                }
+                            });
+                            $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.newChats[i][2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name" style="color: rgb(0, 0, 0); font-weight:500;">'+resposta.newChats[i][0]+'</span> <p class="contact-last-message" id="'+resposta.newChats[3].replace(' ', '/')+'" style="color: rgb(0, 0, 0); font-weight:500;" >'+resposta.newChats[i][1]+'</p></div></div>');
+                        }
                     }
                 }
             });
 
-            console.log(naolidos);
-
-            //envia lista e recebe novos contatos
-        
-    //         $.ajax({
-    //             url: 'app/Models/chatModel.php', 
-    //             method: "POST",
-    //             data: {
-    //                 naolidos: lnaolidos,
-    //             },   
-    //             // dataType: "json",  
-
-    //             cache: false,
-    //             success: function(resposta){
-
-
-    //                 if(resposta.novoContato.length > 0){
-    //                     for(var i=0; i<resposta.nomeContato.length; i++){
-    //                         $('.contato').each(function(){
-    //                             if($(this).find('.contato-name').text() == resposta.nomeContato[i][0]){
-    //                                 $(this).remove();
-    //                             }
-    //                         });
-    //                         $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.novoContato[i][2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name" style="color: rgb(0, 0, 0); font-weight:500;">'+resposta.novoContato[i][0]+'</span> <p class="contact-last-message" style="color: rgb(0, 0, 0); font-weight:500;" >'+resposta.novoContato[i][1]+'</p></div></div>');
-    //                     }
-    //                 }
-    //             }
-    //         });
-
-    //         console.log(naolidos);
         }, 3000);
 
     });
@@ -361,7 +360,7 @@ $(".chat-title-container").hide();
                             return false;
                         }
                     })
-                    $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.mensagens[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.mensagens[0]+'</span> <p class="contact-last-message">'+resposta.mensagens[1]+'</p></div></div>');
+                    $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.mensagens[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.mensagens[0]+'</span> <p class="contact-last-message" id="'+resposta.mensagens[3].replace(' ', '/')+'">'+resposta.mensagens[1]+'</p></div></div>');
                 }
             }
 

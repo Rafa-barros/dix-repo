@@ -20,4 +20,17 @@ class ProfileModel {
         ));
         $this->profileInfo = $resultInfo->fetch(PDO::FETCH_ASSOC);
     }
+
+    public function checaFollower($id){
+        $resultFollower = $this->conn->executeQuery('SELECT id FROM assoc_users WHERE id = :ID AND idFollower = :IDFOL', array(
+            ':ID' => $this->profileInfo['id'],
+            ':IDFOL' => $id
+        ));
+        $resultFollower = $resultFollower->fetch();
+        if (empty($resultFollower['0'])){
+            return "Seguir";
+        } else {
+            return "Seguindo";
+        }
+    }
 }

@@ -68,7 +68,7 @@
                echo ('<button type="button" class="btn btn-primary btn-profile-message mr-1" id="btn-config" data-toggle="modal" data-target="#modal-config">Configurações <i class="fas fa-cog"></i> </button>');
             } else {
                echo('<script> var me = 0; </script>');
-               echo ('<button type="button" class="btn btn-outline-primary btn-profile-follow seguindo" style="background-color: rgb(57, 132, 218); color: white;">Seguindo <i class="fas fa-check check-follow-profile"></i></button>
+               echo ('<button type="button" class="btn btn-outline-primary btn-profile-follow seguindo" style="background-color: rgb(57, 132, 218); color: white;">' . $jaSegue . '<i class="fas fa-check check-follow-profile"></i></button>
                <button type="button" class="btn btn-primary btn-profile-message mr-1" id="gorjeta-profile" data-toggle="modal" data-target="#donate-modal">Gorjeta <i class="fas fa-coins"></i> </button>
                <button type="button" class="btn btn-primary btn-profile-message btn-profile-message-o">Mensagem</button> <br/>');
             }

@@ -22,6 +22,7 @@ class Profile {
         $usuario = new \app\Models\ProfileModel();
         $usuario->username = $this->urlMetodo;
         $usuario->getInfo();
+        $jaSegue = $usuario->checaFollower($notification->idUser);
 
         if (empty($usuario->profileInfo['id'])){
             require ("app/View/other/error404.php");

@@ -385,7 +385,7 @@ class chatModel{
 						$newMsg[$n][5] = $itsMe;
 						$n++;
 					}
-				}else if($k == ($tam - 1) && $diff != 0){
+				}else if($k == $tam && $diff != 0){
 					if($res['idUser'] == $this->userId){
 						$itsMe = 1;
 					}else{

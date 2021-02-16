@@ -313,7 +313,7 @@ class chatModel{
 		));
 		$i = 0;
 		while($row = $result->fetch()){
-			$chats[$i] = $row['id'];
+			$chats[$i] = $row;
 			$i++;
 		}
 		$diff = 0;

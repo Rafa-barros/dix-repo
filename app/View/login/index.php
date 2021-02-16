@@ -14,6 +14,7 @@
                     <?php
 	                  if(isset($_SESSION['LoginFailed'])){
 	                    echo "O login falhou!";
+	                 	print_r($_SESSION['LoginFailed']);
 	                    unset($_SESSION['LoginFailed']);
 	                  }
 	                ?>

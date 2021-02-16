@@ -45,16 +45,6 @@ class Controller {
         }        $this->dir = ucfirst($this->urlController);
         if (class_exists("\\App\\Controller\\" . $this->dir)){
             $this->pag = "\\App\\Controller\\" . $this->dir;
-            //Sistema de Notificações e Perfil
-            require("app/Models/loadNotificacao.php");
-            $notification = new \app\Models\Notificacao();
-            $notification->email = base64_decode($_COOKIE['cUser']);
-            $notification->getNotifications();
-            $username = $notification->getProfile();
-            $notificacoes = $notification->notificacoes;
-            $tam = $notification->qtdNotificacoes;
-            
-            echo ("<script>var dataUser =" . $notification->idUser . ";" . "</script>");
         } else {
             $this->pag = "\\App\\Controller\\Error404";
         }

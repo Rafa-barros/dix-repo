@@ -28,6 +28,7 @@ class Home {
                 die();
             }
         }
+
     	require_once("app/Models/facebookAuth.php");
     	require_once("app/Models/googleAuth.php");
         require("app/View/login/index.php");

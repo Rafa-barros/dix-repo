@@ -2,6 +2,7 @@
     session_start();
     require './vendor/autoload.php';
     $ctrl = new Core\Controller();
+    
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">

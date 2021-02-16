@@ -12,15 +12,15 @@
         <form method="post">
             <?php
                 if(isset($_SESSION['emailInvalido']) && $_SESSION['emailInvalido'] == TRUE){
-                  echo "Email inválido";
+                  echo '<div style="color: rgb(183, 9, 9); margin-bottom: 12px;>Email inválido </div>';
                   unset($_SESSION['emailInvalido']);
                 }
                 if(isset($_SESSION['existeEmail']) && $_SESSION['existeEmail'] == TRUE){
-                  echo "Email já em uso";
+                  echo '<div style="color: rgb(183, 9, 9); margin-bottom: 12px;>Email já em uso </div>';
                   unset($_SESSION['existeEmail']);
                 }
                 if(isset($_SESSION['existeUsuario']) && $_SESSION['existeUsuario'] == TRUE){
-                  echo "Usuário já existente";
+                  echo '<div style="color: rgb(183, 9, 9); margin-bottom: 12px;> Usuário já existente </div>';
                   unset($_SESSION['existeUsuario']);
                 }
               ?>
@@ -63,7 +63,7 @@
           </div>
             <?php
                 if(isset($_SESSION['confirmFalse']) && $_SESSION['confirmFalse'] == TRUE){
-                  echo "Confirmação de senha falhou";
+                  echo '<div style="color: rgb(183, 9, 9); margin-bottom: 12px;">Confirmação de senha falhou<div/>';
                   unset($_SESSION['confirmFalse']);
                 }
               ?>

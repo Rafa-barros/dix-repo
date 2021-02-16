@@ -371,6 +371,7 @@ nav p {
     justify-content: flex-end;
     word-wrap: break-word !important;
     overflow-wrap: break-word;
+    word-break: break-all
 }
 
 .notificacao {

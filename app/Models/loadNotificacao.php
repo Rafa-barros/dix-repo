@@ -40,6 +40,13 @@ class Notificacao {
 				$this->qtdNotificacoes++;
 	        }
     	}
+
+		//Limpa as notificações quando passar de 25
+		if ($this->qtdNotificacoes >= 25){
+			$this->conn->executeQuery('DELETE FROM notifications WHERE idReceiver = :ID', array(
+				':ID' => $this->idUser
+			));
+		}
 	}
 
 	public function getProfile(){

@@ -119,16 +119,5 @@ $('#gorjeta-profile').click(function(e){
 
 $('.btn-profile-message-o').click(function(){
     let username = window.location.href.split('/')[4];
-
-    $.ajax({
-        url:"app/View/feed/chat.php",
-        type: "GET",
-        data: {
-            username: username
-        },
-        success:function(){
-            window.location.href = 'http://dix.net.br/chat';
-        }
-    });
-
+    window.location.href = 'http://dix.net.br/chat?username='+username;
 });

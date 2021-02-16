@@ -9,8 +9,12 @@ class Home {
     public function index(){
     	if(isset($_POST['email']) && isset($_POST['pwd'])){
     		$login = new loginUsuario();
-    		$login->Login($_POST['email'], $_POST['pwd']);
-            header("Location: http://dix.net.br");
+    		$result = $login->Login($_POST['email'], $_POST['pwd']);
+            if($result == FALSE){
+                $_SESSION['LoginFailed'] = TRUE;
+            }else{
+                header("Location: http://dix.net.br");
+            }
     	}
         if(isset($_COOKIE['cUser']) && isset($_COOKIE['token'])){
             $email = base64_decode($_COOKIE['cUser']);

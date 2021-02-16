@@ -64,7 +64,7 @@ $novoPost->uploadPost($media, (htmlentities($_POST['descriptPost'])), (htmlentit
 if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
     $imagemBorrada = new \Imagick($media);
     $lock = new \Imagick('media/lock.png');
-    $imagemBorrada->blurImage(35,35);
+    $imagemBorrada->blurImage(75,75);
     $imagemBorrada->compositeImage($lock, \Imagick::COMPOSITE_DEFAULT, (((($imagemBorrada->getImageWidth()) - ($lock->getImageWidth())))/2), (((($imagemBorrada->getImageHeight()) - ($lock->getImageHeight())))/2));
     $imagemBorrada->writeImage('media' . '/' . (hash('haval128,5', $media)) . "." . $extensao);
 }

@@ -40,11 +40,12 @@
                         $lastMsg = substr($lastMsg, 0, 15);
                         $lastMsg = $lastMsg . '...';
                     }
+                    $date = str_replace(' ', '/', $chatsAbertos[$i][3]);
                     echo('<div class="contato">
                             <img class="foto-contato" src="' . $chatsAbertos[$i][2] . '" alt="foto de perfil">
                             <div class="contato-info">
                                 <span class="contato-name ' . $naoLido . '">' . $chatsAbertos[$i][0] . '</span>
-                                <p class="contact-last-message ' . $naoLido . '">' . $lastMsg . '</p>
+                                <p class="contact-last-message ' . $naoLido . '" id="' . $date . '">' . $lastMsg . '</p>
                             </div>
                         </div>');
                 }

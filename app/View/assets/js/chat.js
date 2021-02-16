@@ -1,3 +1,35 @@
+//Adicionar contato GET
+if(window.location.href.split('username=')[1] != undefined){
+
+    var usernameGET = window.location.href.split('username=')[1];
+
+    $.ajax({
+        url: 'app/Models/chatMsg.php', 
+        method: "POST",
+        data: {
+            username: usernameGET,
+            funcao: 'novoChat',
+            mensagens: []
+        },   
+        dataType: "json",  
+        cache: false,
+        success: function(resposta){
+            
+            let listaContatos = $(".contato");
+            listaContatos.each(function(){
+                if($(this).find('.contato-name').text() == resposta.mensagens[0]){
+                    $(this).remove();
+                    return false;
+                }
+            })
+            $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.mensagens[2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name">'+resposta.mensagens[0]+'</span> <p class="contact-last-message">'+resposta.mensagens[1]+'</p></div></div>');
+            
+        }
+
+    });
+}
+
+
 //Atualizar contatos (novas menssagens)
 
 // $(".contact-list").ready(function(){

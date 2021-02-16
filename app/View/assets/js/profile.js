@@ -116,3 +116,20 @@ $(document).on('click', '.btn-deletar-post', function(){
 $('#gorjeta-profile').click(function(e){
     $('.nome-alvo').text($('.prof-name').text());
 });
+
+$('.btn-profile-message-o').click(function(){
+    let username = window.location.href.split('/')[2];
+
+    $.ajax({
+        url:"app/Models/excluirPost.php",
+        dataType: 'json',
+        type: "GET",
+        data: {
+            username: username
+        },
+        success:function(result){
+            window.location.href = 'http://dix.net.br/chat';
+        }
+    });
+
+});

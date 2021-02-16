@@ -6,17 +6,17 @@
           <div class="l-container">
             <div class="test">
               <div id="form-container" class="container-fluid">
-              	<?php
-                  if(isset($_SESSION['LoginFailed']) && $_SESSION['LoginFailed'] == TRUE){
-                    echo "O login falhou!";
-                    unset($_SESSION['LoginFailed']);
-                  }
-                ?>
                 <form id="login" class="pb-md-5 mb-md-3" method="post">
                   <div class="form-group">
                     <div class="title">
                       <h2>Entrar</h2>
                     </div>
+                    <?php
+	                  if(isset($_SESSION['LoginFailed'])){
+	                    echo "O login falhou!";
+	                    unset($_SESSION['LoginFailed']);
+	                  }
+	                ?>
                     <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="E-mail" name="email" required>
                   </div>
                   <div class="form-group" style="margin-bottom: 14px;">

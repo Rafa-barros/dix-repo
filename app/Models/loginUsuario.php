@@ -54,8 +54,9 @@ class loginUsuario{
 		if($this->verificaLogin()){
 			$cookie = new cookie();
 			$cookie->newCookie($this->email);
+			return TRUE;
 		}else{
-			$_SESSION['LoginFailed'] = TRUE;
+			return FALSE;
 		}
 	}
 

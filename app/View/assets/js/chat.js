@@ -199,10 +199,10 @@ $(".chat-title-container").hide();
         var contactList = [[]];
         var atualizaContatos = setInterval(function(){
             contactList = [[]];
-            
+
             //atualiza lista contatos
             $('.contato-info').each(function(){
-                let nomeContato = $(this).find('.contato-name');
+                let nomeContato = $(this).find('.contato-name').text();
                 let lastmsg = $(this).find('.contact-last-message').text();
                 let time = $(this).find('.contact-last-message').attr('id');
 

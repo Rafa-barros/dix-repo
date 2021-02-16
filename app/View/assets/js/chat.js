@@ -237,7 +237,7 @@ $(".chat-title-container").hide();
                             });
                             if(resposta.newChats[i][4] == 0 && resposta.newChats[i][5] == 0) negrito = 'naolido'
                             
-                            $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.newChats[i][2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name '+ negrito +'" style="color: rgb(0, 0, 0); font-weight:500;">'+resposta.newChats[i][0]+'</span> <p class="contact-last-message '+negrito+'" id="'+resposta.newChats[3].replace(' ', '/')+'" style="color: rgb(0, 0, 0); font-weight:500;" >'+resposta.newChats[i][1]+'</p></div></div>');
+                            $(".contact-list").prepend(' <div class="contato"> <img class="foto-contato" src="'+resposta.newChats[i][2]+'" alt="foto de perfil"> <div class="contato-info"> <span class="contato-name '+ negrito +'" style="color: rgb(0, 0, 0); font-weight:500;">'+resposta.newChats[i][0]+'</span> <p class="contact-last-message '+negrito+'" id="'+resposta.newChats[i][3].replace(' ', '/')+'" style="color: rgb(0, 0, 0); font-weight:500;" >'+resposta.newChats[i][1]+'</p></div></div>');
 
                         }
                     }

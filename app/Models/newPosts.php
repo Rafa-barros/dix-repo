@@ -72,10 +72,11 @@ class Post {
     }
     
     public function selPost(){
-        $query = 'SELECT * FROM posts WHERE idUser = :ID';
+        $query = 'SELECT * FROM posts WHERE idUser = :ID AND NOT IN (';
         foreach ($this->postsVistos as $idCancelado){
-            $query = ($query . ' AND NOT id = ' . ':' . $idCancelado);
+            $query = $query . ", " . $idCancelado;
         }
+        $query = $query . ')';
         $posts = $this->conn->executeQuery($query, array(
             ':ID' => intval($this->idOp)
         ));

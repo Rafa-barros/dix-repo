@@ -374,7 +374,11 @@ class chatModel{
 							$userImg = $data['imgUser'];
 						}
 						$newMsg[$n][0] = $username;
-						$newMsg[$n][1] = $res['msg'];
+						$newMsg[$n][1] = htmlentities($res['msg']);
+	                    if(strlen($newMsg[$n][1]) > 16){
+	                        $newMsg[$n][1] = substr($newMsg[$n][1], 0, 15);
+	                        $newMsg[$n][1] = $newMsg[$n][1] . '...';
+	                    }
 						$newMsg[$n][2] = $userImg;
 						$newMsg[$n][3] = $res['msgDate'];
 						$newMsg[$n][4] = $res['visto'];
@@ -397,7 +401,11 @@ class chatModel{
 						$userImg = $data['imgUser'];
 					}
 					$newMsg[$n][0] = $username;
-					$newMsg[$n][1] = $res['msg'];
+					$newMsg[$n][1] = htmlentities($res['msg']);
+	                if(strlen($newMsg[$n][1]) > 16){
+	                    $newMsg[$n][1] = substr($newMsg[$n][1], 0, 15);
+	                    $newMsg[$n][1] = $newMsg[$n][1] . '...';
+	                }
 					$newMsg[$n][2] = $userImg;
 					$newMsg[$n][3] = $res['msgDate'];
 					$newMsg[$n][4] = $res['visto'];

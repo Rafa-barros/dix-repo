@@ -30,28 +30,6 @@ if(window.location.href.split('username=')[1] != undefined){
 }
 
 
-//Atualizar contatos (novas menssagens)
-
-// $(".contact-list").ready(function(){
-//     setInterval(function(){
-
-//         $.ajax({
-//             url: 'app/Models/chatModel.php', 
-//             method: "POST",
-//             data: {
-//                 username: $(".nome-contato-chat").text(),
-//             },   
-//             // dataType: "json",  
-//             cache: false,
-//             success: function(resposta){
-//             }
-//         });
-
-//     }, 1000)
-// });
-
-
-
 $(".chat-title-container").hide();
     $(".chat-right").hide();
 
@@ -148,6 +126,9 @@ $(".chat-title-container").hide();
                 var lastmsg = $(".chat-messages").find(lastmsggrr).find("span").text();
                 var targetUser = $('.nome-contato-chat').text();
                 var lastDate = $(".chat-messages").find(lastmsggrr).find(".time").attr('id');
+
+                if(lastmsg == undefined) lastmsg = "";
+                if(lastDate == undefined) lastDate = "";
 
                 $.ajax({
                     url: 'app/Models/attMsg.php', 

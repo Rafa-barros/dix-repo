@@ -87,9 +87,10 @@ class chatModel{
 		return $chatsCarregados;
 	}
 
-	private function alterar_lido(){
-		$this->conn->executeQuery('UPDATE assoc_chats SET visto = 1 WHERE id = :ID', array(
-			':ID' => $this->idChat
+	private function alterar_lido($id){
+		$this->conn->executeQuery('UPDATE assoc_chats SET visto = 1 WHERE id = :ID AND idUser = :IDUSER', array(
+			':ID' => $this->idChat,
+			':IDUSER' => $id
 		));
 	}
 
@@ -110,7 +111,7 @@ class chatModel{
 				return NULL;			
 			}else{
 				$this->idChat = $result['id'];
-				$this->alterar_lido();
+				$this->alterar_lido($idUser);
 				$result = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate ASC', array(
 					':ID' => $this->idChat
 				));
@@ -133,7 +134,7 @@ class chatModel{
 			}
 		}else{
 			$this->idChat = $result['id'];
-			$this->alterar_lido();
+			$this->alterar_lido($idUser);
 			$result = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID ORDER BY msgDate ASC', array(
 				':ID' => $this->idChat
 			));
@@ -262,5 +263,35 @@ class chatModel{
 			return NULL;
 		}
 	}
+
+	// public function verificarNewMsg($mensagem, $username, $msgDate){
+	// 	$idUser = $this->getId($username);
+	// 	$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :IDUSER AND idUser2 = :IDUSER2', array(
+	// 		':IDUSER' => $this->userId,
+	// 		':IDUSER2' => $idUser
+	// 	));
+	// 	$result = $result->fetch();
+	// 	if(!empty($result)){
+	// 		$idChat = $result['id'];
+	// 		$lastMsg = $this->conn->executeQuery('SELECT * FROM assoc_chats WHERE id = :ID AND idUser = :IDUSER DESC', array(
+	// 			':ID' => $idChat,
+	// 			':IDUSER' => $idUser
+	// 		));
+	// 		if($lastMsg['msg'] == $mensagem && $lastMsg['idUser'] == $id && $lastMsg['msgDate'] == $msgDate){
+	// 			return 0;
+	// 		}else{
+	// 			$newMsg[0] = $lastMsg['msg'];
+	// 		}
+	// 	}else{
+	// 		$result = $this->conn->executeQuery('SELECT id FROM chats WHERE idUser = :IDUSER AND idUser2 = :IDUSER2', array(
+	// 			':IDUSER' => $idUser,
+	// 			':IDUSER2' => $this->userId
+	// 		));
+	// 		$result = $result->fetch();
+	// 		if(!empty($result)){
+
+	// 		}
+	// 	}
+	// }
 
 }

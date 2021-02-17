@@ -73,7 +73,7 @@ class Post {
         foreach($this->postsVistosJS as $idJaVisto){
             $query = ($query . $idJaVisto . ', ');
         }
-        $query[count($query)] = ')';
+        $query[strlen($query)] = ')';
         $this->nameOp = $query;
 
         $posts = $this->conn->executeQuery($query, array(

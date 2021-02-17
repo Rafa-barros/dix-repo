@@ -50,7 +50,7 @@ var flag = 300;
         //                 midia = '<video src="'+result.imgPost+'" controls controlslist="nodownload" style="max-width:100%;"></video>'
         //             }
 
-        //             if(result.valor > 0) pago = 'pago-' + result.valor.toString();
+        //             if(result.valor > 0) pago = 'pago ' + result.valor.toString();
 
         //             var editBtn = '<div class="card-options-container" style="display: flex; justify-content: flex-end;"> <div class="btn-group dropup"> <button type="button" class="btn dropdown-toggle btn-edit-post" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-ellipsis-h mr-4" style="font-size:22px; color:rgb(142, 142, 142,0.7); cursor: pointer;"></i> </button> <div class="post-edit-pop dropdown-menu "> <button class="dropdown-item edit-post-drop" type="button" data-toggle="modal" data-target="#edit-post" >Editar publicação</button> <button class="dropdown-item delete-post-drop" type="button">Apagar publicação</button> </div></div></div>';
 

@@ -24,8 +24,8 @@ $resultUser = $resultUser->fetch();
 $idFlw = $resultUser['id'];
 
 $resultFollower = $conn->executeQuery('SELECT id FROM assoc_users WHERE id = :ID AND idFollower = :IDFOL', array(
-    ':ID' => $idUser,
-    ':IDFOL' => $idFlw
+    ':ID' => $idFlw,
+    ':IDFOL' => $idUser
 ));
 
 $jaSegue = $resultFollower->fetch();
@@ -33,8 +33,8 @@ $jaSegue = $resultFollower->fetch();
 if (empty($jaSegue)){
     //Adiciona o seguidor no usuário
     $conn->executeQuery('INSERT INTO assoc_users (id, idFollower) VALUES (:IDUSER, :IDFLW)', array(
-        ':IDUSER' => $idUser,
-        ':IDFLW' => $idFlw
+        ':IDUSER' => $idFlw,
+        ':IDFLW' => $idUser
     ));
 
     //Soma um follower na DB
@@ -44,11 +44,11 @@ if (empty($jaSegue)){
 } else {
     //Remove o seguidor no usuário
     $conn->executeQuery('DELETE FROM assoc_users WHERE id = :IDYSER AND idFollower = :IDFLW', array(
-        ':IDUSER' => $idUser,
-        ':IDFLW' => $idFlw
+        ':IDUSER' => $idFlw,
+        ':IDFLW' => $idUser
     ));
 
-    //Soma um follower na DB
+    //Subtrai um follower na DB
     $conn->executeQuery('UPDATE users SET followers = followers - 1 WHERE id = :ID', array(
         ':ID' => $idFlw
     ));

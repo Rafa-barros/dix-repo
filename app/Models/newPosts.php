@@ -74,6 +74,7 @@ class Post {
             $query = ($query . ', ' . $idJaVisto);
         }
         $query = $query . ')';
+        $this->nameOp = $query;
 
         $posts = $this->conn->executeQuery($query, array(
             ':ID' => intval($this->idOp)

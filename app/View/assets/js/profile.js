@@ -67,6 +67,8 @@ function follow() {
 
 }
 
+//editar post
+
 postEditado = "";
 
 $(document).on('click', '.edit-post-drop', function(){
@@ -98,6 +100,7 @@ $(document).on('click', '.btn-send-post-edit', function(){
 
 });
 
+// deletar post
 
 $(document).on('click', '.delete-post-drop', function(){
     cardDel = $(this).closest('.card');
@@ -136,4 +139,26 @@ $('#gorjeta-profile').click(function(e){
 $('.btn-profile-message-o').click(function(){
     let username = window.location.href.split('/')[4];
     window.location.href = 'http://dix.net.br/chat?username='+username;
+});
+
+//post pago
+
+cardpago = '';
+
+$(document).on('click', '.pago', function(){
+    cardpago = $(this).closest('.card');
+
+    let classes = cardpago.attr('class').split(' ');
+    let preco = 0;
+    for(var i=0; i<classes.length; i++){
+        if(isNumber(classes[i])) preco = classes[i];
+    }
+    $('.btn-preco-post').text('R$' + preco);
+    $('#modal-pago').modal('show');
+
+});
+
+$(document).on('click', '.btn-preco-post', function(){
+    let urlpreco = 'http://dix.net.br/pagamento?amout=' + $('.btn-preco-post').text() + '&user=' + cardpago.attr('id') + '&idPost=1'
+    window.location.href = urlpreco;
 });

@@ -107,9 +107,16 @@ $(document).ready(function(e) {
     
 });
 
+cardGorjeta = '';
 $(document).on('click', '.btn-donate', function(){
+    cardGorjeta = $(this).closest('.card').attr('id');
     let nomeCard = $(this).closest('.card').find('.author-name').text();
     $('.nome-alvo').text(nomeCard);
+});
+
+$(document).on('click', '.gorjeta-submit', function(){
+    let urlpreco = 'http://dix.net.br/pagamento?amout=' + $('.g-price').val(); + '&user=' + cardGorjeta + '&idPost=1' + '&msg=' + $('.g-msg').val();
+    window.location.href = urlpreco;
 });
 
 // HtmlEntities

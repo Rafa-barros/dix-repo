@@ -205,16 +205,16 @@
                                 <div class="input-group-prepend">
                                     <span class="input-group-text" id="inputGroup-sizing-default">Valor (R$)</span>
                                 </div>
-                                <input type="text" class="form-control" aria-label="Default" placeholder="Ex.: 34,00" aria-describedby="inputGroup-sizing-default" name="valor">
+                                <input type="text" class="form-control g-price" aria-label="Default" placeholder="Ex.: 34,00" aria-describedby="inputGroup-sizing-default" name="valor">
                             </div>
 
                             <div class="input-group mb-3">
-                                <input type="text" class="form-control" aria-label="Default" placeholder="Mensagem..." aria-describedby="inputGroup-sizing-default" name="msg">
+                                <input type="text" class="form-control g-msg" aria-label="Default" placeholder="Mensagem..." aria-describedby="inputGroup-sizing-default" name="msg">
                             </div>
                     
                     </div>
                 <div class=" modal-footer" style="justify-content: center; padding-top: 30px">
-                    <button type="submit" class="btn btn-primary">Enviar gorjeta</button>
+                    <button type="button" class="btn btn-primary gorjeta-submit">Enviar gorjeta</button>
                 </div>
                 </form>
 

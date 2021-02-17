@@ -38,7 +38,7 @@ $(document).on('click', '.pago', function(){
     for(var i=0; i<classes.length; i++){
         if(isNumber(classes[i])) preco = classes[i];
     }
-    $('.btn-preco-post').text(preco + 'R$');
+    $('.btn-preco-post').text('R$' + preco);
     $('#modal-pago').modal('show');
 
 });

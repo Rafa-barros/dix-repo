@@ -26,8 +26,8 @@ class ProfileModel {
             ':ID' => $this->profileInfo['id'],
             ':IDFOL' => $id
         ));
-        $resultFollower = $resultFollower->fetch();
-        if (empty($resultFollower['0'])){
+        $resultFol = $resultFollower->fetch();
+        if (empty($resultFol)){
             return "Seguir";
         } else {
             return "Seguindo";

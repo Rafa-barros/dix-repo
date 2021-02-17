@@ -119,6 +119,26 @@ $(document).on('click', '.gorjeta-submit', function(){
     window.location.href = urlpreco;
 });
 
+
+//post pago
+
+cardpago = '';
+
+$(document).on('click', '.pago img', function(){
+    cardpago = $(this).closest('.card');
+
+    let classes = cardpago.attr('class').split(' ');
+    let preco = 0;
+    for(var i=0; i<classes.length; i++){
+        if(isNumber(classes[i])) preco = classes[i];
+    }
+    $('.btn-preco-post').text('R$' + preco);
+    $('#modal-pago').modal('show');
+
+});
+
+
+
 // HtmlEntities
 
 function htmlEntities(str) {

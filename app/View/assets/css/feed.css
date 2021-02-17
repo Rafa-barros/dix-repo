@@ -112,6 +112,7 @@ nav p {
     padding: 24px 18px;
     border-bottom: 1px solid rgba(0, 0, 0, 0.068);
     align-items: center;
+    width: 420px;
 }
 
 .notificacao:hover, .notificacao:focus {

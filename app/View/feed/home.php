@@ -104,7 +104,7 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text">R$</span>
                             </div>
-                                <input type="number" class="form-control post-price" aria-label="Amount (to the nearest dollar)" placeholder="Preço">
+                                <input type="number" name="valor" class="form-control post-price" aria-label="Amount (to the nearest dollar)" placeholder="Preço">
                             </div>
                         </div>
                         <div class="modal-footer">

@@ -24,8 +24,6 @@ $(document).on('click', '.btn-card-follow', function(){
                 }
             }           
         });   
-
-
 });
 
 //Buscar Pessoa

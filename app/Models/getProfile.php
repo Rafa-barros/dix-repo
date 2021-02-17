@@ -23,8 +23,8 @@ class ProfileModel {
 
     public function checaFollower($id){
         $resultFollower = $this->conn->executeQuery('SELECT id FROM assoc_users WHERE id = :ID AND idFollower = :IDFOL', array(
-            ':ID' => $id,
-            ':IDFOL' => $this->profileInfo['id']
+            ':ID' => $this->profileInfo['id'],
+            ':IDFOL' => $id
         ));
         $resultFol = $resultFollower->fetch();
         if (empty($resultFol)){

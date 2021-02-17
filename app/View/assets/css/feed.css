@@ -401,6 +401,10 @@ video:focus {
     outline: none;
 }
 
+.pago img {
+    cursor: pointer !important;
+}
+
 /* Card Bottom */
 
 .card-bot {

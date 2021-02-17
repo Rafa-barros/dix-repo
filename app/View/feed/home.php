@@ -167,12 +167,12 @@
                     <div class="modal-vip-container">
                         <div class="center">
                             <div>
-                                <h5 class="card-title mt-3">Desbloquear publicação!</h5>
+                                <h5 class="card-title mt-3"></h5>
                                 <ul class="mt-3 mb-3">
-                                    <li>A publicação será desbloqueada para sempre para você!</li>
+                                    <li>A publicação será desbloqueada para sempre!</li>
                                     <li>O valor do post foi definido por seu dono!</li>
                                 </ul>
-                                <a href="#" class="btn btn-primary mb-3 btn-preco-post" style="margin-left: 70px; color: #FAFAFA; font-weight: 500">8R$</a>
+                                <a href="#" class="btn btn-primary mb-3 btn-preco-post" style="color: #FAFAFA;font-weight: 500;margin-left: 170px;width: 128px;">12R$</a>
                             </div>
                         </div>
                     </div>

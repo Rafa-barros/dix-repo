@@ -53,6 +53,7 @@ var flag = 300;
         //             var editBtn = '<div class="card-options-container" style="display: flex; justify-content: flex-end;"> <div class="btn-group dropup"> <button type="button" class="btn dropdown-toggle btn-edit-post" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-ellipsis-h mr-4" style="font-size:22px; color:rgb(142, 142, 142,0.7); cursor: pointer;"></i> </button> <div class="post-edit-pop dropdown-menu "> <button class="dropdown-item edit-post-drop" type="button" data-toggle="modal" data-target="#edit-post" >Editar publicação</button> <button class="dropdown-item delete-post-drop" type="button">Apagar publicação</button> </div></div></div>';
 
         //             var cardFollowBtn = '<button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button>';
+        //             if( !$('.btn-profile-follow').hasClass('seguindo')) cardFollowBtn = '<button type="button" class="btn btn-outline-primary btn-profile-follow" style="background-color: transparent; color: rgb(57, 132, 218);">Seguir</button>';
         
                     // if(me == 0) editBtn = ' ';
                     // else cardFollowBtn =' ';

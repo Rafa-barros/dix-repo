@@ -15,6 +15,13 @@
     </div>
 </div>
 
+<script>
+    if(window.location.href.split('/')[3] == 'profile'){
+        $('.display-4').text('Perfil não encontrado...');
+        $('.lead').text('Infelizmente o perfil solicitado ainda não existe.')
+    }
+</script>
+
 <!-- 
     By: Caio C. Brandini da Silva - 2021
 

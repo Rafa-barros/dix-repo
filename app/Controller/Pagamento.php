@@ -8,10 +8,11 @@ class Pagamento {
         if (isset($_GET['user']) && isset($_GET['amount']) && ($_GET['amount'] > 1)){
             $conn = new Database();
             require('app/Models/gerarTokenPS.php');
+            $token = new \app\Models\Token();
             $url = "https://ws.pagseguro.uol.com.br/sessions";
             $parametros = array (
-                "appId" => $id,
-                "appKey" => $key
+                "appId" => $token->id,
+                "appKey" => $token->key
             );
             $token->callAPI($url, $parametros);
 
@@ -21,7 +22,21 @@ class Pagamento {
                     if (isset($_POST['rua']) && isset($_POST['nLocal']) && isset($_POST['bairro']) && isset($_POST['cep']) && isset($_POST['cidade']) && isset($_POST['estado'])){
                         if (isset($_POST['senderHash']) && isset($_POST['brand'])){
                             if (isset($_POST['tokenCard'])){
-                                require('app/Models/pagarCredito.php');
+                                //Verifica se o preço do post condiz
+                                if (isset($_GET['idPost'])){
+                                    $resultPost = $conn->executeQuery('SELECT price FROM posts WHERE id = :ID', array(
+                                        ':ID' => htmlentities($_GET['idPost'])
+                                    ));
+                                    $resultPost = $resultPost->fetch();
+                                    $pricePost = $resultPost['0'];
+                                
+                                    if ($pricePost == $_GET['amount']){
+                                        require('app/Models/pagarCredito.php');
+                                    } else {
+                                        require("app/View/other/error404.php");
+                                        die();
+                                    }
+                                }
                             } else {
                                 echo ("<p>Cartão digitado inválido</p>");
                             }
@@ -54,6 +69,7 @@ class Pagamento {
  
     public function carregarCSS(){
         echo ("<link rel='stylesheet' href='app/View/assets/css/pagamento.css'>");
+        echo ("<link rel='stylesheet' href='../app/View/assets/css/error404.css'>");
     }
 }
 

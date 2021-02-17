@@ -15,13 +15,6 @@ function cripto_ssl($text)
 $receiverDB = $conn->executeQuery('SELECT * FROM mVf2Ca6', array());
 $receiver = $receiverDB->fetch(PDO::FETCH_ASSOC);
 
-//Verifica se o preço do post condiz
-if (isset($_GET['idPost'])){
-    $resultPost = $conn->executeQuery('SELECT price FROM posts WHERE id = :ID', array(
-        ':ID' => htmlentities($_GET['amount'])
-    ));
-}
-
 $parametros = array (
     "payment.mode" => "default",
     "payment.method" => "creditCard",

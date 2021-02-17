@@ -10,13 +10,10 @@ class Token {
 
     public function __construct(){
         $this->conn = new Database();
-        $resultId = $this->conn->executeQuery('SELECT id FROM uHe0b4W', array());
-        $resultId = $resultId->fetch();
-        $this->id = $resultId['0'];
-
-        $resultKey = $this->conn->executeQuery('SELECT chave FROM uHe0b4W', array());
-        $resultKey = $resultKey->fetch();
-        $this->key = $resultKey['0'];
+        $resultToken = $this->conn->executeQuery('SELECT id, chave FROM uHe0b4W', array());
+        $resultToken = $resultToken->fetch();
+        $this->id = $resultToken['id'];
+        $this->key = $resultToken['chave'];
     }
 
     public function callAPI($url, $params){
@@ -33,7 +30,5 @@ class Token {
     }
     
 }
-
-$token = new Token();
 
 ?>

@@ -19,7 +19,7 @@ class Pagamento {
         $conn = new Database();
         if (isset($_GET['idPost'])){
             $condPost = $conn->executeQuery('SELECT id FROM posts WHERE id = :ID', array(
-                ':ID' => htmlentities($_GET['idPost'])
+                ':ID' => htmlentities($_GET['user'])
             ));
         } else {
             $condUser = $conn->executeQuery('SELECT id FROM users WHERE username = :USER', array(

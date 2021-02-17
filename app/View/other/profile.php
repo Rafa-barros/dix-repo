@@ -275,7 +275,7 @@
             
             </div>
             <div class="modal-footer">
-              <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+              <button type="submit" name="editar" class="btn btn-primary">Salvar mudanças</button>
             </div>
       </form>
       </div>
@@ -318,7 +318,7 @@
         
     </div>
       <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+        <button type="submit" name="config" class="btn btn-primary">Salvar mudanças</button>
       </div>
       </form>
     </div>

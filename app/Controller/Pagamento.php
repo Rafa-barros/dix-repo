@@ -25,7 +25,7 @@ class Pagamento {
                 "appId" => $token->id,
                 "appKey" => $token->key
             );
-            $token->callAPI($url, $parametros);
+            $retornoInit = $token->callAPI($url, $parametros);
 
             //Checa se há uma tentativa de pagamento
             if (isset($_POST['nomeTitular']) && isset($_POST['cpfTitular']) && isset($_POST['dddTel']) && isset($_POST['numeroTelefone']) && isset($_POST['email'])){

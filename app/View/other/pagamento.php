@@ -242,6 +242,4 @@
     <p>Token: <a id="tk"></a></p> -->
     <script>
         PagSeguroDirectPayment.setSessionId('<?php echo ($retornoInit)?>');
-
-
     </script>

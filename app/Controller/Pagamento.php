@@ -16,8 +16,12 @@ class Pagamento {
     }
 
     public function index(){
-        if (isset($_GET['user']) && isset($_GET['amount']) && ($_GET['amount'] > 1)){
-            $conn = new Database();
+        $conn = new Database();
+        $condUser = $conn->executeQuery('SELECT id FROM users WHERE username = :USER', array(
+            ':USER' => htmlentities($_GET['user'])
+        ));
+        $condUser = $condUser->fetch();
+        if (isset($_GET['user']) && isset($_GET['amount']) && ($_GET['amount'] > 1) && (!empty($condUser))){
             require('app/Models/gerarTokenPS.php');
             $token = new \app\Models\Token();
             $url = "https://ws.pagseguro.uol.com.br/sessions";
@@ -75,6 +79,8 @@ class Pagamento {
             }
 
             require("app/View/other/pagamento.php");
+        } else {
+            require("app/View/other/error404.php");
         }
     }
  

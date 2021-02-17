@@ -18,8 +18,7 @@ class Post {
     private $descript;
     private $likes;
     private $qtdComentarios;
-    private $postsVistos;
-    private $usersVistos;
+    public $postsVistos;
     private $idPost;
     private $idOp;
     private $idUser;
@@ -139,7 +138,7 @@ echo json_encode((array(
     'imgPost' => $postSel['media'],
     "postsVistos" => "",
     "descricao" => ($postSel['descript']),
-    "likes" => $postSel['likes'],
+    "likes" => $postObj->postsVistos,
     "liked" => $postObj->liked,
     "valor" => $postSel['price'],
     "gorjetas" => $postSel['amount'],

@@ -82,7 +82,7 @@ class Post {
         $likes = 0;
         if(!empty($posts)){
             while ($row = $posts->fetch(PDO::FETCH_ASSOC)){
-                if ($row['likes'] >= $likes){
+                if ($row['likes'] >= $likes && (!(in_array($row['id'], $this->postsVistosJS)))){
                     $likes = $row['likes'];
                     $this->postSel = $row;
                 }

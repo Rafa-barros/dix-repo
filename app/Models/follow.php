@@ -43,7 +43,7 @@ if (empty($jaSegue)){
     ));
 } else {
     //Remove o seguidor no usuário
-    $conn->executeQuery('DELETE FROM assoc_users WHERE id = :IDYSER AND idFollower = :IDFLW', array(
+    $conn->executeQuery('DELETE FROM assoc_users WHERE id = :IDUSER AND idFollower = :IDFLW', array(
         ':IDUSER' => $idFlw,
         ':IDFLW' => $idUser
     ));

@@ -152,6 +152,37 @@
         </div>
         </div>
 
+            <!-- Modal PAGO-->
+        <div class="modal fade" id="modal-pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Desbloqueie o post!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-body-vip">
+
+                    <div class="modal-vip-container">
+                        <div class="center">
+                            <div>
+                                <h5 class="card-title mt-3">Desbloquear publicação!</h5>
+                                <ul class="mt-3 mb-3">
+                                    <li>A publicação será desbloqueada para sempre para você!</li>
+                                    <li>O valor do post foi definido por seu dono!</li>
+                                </ul>
+                                <a href="#" class="btn btn-primary mb-3 btn-preco-post" style="margin-left: 70px; color: #FAFAFA; font-weight: 500">8R$</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Modal Donate-->
         <div class="modal fade" id="donate-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">

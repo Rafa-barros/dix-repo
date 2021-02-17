@@ -26,6 +26,29 @@ $(document).on('click', '.btn-card-follow', function(){
         });   
 });
 
+//post pago
+
+cardpago = '';
+
+$(document).on('click', '.pago', function(){
+    cardpago = $(this).closest('.card');
+
+    let classes = cardpago.attr('class').split(' ');
+    let preco = 0;
+    for(var i=0; i<classes.length; i++){
+        if(isNumber(classes[i])) preco = classes[i];
+    }
+    $('.btn-preco-post').text(preco + 'R$');
+    $('#modal-pago').modal('show');
+
+});
+
+$(document).on('click', '.btn-preco-post', function(){
+    let urlpreco = 'http://dix.net.br/pagamento?amout=' + $('.btn-preco-post').text() + '&user=' + cardpago.attr('id') + '&user=1'
+    window.location.href = urlpreco;
+});
+
+
 //Buscar Pessoa
 
 $(document).on('submit', '.buscar-pessoa-form', function(e){
@@ -34,4 +57,6 @@ $(document).on('submit', '.buscar-pessoa-form', function(e){
     $('#input-novo-contato').val('');
 });
 
-
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}

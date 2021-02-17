@@ -18,7 +18,7 @@ class Post {
     private $descript;
     private $likes;
     private $qtdComentarios;
-    public $postsVistos;
+    private $postsVistos;
     private $idPost;
     private $idOp;
     private $idUser;
@@ -29,9 +29,6 @@ class Post {
     }
 
     public function getInfo(){
-        if (count($this->postsVistosJS) > 1){
-            $this->postsVistos = implode(', ', $this->postsVistosJS);
-        }
         $this->email = base64_decode($_COOKIE['cUser']);
 
         //Encontra o id do usuário
@@ -72,10 +69,14 @@ class Post {
     }
     
     public function selPost(){
-        $query = 'SELECT * FROM posts WHERE idUser = :ID AND id NOT IN (:IDCANCELADO)';
+        $query = 'SELECT * FROM posts WHERE idUser = :ID AND id NOT IN (';
+        foreach($this->postsVistosJS as $idJaVisto){
+            $query = ($query . ', ' . $idJaVisto);
+        }
+        $query = $query . ')';
+
         $posts = $this->conn->executeQuery($query, array(
-            ':ID' => intval($this->idOp),
-            ':IDCANCELADO' => $this->postsVistos
+            ':ID' => intval($this->idOp)
         ));
         $likes = 0;
         if(!empty($posts)){
@@ -138,7 +139,7 @@ echo json_encode((array(
     'imgPost' => $postSel['media'],
     "postsVistos" => "",
     "descricao" => ($postSel['descript']),
-    "likes" => $postObj->postsVistos,
+    "likes" => $postSel['likes'],
     "liked" => $postObj->liked,
     "valor" => $postSel['price'],
     "gorjetas" => $postSel['amount'],

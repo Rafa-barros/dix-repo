@@ -4,6 +4,17 @@ namespace App\Controller;
 use App\Models\Database;
 
 class Pagamento {
+    private function decript($text){
+        $encrypt_method = "AES-256-CBC";
+        $secret_key = '9ccf0060e4b92f6d803367d940a2f61e0be2040d97b98c1e6134a4d78edc76d8';
+        $salt = '00c4a240956cf121a244b2e0a1bc82f0';
+        $key = hash('sha256', $secret_key);
+        $iv = substr(hash('sha256', $salt), 0, 16);
+        $output = openssl_decrypt(base64_decode($text), $encrypt_method, $key, 0, $iv);
+
+        return $output;
+    }
+
     public function index(){
         if (isset($_GET['user']) && isset($_GET['amount']) && ($_GET['amount'] > 1)){
             $conn = new Database();
@@ -69,7 +80,7 @@ class Pagamento {
  
     public function carregarCSS(){
         echo ("<link rel='stylesheet' href='app/View/assets/css/pagamento.css'>");
-        echo ("<link rel='stylesheet' href='../app/View/assets/css/error404.css'>");
+        echo ("<link rel='stylesheet' href='app/View/assets/css/error404.css'>");
     }
 }
 

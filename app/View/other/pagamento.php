@@ -162,22 +162,22 @@
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Nascimento:</span>
-                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['birthDate'])); ?></span>
+                        <span class="ml-2 my-info"><?php echo($this->decript($userInfo['birthDate'])); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">CPF:</span>
-                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['cpf'])); ?></span>
+                        <span class="ml-2 my-info"><?php echo($this->decript($userInfo['cpf'])); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Telefone:</span>
                         <div class="d-flex">
-                            <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['areaCode'])); ?></span>
-                            <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['phone'])); ?></span>
+                            <span class="ml-2 my-info"><?php echo($this->decript($userInfo['areaCode'])); ?></span>
+                            <span class="ml-2 my-info"><?php echo($this->decript($userInfo['phone'])); ?></span>
                         </div>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Email:</span>
-                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['emailOwner'])); ?></span>
+                        <span class="ml-2 my-info"><?php echo($this->decript($userInfo['emailOwner'])); ?></span>
                     </div>
                 </div>
 
@@ -185,18 +185,18 @@
                     <h6 class="modal-confirm-subtitle">Dados do cartão</h6>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">N do cartão:</span>
-                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['nCard'])); ?></span>
+                        <span class="ml-2 my-info"><?php echo($this->decript($userInfo['nCard'])); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">CVV:</span>
-                        <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['cvv'])); ?></span>
+                        <span class="ml-2 my-info"><?php echo($this->decript($userInfo['cvv'])); ?></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Validade:</span>
                         <div class="d-flex">
-                            <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['monthVal'])); ?></span>
+                            <span class="ml-2 my-info"><?php echo($this->decript($userInfo['monthVal'])); ?></span>
                             <span class="ml-2 ">/</span>
-                            <span class="ml-2 my-info"><?php echo(decript_ssl($userInfo['yearVal'])); ?></span>
+                            <span class="ml-2 my-info"><?php echo($this->decript($userInfo['yearVal'])); ?></span>
                         </div>
                         
                     </div>

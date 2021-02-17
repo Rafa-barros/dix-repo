@@ -45,7 +45,7 @@ class registroUsuario{
 		$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP);', array(
 			':USER' => $this->email,
 			':PWD' => $this->pwd,
-			':USERNAME' => $this->username,
+			':USERNAME' => strtolower($this->username),
 			':BIRTH' => $this->birth,
 			':PNAME' => $this->pname,
 			':TOKEN' => NULL,
@@ -55,7 +55,7 @@ class registroUsuario{
 			':IMG' => 'userImages/standard.png',
 			':FOLLOWERS' => 0,
 			':IDAUTH' => 0,
-			':FOTOCAPA' => 'userImages/capa.jpg',
+			':FOTOCAPA' => 'userImages/capa.png',
 			':VIP' => 0
 		));
 	}
@@ -123,7 +123,7 @@ class registroUsuario{
 			$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP);', array(
 				':USER' => $email,
 				':PWD' => NULL,
-				':USERNAME' => $username,
+				':USERNAME' => strtolower($username),
 				':BIRTH' => "2000-01-01",
 				':PNAME' => $pname,
 				':TOKEN' => NULL,
@@ -133,7 +133,7 @@ class registroUsuario{
 				':IMG' => 'userImages/standard.png',
 				':FOLLOWERS' => 0,
 				':IDAUTH' => $idAuth,
-				':FOTOCAPA' => 'userImages/capa.jpg',
+				':FOTOCAPA' => 'userImages/capa.png',
 				':VIP' => 0
 			));
 			$login = new loginUsuario();

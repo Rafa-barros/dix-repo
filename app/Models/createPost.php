@@ -33,6 +33,11 @@ class createPost {
     }
 
     public function uploadPost($media, $descript, $allowView, $price){
+        if($allowView == 1){
+            $price = 0;
+        }else if($allowView == 0 && $price == 0){
+            $price = 5;
+        }
         $this->nPosts = intval($this->nPosts) + 1;
         $this->conn->executeQuery('INSERT INTO posts (idUser, media, descript, likes, comments, postDate, allowView, price, amount) VALUES (:IDUSER, :MEDIA, :DESCRIPT, :LIKES, :COMMENTS, :POSTDATE, :ALLOWVIEW, :PRICE, :AMOUNT)', array(
             ':IDUSER' => $this->idUser,

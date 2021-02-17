@@ -30,7 +30,7 @@ class Post {
     }
 
     public function getInfo(){
-        if (!empty($this->postsVistosJS)){
+        if (count($this->postsVistosJS) > 1){
             $this->postsVistos = implode(',', $this->postsVistosJS);
         }
         $this->email = base64_decode($_COOKIE['cUser']);
@@ -132,13 +132,13 @@ $postObj->getInfo();
 $postSel = $postObj->selPost();
 
 echo json_encode((array(
-    'nameOp' => utf8_encode($postObj->nameOp),
+    'nameOp' => ($postObj->nameOp),
     'userOp' => $postObj->userOp,
     'data' => $postSel['postDate'],
     'imgOp' => $postObj->imgOp, 
     'imgPost' => $postSel['media'],
     "postsVistos" => "",
-    "descricao" => utf8_encode($postSel['descript']),
+    "descricao" => ($postSel['descript']),
     "likes" => $postSel['likes'],
     "liked" => $postObj->liked,
     "valor" => $postSel['price'],

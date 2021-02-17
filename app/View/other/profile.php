@@ -115,7 +115,7 @@
                         <li>Todas as fotos liberadas</li>
                         <li>Atualizações frequentes</li>
                     </ul>
-                    <a href="#" class="btn btn-warning mb-3" style="margin-left: 70px; color: #FAFAFA; font-weight: 500">15R$ / mês</a>
+                    <a href="#" class="btn btn-warning mb-3" style="margin-left: 70px; color: #FAFAFA; font-weight: 500">R$15 / mês</a>
                 </div>
             </div>
         </div>
@@ -129,32 +129,63 @@
 
     <!-- Modal Delete Post-->
     <div class="modal" id="modal-del-post" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Apagar publicação</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="modal-body-vip">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Apagar publicação</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body" id="modal-body-vip">
 
-        <div class="modal-vip-container">
-            <div class="center">
-                <div>
-                    <span style="margin-bottom: 10px">Você quer mesmo deletar a publicação?</span>
-                    <div class="d-flex justify-content-center mt-2">
-                        <button type="button" class="btn btn-outline-danger btn-deletar-post">Apagar publicação</button>
+                <div class="modal-vip-container">
+                    <div class="center">
+                        <div>
+                            <span style="margin-bottom: 10px">Você quer mesmo deletar a publicação?</span>
+                            <div class="d-flex justify-content-center mt-2">
+                                <button type="button" class="btn btn-outline-danger btn-deletar-post">Apagar publicação</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="modal-footer">
+            </div>
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-      </div>
-    </div>
-  </div>
-</div>
+    </div>  
+
+            <!-- Modal PAGO-->
+            <div class="modal fade" id="modal-pago" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Desbloqueie o post!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modal-body-vip">
+
+                    <div class="modal-vip-container">
+                        <div class="center">
+                            <div>
+                                <h5 class="card-title mt-3"></h5>
+                                <ul class="mt-3 mb-3">
+                                    <li>A publicação será desbloqueada para sempre!</li>
+                                    <li>O valor do post foi definido por seu dono!</li>
+                                </ul>
+                                <a href="#" class="btn btn-primary mb-3 btn-preco-post" style="color: #FAFAFA;font-weight: 500;margin-left: 170px;width: 128px;">R$12</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                </div>
+                </div>
+            </div>
+        </div>
 
                 <!-- Modal  Edit Post -->
                 <form method="post" enctype="multipart/form-data">

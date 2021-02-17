@@ -44,8 +44,17 @@ $(document).on('click', '.pago', function(){
 });
 
 $(document).on('click', '.btn-preco-post', function(){
-    let urlpreco = 'http://dix.net.br/pagamento?amout=' + $('.btn-preco-post').text() + '&user=' + cardpago.attr('id') + '&user=1'
+    let urlpreco = 'http://dix.net.br/pagamento?amout=' + $('.btn-preco-post').text() + '&user=' + cardpago.attr('id') + '&idPost=1'
     window.location.href = urlpreco;
+});
+
+//loading gif
+
+//new post gif
+$('#btn-final-new-post').on
+$(document).on('click', '#btn-final-new-post', function(){
+    $('.loading-new-post').html('<div class="modal-body"> <h5>Enviando...</h5> <div class="loading-container"> <img src="app/View/assets/css/img/loading.gif" style=""> </div></div>');
+    $('.loading-footer-new-post').html('');
 });
 
 

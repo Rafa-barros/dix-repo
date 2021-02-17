@@ -573,6 +573,15 @@ video:focus {
     font-size: 18px;
 }
 
+/* loading */
+
+.loading-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
 
 @media(max-width: 800px) {
 

@@ -2,7 +2,7 @@
     <a class="a-logo-dix" href="/feed"><img class="logo-dix" src="/app/View/assets/css/img/logo_blue.png" alt="logo"></a> 
     <div class="features-containers">
         <?php
-          echo '<a href="/profile/' . $username . '"><i class="fas fa-user"></i></a>;'
+          echo '<a href="/profile/' . $user . '"><i class="fas fa-user"></i></a>;'
         ?>
         <a href="/feed"><i class="fas fa-home"></i></a> 
         <a href="/chat" class="i-c"><i class="fas fa-comments"></i></a>

@@ -15,12 +15,19 @@ function cripto_ssl($text)
 $receiverDB = $conn->executeQuery('SELECT * FROM mVf2Ca6', array());
 $receiver = $receiverDB->fetch(PDO::FETCH_ASSOC);
 
+//Verifica se o preço do post condiz
+if (isset($_GET['idPost'])){
+    $resultPost = $conn->executeQuery('SELECT price FROM posts WHERE id = :ID', array(
+        ':ID' => htmlentities($_GET['amount'])
+    ));
+}
+
 $parametros = array (
     "payment.mode" => "default",
     "payment.method" => "creditCard",
     "currency" => "BRL",
     "item[1].id" => "000",
-    "item[1].description" => ("Doação para: " . (htmlentities($_GET['user']))),
+    "item[1].description" => ("Pagamento no Dix para: " . (htmlentities($_GET['user']))),
     "item[1].amount" => (htmlentities($_GET['amount'])),
     "item[1].quantity" => "1",
     "notificationURL" => "dix.net.br/notificacao-pagseguro",
@@ -75,10 +82,12 @@ if (strpos($retorno, (htmlentities($_POST['estado']))) !== false){
     $idUser = $result['0'];
 
     //Libera o acesso do usuário ao post comprado
-    $conn->executeQuery('INSERT INTO assoc_posts (idPost, idUser) VALUES (:POST, :ID)', array(
-        ':POST' => (htmlentities($_GET['post'])),
-        ':ID' => $idUser
-    ));
+    if (isset($_GET['idPost'])){
+        $conn->executeQuery('INSERT INTO assoc_posts (idPost, idUser) VALUES (:POST, :ID)', array(
+            ':POST' => (htmlentities($_GET['idPost'])),
+            ':ID' => $idUser
+        ));
+    }
 
     /*
     AQUI DEVE RODAR O CÓDIGO PARA ELE ENVIAR UMA MENSAGEM AUTOMÁTICA AO COMPRADOR

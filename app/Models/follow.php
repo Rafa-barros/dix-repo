@@ -22,19 +22,37 @@ $resultUser = $conn->executeQuery('SELECT id, followers FROM users WHERE usernam
 ));
 $resultUser = $resultUser->fetch();
 $idFlw = $resultUser['id'];
-$followers = intval($resultUser['followers']) + 1;
 
-//Adiciona o seguidor no usuário
-$conn->executeQuery('INSERT INTO assoc_users (id, idFollower) VALUES (:IDUSER, :IDFLW)', array(
-    ':IDUSER' => $idUser,
-    ':IDFLW' => $idFlw
+$resultFollower = $conn->executeQuery('SELECT id FROM assoc_users WHERE id = :ID AND idFollower = :IDFOL', array(
+    ':ID' => $idUser,
+    ':IDFOL' => $idFlw
 ));
 
-//Soma um follower na DB
-$conn->executeQuery('UPDATE users SET followers = :FOLLOWERS WHERE id = :ID', array(
-	':FOLLOWERS' => $followers,
-    ':ID' => $idFlw
-));
+$jaSegue = $resultFollower->fetch();
+
+if (empty($jaSegue)){
+    //Adiciona o seguidor no usuário
+    $conn->executeQuery('INSERT INTO assoc_users (id, idFollower) VALUES (:IDUSER, :IDFLW)', array(
+        ':IDUSER' => $idUser,
+        ':IDFLW' => $idFlw
+    ));
+
+    //Soma um follower na DB
+    $conn->executeQuery('UPDATE users SET followers = followers + 1 WHERE id = :ID', array(
+        ':ID' => $idFlw
+    ));
+} else {
+    //Remove o seguidor no usuário
+    $conn->executeQuery('DELETE FROM assoc_users WHERE id = :IDYSER AND idFollower = :IDFLW', array(
+        ':IDUSER' => $idUser,
+        ':IDFLW' => $idFlw
+    ));
+
+    //Soma um follower na DB
+    $conn->executeQuery('UPDATE users SET followers = followers - 1 WHERE id = :ID', array(
+        ':ID' => $idFlw
+    ));
+}
 
 echo json_encode(array(
     'username' => ""

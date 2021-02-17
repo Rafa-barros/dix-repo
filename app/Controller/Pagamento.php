@@ -5,6 +5,7 @@ use App\Models\Database;
 
 class Pagamento {
     public function index(){
+        echo ("teste pagamento");
         if (isset($_GET['user']) && isset($_GET['amount']) && ($_GET['amount'] > 1)){
             $conn = new Database();
             require('app/Models/gerarTokenPS.php');

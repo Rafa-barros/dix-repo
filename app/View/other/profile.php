@@ -253,7 +253,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <form enctype="multipart/form-data">
+      <form method="post" enctype="multipart/form-data">
         <div class="input-group mb-3 mt-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Descrição Rápida</span>
@@ -274,11 +274,11 @@
             </div>
             
             </div>
-              <div class="modal-footer">
-                <button type="submit" class="btn btn-primary">Salvar mudanças</button>
-              </div>
-              </form>
+            <div class="modal-footer">
+              <button type="submit" class="btn btn-primary">Salvar mudanças</button>
             </div>
+      </form>
+      </div>
 
   </div>
 </div>

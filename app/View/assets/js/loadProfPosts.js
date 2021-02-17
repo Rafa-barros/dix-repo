@@ -65,7 +65,7 @@ var flag = 300;
 
         //             if(result.qtdComentarios == 1) $("#"+result.idPost.toString()).find('.ncomments').text('1 Comentário');
 
-        //             flag = flag += 1200;
+        //             flag = flag += 500;
         //         },
         //         error:function(req, status, error){
         //             console.log(req);

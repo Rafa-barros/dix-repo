@@ -42,7 +42,7 @@ class registroUsuario{
 	}
 
 	private function registra(){
-		$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH);', array(
+		$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP);', array(
 			':USER' => $this->email,
 			':PWD' => $this->pwd,
 			':USERNAME' => $this->username,
@@ -54,7 +54,9 @@ class registroUsuario{
 			':POSTS' => 0,
 			':IMG' => 'userImages/standard.png',
 			':FOLLOWERS' => 0,
-			':IDAUTH' => 0
+			':IDAUTH' => 0,
+			':FOTOCAPA' => 'userImages/capa.jpg',
+			':VIP' => 0
 		));
 	}
 
@@ -118,7 +120,7 @@ class registroUsuario{
 		if($email != ''){
 			$username = md5($email . $pname);
 			$username = substr($username, 0, 16);
-			$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH);', array(
+			$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP);', array(
 				':USER' => $email,
 				':PWD' => NULL,
 				':USERNAME' => $username,
@@ -130,7 +132,9 @@ class registroUsuario{
 				':POSTS' => 0,
 				':IMG' => 'userImages/standard.png',
 				':FOLLOWERS' => 0,
-				':IDAUTH' => $idAuth
+				':IDAUTH' => $idAuth,
+				':FOTOCAPA' => 'userImages/capa.jpg',
+				':VIP' => 0
 			));
 			$login = new loginUsuario();
 			$login->loginAuth($email, $idAuth);

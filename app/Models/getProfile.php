@@ -28,9 +28,9 @@ class ProfileModel {
         ));
         $resultFol = $resultFollower->fetch();
         if (empty($resultFol)){
-            return "Seguir";
+            return 0;
         } else {
-            return "Seguindo";
+            return 1;
         }
     }
 }

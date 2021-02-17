@@ -253,7 +253,7 @@
         </button>
       </div>
       <div class="modal-body">
-      <form>
+      <form enctype="multipart/form-data">
         <div class="input-group mb-3 mt-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Descrição Rápida</span>
@@ -272,12 +272,13 @@
                 <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de perfil</label>
                 <input type="file" name="capa" id="upload" />
             </div>
-            </form>
-    </div>
-      <div class="modal-footer">
-        <button type="submit" class="btn btn-primary">Salvar mudanças</button>
-      </div>
-    </div>
+            
+            </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Salvar mudanças</button>
+              </div>
+              </form>
+            </div>
 
   </div>
 </div>

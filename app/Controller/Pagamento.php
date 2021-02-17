@@ -21,6 +21,7 @@ class Pagamento {
             $condPost = $conn->executeQuery('SELECT id FROM posts WHERE id = :ID', array(
                 ':ID' => htmlentities($_GET['user'])
             ));
+            $condPost = $condPost->fetch();
         } else {
             $condUser = $conn->executeQuery('SELECT id FROM users WHERE username = :USER', array(
                 ':USER' => htmlentities($_GET['user'])

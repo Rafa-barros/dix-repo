@@ -85,7 +85,7 @@
                             <span aria-hidden="true">&times;</span>
                             </button>
                         </div>
-                        <div class="modal-body loading-new-post">
+                        <div class="modal-body loading-hidden">
                             <div class="description mb-3">
                                 <textarea type="text" class="form-control new-post-description" id="validationDefault01" placeholder="Escreva a descrição aqui..." name="descriptPost"></textarea>
                             </div>
@@ -107,6 +107,7 @@
                                 <input type="number" step="0.01" minlength="1" name="valor" class="form-control post-price" aria-label="Amount (to the nearest dollar)" placeholder="Preço">
                             </div>
                         </div>
+                        <div class="loading-new-post"></div>
                         <div class="modal-footer loading-footer-new-post">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
                             <button type="submit" class="btn btn-primary" id="btn-final-new-post" name="enviar">Publicar</button>

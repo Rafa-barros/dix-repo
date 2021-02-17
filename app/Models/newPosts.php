@@ -30,7 +30,7 @@ class Post {
 
     public function getInfo(){
         if (count($this->postsVistosJS) > 1){
-            $this->postsVistos = implode(',', $this->postsVistosJS);
+            $this->postsVistos = implode(', ', $this->postsVistosJS);
         }
         $this->email = base64_decode($_COOKIE['cUser']);
 

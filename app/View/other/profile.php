@@ -270,7 +270,7 @@
             </div>
             <div class="d-flex">
                 <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de perfil</label>
-                <input type="file" name="arquivo" id="upload" />
+                <input type="file" name="capa" id="upload" />
             </div>
             </form>
     </div>

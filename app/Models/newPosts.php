@@ -71,11 +71,9 @@ class Post {
     public function selPost(){
         $query = 'SELECT * FROM posts WHERE idUser = :ID AND id NOT IN (';
         foreach($this->postsVistosJS as $idJaVisto){
-            if(is_numeric($idJaVisto)){
-                $query = ($query . ', ' . $idJaVisto);
-            }
+            $query = ($query . $idJaVisto . ', ');
         }
-        $query = $query . ')';
+        $query[count($query)] = ')';
         $this->nameOp = $query;
 
         $posts = $this->conn->executeQuery($query, array(

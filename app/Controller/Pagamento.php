@@ -52,7 +52,7 @@ class Pagamento {
                                     $resultPost = $resultPost->fetch();
                                     $pricePost = $resultPost['0'];
                                 
-                                    if ($pricePost >= $_GET['amount']){
+                                    if ($_GET['amount'] >= $pricePost){
                                         require('app/Models/pagarCredito.php');
                                     } else {
                                         require("app/View/other/error404.php");

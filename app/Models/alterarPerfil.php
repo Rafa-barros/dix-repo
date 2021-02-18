@@ -27,7 +27,7 @@ class alterarPerfil {
 
 	public function editarPerfil(){
 		$media = new uploadMedia();
-		$return = $media->uploadUserImg();
+		$media->uploadUserImg();
 		$media->uploadUserCapa();
 		$description = isset($_POST["description"]) ? $_POST["description"] : "";
 		if($description != ""){

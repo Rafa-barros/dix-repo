@@ -28,7 +28,7 @@ $(document).scroll(function() {
     if (parseInt(top) === maxTop) {
         newPost();
     }
-  });
+});
 
 function separaTempo(fullTime){
     if(fullTime == null) return '';

@@ -104,11 +104,12 @@ class uploadMedia{
 				$uploadFileDir = 'userImages/';
 				$dest_path = $uploadFileDir . $newFileName;
 
+				echo "<br>";
+				print_r($dest_path);
+				echo "<br>";
+
 				if(move_uploaded_file($fileTmpPath, $dest_path)){
 
-					echo "<br>";
-					print_r($dest_path);
-					echo "<br>";
 					$result = $this->conn->executeQuery('UPDATE users SET imgUser = :PATHIMG WHERE id = :EMAIL', array(
 						':PATHIMG' => $dest_path,
 						':EMAIL' => $this->userId

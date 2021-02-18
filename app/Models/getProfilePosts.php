@@ -51,7 +51,6 @@ class ProfilePosts {
             $this->posts[$i]['amount'] = $row['amount'];
             $this->posts[$i]['id'] = $row['id'];
             $this->posts[$i]['idUser'] = $row['idUser'];
-            $i++;
 
             //Verifica se o post já foi curtido
             $resultLiked = $this->conn->executeQuery('SELECT * FROM assoc_users_likes WHERE idPost = :IDPOST AND idUser = :IDUSER', array(
@@ -82,6 +81,8 @@ class ProfilePosts {
                     }
                 }
             }
+
+            $i++;
         }
 
         $this->tam = $i;

@@ -17,7 +17,7 @@ class Pagamento {
 
     public function index(){
         $conn = new Database();
-        if (isset($_GET['idPost'])){
+        if (($_GET['idPost']) != 0){
             $condPost = $conn->executeQuery('SELECT id FROM posts WHERE id = :ID', array(
                 ':ID' => htmlentities($_GET['user'])
             ));

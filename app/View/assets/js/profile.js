@@ -1,3 +1,4 @@
+if(me == 0) $('.fa-user').css('border-bottom', '0')
 
     $(document).on('click', '#btn-logout', function(){
 

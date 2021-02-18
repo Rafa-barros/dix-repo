@@ -63,7 +63,7 @@ $parametros = array (
 );
 
 $url = "https://ws.pagseguro.uol.com.br/transactions?appId=" . $token->id . "&appKey=" . $token->key;
-$retorno = callAPI($url, $parametros);
+$retorno = $token->callAPI($url, $parametros);
 
 if (strpos($retorno, (htmlentities($_POST['estado']))) !== false){
     echo ("<div style='display: none' id='cond'>SUCESSO</div>");
@@ -124,7 +124,7 @@ if (strpos($retorno, (htmlentities($_POST['estado']))) !== false){
         ));
     }
 } else {
-    echo ("<div style='display: none' id='cond'>ERRO: " . $retorno . "</div>");
+    $retornoPag = "<div style='display: none' id='cond'>ERRO: " . $retorno . "</div>";
 }
 
 /*

@@ -16,6 +16,7 @@ class Pagamento {
     }
 
     public function index(){
+
         $conn = new Database();
         if (($_GET['idPost']) != 0){
             $condPost = $conn->executeQuery('SELECT id FROM posts WHERE id = :ID', array(
@@ -30,6 +31,7 @@ class Pagamento {
         }
         if (isset($_GET['user']) && isset($_GET['amount']) && ($_GET['amount'] >= 1) && (!empty($condUser) || !empty($condPost))){
             require('app/Models/gerarTokenPS.php');
+            $retornoPag = 0;
             $token = new \app\Models\Token();
             $url = "https://ws.pagseguro.uol.com.br/sessions";
             $parametros = array (
@@ -42,7 +44,7 @@ class Pagamento {
             if (isset($_POST['nomeTitular']) && isset($_POST['cpfTitular']) && isset($_POST['dddTel']) && isset($_POST['numeroTelefone']) && isset($_POST['email'])){
                 if (isset($_POST['nCartao']) && isset($_POST['cvv']) && isset($_POST['monthVal']) && isset($_POST['yearVal'])){
                     if (isset($_POST['rua']) && isset($_POST['nLocal']) && isset($_POST['bairro']) && isset($_POST['cep']) && isset($_POST['cidade']) && isset($_POST['estado'])){
-                        if (isset($_POST['senderHash']) && isset($_POST['brand'])){
+                        if (isset($_POST['senderHash']) && isset($_POST['bandeira'])){
                             if (isset($_POST['tokenCard'])){
                                 //Verifica se o preço do post condiz
                                 if (isset($_GET['idPost'])){
@@ -52,7 +54,7 @@ class Pagamento {
                                     $resultPost = $resultPost->fetch();
                                     $pricePost = $resultPost['0'];
                                 
-                                    if ($pricePost == $_GET['amount']){
+                                    if ($_GET['amount'] >= $pricePost){
                                         require('app/Models/pagarCredito.php');
                                     } else {
                                         require("app/View/other/error404.php");
@@ -88,6 +90,10 @@ class Pagamento {
             require("app/View/other/pagamento.php");
         } else {
             require("app/View/other/error404.php");
+        }
+
+        if ($retornoPag != 0){
+            echo ($retornoPag);
         }
     }
  

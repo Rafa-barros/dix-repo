@@ -107,7 +107,7 @@ $(".chat-title-container").hide();
                            $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ separaTempo(chat[i][2]) +' </div> </div></div>'); 
                         }else{
                             $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
-                            $(".chat-messages").append(chat[i][3]);
+                            $(".chat-messages").append('<span>'+chat[i][3]+'</span>');
                         }
                     }
                     else { //mensagem do outro
@@ -115,7 +115,7 @@ $(".chat-title-container").hide();
                             $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time" id="' +chat[i][2].replace(' ','/')+'"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
                         }else{
                             $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time" id="' +chat[i][2].replace(' ','/')+'"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
-                            $(".chat-messages").append(chat[i][3]);
+                            $(".chat-messages").append('<span>'+chat[i][3]+'</span>');
                         }
                     }
                 }

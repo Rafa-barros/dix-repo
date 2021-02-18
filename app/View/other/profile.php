@@ -459,7 +459,7 @@
                     if ($ext != 'mp4' && $ext != 'avi' && $ext != 'webp'){
                         echo('<img src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' alt="">');
                     } else {
-                        echo('<video src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' alt="">');
+                        echo('<video src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' controls controlslist="nodownload" style="max-width:100%; max-height: 600px>');
                     }
                     ?>
                 </div>

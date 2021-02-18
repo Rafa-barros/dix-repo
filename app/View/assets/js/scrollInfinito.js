@@ -33,26 +33,26 @@ function separaTempo(fullTime){
 
 function ajaxSuccess (result) {
     var i=0;
-    while(result.idPost[i] != null && i != 6){
+    while(result.idPost[i] != null || i != 5){
         var midia = '';
         var pago = '';
         var postLiked = '';
     
-        if(result.imgPost == 0) flag = flag - 205;
+        if(result.imgPost[i] == 0) flag = flag - 205;
         
-        if(result.liked == 1){
+        if(result.liked[i] == 1){
             postLiked = 'style="color: rgb(218, 51, 51)"';
         }
     
-        if(result.imgPost != null){
-            if(result.imgPost.split('.')[1] != undefined) var midiaext = result.imgPost.split('.')[1].toLowerCase();
+        if(result.imgPost[i] != null){
+            if(result.imgPost[i].split('.')[1] != undefined) var midiaext = result.imgPost[i].split('.')[1].toLowerCase();
         }
         
-        if (result.descricao == null) result.descricao = ' ';
+        if (result.descricao[i] == null) result.descricao[i] = ' ';
     
         var midiatype ='video'
         if(midiaext == 'png' || midiaext == 'jpeg' || midiaext == 'jpg' || midiaext == 'gif' || midiaext == 'bmp' || midiaext == 'tiff' || midiaext == 'psd' || midiaext == 'raw' || midiaext == 'svg'){
-            midia = '<img src="'+result.imgPost+'" alt="Imagem do post">';
+            midia = '<img src="'+result.imgPost[i]+'" alt="Imagem do post">';
             midiatype = 'img'
         } 
     
@@ -61,19 +61,19 @@ function ajaxSuccess (result) {
         }
     
         else {
-            midia = '<video src="'+result.imgPost+'" controls controlslist="nodownload" style="max-width:100%; max-height: 600px"></video>'
+            midia = '<video src="'+result.imgPost[i]+'" controls controlslist="nodownload" style="max-width:100%; max-height: 600px"></video>'
         }
     
-        if(result.valor > 0) pago = 'pago ' + result.valor.toString();
+        if(result.valor[i] > 0) pago = 'pago ' + result.valor[i].toString();
     
-        if(result.idPost != null)$(".posts").append('<div class="card '+pago+'" id='+result.idPost.toString()+'> <div class="card-top"> <div class="top-card-top"> <div class="l-card-top"> <a href="/profile/'+result.userOp+'"><img class="profile-image" src="'+result.imgOp+'" alt="Foto perfil"></a> <div class="author-info"> <p class="author-name"> <a href="/profile/'+result.userOp+'">'+result.nameOp+'</a></p><p class="post-time"> '+ separaTempo(result.data)+' </p></div></div><div class="r-card-top"> <button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button> </div></div><div class="bot-card-top"> <pre class="description">'+result.descricao+'</pre></div></div><div class="midia-container"> '+ midia +' </div><div class="card-bot"> <div class="post-status"> <span class="nlikes">'+result.likes+' curtidas</span> <span class="ncomments">'+result.qtdComentarios.toString()+' comentários </span> </div><div class="g-border"></div><div class="interactive"> <div class="like"> <button class="btn-like" '+postLiked+'><span><i style="color: unset" class="fas fa-fire-alt"></i> Curtir</span> </button> </div><div class="donate"> <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button> <span> </div><div class="comment"> <button class="btn-comment"><i class="far fa-comment"></i>Comentários</span></button><span> </div></div><div class="comment-area"> <div class="end-comment-show"></div><div class="comment-now"> <form method="POST" class="comment-form" ajax="true"> <input type="text" class="form-control comment-input" placeholder="Deixe seu comentário aqui..." required> <button class="btn-send-comment"> Enviar </button> </form> </div></div></div></div>');
+        if(result.idPost[i] != null)$(".posts").append('<div class="card '+pago+'" id='+result.idPost[i].toString()+'> <div class="card-top"> <div class="top-card-top"> <div class="l-card-top"> <a href="/profile/'+result.userOp[i]+'"><img class="profile-image" src="'+result.imgOp[i]+'" alt="Foto perfil"></a> <div class="author-info"> <p class="author-name"> <a href="/profile/'+result.userOp[i]+'">'+result.nameOp[i]+'</a></p><p class="post-time"> '+ separaTempo(result.data[i])+' </p></div></div><div class="r-card-top"> <button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button> </div></div><div class="bot-card-top"> <pre class="description">'+result.descricao[i]+'</pre></div></div><div class="midia-container"> '+ midia +' </div><div class="card-bot"> <div class="post-status"> <span class="nlikes">'+result.likes[i]+' curtidas</span> <span class="ncomments">'+result.qtdComentarios[i].toString()+' comentários </span> </div><div class="g-border"></div><div class="interactive"> <div class="like"> <button class="btn-like" '+postLiked+'><span><i style="color: unset" class="fas fa-fire-alt"></i> Curtir</span> </button> </div><div class="donate"> <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button> <span> </div><div class="comment"> <button class="btn-comment"><i class="far fa-comment"></i>Comentários</span></button><span> </div></div><div class="comment-area"> <div class="end-comment-show"></div><div class="comment-now"> <form method="POST" class="comment-form" ajax="true"> <input type="text" class="form-control comment-input" placeholder="Deixe seu comentário aqui..." required> <button class="btn-send-comment"> Enviar </button> </form> </div></div></div></div>');
     
-        if(result.likes == 1) { $("#"+result.idPost.toString()).find('.nlikes').text('1 curtida');}
+        if(result.likes[i] == 1) { $("#"+result.idPost[i].toString()).find('.nlikes').text('1 curtida');}
     
-        if(result.qtdComentarios == 1) $("#"+result.idPost.toString()).find('.ncomments').text('1 Comentário');
+        if(result.qtdComentarios[i] == 1) $("#"+result.idPost[i].toString()).find('.ncomments').text('1 Comentário');
     
     
-        postsVistosNav.push(result.idPost);
+        postsVistosNav.push(result.idPost[i]);
 
             i++
     }

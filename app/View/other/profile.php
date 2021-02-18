@@ -429,7 +429,7 @@
 
                     <div class="top-card-top">
                         <div class="l-card-top">
-                            <a href=""><?php echo('<img src="' . $img . '" class="prof-img" alt="Foto de perfil">'); ?> </a>
+                            <a href=""><?php echo('<img src="' . $img . '" class="prof-img" alt="Foto de perfil">'); ?></a>
                             <div class="author-info">
                                 <p class="author-name"> <a href=""><?php echo($usuario->username)?></a></p>
                                 <p class="post-time"> <?php echo($profilePosts->posts[$j]['postDate']); ?> </p>
@@ -458,9 +458,9 @@
 
                     if ($ext != 'mp4' && $ext != 'avi' && $ext != 'webp'){
                         echo('<img src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' alt="">');
-                    } else {
+                   /* } else {
                         echo('<video src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' controls controlslist="nodownload" style="max-width:100%; max-height: 600px></video>"');
-                    }
+                    }*/
                     ?>
                 </div>
                 <div class="card-bot">

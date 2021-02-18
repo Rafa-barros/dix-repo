@@ -18,18 +18,18 @@
                         switch ($notificacoes[$i]['type']){
                             case 0:
                                 echo ('<div class="notificacao">
-                                <span>  <i class="fas fa-fire-alt like-icon"></i><a href="">' . $notificacoes[$i]['username'] . '</a>  curtiu a sua publicação! </span>
+                                <span>  <i class="fas fa-fire-alt like-icon"></i><a href="https://dix.net.br/profile/' . $notificacoes[$i]['username'] . '">' . $notificacoes[$i]['username'] . '</a>  curtiu a sua publicação! </span>
                             </div>');
                                 break;
                             case 1:
                                 echo ('<div class="notificacao">
-                                <span> <i class="far fa-comment comment-icon"></i><a href="">' . $notificacoes[$i]['username'] . '</a> comentou na sua publicação! </span>
+                                <span> <i class="far fa-comment comment-icon"></i><a href="https://dix.net.br/profile/' . $notificacoes[$i]['username'] . '">' . $notificacoes[$i]['username'] . '</a> comentou na sua publicação! </span>
                             </div>  ');
                                 break;
                             case 2:
                                 echo ('<div class="notificacao" style="display: block;">
                                 <i class="fas fa-coins coin-icon"></i>
-                                <span> <a href="">' . $notificacoes[$i]['username'] . '</a>  te deu <b>' . $notificacoes[$i]['amount'] . '</b> de gorjeta! </span>
+                                <span> <a href="https://dix.net.br/profile/' . $notificacoes[$i]['username'] . '">' . $notificacoes[$i]['username'] . '</a>  te deu <b>' . $notificacoes[$i]['amount'] . '</b> de gorjeta! </span>
                                 <div class="d-flex">
                                     <span class="gorjeta-msg">mensagem: ' . $notificacoes[$i]['msg'] . '.</span>
                                 </div>

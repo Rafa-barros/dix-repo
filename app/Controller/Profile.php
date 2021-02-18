@@ -41,11 +41,18 @@ class Profile {
         
         echo ("<script>var dataUser =" . $notification->idUser . ";" . "</script>");
 
+        //Pega as info's do perfil
         require("app/Models/getProfile.php");
         $usuario = new \app\Models\ProfileModel();
         $usuario->username = $this->urlMetodo;
         $usuario->getInfo();
         $jaSegue = $usuario->checaFollower($notification->idUser);
+
+        //Insere os posts
+        require("app/Models/getProfilePosts.php");
+        $profilePosts = new \app\Models\ProfilePosts();
+        $profilePosts->userOp = $usuario->username;
+        $profilePosts->selPost();
 
         if (empty($usuario->profileInfo['id'])){
             require ("app/View/other/error404.php");

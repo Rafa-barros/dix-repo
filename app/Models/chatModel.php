@@ -129,6 +129,7 @@ class chatModel{
 					$mensagens[$j][0] = $mensagem[$j]['msg'];
 					$mensagens[$j][1] = $itsMe;
 					$mensagens[$j][2] = $mensagem[$j]['msgDate'];
+					$mensagens[$j][3] = 0;
 				}
 				return $mensagens;
 			}
@@ -152,6 +153,7 @@ class chatModel{
 				$mensagens[$j][0] = $mensagem[$j]['msg'];
 				$mensagens[$j][1] = $itsMe;
 				$mensagens[$j][2] = $mensagem[$j]['msgDate'];
+				$mensagens[$j][3] = 0;
 			}
 			return $mensagens;
 		}

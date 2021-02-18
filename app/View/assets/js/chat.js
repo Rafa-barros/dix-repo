@@ -103,10 +103,20 @@ $(".chat-title-container").hide();
 
                 for(var i=0; i < chat.length; i++){
                     if(chat[i][1] == 1) { //mensagem minha
-                        $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
+                        if(chat[i][3] == 0){
+                           $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ separaTempo(chat[i][2]) +' </div> </div></div>'); 
+                        }else{
+                            $(".chat-messages").append('<div class="my-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
+                            $(".chat-messages").append(chat[i][3]);
+                        }
                     }
                     else { //mensagem do outro
-                        $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time" id="' +chat[i][2].replace(' ','/')+'"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
+                        if(chat[i][3] == 0){
+                            $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time" id="' +chat[i][2].replace(' ','/')+'"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
+                        }else{
+                            $(".chat-messages").append('<div class="your-message"><div class="message-content"><span>'+htmlEntities(chat[i][0])+'</span> <div class="time" id="' +chat[i][2].replace(' ','/')+'"> '+ separaTempo(chat[i][2]) +' </div> </div></div>');
+                            $(".chat-messages").append(chat[i][3]);
+                        }
                     }
                 }
                 $('.chat-messages').scrollTop(1000000);

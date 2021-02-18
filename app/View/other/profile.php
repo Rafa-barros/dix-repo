@@ -411,7 +411,7 @@
 
      <!-- post 1 -->
      <?php for($j=0;$j<$profilePosts->tam;$j++){ ?>
-     <div class="card" id=<?php echo("\"" . $profilePosts[$j]['id'] . "\""); ?>>
+     <div class="card" id=<?php echo("\"" . $profilePosts->posts[$j]['id'] . "\""); ?>>
                 <div class="card-top">
 
                     <div class="card-options-container" style="display: flex; justify-content: flex-end;">

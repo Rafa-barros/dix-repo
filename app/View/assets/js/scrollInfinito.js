@@ -43,8 +43,10 @@ function ajaxSuccess (result) {
     
     if (result.descricao == null) result.descricao = ' ';
 
+    var midiatype ='video'
     if(midiaext == 'png' || midiaext == 'jpeg' || midiaext == 'jpg' || midiaext == 'gif' || midiaext == 'bmp' || midiaext == 'tiff' || midiaext == 'psd' || midiaext == 'raw' || midiaext == 'svg'){
         midia = '<img src="'+result.imgPost+'" alt="Imagem do post">';
+        midiatype = 'img'
     } 
 
     else if (midiaext == undefined) {
@@ -62,10 +64,13 @@ function ajaxSuccess (result) {
     if(result.likes == 1) { $("#"+result.idPost.toString()).find('.nlikes').text('1 curtida');}
 
     if(result.qtdComentarios == 1) $("#"+result.idPost.toString()).find('.ncomments').text('1 Comentário');
-
-    if($('#'+result.idPost).find('.midia-container img').heigth() < 700){
-        $('#'+result.idPost).find('.midia-container img').css('width','100%').css('height','unset');
+    
+    if(midiatype == 'img'){
+        if($('#'+result.idPost).find('.midia-container img').heigth() < 700){
+            $('#'+result.idPost).find('.midia-container img').css('width','100%').css('height','unset');
+        }
     }
+
 
     postsVistosNav.push(result.idPost);
  }

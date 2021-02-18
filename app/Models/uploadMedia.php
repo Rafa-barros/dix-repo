@@ -79,12 +79,12 @@ class uploadMedia{
 	public function uploadUserImg(){
 
 		//Verifica se recebeu um arquivo para atualizar a foto de perfil, e se não houve nenhum erro
-		if(isset($_FILES['arquivo']) && $_FILES['arquivo']['error'][0] === UPLOAD_ERR_OK){
+		if(isset($_FILES['arquivo']) && $_FILES['arquivo']['error'][1] === UPLOAD_ERR_OK){
 
-			$fileTmpPath = $_FILES['perfil']['tmp_name'][0];//Nome temporário que o arquivo recebe
-			$fileName = $_FILES['arquivo']['name'][0];//Nome do arquivo no computador da pessoa
-			$fileSize = $_FILES['arquivo']['size'][0];//Tamanho do arquivo em bytes
-			$fileType = $_FILES['arquivo']['type'][0];//Tipo do arquivo
+			$fileTmpPath = $_FILES['perfil']['tmp_name'][1];//Nome temporário que o arquivo recebe
+			$fileName = $_FILES['arquivo']['name'][1];//Nome do arquivo no computador da pessoa
+			$fileSize = $_FILES['arquivo']['size'][1];//Tamanho do arquivo em bytes
+			$fileType = $_FILES['arquivo']['type'][1];//Tipo do arquivo
 
 			//Separa o nome do arquivo da extensão
 			$fileNameCmps = explode(".", $fileName);
@@ -142,12 +142,12 @@ class uploadMedia{
 	public function uploadUserCapa(){
 
 		//Verifica se recebeu um arquivo para atualizar a foto de perfil, e se não houve nenhum erro
-		if(isset($_FILES['arquivo']) && $_FILES['arquivo']['error'][1] === UPLOAD_ERR_OK){
+		if(isset($_FILES['arquivo']) && $_FILES['arquivo']['error'][0] === UPLOAD_ERR_OK){
 
-			$fileTmpPath = $_FILES['arquivo']['tmp_name'][1];//Nome temporário que o arquivo recebe
-			$fileName = $_FILES['arquivo']['name'][1];//Nome do arquivo no computador da pessoa
-			$fileSize = $_FILES['arquivo']['size'][1];//Tamanho do arquivo em bytes
-			$fileType = $_FILES['arquivo']['type'][1];//Tipo do arquivo
+			$fileTmpPath = $_FILES['arquivo']['tmp_name'][0];//Nome temporário que o arquivo recebe
+			$fileName = $_FILES['arquivo']['name'][0];//Nome do arquivo no computador da pessoa
+			$fileSize = $_FILES['arquivo']['size'][0];//Tamanho do arquivo em bytes
+			$fileType = $_FILES['arquivo']['type'][0];//Tipo do arquivo
 
 			//Separa o nome do arquivo da extensão
 			$fileNameCmps = explode(".", $fileName);

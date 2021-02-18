@@ -62,10 +62,18 @@ class alterarPerfil {
 	public function configuracoes(){
 		$username = isset($_POST["username"]) ? $_POST["username"] : "";
 		if($username != ""){
-			$this->conn->executeQuery('UPDATE users SET username = :USERNAME WHERE id = :ID', array(
-				':USERNAME' => $username,
-				':ID' => $this->userId
+			$result = $this->conn->executeQuery('SELECT username FROM users WHERE username = :USERNAME', array(
+				':USERNAME' => $username
 			));
+			$result = $result->fetch();
+			if(empty($result)){
+				$this->conn->executeQuery('UPDATE users SET username = :USERNAME WHERE id = :ID', array(
+					':USERNAME' => $username,
+					':ID' => $this->userId
+				));
+			}else{
+				$_SESSION['usernameIndisponivel'] = TRUE;
+			}
 		}
 		if(isset($_POST['dia']) && isset($_POST['mes']) && isset($_POST['ano'])){
 			$nascimento = $_POST['ano'] . '-' . $_POST['mes'] . '-' . $_POST['dia'];
@@ -76,38 +84,93 @@ class alterarPerfil {
 		}
 		$pix = isset($_POST["pix"]) ? $_POST["pix"] : "";
 		if($pix != ""){
-			$this->conn->executeQuery('UPDATE infobancarias SET pix = :PIX WHERE id = :ID', array(
-				':PIX' => $pix,
+			$result = $this->conn->executeQuery('SELECT id FROM infobancarias WHERE id = :ID', array(
 				':ID' => $this->userId
 			));
+			$result = $result->fetch();
+			if(empty($result)){
+				$this->conn->executeQuery('INSERT INTO infobancarias (pix, id) VALUES (:PIX, :ID)', array(
+					':PIX' => $pix,
+					':ID' => $this->userId
+				));
+			}else{
+				$this->conn->executeQuery('UPDATE infobancarias SET pix = :PIX WHERE id = :ID', array(
+					':PIX' => $pix,
+					':ID' => $this->userId
+				));
+			}
 		}
 		$cpf = isset($_POST["cpf"]) ? $_POST["cpf"] : "";
 		if($cpf != ""){
-			$this->conn->executeQuery('UPDATE infobancarias SET cpf = :CPF WHERE id = :ID', array(
-				':CPF' => $cpf,
+			$result = $this->conn->executeQuery('SELECT id FROM infobancarias WHERE id = :ID', array(
 				':ID' => $this->userId
 			));
+			$result = $result->fetch();
+			if(empty($result)){
+				$this->conn->executeQuery('INSERT INTO infobancarias (cpf, id) VALUES (:CPF, :ID)', array(
+					':CPF' => $cpf,
+					':ID' => $this->userId
+				));
+			}else{
+				$this->conn->executeQuery('UPDATE infobancarias SET cpf = :CPF WHERE id = :ID', array(
+					':CPF' => $cpf,
+					':ID' => $this->userId
+				));
+			}
 		}
 		$nBanco = isset($_POST["nBanco"]) ? $_POST["nBanco"] : "";
 		if($nBanco != ""){
-			$this->conn->executeQuery('UPDATE infobancarias SET nBanco = :NBANCO WHERE id = :ID', array(
-				':NBANCO' => $nBanco,
+			$result = $this->conn->executeQuery('SELECT id FROM infobancarias WHERE id = :ID', array(
 				':ID' => $this->userId
 			));
+			$result = $result->fetch();
+			if(empty($result)){
+				$this->conn->executeQuery('INSERT INTO infobancarias (nBanco, id) VALUES (:NBANCO, :ID)', array(
+					':NBANCO' => $nBanco,
+					':ID' => $this->userId
+				));
+			}else{
+				$this->conn->executeQuery('UPDATE infobancarias SET nBanco = :NBANCO WHERE id = :ID', array(
+					':NBANCO' => $nBanco,
+					':ID' => $this->userId
+				));
+			}
 		}
 		$agencia = isset($_POST["agencia"]) ? $_POST["agencia"] : "";
 		if($agencia != ""){
-			$this->conn->executeQuery('UPDATE infobancarias SET agencia = :AGENCIA WHERE id = :ID', array(
-				':AGENCIA' => $agencia,
+			$result = $this->conn->executeQuery('SELECT id FROM infobancarias WHERE id = :ID', array(
 				':ID' => $this->userId
 			));
+			$result = $result->fetch();
+			if(empty($result)){
+				$this->conn->executeQuery('INSERT INTO infobancarias (agencia, id) VALUES (:AGENCIA, :ID)', array(
+					':AGENCIA' => $agencia,
+					':ID' => $this->userId
+				));
+			}else{
+				$this->conn->executeQuery('UPDATE infobancarias SET agencia = :AGENCIA WHERE id = :ID', array(
+					':AGENCIA' => $agencia,
+					':ID' => $this->userId
+				));
+			}
 		}
 		$conta = isset($_POST["conta"]) ? $_POST["conta"] : "";
 		if($conta != ""){
-			$this->conn->executeQuery('UPDATE infobancarias SET conta = :CONTA WHERE id = :ID', array(
-				':CONTA' => $conta,
+			$result = $this->conn->executeQuery('SELECT id FROM infobancarias WHERE id = :ID', array(
 				':ID' => $this->userId
 			));
+			$result = $result->fetch();
+			if(empty($result)){
+				$this->conn->executeQuery('INSERT INTO infobancarias (conta, id) VALUES (:CONTA, :ID)', array(
+					':CONTA' => $conta,
+					':ID' => $this->userId
+				));
+			}else{
+				$this->conn->executeQuery('UPDATE infobancarias SET conta = :CONTA WHERE id = :ID', array(
+					':CONTA' => $conta,
+					':ID' => $this->userId
+				));
+			}
 		}
 	}
 

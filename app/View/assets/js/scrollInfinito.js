@@ -31,7 +31,7 @@ function ajaxSuccess (result) {
     var pago = '';
     var postLiked = '';
 
-    if(result.imgPost == 0) flag = flag - 300;
+    if(result.imgPost == 0) flag = flag - 205;
     
     if(result.liked == 1){
         postLiked = 'style="color: rgb(218, 51, 51)"';

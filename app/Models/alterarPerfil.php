@@ -43,6 +43,13 @@ class alterarPerfil {
 				':ID' => $this->userId
 			));
 		}
+		$pname = isset($_POST["pname"]) ? $_POST["pname"] : "";
+		if($pname != ""){
+			$this->conn->executeQuery('UPDATE users SET pname = :PNAME WHERE id = :ID', array(
+				':PNAME' => $pname,
+				':ID' => $this->userId
+			));
+		}
 		$bio = isset($_POST["bio"]) ? $_POST["bio"] : "";
 		if($bio != ""){
 			$this->conn->executeQuery('UPDATE users SET bio = :BIO WHERE id = :ID', array(
@@ -57,13 +64,6 @@ class alterarPerfil {
 		if($username != ""){
 			$this->conn->executeQuery('UPDATE users SET username = :USERNAME WHERE id = :ID', array(
 				':USERNAME' => $username,
-				':ID' => $this->userId
-			));
-		}
-		$pname = isset($_POST["pname"]) ? $_POST["pname"] : "";
-		if($pname != ""){
-			$this->conn->executeQuery('UPDATE users SET pname = :PNAME WHERE id = :ID', array(
-				':PNAME' => $pname,
 				':ID' => $this->userId
 			));
 		}

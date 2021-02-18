@@ -286,6 +286,10 @@
       <div class="modal-body">
       <form method="post" enctype="multipart/form-data">
         <div class="input-group mb-3 mt-3">
+                    <label class="config-label">Alterar Nome</label>
+                    <div class="input-group mb-3">
+                        <input type="text" name="pname" class="form-control" aria-label="Default" placeholder="Nome de pefil" aria-describedby="inputGroup-sizing-default">
+                    </div>
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Descrição Rápida</span>
                     </div>
@@ -334,11 +338,6 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">@</span>
                     </div>
                     <input type="text" name="username" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
-                </div>
-
-                <label class="config-label">Alterar Nome</label>
-                <div class="input-group mb-3">
-                    <input type="text" name="pname" class="form-control" aria-label="Default" placeholder="Nome de pefil" aria-describedby="inputGroup-sizing-default">
                 </div>
                 
                 <label class="config-label">Data de nascimento</label>

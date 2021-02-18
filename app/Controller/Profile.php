@@ -22,8 +22,8 @@ class Profile {
         if(isset($_POST['editar'])){
             $editar = new \app\Models\alterarPerfil();
             $editar->editarPerfil();
-            header('Location: http://dix.net.br/profile/' . $user, true, 303);
-            die();
+            //header('Location: http://dix.net.br/profile/' . $user, true, 303);
+            //die();
         }
 
         if(isset($_POST['config'])){

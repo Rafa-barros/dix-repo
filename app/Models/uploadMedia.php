@@ -79,7 +79,7 @@ class uploadMedia{
 	public function uploadUserImg(){
 
 		//Verifica se recebeu um arquivo para atualizar a foto de perfil, e se não houve nenhum erro
-		if(isset($_FILES['perfil'][1]) && $_FILES['perfil']['error'][1] === UPLOAD_ERR_OK){
+		if(isset($_FILES['perfil']) && $_FILES['perfil']['error'] === UPLOAD_ERR_OK){
 
 			$fileTmpPath = $_FILES['perfil']['tmp_name'][1];//Nome temporário que o arquivo recebe
 			$fileName = $_FILES['perfil']['name'][1];//Nome do arquivo no computador da pessoa
@@ -139,7 +139,7 @@ class uploadMedia{
 	public function uploadUserCapa(){
 
 		//Verifica se recebeu um arquivo para atualizar a foto de perfil, e se não houve nenhum erro
-		if(isset($_FILES['perfil'][0]) && $_FILES['perfil']['error'][0] === UPLOAD_ERR_OK){
+		if(isset($_FILES['perfil']) && $_FILES['perfil']['error'] === UPLOAD_ERR_OK){
 
 			$fileTmpPath = $_FILES['perfil']['tmp_name'][0];//Nome temporário que o arquivo recebe
 			$fileName = $_FILES['perfil']['name'][0];//Nome do arquivo no computador da pessoa

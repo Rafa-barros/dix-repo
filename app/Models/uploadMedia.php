@@ -123,14 +123,14 @@ class uploadMedia{
 
 				//Caso o arquivo que a pessoa enviou não tenha uma extensão permitida, será definida a variável de sessão 'erro', e a pessoa voltará para a página inicial
 				$_SESSION['erro'] = TRUE;
-				return FALSE;
+				return TRUE;
 
 			}
 		}else{
 
 			//Caso a pessoa não tenha enviado nenhum arquivo, será definida a variável de sessão 'erro', e a pessoa voltará para a página inicial
 			$_SESSION['erro'] = TRUE;
-			return TRUE;
+			return FALSE;
 
 		}
 

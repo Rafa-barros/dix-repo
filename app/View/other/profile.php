@@ -432,13 +432,13 @@
                             <a href=""><?php echo('<img src="' . $img . '" class="prof-img" alt="Foto de perfil">'); ?> </a>
                             <div class="author-info">
                                 <p class="author-name"> <a href=""><?php echo($usuario->username)?></a></p>
-                                <p class="post-time"> <?php $profilePosts->posts[$j]['postDate'] ?> </p>
+                                <p class="post-time"> <?php echo($profilePosts->posts[$j]['postDate']); ?> </p>
                             </div>
                         </div>
                         <div class="r-card-top">
                             <?php if(base64_decode($_COOKIE['cUser']) != $email){
                                 if ($jaSegue){
-                                    echo ('<button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button>');
+                                    echo ('<button type="button" class="btn btn-primary btn-card-follow">Seguindo<i style="margin-left:6px;" class="fas fa-check"></i> </button>');
                                 } else {
                                     echo ('<button type="button" class="btn btn-primary btn-card-follow unfollow" style="background-color: transparent; color: rgb(57, 132, 218);">Seguir</button>');
                                 }

@@ -124,7 +124,7 @@ if (strpos($retorno, (htmlentities($_POST['estado']))) !== false){
         ));
     }
 } else {
-    echo ("<div style='display: none' id='cond'>ERRO: " . $retorno . "</div>");
+    $retornoPag = "<div style='display: none' id='cond'>ERRO: " . $retorno . "</div>";
 }
 
 /*

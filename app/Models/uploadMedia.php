@@ -81,6 +81,9 @@ class uploadMedia{
 		//Verifica se recebeu um arquivo para atualizar a foto de perfil, e se não houve nenhum erro
 		if(isset($_FILES['arquivo']) && $_FILES['arquivo']['error'][0] === UPLOAD_ERR_OK){
 
+			echo "<br>";
+			print_r($_FILES['arquivo']['name'][0]);
+			echo "<br>";
 			$fileTmpPath = $_FILES['perfil']['tmp_name'][0];//Nome temporário que o arquivo recebe
 			$fileName = $_FILES['arquivo']['name'][0];//Nome do arquivo no computador da pessoa
 			$fileSize = $_FILES['arquivo']['size'][0];//Tamanho do arquivo em bytes

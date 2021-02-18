@@ -13,7 +13,6 @@ class Profile {
         $notification->email = base64_decode($_COOKIE['cUser']);
         $notification->getNotifications();
         $username = $notification->getProfile();
-        $descript = $notification->getDescript();
         $user = $username;
         $notificacoes = $notification->notificacoes;
         $tamNovas = $notification->notificacoesNovas;
@@ -46,6 +45,7 @@ class Profile {
             require ("app/View/other/error404.php");
         } else {
             $id = $usuario->profileInfo['id'];
+            $descript = $usuario->profileInfo['description'];
             $username = $usuario->profileInfo['username'];
             $birth = $usuario->profileInfo['birth'];
             $pname = $usuario->profileInfo['pname'];

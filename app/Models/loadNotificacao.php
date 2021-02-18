@@ -58,12 +58,4 @@ class Notificacao {
 		return $resultProfile['0'];
 	}
 
-	public function getDescript(){
-		$resultProfile = $this->conn->executeQuery('SELECT description FROM users WHERE id = :ID', array(
-			':ID' => $this->idUser
-		));
-		$resultProfile = $resultProfile->fetch();
-		
-		return $resultProfile['0'];
-	}
 }

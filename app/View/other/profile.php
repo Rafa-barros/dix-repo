@@ -463,21 +463,6 @@
                         </div>
                     </div>
                     <div class="comment-area">
-                        <div class="a-comment">
-                            <p class="r-comment"> <span class="a-username"><a href="">Gustavo123</a></span> Lorem, ipsum dolor.</p>
-                        </div>
-                        <div class="a-comment">
-                            <p class="r-comment"> <span class="a-username"><a href="">Fernandoo</a></span> Lorem ipsum dolor sit.</p>
-                        </div>
-                        <div class="a-comment">
-                            <p class="r-comment"> <span class="a-username"><a href="">AnaJulia_50</a></span> Lorem, ipsum.</p>
-                        </div>
-                        <div class="a-comment">
-                            <p class="r-comment"> <span class="a-username"><a href="">Marcus13</a></span> Lorem ipsum dolor sit amet consectetur adipisicing.<p>
-                        </div>
-                        <div class="a-comment">
-                            <p class="r-comment"> <span class="a-username"><a href=""> LauraaaSouza</a></span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptates expedita labore quas possimus. Eaque, molestiae. Nesciunt vero minima assumenda voluptatem?</p>
-                        </div>
                         <div class="end-comment-show"></div>
                         <div class="comment-now">
                             <form method="POST" class="comment-form" ajax="true">

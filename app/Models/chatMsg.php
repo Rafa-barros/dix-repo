@@ -17,10 +17,16 @@ if($_POST['funcao'] == "novoChat"){
 		if($key != 0){
 			$datetime1 = explode(" ", $res[$key - 1][2]);
 			$datetime1 = $datetime1[0];
+			echo $datetime1;
+			echo "\n";
 			$datetime2 = explode(" ", $res[$key][2]);
 			$datetime2 = $datetime2[0];
+			echo $datetime2;
+			echo "\n";
 			$interval = strtotime($datetime2) - strtotime($datetime1);
 			echo $interval;
+			echo "\n";
+			echo "\n";
 			if(intval($interval) > 0){
 				$value = 1;
 			}

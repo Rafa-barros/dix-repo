@@ -16,12 +16,13 @@ if($_POST['funcao'] == "novoChat"){
 	foreach($res as $key => $value){
 		if($key != 0){
 			$datetime1 = new DateTime($res[$key - 1][2]);
+			echo $res[$key - 1][2];
+			echo "\n";
 			$datetime2 = new DateTime($res[$key][2]);
+			echo $res[$key][2];
+			echo "\n";
 			$interval = $datetime2->diff($datetime1);
 			$interval = $interval->format('%a');
-			echo "<br>";
-			echo $interval;
-			echo "<br>";
 			if(intval($interval) > 0){
 				$value = 1;
 			}

@@ -410,7 +410,7 @@
     
 
      <!-- post 1 -->
-     <?php echo($profilePosts->posts[0]['media']); ?>
+     <?php echo($profilePosts->idOp); ?>
      <?php for($j=0;$j<$profilePosts->tam;$j++){ ?>
      <div class="card">
                 <div class="card-top">

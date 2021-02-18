@@ -468,8 +468,12 @@ button:focus {
 .midia-container img, .midia-container video {
     max-width: 620px;
     max-height: 700px;
-    width: auto;
-    height: auto;
+}
+
+.midia-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 video:focus {
@@ -820,6 +824,15 @@ video:focus {
     width: 40%;
     height: 1px;
     background-color: rgba(0, 0, 0, 0.397);;
+}
+
+/* card prof */
+
+.prof-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.24);
 }
 
 @media(max-width: 1250px) {

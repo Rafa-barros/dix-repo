@@ -457,9 +457,9 @@
                     $ext = strtolower(end($extCmps));
 
                     if ($ext != 'mp4' && $ext != 'avi' && $ext != 'webp'){
-                        echo('<img src=../' . $profilePosts->posts[$j]['media'] . ' alt="">');
+                        echo('<img src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' alt="">');
                     } else {
-                        echo('<video src=../' . $profilePosts->posts[$j]['media'] . 'alt="">');
+                        echo('<video src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' alt="">');
                     }
                     ?>
                 </div>

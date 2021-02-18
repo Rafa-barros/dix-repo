@@ -2,8 +2,6 @@
 
 namespace App\Controller;
 
-use App\Models\alterarPerfil;
-
 class Profile {
     public $urlMetodo;
 
@@ -20,6 +18,7 @@ class Profile {
         $tamNovas = $notification->notificacoesNovas;
         $tam = $notification->qtdNotificacoes;
 
+        require("app/Models/alterarPerfil.php");
         if(isset($_POST['editar'])){
             $editar = new alterarPerfil();
             $editar->editarPerfil();

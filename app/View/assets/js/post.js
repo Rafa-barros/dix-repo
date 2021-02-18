@@ -1,4 +1,5 @@
-
+var urlprof = '';
+if(window.location.href.split('/')[3] == 'profile') urlprof = '../'
 
 // Botão de like
 
@@ -10,7 +11,7 @@ $(document).on('click', '.btn-like', function(){
 
 
         $.ajax({
-            url:"app/Models/curtirPost.php",
+            url: urlprof +"app/Models/curtirPost.php",
             dataType: 'json',
             type: "POST",
             data: {
@@ -44,7 +45,7 @@ $(document).on('click', '.btn-comment', function(){
     //Carregar comentários
 
         $.ajax({
-            url:"app/Models/loadComments.php",
+            url: urlprof + "app/Models/loadComments.php",
             dataType: 'json',
             type: "POST",
             data: {
@@ -89,7 +90,7 @@ $(document).ready(function(e) {
         var newComment = '<div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+ $('.features-containers a').attr('href').split('/')[1] +'</a></span>'+ htmlEntities(commentInput) +'</p> </div>';
 
         $.ajax({
-            url: 'app/Models/comentarPost.php',
+            url: urlprof + 'app/Models/comentarPost.php',
             method: "POST",
             dataType: "json",     
             data: {

@@ -158,7 +158,7 @@ $postObj->postsVistosJS = $_POST['postsVistos'];
 $postObj->getInfo();
 $postSel = $postObj->selPost();
 
-for($i = 0; $i < 5; $i++){
+for($i = 0; $i < 8; $i++){
     $postDate[$i] = $postSel[$i]['postDate'];
     $media[$i] = $postSel[$i]['media'];
     $descript[$i] = $postSel[$i]['descript'];

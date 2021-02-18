@@ -27,7 +27,7 @@ class Profile {
             if(isset($_FILES['arquivo'])){
                 $editar->alterarImgCapa();
             }
-            var_dump($_FILES['arquivo']);
+            print_r($_FILES['arquivo']);
             $editar->editarPerfil();
             // header('Location: https://dix.net.br/profile/' . $user, true, 303);
             // die();

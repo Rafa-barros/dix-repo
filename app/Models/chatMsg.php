@@ -19,6 +19,7 @@ if($_POST['funcao'] == "novoChat"){
 			$datetime2 = new DateTime($res[$key][2]);
 			$interval = $datetime2->diff($datetime1);
 			$interval = $interval->format('%d');
+			echo $interval;
 			if(intval($interval) > 0){
 				$value = 1;
 			}

@@ -81,9 +81,6 @@ class uploadMedia{
 		//Verifica se recebeu um arquivo para atualizar a foto de perfil, e se não houve nenhum erro
 		if(isset($_FILES['arquivo']) && $_FILES['arquivo']['error'][0] === UPLOAD_ERR_OK){
 
-			echo "<br>";
-			print_r($_FILES['arquivo']['name'][0]);
-			echo "<br>";
 			$fileTmpPath = $_FILES['perfil']['tmp_name'][0];//Nome temporário que o arquivo recebe
 			$fileName = $_FILES['arquivo']['name'][0];//Nome do arquivo no computador da pessoa
 			$fileSize = $_FILES['arquivo']['size'][0];//Tamanho do arquivo em bytes
@@ -109,6 +106,9 @@ class uploadMedia{
 
 				if(move_uploaded_file($fileTmpPath, $dest_path)){
 
+					echo "<br>";
+					print_r($dest_path);
+					echo "<br>";
 					$result = $this->conn->executeQuery('UPDATE users SET imgUser = :PATHIMG WHERE id = :EMAIL', array(
 						':PATHIMG' => $dest_path,
 						':EMAIL' => $this->userId

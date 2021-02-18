@@ -10,7 +10,7 @@ class ProfilePosts {
     public $tam;
     private $conn;
     private $idUser;
-    public $idOp;
+    private $idOp;
 
     public function __construct(){
         $this->conn = new Database();

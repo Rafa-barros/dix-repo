@@ -52,6 +52,7 @@ class Profile {
         require("app/Models/getProfilePosts.php");
         $profilePosts = new \app\Models\ProfilePosts();
         $profilePosts->userOp = $usuario->username;
+        $profilePosts->getInfo();
         $profilePosts->selPost();
 
         if (empty($usuario->profileInfo['id'])){

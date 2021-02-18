@@ -286,7 +286,6 @@
       <div class="modal-body">
       <form method="post" enctype="multipart/form-data">
         <div class="input-group mb-3 mt-3">
-                    <label class="config-label">Alterar Nome</label>
                     <div class="input-group mb-3">
                         <input type="text" name="pname" class="form-control" aria-label="Default" placeholder="Nome de pefil" aria-describedby="inputGroup-sizing-default">
                     </div>

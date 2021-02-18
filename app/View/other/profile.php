@@ -297,11 +297,11 @@
             </div>
             <div class="d-flex">
                 <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de capa</label>
-                <input type="file" name="arquivo" id="upload" />
+                <input type="file" name="capa" id="upload" />
             </div>
             <div class="d-flex">
                 <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de perfil</label>
-                <input type="file" name="capa" id="upload" />
+                <input type="file" name="arquivo" id="upload" />
             </div>
             
             </div>
@@ -333,21 +333,21 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">@</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" name="username" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
                 </div>
                 
                 <label class="config-label">Data de nascimento</label>
                 <div class="input-group mb-3 d-flex">
                     <div class="d-flex">
-                        <input type="text" class="form-control data-nascimento" aria-label="Default" placeholder="DD" aria-describedby="inputGroup-sizing-default">
-                        <input type="text" class="form-control data-nascimento" aria-label="Default" placeholder="MM" aria-describedby="inputGroup-sizing-default">
-                        <input type="text" class="form-control data-nascimento" aria-label="Default" placeholder="AAAA" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" name="dia" class="form-control data-nascimento" aria-label="Default" placeholder="DD" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" name="mes" class="form-control data-nascimento" aria-label="Default" placeholder="MM" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" name="ano" class="form-control data-nascimento" aria-label="Default" placeholder="AAAA" aria-describedby="inputGroup-sizing-default">
                     </div>
                 </div>
 
                 <label class="config-label"> Dados para recebimento </label>
                 <div class="input-group mb-3">
-                    <input type="text" class="form-control" aria-label="Default" placeholder="Chave Pix" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" name="dix" class="form-control" aria-label="Default" placeholder="Chave Pix" aria-describedby="inputGroup-sizing-default">
                 </div>
 
                 <div class="ou-container mb-3">
@@ -358,27 +358,27 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">CPF</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" placeholder="XXXXXXXXXXX" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" name="cpf" class="form-control" aria-label="Default" placeholder="XXXXXXXXXXX" aria-describedby="inputGroup-sizing-default">
                 </div>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Banco</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" placeholder="Ex.: 123" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" name="nBanco" class="form-control" aria-label="Default" placeholder="Ex.: 123" aria-describedby="inputGroup-sizing-default">
                 </div>
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Agência</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" placeholder="Ex.: 1234" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" name="agencia" class="form-control" aria-label="Default" placeholder="Ex.: 1234" aria-describedby="inputGroup-sizing-default">
                 </div>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Conta</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default"  aria-describedby="inputGroup-sizing-default">
+                    <input type="text" name="conta" class="form-control" aria-label="Default"  aria-describedby="inputGroup-sizing-default">
                 </div>
 
                 <button type="button" name="logout" id="btn-logout" class="btn btn-outline-danger mt-4">Log out</button>

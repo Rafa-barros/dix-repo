@@ -428,7 +428,7 @@
 
                     <div class="top-card-top">
                         <div class="l-card-top">
-                            <a href=""><?php echo('<img src="' . $img . '" class="profile-img" alt="Foto de perfil">'); ?> </a>
+                            <a href=""><?php echo('<img src="' . $img . '" class="prof-img" alt="Foto de perfil">'); ?> </a>
                             <div class="author-info">
                                 <p class="author-name"> <a href=""><?php echo($usuario->username)?></a></p>
                                 <p class="post-time"> <?php $profilePosts->posts[$j]['postDate'] ?> </p>

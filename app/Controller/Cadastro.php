@@ -11,7 +11,7 @@ class Cadastro {
             if($cadastro->verifyFields($_POST['email'], $_POST['pwd'], $_POST['confirmPwd'])){
                 $idVerify = $cadastro->newUser($_POST['email'], $_POST['pwd'], htmlentities($_POST['username']), $_POST['dia'], $_POST['mes'], $_POST['ano'] , htmlentities($_POST['pname']));
                 if($idVerify != FALSE){
-                    header("Location: http://dix.net.br/verificarconta?id=" . $idVerify . "&email=" . htmlentities($_POST['email']));
+                    header("Location: https://dix.net.br/verificarconta?id=" . $idVerify . "&email=" . htmlentities($_POST['email']));
                     die();
                 }
             }

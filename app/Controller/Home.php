@@ -13,7 +13,7 @@ class Home {
             if($result == FALSE){
                 $_SESSION['LoginFailed'] = TRUE;
             }else{
-                header("Location: http://dix.net.br");
+                header("Location: https://dix.net.br");
             }
     	}
         if(isset($_COOKIE['cUser']) && isset($_COOKIE['token'])){
@@ -24,7 +24,7 @@ class Home {
             ));
             $result = $result->fetch();
             if(!empty($result) && $result['token'] == $_COOKIE['token']){
-                header("Location: http://dix.net.br/feed");
+                header("Location: https://dix.net.br/feed");
                 die();
             }
         }

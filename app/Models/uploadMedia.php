@@ -79,12 +79,12 @@ class uploadMedia{
 	public function uploadUserImg(){
 
 		//Verifica se recebeu um arquivo para atualizar a foto de perfil, e se não houve nenhum erro
-		if(isset($_FILES['perfil'][1]) && $_FILES['perfil'][1]['error'] === UPLOAD_ERR_OK){
+		if(isset($_FILES['perfil']) && $_FILES['perfil']['error'] === UPLOAD_ERR_OK){
 
-			$fileTmpPath = $_FILES['perfil'][1]['tmp_name'];//Nome temporário que o arquivo recebe
-			$fileName = $_FILES['perfil'][1]['name'];//Nome do arquivo no computador da pessoa
-			$fileSize = $_FILES['perfil'][1]['size'];//Tamanho do arquivo em bytes
-			$fileType = $_FILES['perfil'][1]['type'];//Tipo do arquivo
+			$fileTmpPath = $_FILES['perfil']['tmp_name'];//Nome temporário que o arquivo recebe
+			$fileName = $_FILES['perfil']['name'];//Nome do arquivo no computador da pessoa
+			$fileSize = $_FILES['perfil']['size'];//Tamanho do arquivo em bytes
+			$fileType = $_FILES['perfil']['type'];//Tipo do arquivo
 
 			//Separa o nome do arquivo da extensão
 			$fileNameCmps = explode(".", $fileName);
@@ -139,12 +139,12 @@ class uploadMedia{
 	public function uploadUserCapa(){
 
 		//Verifica se recebeu um arquivo para atualizar a foto de perfil, e se não houve nenhum erro
-		if(isset($_FILES['perfil'][0]) && $_FILES['perfil'][0]['error'] === UPLOAD_ERR_OK){
+		if(isset($_FILES['capa']) && $_FILES['capa']['error'] === UPLOAD_ERR_OK){
 
-			$fileTmpPath = $_FILES['perfil'][0]['tmp_name'];//Nome temporário que o arquivo recebe
-			$fileName = $_FILES['perfil'][0]['name'];//Nome do arquivo no computador da pessoa
-			$fileSize = $_FILES['perfil'][0]['size'];//Tamanho do arquivo em bytes
-			$fileType = $_FILES['perfil'][0]['type'];//Tipo do arquivo
+			$fileTmpPath = $_FILES['capa']['tmp_name'];//Nome temporário que o arquivo recebe
+			$fileName = $_FILES['capa']['name'];//Nome do arquivo no computador da pessoa
+			$fileSize = $_FILES['capa']['size'];//Tamanho do arquivo em bytes
+			$fileType = $_FILES['capa']['type'];//Tipo do arquivo
 
 			//Separa o nome do arquivo da extensão
 			$fileNameCmps = explode(".", $fileName);

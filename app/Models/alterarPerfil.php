@@ -26,6 +26,9 @@ class alterarPerfil {
 	}
 
 	public function editarPerfil(){
+		$media = new uploadMedia();
+		$media->uploadUserImg();
+		$media->uploadUserCapa();
 		$description = isset($_POST["description"]) ? $_POST["description"] : "";
 		if($description != ""){
 			$this->conn->executeQuery('UPDATE users SET description = :DESCRIPTION WHERE id = :ID', array(
@@ -39,14 +42,6 @@ class alterarPerfil {
 				':BIO' => $bio,
 				':ID' => $this->userId
 			));
-		}
-		if(isset($_FILES['arquivo'])){
-			$userImg = new uploadMedia();
-			$userImg->uploadUserImg();
-		}
-		if(isset($_FILES['capa'])){
-			$userImg = new uploadMedia();
-			$userImg->uploadUserCapa();
 		}
 	}
 

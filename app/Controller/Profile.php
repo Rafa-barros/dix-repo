@@ -21,10 +21,10 @@ class Profile {
         require("app/Models/alterarPerfil.php");
         if(isset($_POST['editar'])){
             $editar = new \app\Models\alterarPerfil();
-            if(isset($_FILES['perfil'])){
+            if(isset($_FILES['arquivo'])){
                 $editar->alterarImgPerfil();
             }
-            if(isset($_FILES['perfil'])){
+            if(isset($_FILES['arquivo'])){
                 $editar->alterarImgCapa();
             }
             $editar->editarPerfil();

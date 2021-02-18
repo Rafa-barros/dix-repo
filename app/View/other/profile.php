@@ -411,7 +411,7 @@
 
      <!-- post 1 -->
      <?php for($j=0;$j<$profilePosts->tam;$j++){ ?>
-     <div class="card">
+     <div class="card" id=<?php echo("\"" . $profilePosts[$j]['id'] . "\""); ?>>
                 <div class="card-top">
 
                     <div class="card-options-container" style="display: flex; justify-content: flex-end;">
@@ -448,7 +448,7 @@
                 </div>
                 <div class="card-bot">
                     <div class="post-status">
-                        <span class="nlikes"><?php echo($profilePosts->posts[$j]['likes']) ?> curtidas</span> <span class="ncomments"><?php $profilePosts->posts[$j]['comments'] ?> comentários</span>
+                        <span class="nlikes"><?php echo($profilePosts->posts[$j]['likes']) ?> curtidas</span> <span class="ncomments"><?php echo ($profilePosts->posts[$j]['comments']) ?> comentários</span>
                     </div>
                     <div class="g-border"></div>
                     <div class="interactive">

@@ -338,7 +338,7 @@
 
                 <label class="config-label">Alterar Nome</label>
                 <div class="input-group mb-3">
-                    <input type="text" name="pName" class="form-control" aria-label="Default" placeholder="Nome de pefil" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" name="pname" class="form-control" aria-label="Default" placeholder="Nome de pefil" aria-describedby="inputGroup-sizing-default">
                 </div>
                 
                 <label class="config-label">Data de nascimento</label>

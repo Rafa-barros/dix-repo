@@ -60,6 +60,13 @@ class alterarPerfil {
 				':ID' => $this->userId
 			));
 		}
+		$pname = isset($_POST["pname"]) ? $_POST["pname"] : "";
+		if($pname != ""){
+			$this->conn->executeQuery('UPDATE users SET pname = :PNAME WHERE id = :ID', array(
+				':PNAME' => $pname,
+				':ID' => $this->userId
+			));
+		}
 		if(isset($_POST['dia']) && isset($_POST['mes']) && isset($_POST['ano'])){
 			$nascimento = $_POST['ano'] . '-' . $_POST['mes'] . '-' . $_POST['dia'];
 			$this->conn->executeQuery('UPDATE users SET birth = :BIRTH WHERE id = :ID', array(

@@ -99,6 +99,8 @@ class Post {
             $this->postSel = $post->fetch();
         }
 
+        echo $query;
+
         for($j = 0; $j < $this->tam; $j++){
             if($this->postSel['idUser'] == $this->idOp[$j]){
                 $this->nameOp = $this->nameOpTemp[$j];

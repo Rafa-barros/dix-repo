@@ -436,7 +436,7 @@
                             </div>
                         </div>
                         <div class="r-card-top">
-                            <?php if(base64_decode($_COOKIE['cUser']) == $email){
+                            <?php if(base64_decode($_COOKIE['cUser']) != $email){
                                 if ($jaSegue){
                                     echo ('<button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button>');
                                 } else {
@@ -459,7 +459,7 @@
                     if ($ext != 'mp4' && $ext != 'avi' && $ext != 'webp'){
                         echo('<img src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' alt="">');
                     } else {
-                        echo('<video src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' controls controlslist="nodownload" style="max-width:100%; max-height: 600px>');
+                        echo('<video src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' controls controlslist="nodownload" style="max-width:100%; max-height: 600px></video>');
                     }
                     ?>
                 </div>

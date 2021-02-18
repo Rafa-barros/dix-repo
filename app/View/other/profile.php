@@ -397,7 +397,7 @@
 
         <div class="profile-l-content">
             <h2 class="about-me">Sobre mim</h2>
-            <p class="bio"><?php echo($bio); ?></p>
+            <pre class="bio"><?php echo($bio); ?></pre>
             <div class="g-border"></div>
             <h2 class="nposts-title">Número de posts</h2>
             <p class="nposts"><?php echo($posts) ?></p>

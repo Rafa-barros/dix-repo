@@ -30,6 +30,8 @@ function ajaxSuccess (result) {
     var midia = '';
     var pago = '';
     var postLiked = '';
+
+    if(result.imgPost == 0) flag = flag - 400;
     
     if(result.liked == 1){
         postLiked = 'style="color: rgb(218, 51, 51)"';

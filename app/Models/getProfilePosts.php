@@ -41,7 +41,14 @@ class ProfilePosts {
         $i = 0;
 
         while ($row = $resultPost->fetch(PDO::FETCH_ASSOC)){
-            $this->posts[$i] = $row;
+            $this->posts[$i]['media'] = $row['media'];
+            $this->posts[$i]['descript'] = $row['descript'];
+            $this->posts[$i]['likes'] = $row['likes'];
+            $this->posts[$i]['comments'] = $row['comments'];
+            $this->posts[$i]['postDate'] = $row['postDate'];
+            $this->posts[$i]['allowView'] = $row['allowView'];
+            $this->posts[$i]['price'] = $row['price'];
+            $this->posts[$i]['amount'] = $row['amount'];
             $i++;
 
             //Trata a imagem caso ela seja privada

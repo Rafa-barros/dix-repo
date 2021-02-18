@@ -397,7 +397,7 @@
 
         <div class="profile-l-content">
             <h2 class="about-me">Sobre mim</h2>
-            <pre class="bio" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";'><?php echo($bio); ?></pre>
+            <pre class="bio" style='font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; font-size: 17px;'><?php echo($bio); ?></pre>
             <div class="g-border"></div>
             <h2 class="nposts-title">Número de posts</h2>
             <p class="nposts"><?php echo($posts) ?></p>

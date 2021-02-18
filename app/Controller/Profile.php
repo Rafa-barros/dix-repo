@@ -9,20 +9,6 @@ class Profile {
 
     public function index(){
 
-        if(isset($_POST['editar'])){
-            $editar = new alterarPerfil();
-            $editar->editarPerfil();
-            header('Location: http://dix.net.br/profile', true, 303);
-            die();
-        }
-
-        if(isset($_POST['config'])){
-            $config = new alterarPerfil();
-            $config->configuracoes();
-            header('Location: http://dix.net.br/profile', true, 303);
-            die();
-        }
-
         //Sistema de Notificações e Perfil
         require("app/Models/loadNotificacao.php");
         $notification = new \app\Models\Notificacao();
@@ -33,6 +19,20 @@ class Profile {
         $notificacoes = $notification->notificacoes;
         $tamNovas = $notification->notificacoesNovas;
         $tam = $notification->qtdNotificacoes;
+
+        if(isset($_POST['editar'])){
+            $editar = new alterarPerfil();
+            $editar->editarPerfil();
+            header('Location: http://dix.net.br/profile/' . $user, true, 303);
+            die();
+        }
+
+        if(isset($_POST['config'])){
+            $config = new alterarPerfil();
+            $config->configuracoes();
+            header('Location: http://dix.net.br/profile/' . $user, true, 303);
+            die();
+        }
         
         echo ("<script>var dataUser =" . $notification->idUser . ";" . "</script>");
 

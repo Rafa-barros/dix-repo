@@ -66,7 +66,7 @@ $novoPost = new createPost();
 $novoPost->getInfo(base64_decode($_COOKIE['cUser']));
 $novoPost->uploadPost($media, (htmlentities($_POST['descriptPost'])), (htmlentities($_POST['postLiberado'])), (htmlentities($_POST['valor'])));
 
-if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp' && $media != 0){
+if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp' && $media != '0'){
     $imagemBorrada = new \Imagick($media);
     $lock = new \Imagick('media/lock.png');
     $imagemBorrada->blurImage(75,75);

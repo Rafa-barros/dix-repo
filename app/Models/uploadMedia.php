@@ -79,12 +79,12 @@ class uploadMedia{
 	public function uploadUserImg(){
 
 		//Verifica se recebeu um arquivo para atualizar a foto de perfil, e se não houve nenhum erro
-		if(isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK){
+		if(isset($_FILES['perfil']) && $_FILES['perfil']['error'] === UPLOAD_ERR_OK){
 
-			$fileTmpPath = $_FILES['arquivo']['tmp_name'];//Nome temporário que o arquivo recebe
-			$fileName = $_FILES['arquivo']['name'];//Nome do arquivo no computador da pessoa
-			$fileSize = $_FILES['arquivo']['size'];//Tamanho do arquivo em bytes
-			$fileType = $_FILES['arquivo']['type'];//Tipo do arquivo
+			$fileTmpPath = $_FILES['perfil']['tmp_name'];//Nome temporário que o arquivo recebe
+			$fileName = $_FILES['perfil']['name'];//Nome do arquivo no computador da pessoa
+			$fileSize = $_FILES['perfil']['size'];//Tamanho do arquivo em bytes
+			$fileType = $_FILES['perfil']['type'];//Tipo do arquivo
 
 			//Separa o nome do arquivo da extensão
 			$fileNameCmps = explode(".", $fileName);

@@ -410,6 +410,8 @@
     
 
      <!-- post 1 -->
+
+     <?php for($j=0;$j<$profilePosts->tam;$j++){ ?>
      <div class="card">
                 <div class="card-top">
 
@@ -427,10 +429,10 @@
 
                     <div class="top-card-top">
                         <div class="l-card-top">
-                            <a href=""><img class="profile-image" src="/app/View/assets/css/img/Caio.jpg" alt="Foto perfil"></a>
+                            <a href=""><?php echo('<img src="' . $img . '" class="profile-img" alt="Foto de perfil">'); ?> </a>
                             <div class="author-info">
-                                <p class="author-name"> <a href="">Giovana</a></p>
-                                <p class="post-time"> 34 min </p>
+                                <p class="author-name"> <a href=""><?php echo($user)?></a></p>
+                                <p class="post-time"> <?php $profilePosts->posts[$j]['postDate'] ?> </p>
                             </div>
                         </div>
                         <div class="r-card-top">
@@ -438,7 +440,7 @@
                         </div>
                     </div>
                     <div class="bot-card-top">
-                        <p class="description"> Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos sunt maxime quibusdam sequi impedit porro maiores perspiciatis ad itaque illo.</p>
+                        <p class="description"><?php echo($profilePosts->posts[$j]['descript']) ?></p>
                     </div>
 
                 </div>
@@ -447,7 +449,7 @@
                 </div>
                 <div class="card-bot">
                     <div class="post-status">
-                        <span class="nlikes">218 curtidas</span> <span class="ncomments">23 comentários</span>
+                        <span class="nlikes"><?php echo($profilePosts->posts[$j]['likes']) ?></span> <span class="ncomments"><?php $profilePosts->posts[$j]['comments'] ?> comentários</span>
                     </div>
                     <div class="g-border"></div>
                     <div class="interactive">
@@ -487,10 +489,11 @@
                     </div>
                 </div>
             </div>
+            <?php } ?>
 
 
             <!-- post 2 -->
-    
+    <!--
             <div class="card">
                 <div class="card-top">
                 <div class="card-options-container" style="display: flex; justify-content: flex-end;">
@@ -554,8 +557,7 @@
             </div>
         </div>
     </div>
-
-
+    -->
 
         <!-- /profile-posts -->
 

@@ -20,14 +20,14 @@ class Profile {
 
         require("app/Models/alterarPerfil.php");
         if(isset($_POST['editar'])){
-            $editar = new alterarPerfil();
+            $editar = new \app\Models\alterarPerfil();
             $editar->editarPerfil();
             header('Location: http://dix.net.br/profile/' . $user, true, 303);
             die();
         }
 
         if(isset($_POST['config'])){
-            $config = new alterarPerfil();
+            $config = new \app\Models\alterarPerfil();
             $config->configuracoes();
             header('Location: http://dix.net.br/profile/' . $user, true, 303);
             die();

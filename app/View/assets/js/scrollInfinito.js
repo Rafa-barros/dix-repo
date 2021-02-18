@@ -13,7 +13,7 @@ $(document).scroll(function (e){
     var pos = $(this).scrollTop();
     if (pos >= flag){
         newPost();
-        flag = flag + 4000;
+        flag = flag + 3500;
     
 }});
 

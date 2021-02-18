@@ -81,10 +81,10 @@ class uploadMedia{
 		//Verifica se recebeu um arquivo para atualizar a foto de perfil, e se não houve nenhum erro
 		if(isset($_FILES['perfil']) && $_FILES['perfil']['error'] === UPLOAD_ERR_OK){
 
-			$fileTmpPath = $_FILES['perfil']['tmp_name'];//Nome temporário que o arquivo recebe
-			$fileName = $_FILES['perfil']['name'];//Nome do arquivo no computador da pessoa
-			$fileSize = $_FILES['perfil']['size'];//Tamanho do arquivo em bytes
-			$fileType = $_FILES['perfil']['type'];//Tipo do arquivo
+			$fileTmpPath = $_FILES['perfil']['tmp_name'][0];//Nome temporário que o arquivo recebe
+			$fileName = $_FILES['perfil']['name'][0];//Nome do arquivo no computador da pessoa
+			$fileSize = $_FILES['perfil']['size'][0];//Tamanho do arquivo em bytes
+			$fileType = $_FILES['perfil']['type'][0];//Tipo do arquivo
 
 			//Separa o nome do arquivo da extensão
 			$fileNameCmps = explode(".", $fileName);
@@ -141,10 +141,10 @@ class uploadMedia{
 		//Verifica se recebeu um arquivo para atualizar a foto de perfil, e se não houve nenhum erro
 		if(isset($_FILES['capa']) && $_FILES['capa']['error'] === UPLOAD_ERR_OK){
 
-			$fileTmpPath = $_FILES['capa']['tmp_name'];//Nome temporário que o arquivo recebe
-			$fileName = $_FILES['capa']['name'];//Nome do arquivo no computador da pessoa
-			$fileSize = $_FILES['capa']['size'];//Tamanho do arquivo em bytes
-			$fileType = $_FILES['capa']['type'];//Tipo do arquivo
+			$fileTmpPath = $_FILES['capa']['tmp_name'][1];//Nome temporário que o arquivo recebe
+			$fileName = $_FILES['capa']['name'][1];//Nome do arquivo no computador da pessoa
+			$fileSize = $_FILES['capa']['size'][1];//Tamanho do arquivo em bytes
+			$fileType = $_FILES['capa']['type'][1];//Tipo do arquivo
 
 			//Separa o nome do arquivo da extensão
 			$fileNameCmps = explode(".", $fileName);

@@ -24,7 +24,7 @@ class Profile {
             if(isset($_FILES['perfil'])){
                 $editar->alterarImgPerfil();
             }
-            if(isset($_FILES['capa'])){
+            if(isset($_FILES['perfil'])){
                 $editar->alterarImgCapa();
             }
             $editar->editarPerfil();

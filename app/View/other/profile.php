@@ -297,11 +297,11 @@
             </div>
             <div class="d-flex">
                 <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de capa</label>
-                <input type="file" name="capa" id="upload" />
+                <input type="file" name="arquivo[]" id="upload" value="1" />
             </div>
             <div class="d-flex">
                 <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de perfil</label>
-                <input type="file" name="perfil" id="upload" />
+                <input type="file" name="arquivo[]" id="upload" value="0" />
             </div>
             
             </div>

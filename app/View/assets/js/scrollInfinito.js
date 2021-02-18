@@ -1,32 +1,5 @@
-   
-        $.ajax({
-            url:"app/Models/newPosts.php",
-            dataType: 'json',
-            type: "POST",
-            data: {
-                nameOp: "", //Dono do post
-                userOp: "", //Dono do post
-                data: "", 
-                imgOp: "", //Imagem do dono do post
-                imgPost: "", //Imagem do post
-                postsVistos: postsVistosNav,
-                descricao: "", 
-                likes: "",
-                liked: 0,
-                valor: 0,
-                gorjetas: 0,
-                idPost: 0,
-                qtdComentarios: 0
-            },
-            success: function(result){
-                ajaxSuccess(result)
-            },
-            error:function(req, status, error){
-                console.log(req);
-                console.log(status);
-                console.log(error);
-            }
-        });
+newPost();
+newPost();
 
    //Redirecionar notficações mobile
 
@@ -40,40 +13,29 @@ var flag = 0;
 $(document).scroll(function (e){
     var pos = $(this).scrollTop();
     if (pos >= flag){
-        $.ajax({
-            url:"app/Models/newPosts.php",
-            dataType: 'json',
-            type: "POST",
-            data: {
-                nameOp: "", //Dono do post
-                userOp: "", //Dono do post
-                data: "", 
-                imgOp: "", //Imagem do dono do post
-                imgPost: "", //Imagem do post
-                postsVistos: postsVistosNav,
-                descricao: "", 
-                likes: "",
-                liked: 0,
-                valor: 0,
-                gorjetas: 0,
-                idPost: 0,
-                qtdComentarios: 0
-            },
-            success: function(result){
-                ajaxSuccess(result)
-            },
-            error:function(req, status, error){
-                console.log(req);
-                console.log(status);
-                console.log(error);
-            }
-        });
+        newPost();
         flag = flag + 600;
     
 }});
 
+//fim da página 
 
- function ajaxSuccess (result) {
+
+$(document).scroll(function() {
+    var top = document.body.scrollTop;
+    var maxTop = document.body.scrollHeight - document.body.clientHeight;
+    
+    if (parseInt(top) === maxTop) {
+        newPost();
+    }
+  });
+
+function separaTempo(fullTime){
+    if(fullTime == null) return '';
+    return fullTime.split(' ')[1].slice(0, 5);
+}
+
+function ajaxSuccess (result) {
     var midia = '';
     var pago = '';
     var postLiked = '';
@@ -111,19 +73,33 @@ $(document).scroll(function (e){
     postsVistosNav.push(result.idPost);
  }
 
-//fim da página 
-
-
-$(document).scroll(function() {
-    var top = document.body.scrollTop;
-    var maxTop = document.body.scrollHeight - document.body.clientHeight;
-    
-    if (parseInt(top) === maxTop) {
-      console.log('Chegou ao fim da página')
-    }
-  });
-
-function separaTempo(fullTime){
-    if(fullTime == null) return '';
-    return fullTime.split(' ')[1].slice(0, 5);
+ function newPost (){
+    $.ajax({
+        url:"app/Models/newPosts.php",
+        dataType: 'json',
+        type: "POST",
+        data: {
+            nameOp: "", //Dono do post
+            userOp: "", //Dono do post
+            data: "", 
+            imgOp: "", //Imagem do dono do post
+            imgPost: "", //Imagem do post
+            postsVistos: postsVistosNav,
+            descricao: "", 
+            likes: "",
+            liked: 0,
+            valor: 0,
+            gorjetas: 0,
+            idPost: 0,
+            qtdComentarios: 0
+        },
+        success: function(result){
+            ajaxSuccess(result)
+        },
+        error:function(req, status, error){
+            console.log(req);
+            console.log(status);
+            console.log(error);
+        }
+    });
 }

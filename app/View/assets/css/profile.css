@@ -695,6 +695,12 @@ video:focus {
     z-index: -1;
  }
 
+ #upload1 {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+ }
+
  .post-price {
      max-width: 130px;
      width: 20%;

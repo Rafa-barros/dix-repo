@@ -18,8 +18,9 @@
                 idPost: 0,
                 qtdComentarios: 0
             },
-            success:ajaxSuccess(result),
-
+            success: function(result){
+                ajaxSuccess(result)
+            },
             error:function(req, status, error){
                 console.log(req);
                 console.log(status);
@@ -58,7 +59,9 @@ $(document).scroll(function (e){
                 idPost: 0,
                 qtdComentarios: 0
             },
-            success: ajaxSuccess(result),
+            success: function(result){
+                ajaxSuccess(result)
+            },
             error:function(req, status, error){
                 console.log(req);
                 console.log(status);

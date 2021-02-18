@@ -107,9 +107,9 @@
     
             <div class="input-group mb-3">
                 <div class="input-group-prepend">
-                    <span class="input-group-text" id="inputGroup-sizing-default">Complemento</span>
+                    <span class="input-group-text" id="inputGroup-sizing-default">CEP</span>
                 </div>
-                <input type="text" class="form-control" id="complemento" name="complemento" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                <input type="text" class="form-control" id="complemento" name="cep" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="XXXXXXXX" required>
             </div>
     
             <div class="input-group mb-3">
@@ -123,7 +123,7 @@
                 <div class="input-group-prepend">
                     <span class="input-group-text" id="inputGroup-sizing-default">Estado UF</span>
                 </div>
-                <input type="text" class="form-control" id="estado" name="estado" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+                <input type="text" class="form-control" id="estado" name="estado" aria-label="Default" aria-describedby="inputGroup-sizing-default" placeholder="Ex.: SP" required>
             </div>
             <div class="form-check salvar-cartao">
                 <input class="form-check-input" type="checkbox" id="defaultCheck1" name="salvarCartao" value="sim" >

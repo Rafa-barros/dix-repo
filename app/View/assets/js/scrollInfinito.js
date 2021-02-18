@@ -21,7 +21,7 @@ $(document).scroll(function (e){
     var pos = $(this).scrollTop();
     if (pos >= flag){
         newPost();
-        flag = flag + 510;
+        flag = flag + 2500;
     
 }});
 

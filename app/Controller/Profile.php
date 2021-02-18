@@ -2,10 +2,27 @@
 
 namespace App\Controller;
 
+use App\Models\alterarPerfil;
+
 class Profile {
     public $urlMetodo;
 
     public function index(){
+
+        if(isset($_POST['editar'])){
+            $editar = new alterarPerfil();
+            $editar->editarPerfil();
+            header('Location: http://dix.net.br/profile', true, 303);
+            die();
+        }
+
+        if(isset($_POST['config'])){
+            $config = new alterarPerfil();
+            $config->configuracoes();
+            header('Location: http://dix.net.br/profile', true, 303);
+            die();
+        }
+
         //Sistema de Notificações e Perfil
         require("app/Models/loadNotificacao.php");
         $notification = new \app\Models\Notificacao();

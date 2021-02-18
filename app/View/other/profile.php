@@ -347,7 +347,7 @@
 
                 <label class="config-label"> Dados para recebimento </label>
                 <div class="input-group mb-3">
-                    <input type="text" name="dix" class="form-control" aria-label="Default" placeholder="Chave Pix" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" name="pix" class="form-control" aria-label="Default" placeholder="Chave Pix" aria-describedby="inputGroup-sizing-default">
                 </div>
 
                 <div class="ou-container mb-3">

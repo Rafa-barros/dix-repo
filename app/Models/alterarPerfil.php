@@ -65,6 +65,13 @@ class alterarPerfil {
 				':ID' => $this->userId
 			));
 		}
+		$pix = isset($_POST["pix"]) ? $_POST["pix"] : "";
+		if($pix != ""){
+			$this->conn->executeQuery('UPDATE infobancarias SET pix = :PIX WHERE id = :ID', array(
+				':PIX' => $pix,
+				':ID' => $this->userId
+			));
+		}
 		$cpf = isset($_POST["cpf"]) ? $_POST["cpf"] : "";
 		if($cpf != ""){
 			$this->conn->executeQuery('UPDATE infobancarias SET cpf = :CPF WHERE id = :ID', array(
@@ -72,7 +79,27 @@ class alterarPerfil {
 				':ID' => $this->userId
 			));
 		}
-		
+		$nBanco = isset($_POST["nBanco"]) ? $_POST["nBanco"] : "";
+		if($nBanco != ""){
+			$this->conn->executeQuery('UPDATE infobancarias SET nBanco = :NBANCO WHERE id = :ID', array(
+				':NBANCO' => $nBanco,
+				':ID' => $this->userId
+			));
+		}
+		$agencia = isset($_POST["agencia"]) ? $_POST["agencia"] : "";
+		if($agencia != ""){
+			$this->conn->executeQuery('UPDATE infobancarias SET agencia = :AGENCIA WHERE id = :ID', array(
+				':AGENCIA' => $agencia,
+				':ID' => $this->userId
+			));
+		}
+		$conta = isset($_POST["conta"]) ? $_POST["conta"] : "";
+		if($conta != ""){
+			$this->conn->executeQuery('UPDATE infobancarias SET conta = :CONTA WHERE id = :ID', array(
+				':CONTA' => $conta,
+				':ID' => $this->userId
+			));
+		}
 	}
 
 }

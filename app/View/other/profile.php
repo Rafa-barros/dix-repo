@@ -470,7 +470,7 @@
                     <div class="g-border"></div>
                     <div class="interactive">
                         <div class="like">
-                            <button class="btn-like"><span><i style="color: <?php if($profilePosts->posts[$j]['liked']) { echo("rgb(218, 51, 51)" . "\""); } else { echo ("rgb(0, 0, 0)" . "\"");}?> class="fas fa-fire-alt"></i> Curtir</span> </button>
+                            <button class="btn-like" style="color: <?php if($profilePosts->posts[$j]['liked']) { echo("rgb(218, 51, 51)" . "\""); } else { echo ("rgb(0, 0, 0)" . "\"");}?>><span><i style="color: unset;" class="fas fa-fire-alt"></i> Curtir</span> </button>
                         </div>
                         <div class="donate">
                             <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button><span>

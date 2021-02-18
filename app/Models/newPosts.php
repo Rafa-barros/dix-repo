@@ -95,6 +95,9 @@ class Post {
         $query = substr($query, 0, -2);
         $query = $query . ') ORDER BY postDate DESC';
         $post = $this->conn->executeQuery($query);
+        if(count($this->postsVistosJS) > 10){
+            echo $query;
+        }
         if(!empty($post)){
             $this->postSel = $post->fetch();
         }

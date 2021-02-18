@@ -9,6 +9,7 @@ class Profile {
 
         if(isset($_SESSION['teste'])){
             echo $_SESSION['teste'];
+            unset($_SESSION['teste']);
         }
 
         //Sistema de Notificações e Perfil

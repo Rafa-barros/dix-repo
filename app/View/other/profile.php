@@ -413,7 +413,7 @@
      <?php for($j=0;$j<$profilePosts->tam;$j++){ ?>
      <div class="card" id=<?php echo("\"" . $profilePosts->posts[$j]['id'] . "\""); ?>>
                 <div class="card-top">
-                <?php if($profilePosts->posts[$j]['idUser'] == $usuario->profileInfo['id']){ ?>
+                <?php if(base64_decode($_COOKIE['cUser']) == $email){ ?>
                     <div class="card-options-container" style="display: flex; justify-content: flex-end;">
                         <div class="btn-group dropup">
                             <button type="button" class="btn dropdown-toggle btn-edit-post" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -436,7 +436,7 @@
                             </div>
                         </div>
                         <div class="r-card-top">
-                            <?php if($profilePosts->posts[$j]['idUser'] != $usuario->profileInfo['id']){
+                            <?php if(base64_decode($_COOKIE['cUser']) == $email){
                                 if ($jaSegue){
                                     echo ('<button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button>');
                                 } else {

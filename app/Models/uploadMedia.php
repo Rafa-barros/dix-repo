@@ -78,6 +78,7 @@ class uploadMedia{
 
 	public function uploadUserImg(){
 
+		echo "teste";
 		//Verifica se recebeu um arquivo para atualizar a foto de perfil, e se não houve nenhum erro
 		if(isset($_FILES['arquivo']) && $_FILES['arquivo']['error'] === UPLOAD_ERR_OK){
 

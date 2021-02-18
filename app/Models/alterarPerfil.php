@@ -2,8 +2,8 @@
 
 namespace App\Models;
 
-require("app/Models/Database.php");
-require("app/Models/uploadMedia.php");
+use App\Models\Database;
+use App\Models\uploadMedia;
 
 class alterarPerfil {
 

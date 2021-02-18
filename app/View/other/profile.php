@@ -413,7 +413,7 @@
      <?php for($j=0;$j<$profilePosts->tam;$j++){ ?>
      <div class="card" id=<?php echo("\"" . $profilePosts->posts[$j]['id'] . "\""); ?>>
                 <div class="card-top">
-
+                <?php if($profilePosts->posts[$j]['idUser'] == $usuario->profileInfo['id']){ ?>
                     <div class="card-options-container" style="display: flex; justify-content: flex-end;">
                         <div class="btn-group dropup">
                             <button type="button" class="btn dropdown-toggle btn-edit-post" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -425,6 +425,7 @@
                             </div>
                         </div>    
                     </div>
+                    <?php }?>
 
                     <div class="top-card-top">
                         <div class="l-card-top">
@@ -435,7 +436,13 @@
                             </div>
                         </div>
                         <div class="r-card-top">
-                            <button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button>
+                            <?php if($profilePosts->posts[$j]['idUser'] != $usuario->profileInfo['id']){
+                                if ($jaSegue){
+                                    echo ('<button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button>');
+                                } else {
+                                    echo ('<button type="button" class="btn btn-primary btn-card-follow unfollow" style="background-color: transparent; color: rgb(57, 132, 218);">Seguir</button>');
+                                }
+                            } ?>
                         </div>
                     </div>
                     <div class="bot-card-top">
@@ -444,7 +451,17 @@
 
                 </div>
                 <div class="midia-container">
-                    <?php echo('<img src=../' . $profilePosts->posts[$j]['media'] . ' alt="">') ?>
+                    <?php
+                    //Checa a extensão do arquivo
+                    $extCmps = explode(".", $profilePosts->posts[$j]['media']);
+                    $ext = strtolower(end($extCmps));
+
+                    if ($ext != 'mp4' && $ext != 'avi' && $ext != 'webp'){
+                        echo('<img src=../' . $profilePosts->posts[$j]['media'] . ' alt="">');
+                    } else {
+                        echo('<video src=../' . $profilePosts->posts[$j]['media'] . 'alt="">');
+                    }
+                    ?>
                 </div>
                 <div class="card-bot">
                     <div class="post-status">

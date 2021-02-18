@@ -50,6 +50,7 @@ class ProfilePosts {
             $this->posts[$i]['price'] = $row['price'];
             $this->posts[$i]['amount'] = $row['amount'];
             $this->posts[$i]['id'] = $row['id'];
+            $this->posts[$i]['idUser'] = $row['idUser'];
             $i++;
 
             //Trata a imagem caso ela seja privada

@@ -16,6 +16,7 @@ class Pagamento {
     }
 
     public function index(){
+
         $conn = new Database();
         if (($_GET['idPost']) != 0){
             $condPost = $conn->executeQuery('SELECT id FROM posts WHERE id = :ID', array(
@@ -94,6 +95,7 @@ class Pagamento {
     public function carregarCSS(){
         echo ("<link rel='stylesheet' href='app/View/assets/css/pagamento.css'>");
         echo ("<link rel='stylesheet' href='app/View/assets/css/error404.css'>");
+        echo ('<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>');
     }
 }
 

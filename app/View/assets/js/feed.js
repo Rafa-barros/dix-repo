@@ -27,7 +27,7 @@ $(document).on('click', '.btn-card-follow', function(){
 });
 
 $(document).on('click', '.btn-preco-post', function(){
-    let urlpreco = 'http://dix.net.br/pagamento?amout=' + $('.btn-preco-post').text() + '&user=' + cardpago.attr('id') + '&idPost=1'
+    let urlpreco = 'http://dix.net.br/pagamento?amount=' + $('.btn-preco-post').text() + '&user=' + cardpago.attr('id') + '&idPost=1'
     window.location.href = urlpreco;
 });
 
@@ -41,6 +41,20 @@ $(document).on('click', '#btn-final-new-post', function(){
     $('.loading-footer-new-post').hide();
 });
 
+
+//Gorjeta
+
+cardGorjeta = '';
+$(document).on('click', '.btn-donate', function(){
+    cardGorjeta = $(this).closest('.card').attr('id');
+    let nomeCard = $(this).closest('.card').find('.author-name').text();
+    $('.nome-alvo').text(nomeCard);
+});
+
+$(document).on('click', '.gorjeta-submit', function(){
+    let urlpreco = 'http://dix.net.br/pagamento?amount=' + $('.g-price').val() + '&user=' + cardGorjeta + '&idPost=1' + '&msg=' + $('.g-msg').val();
+    window.location.href = urlpreco;
+});
 
 //Buscar Pessoa
 

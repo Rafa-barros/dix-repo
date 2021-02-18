@@ -21,6 +21,12 @@ class Profile {
         require("app/Models/alterarPerfil.php");
         if(isset($_POST['editar'])){
             $editar = new \app\Models\alterarPerfil();
+            if(isset($_FILES['perfil'])){
+                $editar->alterarImgPerfil();
+            }
+            if(isset($_FILES['capa'])){
+                $editar->alterarImgCapa();
+            }
             $editar->editarPerfil();
             header('Location: https://dix.net.br/profile/' . $user, true, 303);
             die();

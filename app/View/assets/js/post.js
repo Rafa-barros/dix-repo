@@ -58,7 +58,7 @@ $(document).on('click', '.btn-comment', function(){
                     var i = result.comentarios.length - 1;
 
                     while (result.comentarios[i][0] !== ""){
-                        commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="">'+result.comentarios[i][0]+'</a></span>'+result.comentarios[i][1]+'</p></div><div class="a-comment">');
+                        commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="https://dix.net.br/profile/'+result.comentarios[i][0]+'">'+result.comentarios[i][0]+'</a></span>'+result.comentarios[i][1]+'</p></div><div class="a-comment">');
                         if (i == 0){
                             break;
                         }

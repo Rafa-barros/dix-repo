@@ -41,7 +41,6 @@ class alterarPerfil {
 			));
 		}
 		if(isset($_FILE['arquivo'])){
-			echo "teste";
 			$userImg = new uploadMedia();
 			$userImg->uploadUserImg();
 		}

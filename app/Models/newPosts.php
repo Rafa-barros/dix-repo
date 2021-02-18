@@ -87,16 +87,13 @@ class Post {
         foreach ($this->idOp as $key){
             $query = ($query . $key . ', ');
         }
-        unset($query[(strlen($query))-1]);
-        unset($query[(strlen($query))-2]);
+        $query = substr($query, 0, -2);
         $query = $query . ') AND NOT id IN (';
         foreach($this->postsVistosJS as $idJaVisto){
             $query = ($query . $idJaVisto . ', ');
         }
-        unset($query[(strlen($query))-1]);
-        unset($query[(strlen($query))-2]);
+        $query = substr($query, 0, -2);
         $query = $query . ') ORDER BY postDate DESC';
-
         $post = $this->conn->executeQuery($query);
         $post = $post->fetch();
         if(!empty($post)){

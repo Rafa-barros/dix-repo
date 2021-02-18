@@ -12,6 +12,9 @@ class Post {
     public $imgOp;
     public $nameOp;
     public $userOp;
+    public $imgOpTemp;
+    public $nameOpTemp;
+    public $userOpTemp;
     public $liked;
     public $postsVistosJS;
     private $imgPost;
@@ -23,6 +26,7 @@ class Post {
     private $idOp;
     private $idUser;
     private $postSel;
+    private $tam;
 
     public function __construct() {
         $this->conn = new Database();
@@ -39,60 +43,74 @@ class Post {
         $this->idUser = $resultIdUser['0'];
 
         //Encontra o id do dono do post
-        $resultIdOp = $this->conn->executeQuery('SELECT id FROM assoc_users WHERE idFollower = :ID ORDER BY RAND() LIMIT 1', array(
+        $resultIdOp = $this->conn->executeQuery('SELECT id FROM assoc_users WHERE idFollower = :ID', array(
             ':ID' => $this->idUser
         ));
-        $resultIdOp = $resultIdOp->fetch();
-        $this->idOp = $resultIdOp['0'];
+        $i = 0;
+        while($row = $resultIdOp->fetch()){
+            $this->idOp[$i] = $row['id'];
+            $i++;
+        }
+        $this->tam = $i;
 
         //Encontra o nome do dono do post
-        $resultName = $this->conn->executeQuery('SELECT pname FROM users WHERE id = :ID', array(
-            'ID' => $this->idOp
-        ));
-        $resultName = $resultName->fetch();
-        $this->nameOp = $resultName['0'];
+        for($j = 0; $j < $i; $j++){
+            $resultName = $this->conn->executeQuery('SELECT pname FROM users WHERE id = :ID', array(
+                'ID' => $this->idOp[$j]
+            ));
+            $resultName = $resultName->fetch();
+            $this->nameOpTemp[$j] = $resultName['0'];
+        }
 
         //Encontra o nome do dono do post
-        $resultUser = $this->conn->executeQuery('SELECT username FROM users WHERE id = :ID', array(
-            'ID' => $this->idOp
-        ));
-        $resultUser = $resultUser->fetch();
-        $this->userOp = $resultUser['0'];
+        for($j = 0; $j < $i; $j++){
+            $resultUser = $this->conn->executeQuery('SELECT username FROM users WHERE id = :ID', array(
+                'ID' => $this->idOp[$j]
+            ));
+            $resultUser = $resultUser->fetch();
+            $this->userOpTemp[$j] = $resultUser['0'];
+        }
 
         //Encontra a foto de perfil do dono do post
-        $resultImgOp = $this->conn->executeQuery('SELECT imgUser FROM users WHERE id = :ID', array(
-            ':ID' => $this->idOp
-        ));
-        $resultImgOp = $resultImgOp->fetch();
-        $this->imgOp = $resultImgOp['0'];
+        for($j = 0; $j < $i; $j++){
+            $resultImgOp = $this->conn->executeQuery('SELECT imgUser FROM users WHERE id = :ID', array(
+                ':ID' => $this->idOp[$j]
+            ));
+            $resultImgOp = $resultImgOp->fetch();
+            $this->imgOpTemp[$j] = $resultImgOp['0'];
+        }
 
     }
     
     public function selPost(){
-        $query = 'SELECT * FROM posts WHERE idUser = :ID AND id NOT IN (';
+        $query = 'SELECT * FROM posts WHERE idUser IN (';
+        foreach ($this->idOp as $key){
+            $query = ($query . $key . ', ');
+        }
+        unset($query[(strlen($query))-1]);
+        unset($query[(strlen($query))-2]);
+        $query = $query . ') AND NOT id IN (';
         foreach($this->postsVistosJS as $idJaVisto){
             $query = ($query . $idJaVisto . ', ');
         }
-        $query[(strlen($query))-2] = ')';
+        unset($query[(strlen($query))-1]);
+        unset($query[(strlen($query))-2]);
+        $query = $query . ') ORDER BY postDate DESC';
 
-        $posts = $this->conn->executeQuery($query, array(
-            ':ID' => intval($this->idOp)
-        ));
-        $likes = 0;
-        if(!empty($posts)){
-            while ($row = $posts->fetch(PDO::FETCH_ASSOC)){
-                if ($row['likes'] >= $likes && (!(in_array($row['id'], $this->postsVistosJS)))){
-                    $likes = $row['likes'];
-                    $this->postSel = $row;
-                }
+        $post = $this->conn->executeQuery($query);
+        $post = $post->fetch();
+        if(!empty($post)){
+            $this->postSel = $post;
+        }
+
+        for($j = 0; $j < $this->tam; $j++){
+            if($this->postSel['isUser'] == $this->idOp[$j]){
+                $this->nameOp = $this->nameOpTemp[$j];
+                $this->userOp = $this->userOpTemp[$j];
+                $this->imgOp = $this->imgOpTemp[$j];
             }
         }
 
-        if($this->postSel['userOp'] == null){
-            $this->postSel['userV'] = $this->idOp;
-        }else{
-            $this->postSel['userV'] = null;
-        }
 
         //Retorna 0 ou 1 se o post foi curtido
         $resultLiked = $this->conn->executeQuery('SELECT * FROM assoc_users_likes WHERE idPost = :IDPOST AND idUser = :IDUSER', array(
@@ -132,7 +150,7 @@ $postObj->getInfo();
 $postSel = $postObj->selPost();
 
 echo json_encode((array(
-    'nameOp' => ($postObj->nameOp),
+    'nameOp' => $postObj->nameOp,
     'userOp' => $postObj->userOp,
     'data' => $postSel['postDate'],
     'imgOp' => $postObj->imgOp, 

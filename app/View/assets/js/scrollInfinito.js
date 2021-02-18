@@ -64,11 +64,6 @@ function ajaxSuccess (result) {
     if(result.likes == 1) { $("#"+result.idPost.toString()).find('.nlikes').text('1 curtida');}
 
     if(result.qtdComentarios == 1) $("#"+result.idPost.toString()).find('.ncomments').text('1 Comentário');
-    
-        if($('#'+result.idPost).find('.midia-container ' + midiatype).height() < 620){
-            $('#'+result.idPost).find('.midia-container ' + midiatype).css('width','100%').css('height','unset');
-        }
-    
 
 
     postsVistosNav.push(result.idPost);

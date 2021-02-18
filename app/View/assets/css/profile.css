@@ -466,6 +466,7 @@ button:focus {
 /* Card Midia */
 
 .midia-container img, .midia-container video {
+    width: 100%;
     max-width: 620px;
     max-height: 700px;
 }
@@ -916,10 +917,6 @@ video:focus {
 
     .profile-btn-area {
         bottom: 170px;
-    }
-
-    .midia-container img {
-        width: 95vw;
     }
 
     .prof-status-container {

@@ -122,7 +122,7 @@ class Post {
                 ':IDPOST' => $this->postSel['id']
             ));
             $resultUserBlocked = $resultUserBlocked->fetch();
-            if (isset($this->postSel['media'])){
+            if (isset($this->postSel['media']) && $this->postSel['media'] != 0){
                 if (empty($resultUserBlocked)){
                     $this->postSel['descript'] = "<i>Esse post é pago, compre-o para ver a sua descrição e seu conteúdo</i>";
                     $extensaoCmps = explode(".", $this->postSel['media']);

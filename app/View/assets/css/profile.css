@@ -223,6 +223,8 @@ button:focus {
     width: 30%;
     min-width: 140px;
     border-radius: 100px;
+    max-width: 150px;
+    max-height: 150px;
 }
 
 .profile-btn-area {

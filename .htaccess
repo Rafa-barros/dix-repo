@@ -1,3 +1,7 @@
+RewriteEngine On
+RewriteCond %{HTTP_HOST} dix\.net\.br [NC]
+RewriteCond %{SERVER_PORT} 80
+RewriteRule ^(.*)$ https://dix.net.br/$1 [R,L]
 <If "%{REQUEST_URI} =~ m#^/cadastro#">
 RewriteEngine on
 RewriteRule ^((?!index\.php).+)$ /index.php [L]

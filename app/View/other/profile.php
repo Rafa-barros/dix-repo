@@ -410,6 +410,7 @@
     
 
      <!-- post 1 -->
+     <?php echo($profilePosts[0]['media']); ?>
      <?php for($j=0;$j<$profilePosts->tam;$j++){ ?>
      <div class="card">
                 <div class="card-top">

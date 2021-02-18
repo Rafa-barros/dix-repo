@@ -208,6 +208,7 @@ button:focus {
 .bio {
     height: 38%;
     text-align: center;
+    white-space: break-spaces;
 }
 
 

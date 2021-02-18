@@ -13,7 +13,7 @@ $(document).scroll(function (e){
     var pos = $(this).scrollTop();
     if (pos >= flag){
         newPost();
-        flag = flag + 2500;
+        flag = flag + 4000;
     
 }});
 
@@ -25,7 +25,7 @@ function separaTempo(fullTime){
 
 function ajaxSuccess (result) {
     var i=0;
-    while(result.idPost[i] != null || i != 5){
+    while(result.idPost[i] != null || i != 8){
         var midia = '';
         var pago = '';
         var postLiked = '';

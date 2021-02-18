@@ -99,7 +99,7 @@ class Post {
             $i = 0;
             while($row = $post->fetch()){
                 $this->postSel[$i] = $row;
-                if($i < 5){
+                if($i < 8){
                     $i++;
                 }else{
                     break;
@@ -108,7 +108,7 @@ class Post {
         }
 
         for($j = 0; $j < $this->tam; $j++){
-            for($k = 0; $k < 5; $k++){
+            for($k = 0; $k < 8; $k++){
                 if($this->postSel[$k]['idUser'] == $this->idOp[$j]){
                     $this->nameOp[$k] = $this->nameOpTemp[$j];
                     $this->userOp[$k] = $this->userOpTemp[$j];
@@ -119,7 +119,7 @@ class Post {
 
 
         //Retorna 0 ou 1 se o post foi curtido
-        for($j = 0; $j < 5; $j++){
+        for($j = 0; $j < 8; $j++){
             $resultLiked = $this->conn->executeQuery('SELECT * FROM assoc_users_likes WHERE idPost = :IDPOST AND idUser = :IDUSER', array(
                 ':IDPOST' => $this->postSel[$j]['id'],
                 ':IDUSER' => $this->idUser

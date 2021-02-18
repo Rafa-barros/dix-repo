@@ -80,19 +80,19 @@ function ajaxSuccess (result) {
         dataType: 'json',
         type: "POST",
         data: {
-            nameOp: "", //Dono do post
-            userOp: "", //Dono do post
-            data: "", 
-            imgOp: "", //Imagem do dono do post
-            imgPost: "", //Imagem do post
+            nameOp: [], //Dono do post
+            userOp: [], //Dono do post
+            data: [], 
+            imgOp: [], //Imagem do dono do post
+            imgPost: [], //Imagem do post
             postsVistos: postsVistosNav,
-            descricao: "", 
-            likes: "",
-            liked: 0,
-            valor: 0,
-            gorjetas: 0,
-            idPost: 0,
-            qtdComentarios: 0
+            descricao: [], 
+            likes: [],
+            liked: [],
+            valor: [],
+            gorjetas: [],
+            idPost: [],
+            qtdComentarios: []
         },
         success: function(result){
             ajaxSuccess(result)

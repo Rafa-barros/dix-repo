@@ -344,7 +344,43 @@
                         <input type="text" class="form-control data-nascimento" aria-label="Default" placeholder="AAAA" aria-describedby="inputGroup-sizing-default">
                     </div>
                 </div>
-                
+
+                <label class="config-label"> Dados para recebimento </label>
+                <div class="input-group mb-3">
+                    <input type="text" class="form-control" aria-label="Default" placeholder="Chave Pix" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="ou-container">
+                <div class="bar"></div> <div class="ou"> OU </div> <div class="bar"></div>
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">CPF</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" placeholder="XXXXXXXXXXX" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Banco</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" placeholder="Ex.: 123" aria-describedby="inputGroup-sizing-default">
+                </div>
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Agência</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroup-sizing-default">Conta</span>
+                    </div>
+                    <input type="text" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
+                </div>
+
                 <button type="button" name="logout" id="btn-logout" class="btn btn-outline-danger mt-4">Log out</button>
         
     </div>

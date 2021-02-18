@@ -789,6 +789,27 @@ video:focus {
     margin-right: 8px;
 }
 
+/* dados recebimento */
+
+.ou-container {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.ou {
+    color: rgba(0, 0, 0, 0.397); 
+    font-weight: 600;
+}
+
+.bar {
+    margin: 0 10px;
+    width: 40%;
+    height: 1px;
+    background-color: rgba(0, 0, 0, 0.397);;
+}
+
 @media(max-width: 1250px) {
     .profile-posts {
         margin-left: auto;

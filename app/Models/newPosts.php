@@ -95,9 +95,8 @@ class Post {
         $query = substr($query, 0, -2);
         $query = $query . ') ORDER BY postDate DESC';
         $post = $this->conn->executeQuery($query);
-        $post = $post->fetch();
         if(!empty($post)){
-            $this->postSel = $post;
+            $this->postSel = $post->fetch();
         }
 
         for($j = 0; $j < $this->tam; $j++){

@@ -411,6 +411,7 @@
 
      <!-- post 1 -->
 
+<?php echo ($profilePosts->posts[0]['media']); ?>
      <?php for($j=0;$j<$profilePosts->tam;$j++){ ?>
      <div class="card">
                 <div class="card-top">
@@ -445,7 +446,7 @@
 
                 </div>
                 <div class="midia-container">
-                    <img src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t1.0-9/140726030_2932453123741462_2090715909532181379_n.jpg?_nc_cat=104&ccb=2&_nc_sid=730e14&_nc_ohc=OBII42r_vCIAX_KW_Ov&_nc_ht=scontent.fcpq4-1.fna&oh=c5e6105ef7a97f1ede98edc740351769&oe=602F52B8" alt="">
+                    <?php echo('<img src=' . $profilePosts->posts[$j]['media'] . ' alt="">') ?>
                 </div>
                 <div class="card-bot">
                     <div class="post-status">

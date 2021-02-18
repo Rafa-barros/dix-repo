@@ -35,7 +35,7 @@ class ProfilePosts {
     }
 
     public function selPost(){
-        $resultPost = $this->conn->executeQuery('SELECT * FROM posts WHERE idUser = :ID', array(
+        $resultPost = $this->conn->executeQuery('SELECT * FROM posts WHERE idUser = :ID ORDER BY postDate DESC', array(
             ':ID' => $this->idOp
         ));
         $i = 0;
@@ -45,7 +45,7 @@ class ProfilePosts {
             $i++;
 
             //Trata a imagem caso ela seja privada
-            if ($this->posts[$i]['allowView'] == 0){
+            if ($this->posts[$i]['allowView'] == 0 && $this->idOp != $this->idUser){
                 $resultUserBlocked = $this->conn->executeQuery('SELECT idPost FROM assoc_posts WHERE idUser = :ID AND idPost = :IDPOST', array(
                     ':ID' => $this->idUser,
                     ':IDPOST' => $this->posts[$i]['id']

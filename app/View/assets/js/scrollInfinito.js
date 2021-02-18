@@ -1,11 +1,11 @@
 newPost();
 setTimeout(function(){
     newPost();
-}, 150);
+}, 300);
 
 setTimeout(function(){
     newPost();
-}, 150);
+}, 300);
 
    //Redirecionar notficações mobile
 

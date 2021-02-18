@@ -15,8 +15,8 @@ if($_POST['funcao'] == "novoChat"){
 	$res = $chatMsg->carregarMensagens($_POST['username']);
 	foreach($res as $key => $value){
 		if($key != 0){
-			$datetime1 = new DateTime($res[$key - 1][3]);
-			$datetime2 = new DateTime($res[$key][3]);
+			$datetime1 = new DateTime($res[$key - 1][2]);
+			$datetime2 = new DateTime($res[$key][2]);
 			$interval = $datetime2->diff($datetime1);
 			$interval = $interval->format('%a');
 			if(intval($interval) > 0){

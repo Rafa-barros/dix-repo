@@ -116,14 +116,14 @@ class uploadMedia{
 
 					//Caso ocorra algum erro na hora de salvar a nova foto de perfil, será definida a variável de sessão 'erro', e a pessoa voltará para a página inicial
 					$_SESSION['erro'] = TRUE;
-					return FALSE;
+					return TRUE;
 
 				}
 			}else{
 
 				//Caso o arquivo que a pessoa enviou não tenha uma extensão permitida, será definida a variável de sessão 'erro', e a pessoa voltará para a página inicial
 				$_SESSION['erro'] = TRUE;
-				return TRUE;
+				return FALSE;
 
 			}
 		}else{

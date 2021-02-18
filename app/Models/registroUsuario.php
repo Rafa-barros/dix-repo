@@ -42,7 +42,7 @@ class registroUsuario{
 	}
 
 	private function registra(){
-		$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP);', array(
+		$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth, fotoCapa, vips) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP);', array(
 			':USER' => $this->email,
 			':PWD' => $this->pwd,
 			':USERNAME' => strtolower($this->username),
@@ -120,7 +120,7 @@ class registroUsuario{
 		if($email != ''){
 			$username = md5($email . $pname);
 			$username = substr($username, 0, 16);
-			$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP);', array(
+			$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth, fotoCapa, vips) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP);', array(
 				':USER' => $email,
 				':PWD' => NULL,
 				':USERNAME' => strtolower($username),

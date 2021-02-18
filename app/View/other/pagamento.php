@@ -118,6 +118,13 @@
                 </div>
                 <input type="text" class="form-control" id="bairro" name="bairro" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
             </div>
+
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="inputGroup-sizing-default">Cidade</span>
+                </div>
+                <input type="text" class="form-control" id="cidade" name="cidade" aria-label="Default" aria-describedby="inputGroup-sizing-default" required>
+            </div>
     
             <div class="input-group mb-3">
                 <div class="input-group-prepend">

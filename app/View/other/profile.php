@@ -573,7 +573,6 @@
 <script src="../app/View/assets/js/post.js"></script>
 <script src="../app/View/assets/js/profile.js"></script>
 <script src="../app/View/assets/js/zerarnot.js"></script>
-<script src="../app/View/assets/js/loadProfPosts.js"></script>
 
 <!-- 
     By: Caio C. Brandini da Silva - 2021

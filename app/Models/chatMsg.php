@@ -22,7 +22,7 @@ if($_POST['funcao'] == "novoChat"){
 			$interval = strtotime($datetime2) - strtotime($datetime1);
 			$interval = floor($interval / (60 * 60 * 24));
 			if(intval($interval) > 0){
-				$value[3] = 1;
+				$res[$key][3] = 1;
 			}
 		}
 	}

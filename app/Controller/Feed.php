@@ -38,7 +38,7 @@ class Feed {
         require('app/View/feed/home.php');
         if (isset($_POST['enviar'])){
             require("app/Models/createPost.php");
-            header('Location: http://dix.net.br', true, 303);
+            header('Location: http://dix.net.br/feed', true, 303);
             die();
         }
     }

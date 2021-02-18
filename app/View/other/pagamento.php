@@ -220,11 +220,15 @@
                         <span class="ml-2 my-info"></span>
                     </div>
                     <div class="modal-info d-flex">
-                        <span class="modal-negrito-title">Complemento:</span>
+                        <span class="modal-negrito-title">Cep:</span>
                         <span class="ml-2 my-info"></span>
                     </div>
                     <div class="modal-info d-flex">
                         <span class="modal-negrito-title">Bairro:</span>
+                        <span class="ml-2 my-info"></span>
+                    </div>
+                    <div class="modal-info d-flex">
+                        <span class="modal-negrito-title">Cidade:</span>
                         <span class="ml-2 my-info"></span>
                     </div>
                     <div class="modal-info d-flex">

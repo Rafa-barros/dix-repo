@@ -122,15 +122,17 @@ class Post {
                 ':IDPOST' => $this->postSel['id']
             ));
             $resultUserBlocked = $resultUserBlocked->fetch();
-            if (isset($this->postSel['media']) && $this->postSel['media'] != 0){
+            if (isset($this->postSel['media'])){
                 if (empty($resultUserBlocked)){
                     $this->postSel['descript'] = "<i>Esse post é pago, compre-o para ver a sua descrição e seu conteúdo</i>";
-                    $extensaoCmps = explode(".", $this->postSel['media']);
-                    $extensao = strtolower(end($extensaoCmps));
-                    if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
-                        $this->postSel['media'] = ("media/" . ((hash('haval128,5', $this->postSel['media'])) . "." . $extensao));
-                    } else {
-                        $this->postSel['media'] = "media/blockedVideo.png";
+                    if($this->postSel['media'] != 0){
+                        $extensaoCmps = explode(".", $this->postSel['media']);
+                        $extensao = strtolower(end($extensaoCmps));
+                        if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
+                            $this->postSel['media'] = ("media/" . ((hash('haval128,5', $this->postSel['media'])) . "." . $extensao));
+                        } else {
+                            $this->postSel['media'] = "media/blockedVideo.png";
+                        }
                     }
                 }
             }

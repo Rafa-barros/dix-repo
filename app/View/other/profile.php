@@ -58,7 +58,7 @@
                 ?> 
             </div>
             <p class="prof-name"><?php echo($pname); ?></p>
-            <p class="prof-description"> </p>
+            <p class="prof-description"><?php echo($descript); ?></p>
             <div class="follower-status">
                 <span> <b class="nfollowers"><?php echo($followers); ?></b> seguidores</span>
                 <span> <b><?php echo($vips); ?></b> VIPS</span>

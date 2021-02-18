@@ -13,6 +13,7 @@ class Profile {
         $notification->email = base64_decode($_COOKIE['cUser']);
         $notification->getNotifications();
         $username = $notification->getProfile();
+        $descript = $notification->getDescript();
         $user = $username;
         $notificacoes = $notification->notificacoes;
         $tamNovas = $notification->notificacoesNovas;

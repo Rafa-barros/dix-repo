@@ -14,7 +14,7 @@
             <div class="dropdown-menu not-pop">
             <?php
                 if ($tam > 0){
-                    for ($i = $tam; $i>=0; $i--){
+                    for ($i = $tam - 1; $i>=0; $i--){
                         switch ($notificacoes[$i]['type']){
                             case 0:
                                 echo ('<div class="notificacao">

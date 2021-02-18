@@ -459,7 +459,7 @@
                     if ($ext != 'mp4' && $ext != 'avi' && $ext != 'webp'){
                         echo('<img src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' alt="">');
                     } else {
-                        echo('<video src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' controls controlslist="nodownload" style="max-width:100%; max-height: 600px></video>');
+                        echo('<video src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' controls controlslist="nodownload" style="max-width:100%; max-height: 600px></video>"');
                     }
                     ?>
                 </div>
@@ -493,72 +493,9 @@
             <?php } ?>
 
 
-            <!-- post 2 -->
-    <!--
-            <div class="card">
-                <div class="card-top">
-                <div class="card-options-container" style="display: flex; justify-content: flex-end;">
-                        <div class="btn-group dropup">
-                            <button type="button" class="btn dropdown-toggle btn-edit-post" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-ellipsis-h mr-4" style="font-size:22px; color:rgb(142, 142, 142,0.7); cursor: pointer;"></i>
-                            </button>
-                            <div class="post-edit-pop dropdown-menu ">
-                                <button class="dropdown-item edit-post-drop" type="button" data-toggle="modal" data-target="#edit-post" >Editar publicação</button>
-                                <button class="dropdown-item delete-post-drop" type="button">Apagar publicação</button>
-                            </div>
-                        </div>    
-                    </div>
-                    <div class="top-card-top">
-                        <div class="l-card-top">
-                            <a href=""><img class="profile-image" src="/app/View/assets/css/img/Caio.jpg" alt="Foto perfil"></a>
-                            <div class="author-info">
-                                <p class="author-name"> <a href="">Caio Brandini</a></p>
-                                <p class="post-time"> 34 min </p>
-                            </div>
-                        </div>
-                        <div class="r-card-top">
-                            <button type="button" class="btn btn-primary btn-card-follow">Seguindo <i style="margin-left:6px;" class="fas fa-check"></i> </button>
-                        </div>
-                    </div>
-                    <div class="bot-card-top">
-                        <p class="description"> Lorem ipsum dolor sit.</p>
-                    </div>
-
-                </div>
-        <div class="midia-container">
-            <img src="https://scontent.fcpq4-1.fna.fbcdn.net/v/t1.0-9/141305301_3904500662933554_4794639086175181746_o.jpg?_nc_cat=1&ccb=2&_nc_sid=730e14&_nc_ohc=yqZx4VzPNUoAX-2Goue&_nc_ht=scontent.fcpq4-1.fna&oh=f56c81a3579170fbcf3217b6d150fb36&oe=60314113" alt="">
-        </div>
-        <div class="card-bot">
-            <div class="post-status">
-                <span class="nlikes">218 curtidas</span> <span class="ncomments">23 comentários</span>
-            </div>
-            <div class="g-border"></div>
-            <div class="interactive">
-                <div class="like">
-                    <button class="btn-like"><span><i style="color: unset" class="fas fa-fire-alt"></i> Curtir</span> </button>
-                </div>
-                <div class="donate">
-                            <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button><span>
-                        </div>
-                <div class="comment">
-                    <button class="btn-comment"><i class="far fa-comment"></i>Comentários</span></button><span>
-                </div>
-            </div>
-            <div class="comment-area">
-                <div class="a-comment">
-                    <span class="a-username"><a href="">Gustavo123</a></span> <p class="r-comment">oioioi</p>
-                </div>
-                <div class="end-comment-show"></div>
-                <div class="comment-now">
-                    <form method="POST" class="comment-form" ajax="true">
-                        <input type="text" class="form-control comment-input" placeholder="Deixe seu comentário aqui..." required>
-                        <button class="btn-send-comment"> Enviar </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-    -->
+<script>
+    $(".post-time").split(' ')[1].slice(0, 5);
+</script>
 
         <!-- /profile-posts -->
 

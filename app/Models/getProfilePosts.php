@@ -53,6 +53,14 @@ class ProfilePosts {
             $this->posts[$i]['idUser'] = $row['idUser'];
             $i++;
 
+            //Verifica se o post já foi curtido
+            $resultLiked = $this->conn->executeQuery('SELECT * FROM assoc_users_likes WHERE idPost = :IDPOST AND idUser = :IDUSER', array(
+                ':IDPOST' => $this->posts[$i]['id'],
+                ':IDUSER' => $this->idUser
+            ));
+            $resultLiked = $resultLiked->fetch();
+            empty($resultLiked) ? $this->posts[$i]['liked'] = 0 : $this->posts[$i]['liked'] = 1;
+
             //Trata a imagem caso ela seja privada
             if ($this->posts[$i]['allowView'] == 0 && $this->idOp != $this->idUser){
                 $resultUserBlocked = $this->conn->executeQuery('SELECT idPost FROM assoc_posts WHERE idUser = :ID AND idPost = :IDPOST', array(

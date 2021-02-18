@@ -13,7 +13,7 @@ if($_POST['funcao'] == "novoChat"){
 	$res = $chatMsg->novoChat($_POST['username']);
 }else if($_POST['funcao'] == "carregarMensagens"){
 	$res = $chatMsg->carregarMensagens($_POST['username']);
-	foreach($res as $key){
+	foreach($res as $key => $value){
 		if($key != 0){
 			$datetime1 = explode(" ", $res[$key - 1][2]);
 			$datetime1 = $datetime1[0];
@@ -22,7 +22,7 @@ if($_POST['funcao'] == "novoChat"){
 			$interval = strtotime($datetime2) - strtotime($datetime1);
 			$interval = floor($interval / (60 * 60 * 24));
 			if(intval($interval) > 0){
-				$res[$key][3] = 1;
+				$value[3] = 1;
 			}
 		}
 	}

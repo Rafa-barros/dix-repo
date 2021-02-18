@@ -430,7 +430,7 @@
                         <div class="l-card-top">
                             <a href=""><?php echo('<img src="' . $img . '" class="profile-img" alt="Foto de perfil">'); ?> </a>
                             <div class="author-info">
-                                <p class="author-name"> <a href=""><?php echo($user)?></a></p>
+                                <p class="author-name"> <a href=""><?php echo($usuario->username)?></a></p>
                                 <p class="post-time"> <?php $profilePosts->posts[$j]['postDate'] ?> </p>
                             </div>
                         </div>
@@ -448,7 +448,7 @@
                 </div>
                 <div class="card-bot">
                     <div class="post-status">
-                        <span class="nlikes"><?php echo($profilePosts->posts[$j]['likes']) ?></span> <span class="ncomments"><?php $profilePosts->posts[$j]['comments'] ?> comentários</span>
+                        <span class="nlikes"><?php echo($profilePosts->posts[$j]['likes']) ?> curtidas</span> <span class="ncomments"><?php $profilePosts->posts[$j]['comments'] ?> comentários</span>
                     </div>
                     <div class="g-border"></div>
                     <div class="interactive">
@@ -459,7 +459,7 @@
                             <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button><span>
                         </div>
                         <div class="comment">
-                            <button class="btn-comment"><i class="far fa-comment"></i>Comentários</span></button><span>
+                            <button class="btn-comment"><i class="far fa-comment"></i><?php echo($profilePosts->posts[$j]['comments']); ?> Comentários</span></button><span>
                         </div>
                     </div>
                     <div class="comment-area">

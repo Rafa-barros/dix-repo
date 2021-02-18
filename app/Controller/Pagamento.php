@@ -31,6 +31,7 @@ class Pagamento {
         }
         if (isset($_GET['user']) && isset($_GET['amount']) && ($_GET['amount'] >= 1) && (!empty($condUser) || !empty($condPost))){
             require('app/Models/gerarTokenPS.php');
+            $retorno = 0;
             $token = new \app\Models\Token();
             $url = "https://ws.pagseguro.uol.com.br/sessions";
             $parametros = array (

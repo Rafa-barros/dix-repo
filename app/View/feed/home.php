@@ -226,7 +226,7 @@
     <!-- Início Posts -->
 
      <!-- post 1 -->
-     <div class="card">
+     <!-- <div class="card">
                 <div class="card-top">
                     <div class="top-card-top">
                         <div class="l-card-top">
@@ -289,7 +289,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
     <!-- Fim posts -->
     </div>

@@ -366,6 +366,7 @@ nav p {
 }
 
 .profile-image {
+    height: 50px;
     width: 50px;
     border-radius: 100px;
     border: 1px solid rgba(0, 0, 0, 0.24);
@@ -392,9 +393,18 @@ nav p {
 
 /* Card Midia */
 
+.midia-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .midia-container img, .midia-container video {
     width: 100vw;
     max-width: 620px;
+    max-height: 700px;
+    width: auto;
+    height: auto;
 }
 
 video:focus {

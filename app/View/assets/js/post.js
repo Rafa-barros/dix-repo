@@ -26,10 +26,11 @@ $(document).on('click', '.btn-like', function(){
         var card = $(this).parents(".card")
         text = card.find(".nlikes").text();
         if($(this).css("color") == "rgb(0, 0, 0)"){
-            card.find(".nlikes").text((parseInt(text.split()[0])+ 1).toString() + " curtidas");
+            card.find(".nlikes").text((parseInt(text.split('c')[0])+ 1).toString() + " curtidas");
         } 
-        else {card.find(".nlikes").text((parseInt(text.split()[0])- 1).toString() + " curtidas")}
-
+        else {card.find(".nlikes").text((parseInt(text.split('c')[0])- 1).toString() + " curtidas")}
+        text = card.find(".nlikes").text();
+        if(parseInt(text.split('c')[0]) == 1) card.find(".nlikes").text('1 curtida');
     });
 
 

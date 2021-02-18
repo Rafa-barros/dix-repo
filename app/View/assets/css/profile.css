@@ -466,10 +466,15 @@ button:focus {
 /* Card Midia */
 
 .midia-container img, .midia-container video {
+    width: 100%;
     max-width: 620px;
     max-height: 700px;
-    width: auto;
-    height: auto;
+}
+
+.midia-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 video:focus {
@@ -822,6 +827,15 @@ video:focus {
     background-color: rgba(0, 0, 0, 0.397);;
 }
 
+/* card prof */
+
+.prof-img {
+    height: 50px;
+    width: 50px;
+    border-radius: 100px;
+    border: 1px solid rgba(0, 0, 0, 0.24);
+}
+
 @media(max-width: 1250px) {
     .profile-posts {
         margin-left: auto;
@@ -903,10 +917,6 @@ video:focus {
 
     .profile-btn-area {
         bottom: 170px;
-    }
-
-    .midia-container img {
-        width: 95vw;
     }
 
     .prof-status-container {

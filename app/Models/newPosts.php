@@ -101,7 +101,7 @@ class Post {
         }
 
         for($j = 0; $j < $this->tam; $j++){
-            if($this->postSel['isUser'] == $this->idOp[$j]){
+            if($this->postSel['idUser'] == $this->idOp[$j]){
                 $this->nameOp = $this->nameOpTemp[$j];
                 $this->userOp = $this->userOpTemp[$j];
                 $this->imgOp = $this->imgOpTemp[$j];

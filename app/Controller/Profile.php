@@ -7,11 +7,6 @@ class Profile {
 
     public function index(){
 
-        if(isset($_SESSION['teste'])){
-            echo $_SESSION['teste'];
-            unset($_SESSION['teste']);
-        }
-
         //Sistema de Notificações e Perfil
         require("app/Models/loadNotificacao.php");
         $notification = new \app\Models\Notificacao();

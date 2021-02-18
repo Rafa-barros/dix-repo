@@ -465,8 +465,10 @@ button:focus {
 /* Card Midia */
 
 .midia-container img, .midia-container video {
-    width: 100vw;
     max-width: 620px;
+    max-height: 700px;
+    width: auto;
+    height: auto;
 }
 
 video:focus {

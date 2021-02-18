@@ -63,6 +63,10 @@ function ajaxSuccess (result) {
 
     if(result.qtdComentarios == 1) $("#"+result.idPost.toString()).find('.ncomments').text('1 Comentário');
 
+    if($('#'+result.idPost).find('.midia-container img').heigth() < 700){
+        $('#'+result.idPost).find('.midia-container img').css('width','100%').css('height','unset');
+    }
+
     postsVistosNav.push(result.idPost);
  }
 

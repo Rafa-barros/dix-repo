@@ -27,7 +27,7 @@ $(document).on('click', '.btn-card-follow', function(){
 });
 
 $(document).on('click', '.btn-preco-post', function(){
-    let urlpreco = 'http://dix.net.br/pagamento?amount=' + $('.btn-preco-post').text() + '&user=' + cardpago.attr('id') + '&idPost=1'
+    let urlpreco = 'https://dix.net.br/pagamento?amount=' + $('.btn-preco-post').text() + '&user=' + cardpago.attr('id') + '&idPost=1'
     window.location.href = urlpreco;
 });
 
@@ -52,7 +52,7 @@ $(document).on('click', '.btn-donate', function(){
 });
 
 $(document).on('click', '.gorjeta-submit', function(){
-    let urlpreco = 'http://dix.net.br/pagamento?amount=' + $('.g-price').val() + '&user=' + cardGorjeta + '&idPost=1' + '&msg=' + $('.g-msg').val();
+    let urlpreco = 'https://dix.net.br/pagamento?amount=' + $('.g-price').val() + '&user=' + cardGorjeta + '&idPost=1' + '&msg=' + $('.g-msg').val();
     window.location.href = urlpreco;
 });
 
@@ -60,7 +60,7 @@ $(document).on('click', '.gorjeta-submit', function(){
 
 $(document).on('submit', '.buscar-pessoa-form', function(e){
     e.preventDefault();
-    window.location.href = 'http://dix.net.br/profile/' + $('#input-novo-contato').val();
+    window.location.href = 'https://dix.net.br/profile/' + $('#input-novo-contato').val();
     $('#input-novo-contato').val('');
 });
 

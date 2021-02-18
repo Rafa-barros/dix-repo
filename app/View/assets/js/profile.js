@@ -9,7 +9,7 @@ if(me == 0) $('.fa-user').css('border-bottom', '0')
             data: {logout: 1},     
             cache: false,
             success:function(){
-              window.location.href = "http://dix.net.br";
+              window.location.href = "https://dix.net.br";
             }        
         });
         
@@ -145,13 +145,13 @@ $('#gorjeta-profile').click(function(e){
 //Abrir chat
 $('.btn-profile-message-o').click(function(){
     let username = window.location.href.split('/')[4];
-    window.location.href = 'http://dix.net.br/chat?username='+username;
+    window.location.href = 'https://dix.net.br/chat?username='+username;
 });
 
 
 //post pago
 $(document).on('click', '.btn-preco-post', function(){
-    let urlpreco = 'http://dix.net.br/pagamento?amount=' + $('.btn-preco-post').text() + '&user=' + cardpago.attr('id') + '&idPost=1'
+    let urlpreco = 'https://dix.net.br/pagamento?amount=' + $('.btn-preco-post').text() + '&user=' + cardpago.attr('id') + '&idPost=1'
     window.location.href = urlpreco;
 });
 
@@ -166,6 +166,6 @@ $(document).on('click', '.btn-donate', function(){
 });
 
 $(document).on('click', '.gorjeta-submit', function(){
-    let urlpreco = 'http://dix.net.br/pagamento?amount=' + $('.g-price').val() + '&user=' + cardGorjeta + '&idPost='+ gorjetaPost + '&msg=' + $('.g-msg').val();
+    let urlpreco = 'https://dix.net.br/pagamento?amount=' + $('.g-price').val() + '&user=' + cardGorjeta + '&idPost='+ gorjetaPost + '&msg=' + $('.g-msg').val();
     window.location.href = urlpreco;
 });

@@ -40,11 +40,11 @@ class alterarPerfil {
 				':ID' => $this->userId
 			));
 		}
-		if(isset($_FILE['arquivo'])){
+		if(isset($_FILES['arquivo'])){
 			$userImg = new uploadMedia();
 			$userImg->uploadUserImg();
 		}
-		if(isset($_FILE['capa'])){
+		if(isset($_FILES['capa'])){
 			$userImg = new uploadMedia();
 			$userImg->uploadUserCapa();
 		}

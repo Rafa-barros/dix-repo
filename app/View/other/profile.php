@@ -318,7 +318,7 @@
 <!-- Modal Configurações -->
 
 <div class="modal fade" id="modal-config" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
+  <div class="modal-dialog modal-dialog-centered" style="margin-top: 84px;" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="exampleModalLongTitle">Configurações</h5>
@@ -334,6 +334,11 @@
                         <span class="input-group-text" id="inputGroup-sizing-default">@</span>
                     </div>
                     <input type="text" name="username" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
+                </div>
+
+                <label class="config-label">Alterar Nome</label>
+                <div class="input-group mb-3">
+                    <input type="text" name="pName" class="form-control" aria-label="Default" placeholder="Nome de pefil" aria-describedby="inputGroup-sizing-default">
                 </div>
                 
                 <label class="config-label">Data de nascimento</label>

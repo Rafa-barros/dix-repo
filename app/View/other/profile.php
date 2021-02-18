@@ -295,13 +295,13 @@
             <div class="prof-description mb-2">
                 <textarea type="text" name="bio" class="form-control edit-post-description edit-profile-description" id="validationDefault01" placeholder="Sobre mim..."></textarea>
             </div>
-            <!-- <div class="d-flex">
+            <div class="d-flex">
                 <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de capa</label>
-                <input type="file" name="capa" id="upload" />
-            </div> -->
+                <input type="file" name="perfil[]" id="upload" />
+            </div>
             <div class="d-flex">
                 <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de perfil</label>
-                <input type="file" name="perfil" id="upload" />
+                <input type="file" name="perfil[]" id="upload" />
             </div>
             
             </div>

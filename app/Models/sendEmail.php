@@ -48,7 +48,7 @@ class sendEmail{
                     <a style="font-family: Verdana; font-size: 25px;">' . $codigo . '</a>
                 </div>
                 <p style="text-align: center; font-family: Verdana; font-size: 10px; margin-top: 20vh;">Ou então, clique no link abaixo</p>
-                <p style="font-family: Verdana; font-size: 9px; text-align: center; text-decoration: underline;"><a href="https://dix.net.br/verificarconta?id=' . $id . '&email=' . $email . '&codigo=' . $codigo . '"></a>http://dix.net.br/verificarconta?id=' . $id . '&email=' . $email . '&codigo=' . $codigo . '</div></p>
+                <p style="font-family: Verdana; font-size: 9px; text-align: center; text-decoration: underline;"><a href="https://dix.net.br/verificarconta?id=' . $id . '&email=' . $email . '&codigo=' . $codigo . '"></a>https://dix.net.br/verificarconta?id=' . $id . '&email=' . $email . '&codigo=' . $codigo . '</div></p>
             </div>';
             $mail->AltBody = 'Para a Ativação de sua conta Dix, insira esse código ' . $codigo;
 
@@ -99,7 +99,7 @@ class sendEmail{
                     <a style="font-family: Verdana; font-size: 25px;">' . $codigo . '</a>
                 </div>
                 <p style="text-align: center; font-family: Verdana; font-size: 10px; margin-top: 20vh;">Ou então, clique no link abaixo</p>
-                <p style="font-family: Verdana; font-size: 9px; text-align: center; text-decoration: underline;"><a href="https://dix.net.br/recuperarsenha?id=' . $id . '&email=' . $email . '&codigo=' . $codigo . '"></a>http://dix.net.br/recuperarsenha?id=' . $id . '&email=' . $email . '&codigo=' . $codigo . '</div></p>
+                <p style="font-family: Verdana; font-size: 9px; text-align: center; text-decoration: underline;"><a href="https://dix.net.br/recuperarsenha?id=' . $id . '&email=' . $email . '&codigo=' . $codigo . '"></a>https://dix.net.br/recuperarsenha?id=' . $id . '&email=' . $email . '&codigo=' . $codigo . '</div></p>
             </div>';
             $mail->AltBody = 'Para definir uma nova senha, insira esse código ' . $codigo;
 

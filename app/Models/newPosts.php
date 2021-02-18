@@ -96,41 +96,53 @@ class Post {
         $query = $query . ') ORDER BY postDate DESC';
         $post = $this->conn->executeQuery($query);
         if(!empty($post)){
-            $this->postSel = $post->fetch();
+            $i = 0;
+            while($row = $post->fetch()){
+                $this->postSel[$i] = $row;
+                if($i < 5){
+                    $i++;
+                }else{
+                    break;
+                }
+            }
         }
 
         for($j = 0; $j < $this->tam; $j++){
-            if($this->postSel['idUser'] == $this->idOp[$j]){
-                $this->nameOp = $this->nameOpTemp[$j];
-                $this->userOp = $this->userOpTemp[$j];
-                $this->imgOp = $this->imgOpTemp[$j];
+            for($k = 0; $k < 5; $k++){
+                if($this->postSel[$k]['idUser'] == $this->idOp[$j]){
+                    $this->nameOp[$k] = $this->nameOpTemp[$j];
+                    $this->userOp[$k] = $this->userOpTemp[$j];
+                    $this->imgOp[$k] = $this->imgOpTemp[$j];
+                }
             }
         }
 
 
         //Retorna 0 ou 1 se o post foi curtido
-        $resultLiked = $this->conn->executeQuery('SELECT * FROM assoc_users_likes WHERE idPost = :IDPOST AND idUser = :IDUSER', array(
-            ':IDPOST' => $this->postSel['id'],
-            ':IDUSER' => $this->idUser
-        ));
-        $resultLiked = $resultLiked->fetch();
-        empty($resultLiked) ? $this->liked = 0 : $this->liked = 1;
-
-        if ($this->postSel['allowView'] == 0){
-            $resultUserBlocked = $this->conn->executeQuery('SELECT idPost FROM assoc_posts WHERE idUser = :ID AND idPost = :IDPOST', array(
-                ':ID' => $this->idUser,
-                ':IDPOST' => $this->postSel['id']
+        for($j = 0; $j < 5; $j++){
+            $resultLiked = $this->conn->executeQuery('SELECT * FROM assoc_users_likes WHERE idPost = :IDPOST AND idUser = :IDUSER', array(
+                ':IDPOST' => $this->postSel[$j]['id'],
+                ':IDUSER' => $this->idUser
             ));
-            $resultUserBlocked = $resultUserBlocked->fetch();
-            if (isset($this->postSel['media'])){
-                if (empty($resultUserBlocked)){
-                    $extensaoCmps = explode(".", $this->postSel['media']);
-                    $extensao = strtolower(end($extensaoCmps));
-                    if($extensao != '0'){
-                        if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
-                            $this->postSel['media'] = ("media/" . ((hash('haval128,5', $this->postSel['media'])) . "." . $extensao));
-                        } else {
-                            $this->postSel['media'] = "media/blockedVideo.png";
+            $resultLiked = $resultLiked->fetch();
+            empty($resultLiked) ? $this->liked[$j] = 0 : $this->liked[$j] = 1;
+
+            if ($this->postSel[$j]['allowView'] == 0){
+                $resultUserBlocked = $this->conn->executeQuery('SELECT idPost FROM assoc_posts WHERE idUser = :ID AND idPost = :IDPOST', array(
+                    ':ID' => $this->idUser,
+                    ':IDPOST' => $this->postSel[$j]['id']
+                ));
+                $resultUserBlocked = $resultUserBlocked->fetch();
+                if (isset($this->postSel[$j]['media'])){
+                    if (empty($resultUserBlocked)){
+                        $extensaoCmps = explode(".", $this->postSel[$j]['media']);
+                        $extensao = strtolower(end($extensaoCmps));
+                        if($extensao != '0'){
+                            if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
+                                $this->postSel[$j]['media'] = ("media/" . ((hash('haval128,5', $this->postSel[$j]['media'])) . "." . $extensao));
+                            } else {
+                                $this->postSel[$j]['media'] = "media/blockedVideo.png";
+                            }
                         }
                     }
                 }
@@ -146,18 +158,29 @@ $postObj->postsVistosJS = $_POST['postsVistos'];
 $postObj->getInfo();
 $postSel = $postObj->selPost();
 
+for($i = 0; $i < 5; $i++){
+    $postDate[$i] = $postSel[$i]['postDate'];
+    $media[$i] = $postSel[$i]['media'];
+    $descript[$i] = $postSel[$i]['descript'];
+    $likes[$i] = $postSel[$i]['likes'];
+    $price[$i] = $postSel[$i]['price'];
+    $amount[$i] = $postSel[$i]['amount'];
+    $id[$i] = $postSel[$i]['id'];
+    $comments[$i] = $postSel[$i]['comments'];
+}
+
 echo json_encode((array(
     'nameOp' => $postObj->nameOp,
     'userOp' => $postObj->userOp,
-    'data' => $postSel['postDate'],
+    'data' => $postDate,
     'imgOp' => $postObj->imgOp, 
-    'imgPost' => $postSel['media'],
+    'imgPost' => $media,
     "postsVistos" => "",
-    "descricao" => ($postSel['descript']),
-    "likes" => $postSel['likes'],
+    "descricao" => $descript,
+    "likes" => $likes,
     "liked" => $postObj->liked,
-    "valor" => $postSel['price'],
-    "gorjetas" => $postSel['amount'],
-    "idPost" => $postSel['id'],
-    "qtdComentarios" => $postSel['comments']
+    "valor" => $price,
+    "gorjetas" => $amount,
+    "idPost" => $id,
+    "qtdComentarios" => $comments
 )));

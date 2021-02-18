@@ -61,6 +61,7 @@ class alterarPerfil {
 
 	public function configuracoes(){
 		$username = isset($_POST["username"]) ? $_POST["username"] : "";
+		$username = strtolower($username);
 		if($username != ""){
 			$result = $this->conn->executeQuery('SELECT username FROM users WHERE username = :USERNAME', array(
 				':USERNAME' => $username

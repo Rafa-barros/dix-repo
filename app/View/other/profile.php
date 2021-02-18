@@ -289,11 +289,11 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Descrição Rápida</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" placeholder="Ex.: Atriz e modelo" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" name="description" class="form-control" aria-label="Default" placeholder="Ex.: Atriz e modelo" aria-describedby="inputGroup-sizing-default">
                 </div>
                 
             <div class="prof-description mb-2">
-                <textarea type="text" class="form-control edit-post-description edit-profile-description" id="validationDefault01" placeholder="Sobre mim..." name="descriptPost"></textarea>
+                <textarea type="text" name="bio" class="form-control edit-post-description edit-profile-description" id="validationDefault01" placeholder="Sobre mim..."></textarea>
             </div>
             <div class="d-flex">
                 <label class="upload-label mb-2 d-flex" for="upload"><i class="fas fa-images mr-2"></i>Escolher foto de capa</label>

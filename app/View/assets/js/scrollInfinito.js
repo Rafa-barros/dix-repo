@@ -20,17 +20,6 @@ $(document).scroll(function (e){
     
 }});
 
-//fim da página 
-
-$(document).scroll(function() {
-    var top = document.body.scrollTop;
-    var maxTop = document.body.scrollHeight - document.body.clientHeight;
-    
-    if (parseInt(top) === maxTop) {
-        newPost();
-    }
-});
-
 
 function separaTempo(fullTime){
     if(fullTime == null) return '';

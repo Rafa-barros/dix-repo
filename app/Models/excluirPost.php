@@ -22,6 +22,10 @@ $conn->executeQuery('DELETE FROM posts WHERE id = :ID AND idUser = :IDOP', array
     ':IDOP' => $idUser
 ));
 
+$conn->executeQuery('UPDATE users SET posts=posts-1 WHERE id = :ID', array(
+    ':ID' => $idUser
+));
+
 echo json_encode(array(
     "id" => 0
 ));

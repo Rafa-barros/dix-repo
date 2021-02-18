@@ -18,18 +18,6 @@ $(document).scroll(function (e){
     
 }});
 
-//fim da página 
-
-
-$(document).scroll(function() {
-    var top = document.body.scrollTop;
-    var maxTop = document.body.scrollHeight - document.body.clientHeight;
-    
-    if (parseInt(top) === maxTop) {
-        newPost();
-    }
-});
-
 function separaTempo(fullTime){
     if(fullTime == null) return '';
     return fullTime.split(' ')[1].slice(0, 5);

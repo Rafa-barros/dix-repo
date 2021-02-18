@@ -68,18 +68,27 @@ $retorno = callAPI($url, $parametros);
 if (strpos($retorno, (htmlentities($_POST['estado']))) !== false){
     echo ("<div style='display: none' id='cond'>SUCESSO</div>");
 
+    //Result user
     $result = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
         ':EMAIL' => (htmlentities($_POST['email']))
     ));
     $result = $result->fetch();
     $idUser = $result['0'];
 
-    //Libera o acesso do usuário ao post comprado
-    if (isset($_GET['idPost'])){
-        $conn->executeQuery('INSERT INTO assoc_posts (idPost, idUser) VALUES (:POST, :ID)', array(
-            ':POST' => (htmlentities($_GET['idPost'])),
-            ':ID' => $idUser
+    //Libera o acesso do usuário ao post comprado caso passe do valor
+    if (isset($_GET['idPost'])) {
+        $resultPricePost = $conn->executeQuery('SELECT price FROM posts WHERE id = :ID', array(
+            ':ID' => htmlentities($_GET['idPost'])
         ));
+        $resultPricePost = $resultPricePost->fetch();
+        $price = $resultPricePost['0'];
+
+        if ($_GET['amount'] >= $price){
+            $conn->executeQuery('INSERT INTO assoc_posts (idPost, idUser) VALUES (:POST, :ID)', array(
+                ':POST' => (htmlentities($_GET['idPost'])),
+                ':ID' => $idUser
+            ));
+        }
     }
 
     /*

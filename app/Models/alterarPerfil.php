@@ -28,7 +28,6 @@ class alterarPerfil {
 	public function editarPerfil(){
 		$media = new uploadMedia();
 		$media->uploadUserImg();
-		$media->uploadUserCapa();
 		$description = isset($_POST["description"]) ? $_POST["description"] : "";
 		if($description != ""){
 			$this->conn->executeQuery('UPDATE users SET description = :DESCRIPTION WHERE id = :ID', array(

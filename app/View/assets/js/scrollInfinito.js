@@ -6,7 +6,7 @@
     } 
 });
 
-var flag = 500;
+var flag = 0;
 $(document).scroll(function (e){
     var pos = $(this).scrollTop();
     if (pos >= flag){

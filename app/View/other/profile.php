@@ -350,7 +350,7 @@
                     <input type="text" class="form-control" aria-label="Default" placeholder="Chave Pix" aria-describedby="inputGroup-sizing-default">
                 </div>
 
-                <div class="ou-container">
+                <div class="ou-container mb-3">
                 <div class="bar"></div> <div class="ou"> OU </div> <div class="bar"></div>
                 </div>
 
@@ -371,14 +371,14 @@
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Agência</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" class="form-control" aria-label="Default" placeholder="Ex.: 1234" aria-describedby="inputGroup-sizing-default">
                 </div>
 
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Conta</span>
                     </div>
-                    <input type="text" class="form-control" aria-label="Default" placeholder="Username" aria-describedby="inputGroup-sizing-default">
+                    <input type="text" class="form-control" aria-label="Default"  aria-describedby="inputGroup-sizing-default">
                 </div>
 
                 <button type="button" name="logout" id="btn-logout" class="btn btn-outline-danger mt-4">Log out</button>

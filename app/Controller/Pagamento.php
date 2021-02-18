@@ -95,7 +95,6 @@ class Pagamento {
     public function carregarCSS(){
         echo ("<link rel='stylesheet' href='app/View/assets/css/pagamento.css'>");
         echo ("<link rel='stylesheet' href='app/View/assets/css/error404.css'>");
-        echo ('<script type="text/javascript" src="https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>');
     }
 }
 

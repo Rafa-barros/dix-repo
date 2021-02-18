@@ -55,6 +55,12 @@ class Controller {
         $cssLoad->carregarCSS();
     }
 
+    public function verifyPagamento(){
+        if ($this->dir == "Pagamento"){
+            echo ("<script type='text/javascript' src='https://stc.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js'></script>");
+        }
+    }
+
     public function carregar(){
         $paginaCarregada = new $this->pag;
         if (isset($this->urlMetodo)){

@@ -444,7 +444,7 @@
 
                 </div>
                 <div class="midia-container">
-                    <?php echo('<img src=' . $profilePosts->posts[$j]['media'] . ' alt="">') ?>
+                    <?php echo('<img src=../' . $profilePosts->posts[$j]['media'] . ' alt="">') ?>
                 </div>
                 <div class="card-bot">
                     <div class="post-status">

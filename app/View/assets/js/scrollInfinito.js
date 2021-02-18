@@ -1,13 +1,5 @@
 newPost();
 
-setTimeout(function(){
-    newPost();
-}, 300);
-
-setTimeout(function(){
-    newPost();
-}, 400);
-
    //Redirecionar notficações mobile
 
    $('.fa-bell').click(function(){

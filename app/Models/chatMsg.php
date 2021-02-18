@@ -24,6 +24,7 @@ if($_POST['funcao'] == "novoChat"){
 			}
 		}
 	}
+	print_r($res);
 }
 
 echo json_encode((array(

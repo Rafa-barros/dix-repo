@@ -2,6 +2,7 @@
 
 namespace App\Models;
 use App\Models\Database;
+use PDO;
 
 class ProfilePosts {
     public $userOp;

@@ -66,7 +66,7 @@ function ajaxSuccess (result) {
     if(result.qtdComentarios == 1) $("#"+result.idPost.toString()).find('.ncomments').text('1 Comentário');
     
     if(midiatype == 'img'){
-        if($('#'+result.idPost).find('.midia-container img').heigth() < 700){
+        if($('#'+result.idPost).find('.midia-container img').height() < 700){
             $('#'+result.idPost).find('.midia-container img').css('width','100%').css('height','unset');
         }
     }

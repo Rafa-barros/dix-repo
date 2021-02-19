@@ -93,9 +93,7 @@ class PagamentoCC {
             "billingAddress.postalCode" => "13087503",
             "billingAddress.city" => "Campinas",
             "billingAddress.state" => "SP",
-            "billingAddress.country" => "BRA",
-            "receiver[1].publicKey" => $this->receiver['publicKey'],
-            "receiver[1].split.amount" => $this->receiver['splitAmount']
+            "billingAddress.country" => "BRA"
         );
     }
     

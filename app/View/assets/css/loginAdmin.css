@@ -12,7 +12,7 @@ h2{
     height: 100vh;
     width: calc(100vw - 550px);
     background-repeat: no-repeat;
-    background-image: url(app/View/assets/css/img/login-img.jpg);
+    background-image: url("app/View/assets/css/img/login-img.jpg");
     background-size: cover;
     z-index: 1;
 }

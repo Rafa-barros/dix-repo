@@ -14,7 +14,7 @@ class Profile {
                 ':EMAIL' => $email
             ));
             $result = $result->fetch();
-            if((empty($result) || $result['token'] != $_COOKIE['token']) || $result['token'] != NULL){
+            if((empty($result) || $result['token'] != $_COOKIE['token']) || $result['token'] == NULL){
                 header("Location: https://dix.net.br");
                 die();
             }

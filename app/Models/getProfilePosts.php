@@ -116,7 +116,7 @@ class ProfilePosts {
                                     }
                                 }
                             }else{
-                                $this->postSel[$j]['price'] = 0;
+                                $this->postSel[$j]['allowView'] = 1;
                             }
                         }else{
                             $extensaoCmps = explode(".", $this->postSel[$j]['media']);

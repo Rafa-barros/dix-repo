@@ -62,7 +62,7 @@ $(".chat-title-container").hide();
 
         $(this).css("background-color", "rgb(245, 244, 244)");
 
-        $(".chat-title-container").html('<div class="d-flex chat-title-info"><img class="foto-perfil-contato" src='+imgContato+' alt="foto perfil contato"><p class="nome-contato-chat">'+nameContato+'</p></div>');
+        $(".chat-title-container").html('<div class="d-flex chat-title-info"><img class="foto-perfil-contato" src='+imgContato+' alt="foto perfil contato"><a href="https://dix.net.br/profile/'+nameContato+'" class="nome-contato-chat">'+nameContato+'</a></div>');
         $(".chat-title-container").show();
         $(".initial").hide();
         $(".chat-right").show();

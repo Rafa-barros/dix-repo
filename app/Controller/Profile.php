@@ -44,9 +44,6 @@ class Profile {
         //Pega as info's do perfil
         require("app/Models/getProfile.php");
         
-        if (strpos($this->urlMetodo) !== false){
-            $this->urlMetodo = (explode('?', $this->urlMetodo))[0];
-        }
         $usuario = new \app\Models\ProfileModel();
         $usuario->username = $this->urlMetodo;
         $usuario->getInfo();

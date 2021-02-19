@@ -17,7 +17,6 @@
 
 <script>
     if(window.location.href.split('/')[3] == 'profile'){
-        <?php echo ("<h1>" . $this->urlMetodo . "</h1>"); ?>
         $('.display-4').text('Perfil não encontrado...');
         $('p .lead').text('Infelizmente o perfil solicitado ainda não existe.')
     }

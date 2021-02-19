@@ -853,6 +853,10 @@ video:focus {
 
 @media(max-width: 800px) {
 
+    .btn-comment {
+        width: unset;
+    }
+
     .post-edit-pop {
         top: -10px !important;
         left: -56px !important;
@@ -892,7 +896,6 @@ video:focus {
 
     .card {
         margin-bottom: 20px;
-        width: 95vw;
     }
 
     .profile-img {

@@ -43,7 +43,10 @@ class Profile {
 
         //Pega as info's do perfil
         require("app/Models/getProfile.php");
-        $userGET = explode('?', $this->urlMetodo);
+        
+        if (strpos($this->urlMetodo) !== false){
+            $this->urlMetodo = (explode('?', $this->urlMetodo))[0];
+        }
         $usuario = new \app\Models\ProfileModel();
         $usuario->username = $userGET[0];
         $usuario->getInfo();

@@ -1,7 +1,6 @@
 <?php
 
 namespace App\Controller;
-use App\Models\Database;
 
 class Pagamento {
     private function decript($text){
@@ -16,6 +15,8 @@ class Pagamento {
     }
 
     public function index(){
+
+        require('app/Models/Database.php');
 
         if(isset($_COOKIE['cUser']) && isset($_COOKIE['token'])){
             $email = base64_decode($_COOKIE['cUser']);

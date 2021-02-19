@@ -2,11 +2,12 @@
 
 namespace App\Controller;
 
-use App\Models\Database;
 use App\Models\chatModel;
 
 class Chat {
     public function index(){
+
+        require('app/Models/Database.php');
 
         if(isset($_COOKIE['cUser']) && isset($_COOKIE['token'])){
             $email = base64_decode($_COOKIE['cUser']);

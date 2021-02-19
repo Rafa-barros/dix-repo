@@ -2,11 +2,10 @@
 
 namespace App\Controller;
 
-use App\Models\Database;
-
 class MobNot {
     public function index(){
-    	//$chat = new chatModel();
+
+        require('app/Models/Database.php');
 
         if(isset($_COOKIE['cUser']) && isset($_COOKIE['token'])){
             $email = base64_decode($_COOKIE['cUser']);

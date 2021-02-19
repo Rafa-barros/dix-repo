@@ -5,6 +5,8 @@ namespace App\Controller;
 class RedirectInfluencer {
     public function index(){
 
+        require('app/Models/Database.php');
+
     	if(isset($_COOKIE['cUser']) && isset($_COOKIE['token'])){
             $email = base64_decode($_COOKIE['cUser']);
             $conn = new Database();

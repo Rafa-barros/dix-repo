@@ -94,6 +94,7 @@
                                 <label class="upload-label mb-2" for="upload">Escolher foto/vídeo</label>
                                 <input type="file" name="arquivo" id="upload" />
                             </div>
+                            <?php if($notification->condInfluencer == 1){ ?>
                             <div class="price-btn mb-3">
                                 <input type="radio" id="pago" name="postLiberado" value="0">
                                 <label for="pago">pago</label>
@@ -106,6 +107,9 @@
                             </div>
                                 <input type="number" step="0.01" minlength="1" name="valor" class="form-control post-price" aria-label="Amount (to the nearest dollar)" placeholder="Preço">
                             </div>
+                            <?php } else { ?>
+                                <h6 style=" font-weight: 300; margin-top: 40px;">Ganhe dinheiro com suas publicações <a href="<?php echo("https://dix.net.br/redirectInfluencer.php?name=" . $username); ?>" style=" color: #007bff;">tornando-se um influencer!</a></h6>
+                            <?php } ?>
                         </div>
                         <div class="loading-new-post"></div>
                         <div class="modal-footer loading-footer-new-post">

@@ -66,7 +66,7 @@ $url = "https://ws.pagseguro.uol.com.br/transactions?appId=" . $token->id . "&ap
 $retorno = $token->callAPI($url, $parametros);
 
 if (strpos($retorno, (htmlentities($_POST['estado']))) !== false){
-    echo ("<div style='display: none' id='cond'>SUCESSO</div>");
+    $retornoPag = "<div style='display: none' id='cond'>SUCESSO</div>";
 
     //Result user
     $result = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
@@ -124,7 +124,7 @@ if (strpos($retorno, (htmlentities($_POST['estado']))) !== false){
         ));
     }
 } else {
-    $retornoPag = ("<h2 id='cond'>ERRO: " . $retorno . "</h2>");
+    $retornoPag = "<h2 id='cond'>ERRO: " . $retorno . "</h2>";
 }
 
 /*

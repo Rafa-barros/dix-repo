@@ -117,7 +117,7 @@
                         <li>Todas as fotos liberadas</li>
                         <li>Atualizações frequentes</li>
                     </ul>
-                    <a href="" class="btn btn-warning mb-3" id="pagar-vip" style="margin-left: 70px; color: #FAFAFA; font-weight: 500">R$15 / mês</a>
+                    <button type="button" class="btn btn-warning mb-3" id="pagar-vip" style="margin-left: 70px; color: #FAFAFA; font-weight: 500">R$15 / mês</button>
                 </div>
             </div>
         </div>

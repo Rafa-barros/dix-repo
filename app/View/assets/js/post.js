@@ -39,7 +39,7 @@ $(document).on('click', '.btn-like', function(){
 
 $(document).on('click', '.btn-comment', function(){
     if( !$(this).hasClass('open-comment-Area')){
-        
+
         $(this).addClass('open-comment-Area');
         var commentArea = $(this).parents(".card").find('.comment-area');
         commentArea.show();
@@ -77,7 +77,7 @@ $(document).on('click', '.btn-comment', function(){
     }
     else {
         commentArea.hide().html('');
-        $(this).removeClass('open-comment-Area');
+        $('.btn-comment').removeClass('open-comment-Area');
     }
 
 });

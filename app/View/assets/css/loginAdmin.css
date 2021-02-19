@@ -1,6 +1,6 @@
-body{
-    background-color: rgb(236, 236, 236);
-}
+
+
+/* Login */
 
 h2{
     margin-bottom: 35px;
@@ -49,6 +49,147 @@ h2{
     justify-content: center;
 }
 
+
+
+
+
+
+
+/* admin */
+
+
+body {
+    background-color: rgb(243, 243, 243) !important; 
+}
+
+nav {
+    display: flex;
+    background-color: rgb(57, 132, 218);
+    height: 90px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+nav p {
+    margin-right: 50px;
+    margin-bottom: 0;
+    color: #F5F5F5;
+    font-size: 24px;
+    font-weight: 320;
+}
+
+.logo-dix {
+    height: 100px;
+    max-width: 100%;
+}
+
+.btn-return {
+    position: relative;
+    right: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(21, 21, 24);
+    width: 50px;
+    height: 50px;
+    background-color: #39da4100;
+    border-radius: 25px;
+}
+
+.btn-return:hover {
+    text-decoration: none;
+    color: rgb(51, 50, 50);
+    transition: 0.1s;
+    background-color: #80aee2;
+}
+
+.page-title {
+    font-size: 40px;
+    font-weight: 500;
+    margin-top: 60px;
+    margin-left: 28px;
+    border-left: 3px solid rgba(65, 65, 145, 0.692);
+    padding-left: 7px;
+}
+
+/* Config */
+
+.config-container {
+    margin-top: 55px;
+}
+
+.config-title {
+    width: 200px;
+    font-size: 26px;
+    font-weight: 400;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 28px;
+}
+
+.form-config {
+    width: 50vw;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-group {
+    margin-top: 20px;
+}
+
+.config-label {
+    margin-bottom: 6px;
+    font-weight: 600;
+}
+
+.btn-config {
+    width: 100%;
+    background-color: #05a55a !important;
+    margin-top: 30px;
+}
+
+.btn-config:hover {
+    background-color: #06be68 !important;
+}
+
+.table-container {
+    margin: 0 70px;
+    margin-bottom: 150px;
+}
+
+.table-title {
+    width: 200px;
+    font-size: 26px;
+    font-weight: 400;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 38px;
+    margin-top: 90px;
+}
+
+.buttons {
+    justify-content: center;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.btn-3 {
+    background-color: rgb(0, 0, 104) !important;
+    border: none !important;
+    margin: 5px 10px;
+    width: 175px;
+}
+
+.btn-3:hover {
+    background-color: rgb(4, 4, 131) !important;
+}
+
+#bd-title {
+    margin-top: 600px;
+}
+
+
 @media (max-width: 1000px) {
     #form-container{
         padding: 60px;
@@ -63,8 +204,8 @@ h2{
 
 @media (max-width: 700px) {
 
-    body{
-        background-color: rgb(248, 248, 248);
+    .form-config {
+        width: 85vw;
     }
 
     #id{

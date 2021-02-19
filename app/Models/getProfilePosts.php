@@ -89,13 +89,13 @@ class ProfilePosts {
             if ($this->posts[$i]['allowView'] == 0 && $this->idOp != $this->idUser){
                 $resultUserBlocked = $this->conn->executeQuery('SELECT idPost FROM assoc_posts WHERE idUser = :ID AND idPost = :IDPOST', array(
                     ':ID' => $this->idUser,
-                    ':IDPOST' => $this->posts[$i]['id']
+                    ':IDPOST' => $this->idOp
                 ));
                 $resultUserBlocked = $resultUserBlocked->fetch();
                 if (isset($this->posts[$i]['media'])){
                     if (empty($resultUserBlocked)){
                         $resultPagVip = $this->conn->executeQuery('SELECT transacao FROM assoc_users_vips WHERE id = :ID AND idFollower = :IDUSER', array(
-                            ':ID' => $this->posts[$i]['idUser'],
+                            ':ID' => $this->idOp,
                             ':IDUSER' => $this->idUser
                         ));
                         $resultPagVip = $resultPagVip->fetch();
@@ -106,13 +106,15 @@ class ProfilePosts {
                             $statusVip = $resultPagVip['0'];
                             $url = "https://ws.pagseguro.uol.com.br/v3/transactions/" . $statusVip . "?email=" . $resultPS['email'] . "&token=" . $resultPS['token'];
                             $retornoStatus = $this->curlExec($url);
-                            $extensaoCmps = explode(".", $this->posts[$i]['media']);
-                            $extensao = strtolower(end($extensaoCmps));
-                            if($extensao != '0'){
-                                if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
-                                    $this->posts[$i]['media'] = ("media/" . ((hash('haval128,5', $this->posts[$i]['media'])) . "." . $extensao));
-                                } else {
-                                    $this->posts[$i]['media'] = "media/blockedVideo.png";
+                            if ($retornoStatus->status != '3'){
+                                $extensaoCmps = explode(".", $this->posts[$i]['media']);
+                                $extensao = strtolower(end($extensaoCmps));
+                                if($extensao != '0'){
+                                    if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
+                                        $this->posts[$i]['media'] = ("media/" . ((hash('haval128,5', $this->posts[$i]['media'])) . "." . $extensao));
+                                    } else {
+                                        $this->posts[$i]['media'] = "media/blockedVideo.png";
+                                    }
                                 }
                             }else{
                                 $this->postSel[$j]['price'] = 0;

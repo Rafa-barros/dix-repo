@@ -600,6 +600,7 @@ video:focus {
 
     .card {
         margin-bottom: 20px;
+        width: 96vw;
     }
 
     .not-pop {

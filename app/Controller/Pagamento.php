@@ -43,7 +43,8 @@ class Pagamento {
                 "appId" => $pag->id,
                 "appKey" => $pag->key
             );
-            $retornoInit = $pag->callAPI($url, $parametros);
+            $retorno = $pag->callAPI($url, $parametros);
+            $retornoInit = $retorno->id;
 
             //Checa se há uma tentativa de pagamento
             if (isset($_POST['nomeTitular']) && isset($_POST['cpfTitular']) && isset($_POST['dddTel']) && isset($_POST['numeroTelefone']) && isset($_POST['email'])){

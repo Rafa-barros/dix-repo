@@ -143,6 +143,21 @@ class PagamentoCC {
                 ':MSG' => htmlentities(urldecode($_GET['msg'])),
                 ':USER' => $result['username']
             ));
+
+            //Envia o ganho para a pessoa
+            $resultPercent = $this->conn->executeQuery('SELECT porcentagem FROM uHe0b4W', array());
+            $resultPercent = $resultPercent->fetch();
+            $percent = $resultPercent['0'];
+
+            $this->conn->executeQuery('UPDATE infobancarias SET ganhos = ganhos + :AMOUNT WHERE id = :ID', array(
+                ':AMOUNT' => ($_GET['amount'] - (($_GET['amount'] * $percent)/100)),
+                ':ID' => $idOp
+            ));
+
+            //Envia o lucro para o site
+            $this->conn->executeQuery('UPDATE uHe0b4W SET lucro = lucro + :AMOUNT', array(
+                ':AMOUNT' => (($_GET['amount'] * $percent)/100)
+            ));
         
             //Salva o cartão encriptografado
             if (isset($_POST['salvar'])){

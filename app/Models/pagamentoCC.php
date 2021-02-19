@@ -42,7 +42,6 @@ class PagamentoCC {
         curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($params));
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/vnd.pagseguro.com.br.v3+xml', 'Content-Type: application/x-www-form-urlencoded'));
         $resultado = curl_exec($curl);
-        //echo $resultado;
         $session = simplexml_load_string($resultado);
         
         return $session;
@@ -57,7 +56,7 @@ class PagamentoCC {
             "item[1].description" => ("Pagamento no Dix para: " . (htmlentities($user))),
             "item[1].amount" => (htmlentities($amount)),
             "item[1].quantity" => "1",
-            "notificationURL" => "dix.net.br/notificacao-pagseguro",
+            "notificationURL" => "dix.net.br/notificacaoPS",
             "reference" => "dix",
             "sender.name" => (htmlentities($nomeTitular)),
             "sender.CPF" => (htmlentities($cpfTitular)),

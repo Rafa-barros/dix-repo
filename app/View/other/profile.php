@@ -452,20 +452,20 @@
                     </div>
 
                 </div>
-                <?php if ($profilePosts->posts[$j]['media'] != '0'){ ?>
                 <div class="midia-container">
                     <?php
-                    //Checa a extensão do arquivo
-                    $extCmps = explode(".", $profilePosts->posts[$j]['media']);
-                    $ext = strtolower(end($extCmps));
-
-                    if ($ext != 'mp4' && $ext != 'avi' && $ext != 'webp'){
-                        echo('<img src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' alt="">');
-                    }  else {
-                        echo('<video src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' controls controlslist="nodownload" style="max-width:100%; max-height: 600px"></video>');
+                    if ($profilePosts->posts[$j]['media'] != '0'){
+                        //Checa a extensão do arquivo
+                        $extCmps = explode(".", $profilePosts->posts[$j]['media']);
+                        $ext = strtolower(end($extCmps));
+                        
+                        if ($ext != 'mp4' && $ext != 'avi' && $ext != 'webp'){
+                            echo('<img src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' alt="">');
+                        }  else {
+                            echo('<video src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' controls controlslist="nodownload" style="max-width:100%; max-height: 600px"></video>');
+                        }
                     }
                     ?>
-                <?php } ?>
                 </div>
                 <div class="card-bot">
                     <div class="post-status">

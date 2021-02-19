@@ -478,7 +478,7 @@
                             <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button><span>
                         </div>
                         <div class="comment">
-                            <button class="btn-comment"><i class="far fa-comment"></i> Comentários</span></button><span>
+                            <button class="btn-comment"><i class="far fa-comment"></i> Comentar</span></button><span>
                         </div>
                     </div>
                     <div class="comment-area">

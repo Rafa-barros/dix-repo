@@ -452,6 +452,7 @@
                     </div>
 
                 </div>
+                <?php if ($profilePosts->posts[$j]['media'] != '0'){ ?>
                 <div class="midia-container">
                     <?php
                     //Checa a extensão do arquivo
@@ -464,6 +465,7 @@
                         echo('<video src=' . "\"" . '../' . $profilePosts->posts[$j]['media'] . "\"" . ' controls controlslist="nodownload" style="max-width:100%; max-height: 600px"></video>');
                     }
                     ?>
+                <?php } ?>
                 </div>
                 <div class="card-bot">
                     <div class="post-status">

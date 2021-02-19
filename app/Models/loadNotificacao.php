@@ -51,7 +51,7 @@ class Notificacao {
 
 		//Verifica se a pessoa é influencer
 		$resultInfluencer = $this->conn->executeQuery('SELECT influencer FROM users WHERE id = :ID', array(
-			$this->idUser
+			':ID' => $this->idUser
 		));
 		$resultInfluencer = $resultInfluencer->fetch();
 		$this->condInfluencer = $resultInfluencer['0'];

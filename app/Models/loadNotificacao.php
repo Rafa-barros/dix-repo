@@ -11,6 +11,7 @@ class Notificacao {
 	public $notificacoesNovas;
 	public $notificacoes;
 	public $idUser;
+	public $condInfluencer;
 	private $conn;
 
 	public function __construct(){
@@ -53,9 +54,7 @@ class Notificacao {
 			$this->idUser
 		));
 		$resultInfluencer = $resultInfluencer->fetch();
-		$condInfluencer = $resultInfluencer['0'];
-
-		return $condInfluencer;
+		$this->condInfluencer = $resultInfluencer['0'];
 	}
 
 	public function getProfile(){

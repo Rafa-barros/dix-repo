@@ -44,11 +44,16 @@ class Profile {
         //Pega as info's do perfil
         require("app/Models/getProfile.php");
         
+        if (strpos($this->urlMetodo) !== false){
+            $this->urlMetodo = (explode('?', $this->urlMetodo))[0];
+        }
         $usuario = new \app\Models\ProfileModel();
         $usuario->username = $this->urlMetodo;
         $usuario->getInfo();
         $jaSegue = $usuario->checaFollower($notification->idUser);
         $vipSalvo = $usuario->checaVIP($notification->idUser);
+
+        echo ("<h1>" . $this->urlMetodo . "</h1>");
 
         //Insere os posts
         require("app/Models/getProfilePosts.php");

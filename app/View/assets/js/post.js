@@ -9,7 +9,12 @@ $(document).on('click', '.btn-like', function(){
         let idPost = $(this).parents(".card").attr("id");
         buttonLike = $(this);
 
-
+        if(!buttonLike.hasClass("curtido")){
+            buttonLike.css("color", "rgb(218, 51, 51)").addClass('curtido');
+        }
+        else {
+            buttonLike.css( "color", "rgb(0, 0, 0)" ).removeClass('curtido');
+        }
 
         $.ajax({
             url: urlprof +"app/Models/curtirPost.php",
@@ -17,15 +22,8 @@ $(document).on('click', '.btn-like', function(){
             type: "POST",
             data: {
                 id: idPost, // ID DO POST
-            },
-            complete:function(){
-                if(!buttonLike.hasClass("curtido")){
-                    buttonLike.css("color", "rgb(218, 51, 51)").addClass('curtido');
-                }
-                else {
-                    buttonLike.css( "color", "rgb(0, 0, 0)" ).removeClass('curtido');
-                }
             }
+            
             });
 
 

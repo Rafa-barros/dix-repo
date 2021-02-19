@@ -21,8 +21,8 @@ $resultIdUser = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL',
 $resultIdUser = $resultIdUser->fetch();
 $idUser = $resultIdUser['0'];
 
-$conn->executeQuery('UPDATE post SET descript = :DESC, allowView = :ALVIEW, price = :PRICE WHERE id = :ID AND idUser = :IDOP', array(
-    ':DESC' => $descriptPost,
+$conn->executeQuery('UPDATE post SET descript = :DESCRIPT, allowView = :ALVIEW, price = :PRICE WHERE id = :ID AND idUser = :IDOP', array(
+    ':DESCRIPT' => $descriptPost,
     ':ALVIEW' => $allowView,
     ':PRICE' => $val,
     ':ID' => $idPost,
@@ -30,8 +30,8 @@ $conn->executeQuery('UPDATE post SET descript = :DESC, allowView = :ALVIEW, pric
 ));
 
 echo json_encode(array(
-    'id' => 0,
+    'id' => "",
     'descript' => "",
     'viewAuth' => "",
-    'price' => 0
+    'price' => ""
 ));

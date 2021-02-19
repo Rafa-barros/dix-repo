@@ -137,6 +137,12 @@ $(document).on('click', '.pago img', function(){
 });
 
 
+//isNumber
+
+function isNumber(n) {
+    return !isNaN(parseFloat(n)) && isFinite(n);
+}
+
 
 // HtmlEntities
 

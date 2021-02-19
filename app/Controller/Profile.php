@@ -61,7 +61,6 @@ class Profile {
         $profilePosts->selPost();
 
         if (empty($usuario->profileInfo['id'])){
-            echo ("<h1>" . $this->urlMetodo . "</h1>");
             require ("app/View/other/error404.php");
         } else {
             $id = $usuario->profileInfo['id'];

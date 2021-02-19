@@ -26,6 +26,7 @@ class Database extends PDO{
 	*/
 	private function setParameters($stmt, $key, $value){
 		$stmt->bindParam($key, $value);
+		print_r($stmt);
 	}
 
 	/*Essa função vai receber a query já preparada, e vai percorrer o array dos parâmetros, enviando-os para a função setParameters() setar cada variável da requisição sql para o valor a ser utilizada.
@@ -46,7 +47,6 @@ class Database extends PDO{
 	public function executeQuery(string $query, array $parameters = []){
 		$stmt = $this->connection->prepare($query);
 		$this->mountQuery($stmt, $parameters);
-		print_r($stmt);
 		$verify = $stmt->execute();
 		if($verify == TRUE){
 			return $stmt;

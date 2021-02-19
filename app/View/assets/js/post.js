@@ -36,11 +36,12 @@ $(document).on('click', '.btn-like', function(){
 
 
 // Comentário
-
+var commentArea = '';
 $(document).on('click', '.btn-comment', function(){
-    if( !$(this).hasClass('open')){
+    if( !$(this).hasClass('open-comment-Area')){
 
-        var commentArea = $(this).parents(".card").find('.comment-area');
+        $(this).addClass('open-comment-Area');
+        commentArea = $(this).parents(".card").find('.comment-area');
         commentArea.show();
         let idPost = $(this).parents(".card").attr("id");
 
@@ -55,7 +56,6 @@ $(document).on('click', '.btn-comment', function(){
                     comentarios: [[]]
                 },
                 success:function(result){
-                    
                     if(result.comentarios != null && result.comentarios != undefined){
                         var i = result.comentarios.length - 1;
 
@@ -77,6 +77,7 @@ $(document).on('click', '.btn-comment', function(){
     }
     else {
         commentArea.hide().html('');
+        $('.btn-comment').removeClass('open-comment-Area');
     }
 
 });

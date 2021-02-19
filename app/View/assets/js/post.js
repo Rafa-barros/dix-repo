@@ -138,8 +138,3 @@ function htmlEntities(str) {
     return String(str).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
-
-//URL DECODE
-function urldecodepirata(url) {
-    return decodeURIComponent(url.replace(/+/g, ' '));
-  }

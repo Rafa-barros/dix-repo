@@ -4,6 +4,7 @@ namespace App\Controller;
 
 class TLhWusnIpeENUtdAPIdrtEkQJiMbejVqWDMFIoZFbMQqwupR {
     public function index(){
+        
         require("app/View/other/loginAdmin.php");
     }
 

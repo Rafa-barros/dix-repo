@@ -93,7 +93,9 @@ class PagamentoCC {
             "billingAddress.postalCode" => "13087503",
             "billingAddress.city" => "Campinas",
             "billingAddress.state" => "SP",
-            "billingAddress.country" => "BRA"
+            "billingAddress.country" => "BRA",
+            "receiver[1].publicKey" => $this->receiver['publicKey'],
+            "receiver[1].split.amount" => $this->receiver['splitAmount']
         );
     }
     
@@ -160,7 +162,7 @@ class PagamentoCC {
                 ));
             }
         } else {
-            $this->retornoPag = "<h2 id='cond'>ERRO: " . $retorno . "</h2>";
+            $this->retornoPag = "<h2 id='cond'>ERRO: " . $this->params . "</h2>";
         }
     }
 }

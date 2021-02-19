@@ -64,17 +64,19 @@
             </tr>
           </thead>
           <tbody>
-          <?php for($k=0; $k<$admin->tam; $k++){ ?>
-            <tr>
-              <th scope="row"><?php echo($admin->influencers[$k]['id']); ?></th>
-              <td><?php echo($admin->influencers[$k]['pix']); ?></td>
-              <td><?php echo($admin->influencers[$k]['conta']); ?></td>
-              <td><?php echo($admin->influencers[$k]['agencia']); ?></td>
-              <td><?php echo($admin->influencers[$k]['nBanco']); ?></td>
-              <td><?php echo($admin->influencers[$k]['cpf']); ?></td>
-              <td class="ganho"><?php echo($admin->influencers[$k]['ganhos']); ?></td>
-              <td><button type="button" class="btn btn-info btn-pagar" id="<?php echo($admin->influencers[$k]['id']); ?>"> pagar </button></td>
-            </tr>
+          <?php for($k=0; $k<$admin->tam; $k++){
+                  if ($admin->influencers[$k]['ganhos'] > 0){?>
+                  <tr>
+                    <th scope="row"><?php echo($admin->influencers[$k]['id']); ?></th>
+                    <td><?php echo($admin->influencers[$k]['pix']); ?></td>
+                    <td><?php echo($admin->influencers[$k]['conta']); ?></td>
+                    <td><?php echo($admin->influencers[$k]['agencia']); ?></td>
+                    <td><?php echo($admin->influencers[$k]['nBanco']); ?></td>
+                    <td><?php echo($admin->influencers[$k]['cpf']); ?></td>
+                    <td class="ganho"><?php echo($admin->influencers[$k]['ganhos']); ?></td>
+                    <td><button type="button" class="btn btn-info btn-pagar" id="<?php echo($admin->influencers[$k]['id']); ?>"> pagar </button></td>
+                  </tr>
+              <?php }?>
             <?php }?>
             
           </tbody>

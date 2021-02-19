@@ -32,7 +32,7 @@ if(isset($_GET['code']) && isset($_GET['state'])){
 	if(isset($facebook_user_info['email'])){
 		if($registerFacebookAuth->verificaEmail($facebook_user_info['email'])){
 			$registerFacebookAuth->newUserAuth(htmlentities($facebook_user_info['email']), htmlentities($facebook_user_info['name']), $facebook_user_info['id']);
-			header("Location: /home");
+			// header("Location: /home");
 		}else{
 			$loginFacebookAuth = new App\Models\loginUsuario();
 			$loginFacebookAuth->loginAuth($facebook_user_info['email'], $facebook_user_info['id']);

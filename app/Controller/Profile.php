@@ -53,8 +53,6 @@ class Profile {
         $jaSegue = $usuario->checaFollower($notification->idUser);
         $vipSalvo = $usuario->checaVIP($notification->idUser);
 
-        echo ("<h1>" . $this->urlMetodo . "</h1>");
-
         //Insere os posts
         require("app/Models/getProfilePosts.php");
         $profilePosts = new \app\Models\ProfilePosts();
@@ -63,6 +61,7 @@ class Profile {
         $profilePosts->selPost();
 
         if (empty($usuario->profileInfo['id'])){
+            echo ("<h1>" . $this->urlMetodo . "</h1>");
             require ("app/View/other/error404.php");
         } else {
             $id = $usuario->profileInfo['id'];

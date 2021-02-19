@@ -93,6 +93,7 @@ class ProfilePosts {
                 ));
                 $resultUserBlocked = $resultUserBlocked->fetch();
                 if (isset($this->posts[$i]['media'])){
+                    echo "TESTE";
                     if (empty($resultUserBlocked)){
                         $resultPagVip = $this->conn->executeQuery('SELECT transacao FROM assoc_users_vips WHERE id = :ID AND idFollower = :IDUSER', array(
                             ':ID' => $this->idOp,

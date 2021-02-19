@@ -184,6 +184,16 @@ class Post {
                                     }
                                 }
                             }
+                        }else{
+                            $extensaoCmps = explode(".", $this->postSel[$j]['media']);
+                            $extensao = strtolower(end($extensaoCmps));
+                            if($extensao != '0'){
+                                if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
+                                    $this->postSel[$j]['media'] = ("media/" . ((hash('haval128,5', $this->postSel[$j]['media'])) . "." . $extensao));
+                                } else {
+                                    $this->postSel[$j]['media'] = "media/blockedVideo.png";
+                                }
+                            } 
                         }
                     }
                 }

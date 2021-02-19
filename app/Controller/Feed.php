@@ -2,14 +2,15 @@
 
 namespace App\Controller;
 
+use App\Models\Database;
+
+
 class Feed {
     public function index(){
-
-        require('app/Models/Database.php');
         
         if(isset($_COOKIE['cUser']) && isset($_COOKIE['token'])){
             $email = base64_decode($_COOKIE['cUser']);
-            $conn = new App\Models\Database();
+            $conn = new Database();
             $result = $conn->executeQuery('SELECT token FROM users WHERE email = :EMAIL', array(
                 ':EMAIL' => $email
             ));

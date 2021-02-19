@@ -35,9 +35,8 @@ class Pagamento {
             $condUser = $condUser->fetch();
         }
         if (isset($_GET['user']) && isset($_GET['amount']) && ($_GET['amount'] >= 1) && (!empty($condUser) || !empty($condPost))){
-            require('app/Models/pagamentoCC.php');
             $retornoPag = 0;
-            $pag = new \app\Models\PagamentoCC();
+            $pag = new \App\Models\PagamentoCC();
             $url = "https://ws.pagseguro.uol.com.br/sessions";
             $parametros = array (
                 "appId" => $pag->id,

@@ -116,17 +116,16 @@ class ProfilePosts {
                                     }
                                 }
                             }else{
-                                $this->postSel[$j]['allowView'] = 1;
+                                $this->posts[$j]['allowView'] = 1;
                             }
                         }else{
-                            echo "TESTE";
-                            $extensaoCmps = explode(".", $this->postSel[$j]['media']);
+                            $extensaoCmps = explode(".", $this->posts[$j]['media']);
                             $extensao = strtolower(end($extensaoCmps));
                             if($extensao != '0'){
                                 if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
-                                    $this->postSel[$j]['media'] = ("media/" . ((hash('haval128,5', $this->postSel[$j]['media'])) . "." . $extensao));
+                                    $this->posts[$j]['media'] = ("media/" . ((hash('haval128,5', $this->posts[$j]['media'])) . "." . $extensao));
                                 } else {
-                                    $this->postSel[$j]['media'] = "media/blockedVideo.png";
+                                    $this->posts[$j]['media'] = "media/blockedVideo.png";
                                 }
                             } 
                         }

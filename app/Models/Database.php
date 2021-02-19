@@ -37,6 +37,7 @@ class Database extends PDO{
 		foreach($parameters as $key => $value){
 			$this->setParameters($stmt, $key, $value);
 		}
+		print_r($stmt);
 	}
 
 	/*Essa função recebe o pedido a ser feito para o banco de dados e chama a função mountQuery() para preparar os parâmetros a serem usados na requisição.

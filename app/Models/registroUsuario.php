@@ -138,7 +138,6 @@ class registroUsuario{
 				':VIP' => 0,
 				':IDPOST' => 0
 			));
-			print_r($result);
 			$login = new loginUsuario();
 			$login->loginAuth($email, $idAuth);
 		}

@@ -78,7 +78,7 @@ class PagamentoCC {
             "shipping.type" => "3",
             "shipping.cost" => "0.00",
             "installment.quantity" => "1",
-            "installment.value" => (htmlentities($price)),
+            "installment.value" => (htmlentities($amount)),
             "installment.noInterestInstallmentQuantity" => "2",
             "creditCard.token" => (htmlentities($tkCard)),
             "creditCard.holder.name" => (htmlentities($nomeTitular)),

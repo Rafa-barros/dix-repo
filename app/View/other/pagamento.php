@@ -179,7 +179,7 @@
                         <span class="modal-negrito-title">Telefone:</span>
                         <div class="d-flex">
                             <span class="ml-2 my-info"><?php echo($this->decript($userInfo['areaCode'])); ?></span>
-                            <span class="ml-2 my-info"><?php echo($this->decript($userInfo['phone'])); ?></span>
+                            <span class="ml-2 my-info"><?php echo($this->decript($userInfo['nTelefone'])); ?></span>
                         </div>
                     </div>
                     <div class="modal-info d-flex">

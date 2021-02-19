@@ -190,7 +190,6 @@
         </div>
 
                 <!-- Modal  Edit Post -->
-                <form>
                     <div class="modal" id="edit-post" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
@@ -225,12 +224,11 @@
                             </form>
                         </div>
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary btn-send-post-edit" name="enviar">Salvar alterações</button>
+                            <button type="button" class="btn btn-primary btn-send-post-edit" name="enviar">Salvar alterações</button>
                         </div>
                         </div>
                     </div>
                     </div>
-                </form>
             </div>
 
 

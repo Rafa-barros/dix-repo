@@ -76,7 +76,7 @@ $(document).on('click', '.btn-comment', function(){
                 });
     }
     else {
-        commentArea.hide().html('');
+        commentArea.hide().html('<div class="end-comment-show"></div><div class="comment-now"> <form method="POST" class="comment-form" ajax="true"> <input type="text" class="form-control comment-input" placeholder="Deixe seu comentário aqui..." required=""> <button class="btn-send-comment"> Enviar </button> </form> </div>');
         $('.btn-comment').removeClass('open-comment-Area');
     }
 

@@ -34,6 +34,31 @@ class ProfilePosts {
         $this->idOp = $resultIdOp['0'];
     }
 
+    private function callAPI(){
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, http_build_query($params));
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array('Content-Type: application/x-www-form-urlencoded'));
+        $resultado = curl_exec($curl);
+        $session = simplexml_load_string($resultado);
+        
+        return $session;
+    }
+
+    private function curlExec($url, $post = NULL, array $header = array()){
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        if(count($header) > 0) {
+            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
+        }
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $data = curl_exec($ch);
+        curl_close($ch);
+     
+        return simplexml_load_string($data);
+    }
+
     public function selPost(){
         $resultPost = $this->conn->executeQuery('SELECT * FROM posts WHERE idUser = :ID ORDER BY postDate DESC', array(
             ':ID' => $this->idOp
@@ -69,14 +94,39 @@ class ProfilePosts {
                 $resultUserBlocked = $resultUserBlocked->fetch();
                 if (isset($this->posts[$i]['media'])){
                     if (empty($resultUserBlocked)){
-                        $extensaoCmps = explode(".", $this->posts[$i]['media']);
-                        $extensao = strtolower(end($extensaoCmps));
-                        if($extensao != '0'){
-                            if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
-                                $this->posts[$i]['media'] = ("media/" . ((hash('haval128,5', $this->posts[$i]['media'])) . "." . $extensao));
-                            } else {
-                                $this->posts[$i]['media'] = "media/blockedVideo.png";
+                        $resultPagVip = $this->conn->executeQuery('SELECT transacao FROM assoc_users_vips WHERE id = :ID AND idFollower = :IDUSER', array(
+                            ':ID' => $this->posts[$i]['idUser'],
+                            ':IDUSER' => $this->idUser
+                        ));
+                        $resultPagVip = $resultPagVip->fetch();
+                        if (!empty($resultPagVip)){
+                            $resultPS = $this->conn->executeQuery('SELECT email, token FROM uHe0b4W', array());
+                            $resultPS = $resultPS->fetch();
+
+                            $statusVip = $resultPagVip['0'];
+                            $url = "https://ws.pagseguro.uol.com.br/v3/transactions/" . $statusVip . "?email=" . $resultPS['email'] . "&token=" . $resultPS['token'];
+                            $retornoStatus = $this->curlExec($url);
+                            $extensaoCmps = explode(".", $this->posts[$i]['media']);
+                            $extensao = strtolower(end($extensaoCmps));
+                            if($extensao != '0'){
+                                if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
+                                    $this->posts[$i]['media'] = ("media/" . ((hash('haval128,5', $this->posts[$i]['media'])) . "." . $extensao));
+                                } else {
+                                    $this->posts[$i]['media'] = "media/blockedVideo.png";
+                                }
+                            }else{
+                                $this->postSel[$j]['price'] = 0;
                             }
+                        }else{
+                            $extensaoCmps = explode(".", $this->postSel[$j]['media']);
+                            $extensao = strtolower(end($extensaoCmps));
+                            if($extensao != '0'){
+                                if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
+                                    $this->postSel[$j]['media'] = ("media/" . ((hash('haval128,5', $this->postSel[$j]['media'])) . "." . $extensao));
+                                } else {
+                                    $this->postSel[$j]['media'] = "media/blockedVideo.png";
+                                }
+                            } 
                         }
                     }
                 }

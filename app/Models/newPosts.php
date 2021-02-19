@@ -172,7 +172,6 @@ class Post {
                             $statusVip = $resultPagVip['0'];
                             $url = "https://ws.pagseguro.uol.com.br/v3/transactions/" . $statusVip . "?email=" . $resultPS['email'] . "&token=" . $resultPS['token'];
                             $retornoStatus = $this->curlExec($url);
-                            
                             if ($retornoStatus->status != '3'){
                                 $extensaoCmps = explode(".", $this->postSel[$j]['media']);
                                 $extensao = strtolower(end($extensaoCmps));

@@ -1,4 +1,4 @@
-if(document.referrer.split('/')[3].toUpperCase() == 'REDIRECTINFLUENCER'){
+if(document.referrer.split('/')[3].toUpperCase().split('?')[0] == 'REDIRECTINFLUENCER'){
     $('#modal-config').modal('show');
 }
 

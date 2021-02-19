@@ -71,20 +71,10 @@ class Pagamento {
                                         die();
                                     }
                                 }
-                            } else {
-                                echo ("<p>Cartão digitado inválido</p>");
                             }
-                        } else {
-                            echo ("<p>Erro na conexão com o serviço de pagamentos, verifique sua internet e/ou navegador");
                         }
-                    } else {
-                        echo ("<p>Todos os campos são obrigatórios</p>");
                     }
-                } else {
-                    echo ("<p>Os dados do cartão e de cobrança são obrigatórios</p>");
                 }
-            } else {
-                echo ("<p>Os dados do comprador, do cartão e de cobrança são obrigatórios</p>");
             }
 
             //Checa se o usuário tem um cartão salvo

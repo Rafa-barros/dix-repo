@@ -121,8 +121,7 @@ class registroUsuario{
 		if($email != ''){
 			$username = md5($email . $pname);
 			$username = substr($username, 0, 16);
-			echo $email;
-			$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth, fotoCapa, vips, idPost) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP, :IDPOST);', array(
+			$result = $this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth, fotoCapa, vips, idPost) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP, :IDPOST);', array(
 				':USER' => $email,
 				':PWD' => NULL,
 				':USERNAME' => strtolower($username),
@@ -139,6 +138,8 @@ class registroUsuario{
 				':VIP' => 0,
 				':IDPOST' => 0
 			));
+			$result = $result->fetch();
+			print_r($result);
 			$login = new loginUsuario();
 			$login->loginAuth($email, $idAuth);
 		}

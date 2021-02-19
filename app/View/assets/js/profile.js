@@ -1,4 +1,4 @@
-if(window.location.href.split('?')[1] == 'influencer=1'){
+if(document.referrer.split('/')[3].toUpperCase() == 'REDIRECTINFLUENCER'){
     $('#modal-config').modal('show');
 }
 

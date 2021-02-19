@@ -18,6 +18,11 @@ class Pagamento {
     public function index(){
 
         $conn = new Database();
+        $username = $conn->executeQuery('SELECT username FROM users WHERE email = :EMAIL', array(
+            ':EMAIL' => base64_decode($_COOKIE['cUser'])
+        ));
+        $username = $username->fetch();
+        $username = $username['username'];
         if (($_GET['idPost']) != 0){
             $condPost = $conn->executeQuery('SELECT id FROM posts WHERE id = :ID', array(
                 ':ID' => htmlentities($_GET['user'])

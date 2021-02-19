@@ -6,4 +6,8 @@ class RedirectInfluencer {
     public function index(){
         require("app/View/other/redirectInfluencer.php");
     }
+
+    public function carregarCSS(){
+        echo (" ");
+    }
 }

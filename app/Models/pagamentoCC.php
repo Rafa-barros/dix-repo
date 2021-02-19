@@ -45,7 +45,7 @@ class PagamentoCC {
         curl_setopt($curl, CURLOPT_HTTPHEADER, array('Accept: application/vnd.pagseguro.com.br.v3+xml', 'Content-Type: application/x-www-form-urlencoded'));
         $resultado = curl_exec($curl);
         //echo $resultado;
-        $session = simplexml_load_string($resultado)->id;
+        $session = simplexml_load_string($resultado);
         
         return $session;
     }

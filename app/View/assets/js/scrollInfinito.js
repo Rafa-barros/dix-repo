@@ -33,7 +33,7 @@ function ajaxSuccess (result) {
         if(result.imgPost[i] == 0) flag = flag - 205;
         
         if(result.liked[i] == 1){
-            postLiked = 'style="color: rgb(218, 51, 51)" class="btn-like"';
+            postLiked = 'style="color: rgb(218, 51, 51)" class="btn-like curtido"';
         }
     
         if(result.imgPost[i] != null){

@@ -15,7 +15,7 @@ class Chat {
                 ':EMAIL' => $email
             ));
             $result = $result->fetch();
-            if(empty($result) || $result['token'] != $_COOKIE['token']){
+            if((empty($result) || $result['token'] != $_COOKIE['token']) || $result['token'] != NULL){
                 header("Location: https://dix.net.br");
                 die();
             }

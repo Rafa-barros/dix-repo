@@ -38,7 +38,7 @@ $(document).on('click', '.btn-like', function(){
 // Comentário
 
 $(document).on('click', '.btn-comment', function(){
-    if( !$(this).hasClass('open')){
+    if( !$(this).hasClass('open-comment-Area')){
 
         var commentArea = $(this).parents(".card").find('.comment-area');
         commentArea.show();
@@ -55,7 +55,7 @@ $(document).on('click', '.btn-comment', function(){
                     comentarios: [[]]
                 },
                 success:function(result){
-                    
+                    $(this).addClass('open-comment-Area');
                     if(result.comentarios != null && result.comentarios != undefined){
                         var i = result.comentarios.length - 1;
 
@@ -77,6 +77,7 @@ $(document).on('click', '.btn-comment', function(){
     }
     else {
         commentArea.hide().html('');
+        $(this).removeClass('open-comment-Area');
     }
 
 });

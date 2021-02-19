@@ -3,10 +3,11 @@ if(window.location.href.split('/')[3] == 'profile') urlprof = '../'
 
 // Botão de like
 
+var buttonLike = '';
 $(document).on('click', '.btn-like', function(){
         var likeIcon = document.querySelectorAll('.btn-like')[0];
         let idPost = $(this).parents(".card").attr("id");
-        let buttonLike = $(this);
+        buttonLike = $(this);
 
 
 
@@ -18,8 +19,12 @@ $(document).on('click', '.btn-like', function(){
                 id: idPost, // ID DO POST
             },
             complete:function(){
-                if(buttonLike.css("color") == "rgb(0, 0, 0)")buttonLike.css("color", "rgb(218, 51, 51)");
-                else buttonLike.css( "color", "rgb(0, 0, 0)" );
+                if(!buttonLike.hasClass("curtido")){
+                    buttonLike.css("color", "rgb(218, 51, 51)").addClass('curtido');
+                }
+                else {
+                    buttonLike.css( "color", "rgb(0, 0, 0)" ).removeClass('curtido');
+                }
             }
             });
 

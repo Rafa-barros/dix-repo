@@ -48,7 +48,7 @@ class Profile {
             $this->urlMetodo = (explode('?', $this->urlMetodo))[0];
         }
         $usuario = new \app\Models\ProfileModel();
-        $usuario->username = $userGET[0];
+        $usuario->username = $this->urlMetodo;
         $usuario->getInfo();
         $jaSegue = $usuario->checaFollower($notification->idUser);
         $vipSalvo = $usuario->checaVIP($notification->idUser);

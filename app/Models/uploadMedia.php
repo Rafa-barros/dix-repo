@@ -13,12 +13,12 @@ class uploadMedia{
 
 	private function getUserId(){
 		$this->email = base64_decode($_COOKIE['cUser']);
-		$result = $this->conn->executeQuery('SELECT id, posts FROM users WHERE email = :EMAIL', array(
+		$result = $this->conn->executeQuery('SELECT id, idPosts FROM users WHERE email = :EMAIL', array(
 			':EMAIL' => $this->email
 		));
 		$result = $result->fetch();
 		$this->userId = $result['id'];
-		$this->nPosts = $result['posts'];
+		$this->nPosts = $result['idPosts'];
 	}
 
 	public function __construct(){

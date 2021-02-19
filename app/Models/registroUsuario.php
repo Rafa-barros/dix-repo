@@ -42,7 +42,7 @@ class registroUsuario{
 	}
 
 	private function registra(){
-		$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth, fotoCapa, vips) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP);', array(
+		$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth, fotoCapa, vips, idPost) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP, :IDPOST);', array(
 			':USER' => $this->email,
 			':PWD' => $this->pwd,
 			':USERNAME' => strtolower($this->username),
@@ -56,7 +56,8 @@ class registroUsuario{
 			':FOLLOWERS' => 0,
 			':IDAUTH' => 0,
 			':FOTOCAPA' => 'userImages/capa.png',
-			':VIP' => 0
+			':VIP' => 0,
+			':IDPOST' => 0
 		));
 	}
 
@@ -120,7 +121,7 @@ class registroUsuario{
 		if($email != ''){
 			$username = md5($email . $pname);
 			$username = substr($username, 0, 16);
-			$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth, fotoCapa, vips) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP);', array(
+			$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth, fotoCapa, vips, idPost) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP);', array(
 				':USER' => $email,
 				':PWD' => NULL,
 				':USERNAME' => strtolower($username),
@@ -134,7 +135,8 @@ class registroUsuario{
 				':FOLLOWERS' => 0,
 				':IDAUTH' => $idAuth,
 				':FOTOCAPA' => 'userImages/capa.png',
-				':VIP' => 0
+				':VIP' => 0,
+				':IDPOST' => 0
 			));
 			$login = new loginUsuario();
 			$login->loginAuth($email, $idAuth);

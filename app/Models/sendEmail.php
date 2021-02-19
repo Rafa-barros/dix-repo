@@ -44,7 +44,7 @@ class sendEmail{
                 <img src="http://dix.net.br/app/View/assets/css/img/logo_blue.png" width="100px" height="100px" style="margin-left: 12vw;">
                 <h1 style="text-align: center; font-family: Verdana; color:#0069d9">Ativação de conta</h1>
                 <p style="text-align: center; font-family: Verdana;">Para ativação da sua conta, insira esse código:</p>
-                <div style="margin-top: 15vh; width: 150px; height: 7vh; background-color: #cccccc; border: 1px #b6b6b6 solid; margin-left: 10vw; display: flex; align-items: center; justify-content: center">
+                <div style="margin-top: 12vh;width:150px;height:7vh;background-color:#cccccc;border:1px #b6b6b6 solid;margin-left: auto;margin-right: auto;display:flex;align-items: center;justify-content: center;">
                     <a style="font-family: Verdana; font-size: 25px;">' . $codigo . '</a>
                 </div>
                 <p style="text-align: center; font-family: Verdana; font-size: 10px; margin-top: 20vh;">Ou então, clique no link abaixo</p>

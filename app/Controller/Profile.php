@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Models\Database;
+
 class Profile {
     public $urlMetodo;
 

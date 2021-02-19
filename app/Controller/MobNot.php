@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Models\Database;
+
 class MobNot {
     public function index(){
     	//$chat = new chatModel();

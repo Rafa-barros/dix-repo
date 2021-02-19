@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Models\Database;
+
 class AlterarDados {
     public function index(){
 
@@ -9,7 +11,7 @@ class AlterarDados {
 
     	if(isset($_COOKIE['cUser']) && isset($_COOKIE['token'])){
             $email = base64_decode($_COOKIE['cUser']);
-            $conn = new App\Models\Database();
+            $conn = new Database();
             $result = $conn->executeQuery('SELECT token FROM users WHERE email = :EMAIL', array(
                 ':EMAIL' => $email
             ));

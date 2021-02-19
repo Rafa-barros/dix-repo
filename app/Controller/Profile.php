@@ -43,8 +43,9 @@ class Profile {
 
         //Pega as info's do perfil
         require("app/Models/getProfile.php");
+        $userGET = explode('?', $this->urlMetodo);
         $usuario = new \app\Models\ProfileModel();
-        $usuario->username = $this->urlMetodo;
+        $usuario->username = $userGET[0];
         $usuario->getInfo();
         $jaSegue = $usuario->checaFollower($notification->idUser);
         $vipSalvo = $usuario->checaVIP($notification->idUser);

@@ -42,7 +42,7 @@ class registroUsuario{
 	}
 
 	private function registra(){
-		$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth, fotoCapa, vips, idPosts) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP, :IDPOST);', array(
+		$this->conn->executeQuery('INSERT INTO users (email, pwd, username, birth, pname, token, verify, typeuser, posts, imgUser, followers, idAuth, fotoCapa, vips, idPosts, influencer) VALUES (:USER, :PWD, :USERNAME, :BIRTH, :PNAME, :TOKEN, :VERIFY, :TYPEUSER, :POSTS, :IMG, :FOLLOWERS, :IDAUTH, :FOTOCAPA, :VIP, :IDPOST, 0);', array(
 			':USER' => $this->email,
 			':PWD' => $this->pwd,
 			':USERNAME' => strtolower($this->username),

@@ -47,6 +47,15 @@ class Notificacao {
 				':ID' => $this->idUser
 			));
 		}
+
+		//Verifica se a pessoa é influencer
+		$resultInfluencer = $this->conn->executeQuery('SELECT influencer FROM users WHERE id = :ID', array(
+			$this->idUser
+		));
+		$resultInfluencer = $resultInfluencer->fetch();
+		$condInfluencer = $resultInfluencer['0'];
+
+		return $condInfluencer;
 	}
 
 	public function getProfile(){

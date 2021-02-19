@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-class loginAdmin {
+class LoginAdmin {
     public function index(){
         require("app/View/other/loginAdmin.php");
     }

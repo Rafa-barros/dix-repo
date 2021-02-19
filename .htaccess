@@ -50,11 +50,7 @@ RewriteRule ^((?!index\.php).+)$ /index.php [L]
 RewriteEngine on
 RewriteRule ^((?!index\.php).+)$ /index.php [L]
 </If>
-<If "%{REQUEST_URI} =~ m#^/loginAdmin#">
-RewriteEngine on
-RewriteRule ^((?!index\.php).+)$ /index.php [L]
-</If>
-<If "%{REQUEST_URI} =~ m#^/adminPage.php/.#">
+<If "%{REQUEST_URI} =~ m#^/tLhWusnIpeENUtdAPIdrtEkQJiMbejVqWDMFIoZFbMQqwupR#">
 RewriteEngine on
 RewriteRule ^((?!index\.php).+)$ /index.php [L]
 </If>

@@ -162,7 +162,7 @@ class PagamentoCC {
                 ));
             }
         } else {
-            $this->retornoPag = "<h2 id='cond'>ERRO: " . $this->params . "</h2>";
+            $this->retornoPag = "<h2 id='cond'>ERRO: " . var_dump($this->params) . "</h2>";
         }
     }
 }

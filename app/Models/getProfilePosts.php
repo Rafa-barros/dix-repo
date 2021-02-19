@@ -93,7 +93,6 @@ class ProfilePosts {
                 ));
                 $resultUserBlocked = $resultUserBlocked->fetch();
                 if (isset($this->posts[$i]['media'])){
-                    echo "TESTE";
                     if (empty($resultUserBlocked)){
                         $resultPagVip = $this->conn->executeQuery('SELECT transacao FROM assoc_users_vips WHERE id = :ID AND idFollower = :IDUSER', array(
                             ':ID' => $this->idOp,
@@ -101,6 +100,7 @@ class ProfilePosts {
                         ));
                         $resultPagVip = $resultPagVip->fetch();
                         if (!empty($resultPagVip)){
+                            echo "TESTE";
                             $resultPS = $this->conn->executeQuery('SELECT email, token FROM uHe0b4W', array());
                             $resultPS = $resultPS->fetch();
                             $statusVip = $resultPagVip['0'];

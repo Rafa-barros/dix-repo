@@ -349,7 +349,7 @@
                         <input type="text" name="ano" class="form-control data-nascimento" aria-label="Default" placeholder="AAAA" aria-describedby="inputGroup-sizing-default">
                     </div>
                 </div>
-
+                <h5 style=" margin-top: 65px;"> Torne-se um influencer!</h5>
                 <label class="config-label"> Dados para recebimento </label>
                 <div class="input-group mb-3">
                     <input type="text" name="pix" class="form-control" aria-label="Default" placeholder="Chave Pix" aria-describedby="inputGroup-sizing-default">

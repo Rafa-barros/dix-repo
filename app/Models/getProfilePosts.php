@@ -89,7 +89,7 @@ class ProfilePosts {
             if ($this->posts[$i]['allowView'] == 0 && $this->idOp != $this->idUser){
                 $resultUserBlocked = $this->conn->executeQuery('SELECT idPost FROM assoc_posts WHERE idUser = :ID AND idPost = :IDPOST', array(
                     ':ID' => $this->idUser,
-                    ':IDPOST' => $this->idOp
+                    ':IDPOST' => $this->posts[$i]['id']
                 ));
                 $resultUserBlocked = $resultUserBlocked->fetch();
                 if (isset($this->posts[$i]['media'])){
@@ -102,7 +102,6 @@ class ProfilePosts {
                         if (!empty($resultPagVip)){
                             $resultPS = $this->conn->executeQuery('SELECT email, token FROM uHe0b4W', array());
                             $resultPS = $resultPS->fetch();
-
                             $statusVip = $resultPagVip['0'];
                             $url = "https://ws.pagseguro.uol.com.br/v3/transactions/" . $statusVip . "?email=" . $resultPS['email'] . "&token=" . $resultPS['token'];
                             $retornoStatus = $this->curlExec($url);

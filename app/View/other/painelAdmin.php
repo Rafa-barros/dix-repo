@@ -36,7 +36,7 @@
           <button type="submit" class="btn btn-success btn-lg btn-block btn-config">Enviar</button>
         </form>
         <div class="buttons d-flex">
-          <a href="http://162.214.189.150:2086/cpsess0395353610/3rdparty/phpMyAdmin"><button type="button" class="btn btn-primary btn-lg btn-3"> Banco de dados</button></a>
+          <a href="http://162.214.189.150:2086/cpsess0395353610/3rdparty/phpMyAdmin/index.php"><button type="button" class="btn btn-primary btn-lg btn-3"> Banco de dados</button></a>
           <a href="#table"><button type="button" class="btn btn-primary btn-lg btn-3"> Base de dados</button></a>
           <a href="https://registro.br/"><button type="button" class="btn btn-primary btn-lg btn-3"> Domínio</button></a>
         </div>
@@ -221,3 +221,5 @@
       </div>
 
     </session>
+
+    <script src="app/View/assets/js/admin.js"></script>

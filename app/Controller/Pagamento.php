@@ -30,15 +30,15 @@ class Pagamento {
             $condUser = $condUser->fetch();
         }
         if (isset($_GET['user']) && isset($_GET['amount']) && ($_GET['amount'] >= 1) && (!empty($condUser) || !empty($condPost))){
-            require('app/Models/gerarTokenPS.php');
+            require('app/Models/pagamentoCC.php');
             $retornoPag = 0;
-            $token = new \app\Models\Token();
+            $pag = new \app\Models\PagamentoCC();
             $url = "https://ws.pagseguro.uol.com.br/sessions";
             $parametros = array (
-                "appId" => $token->id,
-                "appKey" => $token->key
+                "appId" => $pag->id,
+                "appKey" => $pag->key
             );
-            $retornoInit = $token->callAPI($url, $parametros);
+            $retornoInit = $pag->callAPI($url, $parametros);
 
             //Checa se há uma tentativa de pagamento
             if (isset($_POST['nomeTitular']) && isset($_POST['cpfTitular']) && isset($_POST['dddTel']) && isset($_POST['numeroTelefone']) && isset($_POST['email'])){

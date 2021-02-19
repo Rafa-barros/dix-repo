@@ -69,7 +69,7 @@ class PagamentoCC {
             "sender.hash" => (htmlentities($sHash)),
             "shipping.address.street" => (htmlentities($rua)),
             "shipping.address.number" => (htmlentities($nLocal)),
-            "shipping.address.complement" => (htmlentities($complemento)),
+            "shipping.address.complement" => (htmlentities($rua)),
             "shipping.address.district" => (htmlentities($bairro)),
             "shipping.address.postalCode" => (htmlentities($cep)),
             "shipping.address.city" => (htmlentities($cidade)),

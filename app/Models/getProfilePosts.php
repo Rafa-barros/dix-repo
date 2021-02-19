@@ -100,7 +100,6 @@ class ProfilePosts {
                         ));
                         $resultPagVip = $resultPagVip->fetch();
                         if (!empty($resultPagVip)){
-                            echo "TESTE";
                             $resultPS = $this->conn->executeQuery('SELECT email, token FROM uHe0b4W', array());
                             $resultPS = $resultPS->fetch();
                             $statusVip = $resultPagVip['0'];
@@ -120,6 +119,7 @@ class ProfilePosts {
                                 $this->postSel[$j]['allowView'] = 1;
                             }
                         }else{
+                            echo "TESTE";
                             $extensaoCmps = explode(".", $this->postSel[$j]['media']);
                             $extensao = strtolower(end($extensaoCmps));
                             if($extensao != '0'){

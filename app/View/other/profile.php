@@ -494,11 +494,6 @@
             </div>
             <?php } ?>
 
-
-<script>
-    $(".post-time").split(' ')[1].slice(0, 5);
-</script>
-
         <!-- /profile-posts -->
 
     </div>

@@ -12,6 +12,11 @@ $descriptPost = htmlentities($_POST['descript']);
 $allowView = htmlentities($_POST['viewAuth']);
 $val = htmlentities($_POST['price']);
 
+echo $idPost;
+echo $descriptPost;
+echo $allowView;
+echo $val;
+
 $conn = new Database();
 
 //Encontra o id do usuário
@@ -19,7 +24,7 @@ $resultIdUser = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL',
     ':EMAIL' => base64_decode($_COOKIE['cUser'])
 ));
 $resultIdUser = $resultIdUser->fetch();
-$idUser = $resultIdUser['0'];
+$idUser = $resultIdUser['id'];
 
 $conn->executeQuery('UPDATE post SET descript = :DESCRIPT WHERE id = :ID AND idUser = :IDOP', array(
     ':DESCRIPT' => $descriptPost,

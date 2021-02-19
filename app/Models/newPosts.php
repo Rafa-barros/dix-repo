@@ -183,6 +183,8 @@ class Post {
                                         $this->postSel[$j]['media'] = "media/blockedVideo.png";
                                     }
                                 }
+                            }else{
+                                $this->postSel[$j]['price'] = 0;
                             }
                         }else{
                             $extensaoCmps = explode(".", $this->postSel[$j]['media']);

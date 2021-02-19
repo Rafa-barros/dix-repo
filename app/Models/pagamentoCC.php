@@ -100,8 +100,8 @@ class PagamentoCC {
     }
     
     public function pagar(){
-        $url = "https://ws.pagseguro.uol.com.br/transactions?appId=" . $this->id . "&appKey=" . $this->key;
-        $retorno = $this->callAPI($url, $this->params);
+        $urlPagamento = "https://ws.pagseguro.uol.com.br/transactions?appId=" . $this->id . "&appKey=" . $this->key;
+        $retorno = $this->callAPI($urlPagamento, $this->params);
 
         if (strpos($retorno, (htmlentities($_POST['estado']))) !== false){
             $this->retornoPag = "<div style='display: none' id='cond'>SUCESSO</div>";

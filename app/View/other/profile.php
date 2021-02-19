@@ -413,7 +413,7 @@
 
      <!-- post 1 -->
      <?php for($j=0;$j<$profilePosts->tam;$j++){ ?>
-     <div class="card" id=<?php echo("\"" . $profilePosts->posts[$j]['id'] . "\""); ?>>
+     <div class="card <?php if($profilePosts->posts[$j]['allowView'] == 0) echo('pago '.$profilePosts->posts[$j]['price']) ?>" id=<?php echo("\"" . $profilePosts->posts[$j]['id'] . "\""); ?>>
                 <div class="card-top">
                 <?php if(base64_decode($_COOKIE['cUser']) == $email){ ?>
                     <div class="card-options-container" style="display: flex; justify-content: flex-end;">

@@ -10,7 +10,6 @@ class createPost {
     private $idUser;
     private $conn;
     private $email;
-    private $nPosts;
 
     public function __construct(){
         $this->conn = new Database();
@@ -18,12 +17,11 @@ class createPost {
 
     public function getInfo($email){
         $this->email = htmlentities($email);
-        $result = $this->conn->executeQuery('SELECT id, posts FROM users WHERE email = :EMAIL', array(
+        $result = $this->conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
             ':EMAIL' => $email
         ));
         $result = $result->fetch();
         $this->idUser = $result['0'];
-        $this->nPosts = $result['1'];
 
         $resultName = $this->conn->executeQuery('SELECT username FROM users WHERE email = :EMAIL', array(
             ':EMAIL' => $email
@@ -38,7 +36,6 @@ class createPost {
         }else if($allowView == 0 && $price == 0){
             $price = 5;
         }
-        $this->nPosts = intval($this->nPosts) + 1;
         $this->conn->executeQuery('INSERT INTO posts (idUser, media, descript, likes, comments, postDate, allowView, price, amount) VALUES (:IDUSER, :MEDIA, :DESCRIPT, :LIKES, :COMMENTS, :POSTDATE, :ALLOWVIEW, :PRICE, :AMOUNT)', array(
             ':IDUSER' => $this->idUser,
             ':MEDIA' => $media,
@@ -50,8 +47,7 @@ class createPost {
             ':PRICE' => intval($price),
             ':AMOUNT' => 0
         ));
-        $this->conn->executeQuery('UPDATE users SET posts = :POSTS AND idPosts = idPosts + 1 WHERE id = :ID', array(
-            ':POSTS' => $this->nPosts,
+        $this->conn->executeQuery('UPDATE users SET posts = posts + 1 AND idPosts = idPosts + 1 WHERE id = :ID', array(
             ':ID' => $this->idUser
         ));
     }

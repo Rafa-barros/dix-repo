@@ -245,6 +245,10 @@ nav p {
     color: rgba(0, 0, 0, 0.884);
 }
 
+.nome-contato-chat:hover {
+    color: rgba(0, 0, 0, 0.884)
+}
+
 .foto-perfil-contato {
     border-radius: 100px;
     height: 35px;

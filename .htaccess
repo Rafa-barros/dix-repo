@@ -50,4 +50,12 @@ RewriteRule ^((?!index\.php).+)$ /index.php [L]
 RewriteEngine on
 RewriteRule ^((?!index\.php).+)$ /index.php [L]
 </If>
+<If "%{REQUEST_URI} =~ m#^/loginAdmin.php/.#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
+<If "%{REQUEST_URI} =~ m#^/adminPage.php/.#">
+RewriteEngine on
+RewriteRule ^((?!index\.php).+)$ /index.php [L]
+</If>
 ErrorDocument 404 http://dix.net.br/error404

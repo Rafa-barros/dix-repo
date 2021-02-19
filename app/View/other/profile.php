@@ -60,7 +60,7 @@
             <p class="prof-name"><?php echo($pname); ?></p>
             <p class="prof-description"><?php echo($descript); ?></p>
             <div class="follower-status">
-                <span> <b class="nfollowers"><?php echo($followers); ?></b> seguidores</span>
+                <span> <b class="nfollowers"><?php echo($followers); ?></b> <?php if($followers!= 1){echo("Seguidores");} else {echo("Seguidor");} ?></span>
                 <span> <b><?php echo($vips); ?></b> VIPS</span>
             </div>
         </div>

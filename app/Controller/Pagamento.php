@@ -60,7 +60,8 @@ class Pagamento {
                                     $pricePost = $resultPost['0'];
                                 
                                     if ($_GET['amount'] >= $pricePost){
-                                        require('app/Models/pagarCredito.php');
+                                        $pag->getParams($_POST['user'], $_POST['amount'], $_POST['nomeTitular'], $_POST['email'], $_POST['senderHash'], $_POST['rua'], $_POST['nLocal'], $_POST['complemento'], $_POST['bairro'], $_POST['cep'], $_POST['cidade'], $_POST['estado'], $_POST['price'], $_POST['tokenCard'], $_POST['cpfTitular'], $_POST['nascimento'], $_POST['dddTel'], $_POST['nTelefone']);
+                                        $pag->pagar();
                                     } else {
                                         require("app/View/other/error404.php");
                                         die();

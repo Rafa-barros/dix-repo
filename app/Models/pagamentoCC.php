@@ -49,7 +49,7 @@ class PagamentoCC {
         return $session;
     }
 
-    private function getParams($user, $amount, $nomeTitular, $email, $sHash, $rua, $nLocal, $complemento, $bairro, $cep, $cidade, $estado, $price, $tkCard, $nTitular, $cpfTitular, $nascimento, $dddTel, $nTelefone){
+    public function getParams($user, $amount, $nomeTitular, $email, $sHash, $rua, $nLocal, $complemento, $bairro, $cep, $cidade, $estado, $price, $tkCard, $cpfTitular, $nascimento, $dddTel, $nTelefone){
         $this->params = array (
             "payment.mode" => "default",
             "payment.method" => "creditCard",

@@ -119,13 +119,13 @@ class ProfilePosts {
                                 $this->posts[$j]['allowView'] = 1;
                             }
                         }else{
-                            $extensaoCmps = explode(".", $this->posts[$j]['media']);
+                            $extensaoCmps = explode(".", $this->posts[$i]['media']);
                             $extensao = strtolower(end($extensaoCmps));
                             if($extensao != '0'){
                                 if ($extensao != 'mp4' && $extensao != 'avi' && $extensao != 'webp'){
-                                    $this->posts[$j]['media'] = ("media/" . ((hash('haval128,5', $this->posts[$j]['media'])) . "." . $extensao));
+                                    $this->posts[$i]['media'] = ("media/" . ((hash('haval128,5', $this->posts[$i]['media'])) . "." . $extensao));
                                 } else {
-                                    $this->posts[$j]['media'] = "media/blockedVideo.png";
+                                    $this->posts[$i]['media'] = "media/blockedVideo.png";
                                 }
                             } 
                         }

@@ -1,7 +1,7 @@
 <div id="main" class="d-flex">
         <div class="bgimg"><a href="/"><img src="app/View/assets/css/img/back.svg" alt=""></a></div>
         <div id="form-container" class="container-fluid">
-            <form id="login" class="pb-md-5 mb-md-3" action="login.php" method="post">
+            <form id="login" class="pb-md-5 mb-md-3" method="post">
                 <div class="form-group">
                     <h2>Faça login para continuar</h2>
 

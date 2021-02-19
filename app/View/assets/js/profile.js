@@ -172,6 +172,6 @@ $(document).on('click', '.gorjeta-submit', function(){
 //pagar Vip
 
 $(document).on('click', '#pagar-vip', function(){
-    let username = window.location.href.split('/')[4];
+    let username = window.location.href.split('/')[4].slice(0,-1);
     window.location.href = 'https://dix.net.br/pagamento?user='+username+'&vip=1'
 });

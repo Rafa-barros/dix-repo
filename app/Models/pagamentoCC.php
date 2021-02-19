@@ -11,6 +11,7 @@ class PagamentoCC {
     private $params;
     public $key;
     public $id;
+    public $retornoPag;
 
     public function __construct(){
         $this->conn = new Database();
@@ -103,7 +104,7 @@ class PagamentoCC {
         $retorno = $this->callAPI($url, $this->params);
 
         if (strpos($retorno, (htmlentities($_POST['estado']))) !== false){
-            $retornoPag = "<div style='display: none' id='cond'>SUCESSO</div>";
+            $this->retornoPag = "<div style='display: none' id='cond'>SUCESSO</div>";
         
             //Result user
             $result = $this->conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
@@ -161,7 +162,7 @@ class PagamentoCC {
                 ));
             }
         } else {
-            $retornoPag = "<h2 id='cond'>ERRO: " . $retorno . "</h2>";
+            $this->retornoPag = "<h2 id='cond'>ERRO: " . $retorno . "</h2>";
         }
     }
 }

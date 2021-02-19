@@ -98,7 +98,7 @@ class Pagamento {
             require("app/View/other/error404.php");
         }
 
-            echo ($retornoPag);
+        echo ($pag->retornoPag);
     }
  
     public function carregarCSS(){

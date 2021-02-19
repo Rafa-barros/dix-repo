@@ -167,3 +167,11 @@ $(document).on('click', '.gorjeta-submit', function(){
     let urlpreco = 'https://dix.net.br/pagamento?amount=' + $('.g-price').val() + '&user=' + cardGorjeta + '&idPost='+ gorjetaPost + '&msg=' + $('.g-msg').val();
     window.location.href = urlpreco;
 });
+
+
+//pagar Vip
+
+$(document).on('click', '#pagar-vip', function(){
+    let username = window.location.href.split('/')[4];
+    window.location.href = 'https://dix.net.br/pagamento?user='+username+'&vip=1'
+});

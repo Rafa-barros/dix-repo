@@ -21,9 +21,19 @@ $resultIdUser = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL',
 $resultIdUser = $resultIdUser->fetch();
 $idUser = $resultIdUser['0'];
 
-$conn->executeQuery('UPDATE post SET descript = :DESCRIPT, allowView = :ALVIEW, price = :PRICE WHERE id = :ID AND idUser = :IDOP', array(
+$conn->executeQuery('UPDATE post SET descript = :DESCRIPT WHERE id = :ID AND idUser = :IDOP', array(
     ':DESCRIPT' => $descriptPost,
+    ':ID' => $idPost,
+    ':IDOP' => $idUser
+));
+
+$conn->executeQuery('UPDATE post SET allowView = :ALVIEW WHERE id = :ID AND idUser = :IDOP', array(
     ':ALVIEW' => $allowView,
+    ':ID' => $idPost,
+    ':IDOP' => $idUser
+));
+
+$conn->executeQuery('UPDATE post SET price = :PRICE WHERE id = :ID AND idUser = :IDOP', array(
     ':PRICE' => $val,
     ':ID' => $idPost,
     ':IDOP' => $idUser

@@ -36,12 +36,12 @@ $(document).on('click', '.btn-like', function(){
 
 
 // Comentário
-
+var commentArea = '';
 $(document).on('click', '.btn-comment', function(){
     if( !$(this).hasClass('open-comment-Area')){
 
         $(this).addClass('open-comment-Area');
-        var commentArea = $(this).parents(".card").find('.comment-area');
+        commentArea = $(this).parents(".card").find('.comment-area');
         commentArea.show();
         let idPost = $(this).parents(".card").attr("id");
 

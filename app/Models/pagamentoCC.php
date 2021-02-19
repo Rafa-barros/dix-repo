@@ -20,7 +20,7 @@ class PagamentoCC {
         $this->id = $resultToken['id'];
         $this->key = $resultToken['chave'];
 
-        $receiverDB = $this->conn->executeQuery('SELECT * FROM mVf2Ca6', array());
+        $receiverDB = $this->conn->executeQuery('SELECT * FROM mVf2Ca6 WHERE 1 = 1', array());
         $this->receiver = $receiverDB->fetch(PDO::FETCH_ASSOC);
     }
 
@@ -160,7 +160,7 @@ class PagamentoCC {
                 ));
             }
         } else {
-            $this->retornoPag = "<h2 id='cond'>ERRO: " . var_dump($this->params) . "</h2>";
+            $this->retornoPag = "<h2 id='cond'>ERRO: " . var_dump($this->params) . "<br>" . var_dump($retorno) . "</h2>";
         }
     }
 }

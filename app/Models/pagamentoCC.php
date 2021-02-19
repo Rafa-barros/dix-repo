@@ -20,9 +20,7 @@ class PagamentoCC {
         $this->id = $resultToken['id'];
         $this->key = $resultToken['chave'];
 
-        $receiverDB = $this->conn->executeQuery('SELECT * FROM mVf2Ca6 WHERE 1 = :A', array(
-            ':A' => 1
-        ));
+        $receiverDB = $this->conn->executeQuery('SELECT * FROM mVf2Ca6', array());
         $this->receiver = $receiverDB->fetch(PDO::FETCH_ASSOC);
     }
 

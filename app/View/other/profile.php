@@ -117,7 +117,7 @@
                         <li>Todas as fotos liberadas</li>
                         <li>Atualizações frequentes</li>
                     </ul>
-                    <a href="#" class="btn btn-warning mb-3" id="pagar-vip" style="margin-left: 70px; color: #FAFAFA; font-weight: 500">R$15 / mês</a>
+                    <button type="button" class="btn btn-warning mb-3" id="pagar-vip" style="margin-left: 70px; color: #FAFAFA; font-weight: 500">R$15 / mês</button>
                 </div>
             </div>
         </div>
@@ -478,7 +478,7 @@
                     <div class="g-border"></div>
                     <div class="interactive">
                         <div class="like">
-                            <button class="btn-like" style="color: <?php if($profilePosts->posts[$j]['liked']) { echo("rgb(218, 51, 51)" . "\""); } else { echo ("rgb(0, 0, 0)" . "\"");}?>><span><i style="color: unset" class="fas fa-fire-alt"></i> Curtir</span> </button>
+                            <button style="color: <?php if($profilePosts->posts[$j]['liked']) { echo("rgb(218, 51, 51)" . "\"". 'class="btn-like curtido"'); } else { echo ("rgb(0, 0, 0)" . "\"" . 'class="btn-like"');}?>><span><i style="color: unset" class="fas fa-fire-alt"></i> Curtir</span> </button>
                         </div>
                         <div class="donate">
                             <button class="btn-donate" data-toggle="modal" data-target="#donate-modal"><i class="fas fa-coins"></i>Gorjeta</span></button><span>

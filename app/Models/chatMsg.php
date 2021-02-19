@@ -24,6 +24,8 @@ if($_POST['funcao'] == "novoChat"){
 			if(intval($interval) > 0){
 				$res[$key][3] = 1;
 			}
+		}else{
+			$res[$key][3] = 1;
 		}
 	}
 }

@@ -98,7 +98,7 @@ class PagamentoCC {
         $urlPagamento = "https://ws.pagseguro.uol.com.br/transactions?appId=" . $this->id . "&appKey=" . $this->key;
         $retorno = $this->callAPI($urlPagamento, $this->params);
 
-        if (strpos($retorno, (htmlentities($_POST['estado']))) !== false){
+        if ($retorno['code'] != '0'){
             $this->retornoPag = "<div style='display: none' id='cond'>SUCESSO</div>";
         
             //Result user
@@ -108,20 +108,20 @@ class PagamentoCC {
             $result = $result->fetch();
             $idUser = $result['0'];
         
-            //Libera o acesso do usuário ao post comprado caso passe do valor
+            //Insere a transação na DB
             if (isset($_GET['idPost'])) {
-                $resultPricePost = $this->conn->executeQuery('SELECT price FROM posts WHERE id = :ID', array(
-                    ':ID' => htmlentities($_GET['idPost'])
+                $this->conn->executeQuery('INSERT INTO assoc_posts (id, idFollower, transacao) VALUES (:ID, :IDUSER, :TRANS)', array(
+                    ':ID' => (htmlentities($_GET['idPost'])),
+                    ':IDUSER' => $idUser,
+                    ':TRANS' => $retorno['code']
                 ));
-                $resultPricePost = $resultPricePost->fetch();
-                $price = $resultPricePost['0'];
-        
-                if ($_GET['amount'] >= $price){
-                    $this->conn->executeQuery('INSERT INTO assoc_posts (idPost, idUser) VALUES (:POST, :ID)', array(
-                        ':POST' => (htmlentities($_GET['idPost'])),
-                        ':ID' => $idUser
-                    ));
-                }
+            } else {
+                $this->conn->executeQuery('INSERT INTO assoc_users_vips (id, idFollower, dataVip, transacao) VALUES (:ID, :IDUSER, :DATAHJ, :TRANS)', array(
+                    ':ID' => htmlentities($_GET['user']),
+                    ':IDUSER' => $idUser,
+                    ':DATAHJ' => date('Y-m-d'),
+                    ':TRANS' => $retorno['code']
+                ));
             }
         
             /*

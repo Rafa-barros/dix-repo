@@ -3,6 +3,8 @@
 namespace App\Models;
 use App\Models\Database;
 
+use PDO;
+
 class PagamentoCC {
     private $conn;
     private $receiver;

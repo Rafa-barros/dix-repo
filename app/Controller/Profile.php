@@ -47,6 +47,7 @@ class Profile {
         $usuario->username = $this->urlMetodo;
         $usuario->getInfo();
         $jaSegue = $usuario->checaFollower($notification->idUser);
+        $vipSalvo = $usuario->checaVIP($notification->idUser);
 
         //Insere os posts
         require("app/Models/getProfilePosts.php");

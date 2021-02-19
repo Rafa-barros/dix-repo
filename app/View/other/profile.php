@@ -89,7 +89,9 @@
     <?php if(base64_decode($_COOKIE['cUser']) == $email){
                echo ('<button type="button" class="btn btn-primary btn-editar-perfil" data-toggle="modal" data-target="#modal-edit-prof"> Editar Perfil</button>');
             } else {
-               echo ('<button type="button" class="btn btn-warning btn-VIP" data-toggle="modal" data-target="#modal-vip"> Torne-se VIP!</button>');
+                if($vipSalvo == '0'){
+                    echo ('<button type="button" class="btn btn-warning btn-VIP" data-toggle="modal" data-target="#modal-vip"> Torne-se VIP!</button>');
+                }
             }
             ?>
         

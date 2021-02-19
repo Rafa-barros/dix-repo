@@ -33,4 +33,17 @@ class ProfileModel {
             return 1;
         }
     }
+
+    public function checaVIP($id){
+        $resultVIP = $this->conn->executeQuery('SELECT id FROM assoc_users_vips WHERE id = :ID AND idFollower = :IDFOL', array(
+            ':ID' => $this->profileInfo['id'],
+            ':IDFOL' => $id
+        ));
+        $resultVIP = $resultVIP->fetch();
+        if (empty($resultVIP)){
+            return 0;
+        } else {
+            return 1;
+        }
+    }
 }

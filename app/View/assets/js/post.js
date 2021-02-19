@@ -39,7 +39,8 @@ $(document).on('click', '.btn-like', function(){
 
 $(document).on('click', '.btn-comment', function(){
     if( !$(this).hasClass('open-comment-Area')){
-
+        
+        $(this).addClass('open-comment-Area');
         var commentArea = $(this).parents(".card").find('.comment-area');
         commentArea.show();
         let idPost = $(this).parents(".card").attr("id");
@@ -55,7 +56,6 @@ $(document).on('click', '.btn-comment', function(){
                     comentarios: [[]]
                 },
                 success:function(result){
-                    $(this).addClass('open-comment-Area');
                     if(result.comentarios != null && result.comentarios != undefined){
                         var i = result.comentarios.length - 1;
 

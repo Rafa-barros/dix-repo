@@ -97,9 +97,9 @@ $(document).on('click', '.btn-send-post-edit', function(){
             viewAuth: pago, 
         },     
         cache: false,
-        // success: function(){
-        //     location.reload();
-        // }
+        success: function(){
+            location.reload();
+        }
                 
     });   
 

@@ -47,7 +47,10 @@ class createPost {
             ':PRICE' => intval($price),
             ':AMOUNT' => 0
         ));
-        $this->conn->executeQuery('UPDATE users SET posts = posts + 1 AND idPosts = idPosts + 1 WHERE id = :ID', array(
+        $this->conn->executeQuery('UPDATE users SET posts = posts + 1 WHERE id = :ID', array(
+            ':ID' => $this->idUser
+        ));
+        $this->conn->executeQuery('UPDATE users SET idPosts = idPosts + 1 WHERE id = :ID', array(
             ':ID' => $this->idUser
         ));
     }

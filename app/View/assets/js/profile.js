@@ -1,3 +1,7 @@
+if(window.location.href.split('?')[1] == 'influencer=1'){
+    $('#modal-config').modal('show');
+}
+
 if(me == 0) $('.fa-user').css('border-bottom', '0')
 
     $(document).on('click', '#btn-logout', function(){

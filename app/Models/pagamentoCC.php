@@ -102,11 +102,11 @@ class PagamentoCC {
             $this->retornoPag = "<div style='display: none' id='cond'>SUCESSO</div>";
         
             //Result user
-            $result = $this->conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL', array(
+            $result = $this->conn->executeQuery('SELECT id, username FROM users WHERE email = :EMAIL', array(
                 ':EMAIL' => (base64_decode($_COOKIE['cUser']))
             ));
             $result = $result->fetch();
-            $idUser = $result['0'];
+            $idUser = $result['id'];
         
             //Insere a transação na DB
             if (isset($_GET['idPost'])) {
@@ -115,6 +115,12 @@ class PagamentoCC {
                     ':IDUSER' => $idUser,
                     ':TRANS' => $retorno['code']
                 ));
+
+                $resultIdOp = $this->conn->executeQuery('SELECT idUser FROM posts WHERE id = :ID', array(
+                    ':ID' => (htmlentities($_GET['idPost']))
+                ));
+                $resultIdOp = $resultIdOp->fetch();
+                $idOp = $resultIdOp['0'];
             } else {
                 $this->conn->executeQuery('INSERT INTO assoc_users_vips (id, idFollower, dataVip, transacao) VALUES (:ID, :IDUSER, :DATAHJ, :TRANS)', array(
                     ':ID' => htmlentities($_GET['user']),
@@ -122,11 +128,21 @@ class PagamentoCC {
                     ':DATAHJ' => date('Y-m-d'),
                     ':TRANS' => $retorno['code']
                 ));
+
+                $resultIdOp = $this->conn->executeQuery('SELECT id FROM users WHERE username = :USER', array(
+                    ':USER' => htmlentities($_GET['user'])
+                ));
+                $resultIdOp = $resultIdOp->fetch();
+                $idOp = $resultIdOp['0'];
             }
         
-            /*
-            AQUI DEVE RODAR O CÓDIGO PARA ELE ENVIAR UMA MENSAGEM AUTOMÁTICA AO COMPRADOR
-            */
+            //Envia a Notificação
+            $this->conn->executeQuery('INSERT INTO notifications (idReceiver, type, amount, msg, username, jaVisto) VALUES (:ID, 2, :AMOUNT, :MSG, :USER, 0)', array(
+                ':ID' => $idOp,
+                ':AMOUNT' => htmlentities($_GET['amount']),
+                ':MSG' => htmlentities(urldecode($_GET['msg'])),
+                ':USER' => $result['username']
+            ));
         
             //Salva o cartão encriptografado
             if (isset($_POST['salvar'])){

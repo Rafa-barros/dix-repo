@@ -38,41 +38,46 @@ $(document).on('click', '.btn-like', function(){
 // Comentário
 
 $(document).on('click', '.btn-comment', function(){
-    var commentArea = $(this).parents(".card").find('.comment-area');
-    commentArea.show();
-    let idPost = $(this).parents(".card").attr("id");
+    if( !$(this).hasClass('open')){
 
-    //Carregar comentários
+        var commentArea = $(this).parents(".card").find('.comment-area');
+        commentArea.show();
+        let idPost = $(this).parents(".card").attr("id");
 
-        $.ajax({
-            url: urlprof + "app/Models/loadComments.php",
-            dataType: 'json',
-            type: "POST",
-            data: {
-                idPost: idPost, // ID DO POST
-                comentarios: [[]]
-            },
-            success:function(result){
-                
-                if(result.comentarios != null && result.comentarios != undefined){
-                    var i = result.comentarios.length - 1;
+        //Carregar comentários
 
-                    while (result.comentarios[i][0] !== ""){
-                        commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="https://dix.net.br/profile/'+result.comentarios[i][0]+'">'+result.comentarios[i][0]+'</a></span>'+result.comentarios[i][1]+'</p></div><div class="a-comment">');
-                        if (i == 0){
-                            break;
+            $.ajax({
+                url: urlprof + "app/Models/loadComments.php",
+                dataType: 'json',
+                type: "POST",
+                data: {
+                    idPost: idPost, // ID DO POST
+                    comentarios: [[]]
+                },
+                success:function(result){
+                    
+                    if(result.comentarios != null && result.comentarios != undefined){
+                        var i = result.comentarios.length - 1;
+
+                        while (result.comentarios[i][0] !== ""){
+                            commentArea.prepend(' <div class="a-comment"> <p class="r-comment"> <span class="a-username"><a href="https://dix.net.br/profile/'+result.comentarios[i][0]+'">'+result.comentarios[i][0]+'</a></span>'+result.comentarios[i][1]+'</p></div><div class="a-comment">');
+                            if (i == 0){
+                                break;
+                            }
+                            i--;
                         }
-                        i--;
                     }
+                },
+                error:function(req, status, error){
+                console.log(req);
+                console.log(status);
+                console.log(error);
                 }
-            },
-            error:function(req, status, error){
-               console.log(req);
-               console.log(status);
-               console.log(error);
-            }
-            });
-        
+                });
+    }
+    else {
+        commentArea.hide().html('');
+    }
 
 });
 

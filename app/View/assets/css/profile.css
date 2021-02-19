@@ -896,7 +896,8 @@ video:focus {
     }
 
     .profile-img {
-        width: 100px !important;
+        width: 130px;
+        height: 130px;    
         max-width: 120px;
         min-width: 0;
     }

@@ -34,6 +34,9 @@ class Pagamento {
             ));
             $condUser = $condUser->fetch();
         }
+        if (isset($_GET['vip'])){
+            $_GET['amount'] = 15;
+        }
         if (isset($_GET['user']) && isset($_GET['amount']) && ($_GET['amount'] >= 1) && (!empty($condUser) || !empty($condPost))){
             require('app/Models/pagamentoCC.php');
             $retornoPag = 0;

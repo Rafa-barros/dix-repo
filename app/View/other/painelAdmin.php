@@ -73,7 +73,7 @@
               <td><?php echo($admin->influencers[$k]['nBanco']); ?></td>
               <td><?php echo($admin->influencers[$k]['cpf']); ?></td>
               <td><?php echo($admin->influencers[$k]['ganhos']); ?></td>
-              <td><button type="button" class="btn btn-info btn-pagar"> pagar </button></td>
+              <td><button type="button" class="btn btn-info btn-pagar" id="<?php echo($admin->influencers[$k]['id']); ?>"> pagar </button></td>
             </tr>
             <?php }?>
             

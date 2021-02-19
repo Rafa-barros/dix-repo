@@ -68,8 +68,7 @@ $('#btn-cartao-salvo').click(function(){
                     success: function(response) {
                         console.log(response);
                         $("#tk").text(response.card.token);
-				        $("#tokenCard").text(response.card.token);
-                        $("#tokenCard").attr('value', response.card.token);
+				        $("#tokenCard").val(response.card.token);
                     },
                     error: function(response) {
                         console.log("Erro no Token do cartão: " + response);

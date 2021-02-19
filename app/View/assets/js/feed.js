@@ -26,11 +26,6 @@ $(document).on('click', '.btn-card-follow', function(){
         });   
 });
 
-$(document).on('click', '.btn-preco-post', function(){
-    let urlpreco = 'https://dix.net.br/pagamento?amount=' + $('.btn-preco-post').text() + '&user=' + cardpago.attr('id') + '&idPost=1'
-    window.location.href = urlpreco;
-});
-
 //loading gif
 
 //new post gif
@@ -55,6 +50,7 @@ $(document).on('click', '.gorjeta-submit', function(){
     let urlpreco = 'https://dix.net.br/pagamento?amount=' + $('.g-price').val() + '&user=' + cardGorjeta + '&idPost=1' + '&msg=' + $('.g-msg').val();
     window.location.href = urlpreco;
 });
+
 
 //Buscar Pessoa
 

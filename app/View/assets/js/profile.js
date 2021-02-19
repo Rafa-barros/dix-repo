@@ -149,12 +149,6 @@ $('.btn-profile-message-o').click(function(){
 });
 
 
-//post pago
-$(document).on('click', '.btn-preco-post', function(){
-    let urlpreco = 'https://dix.net.br/pagamento?amount=' + $('.btn-preco-post').text() + '&user=' + cardpago.attr('id') + '&idPost=1'
-    window.location.href = urlpreco;
-});
-
 //Gorjeta
 
 cardGorjeta = '';

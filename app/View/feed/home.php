@@ -163,9 +163,9 @@
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div class="modal-body" id="modal-body-vip">
+                <div class="modal-body" id="modal-body-pago">
 
-                    <div class="modal-vip-container">
+                    <div class="modal-pago-container">
                         <div class="center">
                             <div>
                                 <h5 class="card-title mt-3"></h5>

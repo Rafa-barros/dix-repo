@@ -178,7 +178,7 @@
                                     <li>A publicação será desbloqueada para sempre!</li>
                                     <li>O valor do post foi definido por seu dono!</li>
                                 </ul>
-                                <a href="#" class="btn btn-primary mb-3 btn-preco-post" style="color: #FAFAFA;font-weight: 500;margin-left: 170px;width: 128px;">R$12</a>
+                                <a href="#" class="btn btn-primary mb-3 btn-preco-post" style="color: #FAFAFA;font-weight: 500;margin-left: 90px;width: 128px;">R$12</a>
                             </div>
                         </div>
                     </div>

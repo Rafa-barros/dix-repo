@@ -117,8 +117,6 @@ $(document).ready(function(e) {
 });
 
 
-
-
 //post pago
 
 cardpago = '';
@@ -136,6 +134,10 @@ $(document).on('click', '.pago img', function(){
 
 });
 
+$(document).on('click', '.btn-preco-post', function(){
+    let urlpreco = 'https://dix.net.br/pagamento?amount=' + $('.btn-preco-post').text().slice(2) + '&user=' + cardpago.attr('id') + '&idPost=1'
+    window.location.href = urlpreco;
+});
 
 //isNumber
 

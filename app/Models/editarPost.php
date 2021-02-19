@@ -12,11 +12,6 @@ $descriptPost = htmlentities($_POST['descript']);
 $allowView = htmlentities($_POST['viewAuth']);
 $val = htmlentities($_POST['price']);
 
-echo $idPost;
-echo $descriptPost;
-echo $allowView;
-echo $val;
-
 $conn = new Database();
 
 //Encontra o id do usuário
@@ -26,23 +21,31 @@ $resultIdUser = $conn->executeQuery('SELECT id FROM users WHERE email = :EMAIL',
 $resultIdUser = $resultIdUser->fetch();
 $idUser = $resultIdUser['id'];
 
-$conn->executeQuery('UPDATE post SET descript = :DESCRIPT WHERE id = :ID AND idUser = :IDOP', array(
-    ':DESCRIPT' => $descriptPost,
-    ':ID' => $idPost,
-    ':IDOP' => $idUser
-));
+echo $idUser;
 
-$conn->executeQuery('UPDATE post SET allowView = :ALVIEW WHERE id = :ID AND idUser = :IDOP', array(
-    ':ALVIEW' => $allowView,
-    ':ID' => $idPost,
-    ':IDOP' => $idUser
-));
+if($descriptPost != ""){
+    $conn->executeQuery('UPDATE post SET descript = :DESCRIPT WHERE id = :ID AND idUser = :IDOP', array(
+        ':DESCRIPT' => $descriptPost,
+        ':ID' => $idPost,
+        ':IDOP' => $idUser
+    ));
+}
 
-$conn->executeQuery('UPDATE post SET price = :PRICE WHERE id = :ID AND idUser = :IDOP', array(
-    ':PRICE' => $val,
-    ':ID' => $idPost,
-    ':IDOP' => $idUser
-));
+if($allowView != ""){
+    $conn->executeQuery('UPDATE post SET allowView = :ALVIEW WHERE id = :ID AND idUser = :IDOP', array(
+        ':ALVIEW' => intval($allowView),
+        ':ID' => $idPost,
+        ':IDOP' => $idUser
+    ));
+}
+
+if($val != ""){
+    $conn->executeQuery('UPDATE post SET price = :PRICE WHERE id = :ID AND idUser = :IDOP', array(
+        ':PRICE' => intval($val),
+        ':ID' => $idPost,
+        ':IDOP' => $idUser
+    ));
+}
 
 echo json_encode(array(
     'id' => "",

@@ -289,7 +289,7 @@
       <form method="post" enctype="multipart/form-data">
         <div class="input-group mb-3 mt-3">
                     <div class="input-group mb-3">
-                        <input type="text" name="pname" class="form-control" aria-label="Default" placeholder="Nome de pefil" aria-describedby="inputGroup-sizing-default">
+                        <input type="text" name="pname" class="form-control" aria-label="Default" placeholder="Nome de perfil" aria-describedby="inputGroup-sizing-default">
                     </div>
                     <div class="input-group-prepend">
                         <span class="input-group-text" id="inputGroup-sizing-default">Descrição Rápida</span>

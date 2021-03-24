@@ -96,6 +96,7 @@ class alterarPerfil {
 				':ID' => $this->userId
 			));
 			$result = $result->fetch();
+			echo $result;
 			if(empty($result)){
 				$this->conn->executeQuery('INSERT INTO infobancarias (pix, id) VALUES (:PIX, :ID)', array(
 					':PIX' => $pix,

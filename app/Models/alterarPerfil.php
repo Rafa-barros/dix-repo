@@ -84,7 +84,7 @@ class alterarPerfil {
 			));
 		}
 
-		if (isset($_POST['pix']) || (isset($_POST['cpf']) && isset($_POST['nBanco']) && isset($_POST['agencia']) && isset($_POST['conta']))){
+		if (isset($_POST['pix']) || ((isset($_POST['cpf']) && isset($_POST['nBanco']) && isset($_POST['agencia']) && isset($_POST['conta'])))){
 			$this->conn->executeQuery('UPDATE users SET influencer = 1 WHERE id = :ID', array(
 				':ID' => $this->userId
 			));

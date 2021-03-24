@@ -91,7 +91,7 @@ class alterarPerfil {
 		}
 
 		$pix = isset($_POST['pix']) ? $_POST['pix'] : "";
-		if(isset($_POST['pix'])){
+		if($pix != ""){
 			$result = $this->conn->executeQuery('SELECT id FROM infobancarias WHERE id = :ID', array(
 				':ID' => $this->userId
 			));

@@ -92,11 +92,6 @@ class alterarPerfil {
 
 
 		$pix = isset($_POST['pix']) ? $_POST['pix'] : "";
-		if(isset($_POST['pix'])){
-			$pix = $_POST['pix'];
-		}else{
-			$pix = "";
-		}
 		if($pix != ""){
 			$result = $this->conn->executeQuery('SELECT id FROM infobancarias WHERE id = :ID', array(
 				':ID' => $this->userId
@@ -114,7 +109,7 @@ class alterarPerfil {
 				));
 			}
 		}
-		$cpf = isset($_POST["cpf"]) ? $_POST["cpf"] : "";
+		$cpf = isset($_POST['cpf']) ? $_POST['cpf'] : "";
 		if($cpf != ""){
 			$result = $this->conn->executeQuery('SELECT id FROM infobancarias WHERE id = :ID', array(
 				':ID' => $this->userId

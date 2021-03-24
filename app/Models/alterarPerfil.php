@@ -90,13 +90,18 @@ class alterarPerfil {
 			));
 		}
 
+
 		$pix = isset($_POST['pix']) ? $_POST['pix'] : "";
+		if(isset($_POST['pix'])){
+			$pix = $_POST['pix'];
+		}else{
+			$pix = "";
+		}
 		if($pix != ""){
 			$result = $this->conn->executeQuery('SELECT id FROM infobancarias WHERE id = :ID', array(
 				':ID' => $this->userId
 			));
 			$result = $result->fetch();
-			echo $result;
 			if(empty($result)){
 				$this->conn->executeQuery('INSERT INTO infobancarias (pix, id) VALUES (:PIX, :ID)', array(
 					':PIX' => $pix,
